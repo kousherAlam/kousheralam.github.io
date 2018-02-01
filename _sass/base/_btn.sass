@@ -1,0 +1,16 @@
+$btn-bg: #000
+$btn-color: #fff
+=base-btn()
+    padding: 6px 20px
+    border-radius: 4px
+    border: 0px solid transparent
+    cursor: pointer 
+    background: $btn-bg
+    color: $btn-color
+    outline: 0px
+    &:hover,
+    &:focus
+        opacity: .8
+
+button 
+    +base-btn

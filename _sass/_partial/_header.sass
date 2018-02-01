@@ -1,0 +1,108 @@
+$header-bg: #003f5d
+$header-color: #fff
+
+$menu-item-bg: #002638
+$menu-bottom-border: #6f6f6f
+$menu-active-color: #fff
+$menu-active-bg: brown
+
+header 
+    padding: 0px
+    color: $header-color
+    position: fixed
+    width: 100%
+    top: 0px
+    left: 0px
+    .menu-btn
+        +menu-btn
+    section.author-section
+        padding: 4px 10px
+        background: $header-bg
+        +clearfix
+        .name 
+            font-size: 1em
+            margin-left: 10px
+            margin-top: 6px
+            float: left
+        img 
+            width: 35px
+            border-radius: 50%
+            float: left
+    nav.main-navigation
+        #close-btn 
+            +menu-btn
+        display: none
+        background: $header-bg
+        // transform: translateY(-283px)
+        transition: transform 300ms ease-in
+        position: fixed
+        top: 0px 
+        left: 0px
+        width: 100%
+        height: 100%
+        overflow: auto
+        .menu-container
+            position: absolute
+            width: 100%
+            top: 50%
+            left: 50%
+            transform: translate(-50% , -50%)
+            menuitem
+                display: block
+                &:last-child
+                    a 
+                        border-bottom: 0px solid transparent
+                a
+                    font-size: 1.5em 
+                    text-decoration: none
+                    text-align: center
+                    padding: 8px 10px
+                    display: block
+    nav.main-navigation.open
+        display: block
+
+    @media (min-width: 600px)
+        width: $menu-width
+        height: 100%
+        .menu-btn
+            display: none
+        section.author-section
+            position: relative
+            height: 80px
+            background: white
+            .name
+                font-size: 2em
+                float: none
+                color: black
+                text-align: center
+            img
+                width: 60px
+                float: none
+                position: absolute
+                bottom: -25px
+                left: 50%
+                margin-left: -30px
+        nav.main-navigation
+            position: static
+            display: block
+            width: $menu-width
+            #close-btn
+                display: none
+            .menu-container
+                margin-top: 40px
+                min-height: 270px
+                position: static
+                transform: none
+                menuitem
+                    &:last-child
+                        a
+                    a 
+                        font-size: 1em
+                        text-align: left
+                        padding-left: 40px
+
+    @media (min-width: 1100px)
+        position: absolute
+        overflow: hidden
+        min-height: 300px
+        min-height: 100vh
