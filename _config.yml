@@ -11,11 +11,14 @@ url: "https://www.kousheralam.github.io" # the base hostname & protocol for your
 twitter_username: kousehralam
 github_username:  kousheralam
 
+
 # Build settings
 markdown: kramdown
+paginate: 5
 # theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 sass:
   style: compressed
   
