@@ -109,13 +109,22 @@ print_hi('Tom')
   console.log(x);
 {% endhighlight %}
 
-`CSS`
-{% highlight css %}
+`SCSS`
+{% highlight scss %}
 .highlight{
     margin: 10px 0px;
     padding: 10px;
     background: #272822;
     overflow: auto;
+    &:after{
+      content: '';
+      display: block;
+    }
+    &:focus,
+    &:hover{
+      background: blue;
+      color: white;
+    }
 }
 {% endhighlight %}
 
