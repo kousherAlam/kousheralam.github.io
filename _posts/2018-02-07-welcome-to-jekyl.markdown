@@ -2,7 +2,7 @@
 layout: post
 title:  It's A project
 date:   2018-01-31 02:19:18 +0600
-categories: jekyll update
+categories: project sass
 short_description: You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes.
 type: project
 ---

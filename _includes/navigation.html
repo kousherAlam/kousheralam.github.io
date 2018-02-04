@@ -8,16 +8,16 @@
         <button id="close-btn">X</button>
         <section class="menu-container">
             <menuitem>
-                <a href="/index.html" class="{% if page.url == '' or page.url == '/' or page.url contains '/page' %}active{% endif %}">Home</a>
+                <a href="/index.html" class="{% if page.url == '' or page.url == '/' or page.url contains '/page' or page.url contains '/post' %}active{% endif %}">Home</a>
             </menuitem>
             <menuitem>
                 <a href="/project.html" class="{% if page.url contains '/project' %}active{% endif %}">Project</a>
             </menuitem>
             <menuitem>
-                <a href="/about.html">About</a>
+                <a class="{% if page.url contains '/about' %}active{% endif %}" href="/about.html">About</a>
             </menuitem>
             <menuitem>
-                <a href="/contact.html">Contact</a>
+                <a class="{% if page.url contains '/contact' %}active{% endif %}" href="/contact.html">Contact</a>
             </menuitem>
             <menuitem>
                 <a target="_blank" href="{{site.baseurl}}/kousher_cv.pdf">Download CV</a>
