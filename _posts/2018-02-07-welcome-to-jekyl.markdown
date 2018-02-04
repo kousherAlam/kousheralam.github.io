@@ -20,6 +20,38 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
+{% highlight html %}
+<div class='someting' id='other'>
+  <header>
+    <h1>Hi somehing i want to tell</h1>
+  </header>
+  <body>
+    <ul>
+      <li><a href='#'>data</a></li>
+      <li><a href='#'>data</a></li>
+      <li><a href='#'>data</a></li>
+      <li><a href='#'>data</a></li>
+    </ul>
+  </body>
+  </footer>copyright &copy; google.com</footer>
+</div>
+{% endhighlight %}
+
+{% highlight javascript %}
+  let x = `hello world`;
+  console.log(x);
+{% endhighlight %}
+
+
+{% highlight css %}
+.highlight{
+    margin: 10px 0px;
+    padding: 10px;
+    background: #272822;
+    overflow: auto;
+}
+{% endhighlight %}
+
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 [jekyll-docs]: https://jekyllrb.com/docs/home

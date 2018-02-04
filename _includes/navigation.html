@@ -1,26 +1,26 @@
 <header>
     <button id="menubtn" class="menu-btn">Menu</button>
     <section class="author-section">
-        <img src="{{site.baseurl}}/img/author.jpg" alt="kousher image" />
-        <h1 class="name">Kousher Alam</h1>
+        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/img/author.jpg" alt="kousher image" /></a>
+        <h1 class="name"><a href="{{site.baseurl}}/">Kousher Alam</a></h1>
     </section>
     <nav id="main-navigation" class="main-navigation">
         <button id="close-btn">X</button>
         <section class="menu-container">
             <menuitem>
-            <a href="/">Home</a>
+            <a href="/index.html" class="{% if page.url == '/' or page.url contains '/page' %}active{% endif %}">Home</a>
             </menuitem>
             <menuitem>
-            <a href="/project">Project</a>
+            <a href="/project.html" class="{% if page.url contains '/project' %}active{% endif %}">Project</a>
             </menuitem>
             <menuitem>
-            <a href="/about">About</a>
+            <a href="/about.html">About</a>
             </menuitem>
             <menuitem>
-            <a href="/contact">Contact</a>
+            <a href="/contact.html">Contact</a>
             </menuitem>
             <menuitem>
-            <a href="/cv">Download CV</a>
+            <a target="_blank" href="{{site.baseurl}}/kousher_cv.pdf">Download CV</a>
             </menuitem>
         </section>
     </nav>
