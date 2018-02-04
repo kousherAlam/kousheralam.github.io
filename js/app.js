@@ -20,10 +20,12 @@ function hasClass(el, className){
         return new RegExp('(^| )' + className + '( |$)', 'gi').test(el.className);
     }
 }
+
 (function(){
     var menu_button = _("menubtn");
     var main_menu = _("main-navigation");
     var close_btn = _("close-btn");
+    var main_content = _("main-content");
     menu_button.addEventListener("click",function(){
         addClass(main_menu, 'open');
     });
