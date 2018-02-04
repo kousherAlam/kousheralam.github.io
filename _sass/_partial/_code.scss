@@ -3,6 +3,23 @@
     padding: 10px;
     background: #272822;
     overflow: auto;
+    position: relative;
+    button.save{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background: #1e0010;
+        font-size: 12px;
+        border: 1px solid black;
+        &:hover,
+        &:focus{
+            background: #000;
+            opacity: 1;
+        }
+        &.save-success{
+            background: green;
+        }
+    }
 }
 .highlight pre { background-color: #272822; }
 .highlight .hll { background-color: #272822; }
