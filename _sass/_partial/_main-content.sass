@@ -6,7 +6,32 @@
         line-height: 24px
         p , h1, h2, h3, h4, h5, h6, section 
             margin-bottom: 15px
+        ul, ol 
+            padding-left: 20px
+            margin-left: 20px
+            a 
+                padding-left: 0px
+        ul 
+            list-style-type: square
+        img 
+            max-width: 100%
+            margin: 10px 0px
+            display: block
+            &.center
+                margin-left: auto
+                margin-right: auto
+        section
+            .title
+                margin-bottom: 5px
+            p 
+                padding-left: 20px
     @media (min-width: 700px)
         margin-top: 0px
         padding-top: 15px
         padding-left: $menu-width + 10px
+        .post
+            ul, ol
+                li 
+                    font-weight: 300
+            img 
+                max-width: 80% 
