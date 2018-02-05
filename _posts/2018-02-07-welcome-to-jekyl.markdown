@@ -108,11 +108,12 @@ print_hi('Tom')
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 
-`Javascript`
+<p class='code'> <code class='highlighter-rouge'>Javascript</code></p>
 {% highlight javascript %}
   let x = `hello world`;
   console.log(x);
 {% endhighlight %}
+
 
 <p class='code'> <code class='highlighter-rouge'>SCSS</code></p>
 {% highlight scss %}
@@ -131,6 +132,24 @@ print_hi('Tom')
       color: white;
     }
 }
+{% endhighlight %}
+
+
+
+<p class='code'> <code class='highlighter-rouge'>SASS</code></p>
+{% highlight sass %}
+.highlight
+    margin: 10px 0px
+    padding: 10px
+    background: #272822
+    overflow: auto
+    &:after
+      content: ''
+      display: block
+    &:focus,
+    &:hover
+      background: blue
+      color: white
 {% endhighlight %}
 
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].

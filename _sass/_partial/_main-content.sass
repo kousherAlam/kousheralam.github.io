@@ -30,14 +30,22 @@
             padding-bottom: 12px
             max-width: 400px
             +clearfix
+        p.code
+            margin-bottom: 0px
+
     @media (min-width: 700px)
         margin-top: 20px
         padding-top: 15px
-        padding-left: $menu-width + 60px
-        padding-right: 60px
+        padding-left: $menu-width + 10px
         .post
             ul, ol
                 li 
                     font-weight: 300
             img 
                 max-width: 90% 
+    @media (min-width: 900px)
+        padding-left: $menu-width + 60px
+        padding-right: 60px
+
+    @media (min-width: $layout-big)
+        margin-top: 0px

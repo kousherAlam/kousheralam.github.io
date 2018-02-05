@@ -16,6 +16,8 @@ table
         box-sizing: border-box
         background: white
         color: #000
+        &:first-child
+            background: beige
         th,td 
             padding: 0px
             margin-bottom: 0px
@@ -28,3 +30,10 @@ table
             line-height: 1.42857143
             vertical-align: top
             border-top: 1px solid #ddd
+        &:hover:not(:first-child),
+        &:focus:not(:first-child)
+            background: #d4d4d4
+            cursor: pointer
+            opacity: .8
+        &:nth-child(odd):not(:first-child)
+            background: #bbbbbb
