@@ -103,13 +103,18 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
 
+
+<p data-height="265" data-theme-id="0" data-slug-hash="rJNJJQ" data-default-tab="html,result" data-user="kousherAlam-pranto" data-embed-version="2" data-pen-title="Learn SVG" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/kousherAlam-pranto/pen/rJNJJQ/">Learn SVG</a> by Kousher alam pranto (<a href="https://codepen.io/kousherAlam-pranto">@kousherAlam-pranto</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
 `Javascript`
 {% highlight javascript %}
   let x = `hello world`;
   console.log(x);
 {% endhighlight %}
 
-`SCSS`
+<p class='code'> <code class='highlighter-rouge'>SCSS</code></p>
 {% highlight scss %}
 .highlight{
     margin: 10px 0px;
