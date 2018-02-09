@@ -10,7 +10,7 @@ layout: default
 {% if post.type == "project" %}
   <article class="post-article project-article {% if forloop.first %}first{% elsif forloop.last %}last{% else %}middle{% endif %}">
 		<div class="article-head">
-			<h2 class="title"><a href="{{site.baseurl}}{{ post.url }}/" class="js-pjax">{{ post.title }}</a></h2>
+			<h2 class="title"><a href="{{site.baseurl}}{{ post.url }}" class="js-pjax">{{ post.title }}</a></h2>
 			<p class="date">{{ post.date | date: "%b %d, %Y" }}</p>
 		</div><!--/.article-head-->
 		<div class="article-content">
