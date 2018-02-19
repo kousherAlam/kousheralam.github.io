@@ -61,6 +61,40 @@ function resetCopyText(elm){
     })
 }
 
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function postForm(url, data, onload, onsuccess, onerror, ontimeout){
+    var request = new XMLHttpRequest();
+    request.open('POST', url, true);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    request.send(data);
+    request.onload = function(){
+        if(onload){onload();}
+    }
+    request.onsuccess = function(){
+        if(onsuccess){onsuccess();}
+    }
+    request.onerror = function(){
+        if(onerror){onerror();}
+    }
+    request.ontimeout = function(){
+        if(ontimeout){ontimeout();}
+    }
+}
+
+function contact_form_update(text_to_change){
+    _("contact-status-text").innerHTML = text_to_change;
+    setTimeout(function(){
+        _("contact-form-status").style.display = "none";
+    },1000);
+}
+
 (function(){
     var highlight = document.querySelectorAll(".highlight");
     highlight.forEach(function(elem, i){
@@ -79,3 +113,66 @@ function resetCopyText(elm){
         console.log(elem);
     })
 }());
+
+(function(){
+    var send_btn = _("send_contact");
+    send_btn.addEventListener("click",function(e){
+        var evt = e || window.e || window.event;
+        evt.preventDefault();
+
+        var name = _("user_name").value,
+            mail_or_phone = _("user_email_or_phone").value,
+            message = _("user_message").value,
+            name_error = _("name_error"),
+            mail_or_phone_error = _("email_phone_error"),
+            message_error = _("message_error"),
+            can_submit = false;
+        
+        if( name.length < 2 ){
+            can_submit = false;
+            name_error.style.display = 'inline-block';
+        }else{
+            name_error.style.display = 'none';
+            can_submit = true;
+        }
+        if(validateEmail(mail_or_phone)){
+            can_submit = true;
+            mail_or_phone_error.style.display = 'none';
+        }else{
+            if(isNumber(mail_or_phone) && mail_or_phone.length > 4){
+                can_submit = true;
+                mail_or_phone_error.style.display = 'none';
+            }else{
+                can_submit = false;
+                mail_or_phone_error.style.display = 'inline-block';
+            }
+        }
+        if( message.length < 2 ){
+            can_submit = false;
+            message_error.style.display = 'inline-block';
+        }else{
+            message_error.style.display = 'none';
+            can_submit = true;
+        }
+
+        if(can_submit){
+            var data = {
+                name: name,
+                mail_or_phone: mail_or_phone,
+                message: message
+            }
+            postForm('https://graph.facebook.com', data, function(){
+                    // onload
+                    _("contact-form-status").style.display = "block";
+                }, function(){
+                    contact_form_update("Successfully Send.");
+                }, function(){
+                    // onerror
+                    contact_form_update("Error !!!!!");
+                }, function(){
+                    contact_form_update("TimeOUT !!!!!");
+                });
+        }
+
+    });
+}())
