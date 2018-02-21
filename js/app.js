@@ -69,22 +69,23 @@ function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-function postForm(url, data, onload, onsuccess, onerror, ontimeout){
+function postForm(url, data, onload, onsuccess, onerror){
     var request = new XMLHttpRequest();
     request.open('POST', url, true);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
     request.send(data);
-    request.onload = function(){
-        if(onload){onload();}
-    }
-    request.onsuccess = function(){
-        if(onsuccess){onsuccess();}
-    }
+    if(onload){onload();}
+    request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.responseText === "Success"){
+                onsuccess();
+            }else{
+                onerror();
+            }
+       }
+    };
     request.onerror = function(){
-        if(onerror){onerror();}
-    }
-    request.ontimeout = function(){
-        if(ontimeout){ontimeout();}
+        onerror();
     }
 }
 
@@ -114,8 +115,11 @@ function contact_form_update(text_to_change){
     })
 }());
 
+
 (function(){
-    var send_btn = _("send_contact");
+    var send_btn = _("send_contact"),        
+        contact_animation = _("message-status-animation");
+    if(!send_btn){return;}
     send_btn.addEventListener("click",function(e){
         var evt = e || window.e || window.event;
         evt.preventDefault();
@@ -126,53 +130,72 @@ function contact_form_update(text_to_change){
             name_error = _("name_error"),
             mail_or_phone_error = _("email_phone_error"),
             message_error = _("message_error"),
-            can_submit = false;
+            can_submit_name = false,
+            can_submit_mail = false,
+            can_submit_message = false;
         
         if( name.length < 2 ){
-            can_submit = false;
+            can_submit_name = false;
             name_error.style.display = 'inline-block';
         }else{
             name_error.style.display = 'none';
-            can_submit = true;
+            can_submit_name = true;
         }
         if(validateEmail(mail_or_phone)){
-            can_submit = true;
+            can_submit_mail = true;
             mail_or_phone_error.style.display = 'none';
         }else{
             if(isNumber(mail_or_phone) && mail_or_phone.length > 4){
-                can_submit = true;
+                can_submit_mail = true;
                 mail_or_phone_error.style.display = 'none';
             }else{
-                can_submit = false;
+                can_submit_mail = false;
                 mail_or_phone_error.style.display = 'inline-block';
             }
         }
         if( message.length < 2 ){
-            can_submit = false;
+            can_submit_message = false;
             message_error.style.display = 'inline-block';
         }else{
             message_error.style.display = 'none';
-            can_submit = true;
+            can_submit_message = true;
         }
-
-        if(can_submit){
-            var data = {
-                name: name,
-                mail_or_phone: mail_or_phone,
-                message: message
-            }
-            postForm('https://graph.facebook.com', data, function(){
-                    // onload
-                    _("contact-form-status").style.display = "block";
-                }, function(){
-                    contact_form_update("Successfully Send.");
-                }, function(){
-                    // onerror
-                    contact_form_update("Error !!!!!");
-                }, function(){
-                    contact_form_update("TimeOUT !!!!!");
+        if(can_submit_name && can_submit_mail && can_submit_message){
+            var data = "name="+name+"&mail_or_phone="+mail_or_phone+"&message="+message;
+            postForm('http://localhost/contact/sendMail.php', data, function(){// onload 
+                    addClass(contact_animation, 'sending');
+                    removeClass(contact_animation, 'send-success');
+                    removeClass(contact_animation, 'send-fail');  
+                }, function(){ //onsuccess
+                    addClass(contact_animation, 'send-success');
+                    removeClass(contact_animation, 'sending');
+                    removeClass(contact_animation, 'send-fail');
+                }, function(){// onerror         
+                    addClass(contact_animation, 'send-fail');
+                    removeClass(contact_animation, 'sending');
+                    removeClass(contact_animation, 'send-success');
                 });
         }
 
     });
-}())
+}());
+
+(function(){
+    var close_btn = document.querySelectorAll(".close-message-status"),
+        contact_animation = _("message-status-animation");
+    if(!close_btn){return;}
+    close_btn.forEach(function(btn, index){
+        btn.addEventListener("click", function(){
+            clear();
+            removeClass(contact_animation, 'sending');
+            removeClass(contact_animation, 'send-success');
+            removeClass(contact_animation, 'send-fail');
+        })
+    })
+}());
+
+function clear(){
+    _("user_name").value = "";
+    _("user_email_or_phone").value = "";
+    _("user_message").value = "";
+}

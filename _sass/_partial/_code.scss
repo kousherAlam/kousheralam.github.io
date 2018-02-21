@@ -1,6 +1,6 @@
 .highlighter-rouge{
-    background: #fdd307;
-    color: black;
+    background: #003f5d;
+    color: #ececec;
     padding: 0px 3px;
     border-radius: 2px;
     margin-right: 4px;
@@ -15,19 +15,22 @@
         position: absolute;
         top: 0px;
         right: 0px;
-        background: #1e0010;
+        color: #000;
+        background: #fff;
         font-size: 12px;
         border: 1px solid black;
         &:hover,
         &:focus{
-            background: #000;
+            background: #fdd307;
             opacity: 1;
         }
         &.save-success{
             background: green;
+            color: #fff;
         }
     }
 }
+.highlight pre{overflow: auto;}
 .highlight pre { background-color: #272822; }
 .highlight .hll { background-color: #272822; }
 .highlight .c { color: #75715e } /* Comment */

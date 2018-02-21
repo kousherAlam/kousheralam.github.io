@@ -20,6 +20,8 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
 sass:
+  sass_dir: _sass
+  sourcemap: true
   style: compressed
   
 # Exclude from processing.

@@ -1,41 +1,142 @@
 .contact-area
 	margin-bottom: 30px
 .menual
-	margin-bottom: 50px
+	margin-bottom: 40px
 	text-align: center
 	h1 
-		font-size: 1.2em
+		font-size: 1.7em
+		@media (min-width: 400px)
+			font-size: 2.2em
 .mail-text
-	font-size: 1.4em
+	font-size: 16px
+	@media (min-width: 400px)
+		font-size: 20px
 	a 
 		text-decoration: none
-	@media (min-width: 800px)
-		font-size: 2.2em
 
 .contact-form
 	max-width: 350px
 	margin-left: auto
 	margin-right: auto
-	background: #ededed
+	background: #fff
 	padding: 20px 10px
+	position: relative
+	overflow: hidden
 	h1
 		margin-bottom: 15px
 		color: #000
 	.form-subtitle 
 		margin-bottom: 15px
-	form 
-		input, textarea
-			display: block
-			margin-bottom: 6px
-			box-sizing: border-box
-			width: 100%
+	
+	fieldset
+		border-color: #efefef
+		box-sizing: border-box
+		legend
+			background-color: black
 			padding: 6px 10px
-			outline: 0px
-			font-size: 14px
-			&:focus
+			margin-bottom: 12px
+		
+		label
+			font-size: 15px
+			color: black
+			margin-bottom: 4px
+			display: block
+			span 
+				color: red 
+				font-size: 14px
 
-		textarea
-			min-height: 80px
-	button 
-		width: 120px
-		text-align: center
+.message-status-animation
+	position: absolute
+	box-sizing: border-box
+	background: white
+	padding: 0px
+	top: 0px 
+	left: 0px 
+	height: 100%
+	width: 100%
+	display: block
+	border-width: 0px
+	transform: translate(0%, 100%)
+	transition: transform 300ms ease-in-out
+	.progress-bar
+		opacity: 0
+		transition: opacity 400ms linear 320ms
+	&.send-success
+		transform: translate(100%, 0%)
+	&.sending
+		transform: translate(0%, 0%)
+		.progress-bar
+			opacity: 1
+	&.send-fail
+		transform: translate(-100%, 0%)
+	.message-sending,
+	.message-send,
+	.message-send-fail
+		display: inline-block
+		width: 100%
+		height: 100%
+		margin-bottom: -3px
+		position: relative
+		background: white
+	.message-send
+		transform: translate(-100%, -100%)
+	.message-send-fail
+		transform: translate(100%, -200%)
+	.status
+		width: 100%
+		.title,
+		.description
+			display: block 
+			color: #003f5d
+		.title
+			font-size: .8em
+			font-weight: 100
+			margin-bottom: 10px
+			padding-bottom: 6px
+			border-bottom: .11px solid #003f5d
+		.description
+			font-weight: bold
+			font-size: 1.3em
+.progress-bar
+	height: 10px
+	width: 100%
+	display: block
+	position: relative
+	background: #003f4d
+	&:after
+		content: ''
+		height: 10px
+		width: 100%
+		background: #CDDC39
+		position: absolute
+		left: 0px 
+		top: 0px
+		// transform-origin: 0% 50%
+		transform: translateX(-50%) scaleX(.3)
+		animation: progress 1800ms ease-in-out infinite
+
+@keyframes progress
+	0% 
+		transform: translateX(-50%) scaleX(.01)
+	10%
+		transform: translateX(-50%) scaleX(.3)
+	60%
+		transform: translateX(0%) scaleX(.8)
+	100%
+		transform: translateX(50%) scaleX(.01)
+.success-border,
+.error-border
+	height: 10px
+	width: 100%
+.success-border
+	background: #003f5d
+	margin-top: -1px
+.error-border
+	background: red
+
+.close-message-status
+	background: black
+	color: white
+	padding: 8px 30px
+	font-size: 14px
+	margin-top: 10px

@@ -3,14 +3,27 @@
     padding: 0px 10px
     padding-left: 10px
     .post
-        line-height: 24px
-        p , h1, h2, h3, h4, h5, h6, section 
-            margin-bottom: 15px
-        ul, ol 
+        line-height: 28px
+        letter-spacing: .9px
+        h1, h2, h3, h4, h5, h6, section 
+            margin-bottom: 6px
+        p,ul
+            color: #c0c0c0
+            margin-bottom: 30px
+            margin-top: 0px
+        ul, ol , dl
             padding-left: 20px
-            margin-left: 20px
+            margin-left: 0px
+            @media (min-width: 700px)
+                margin-left: 20px
             a 
                 padding-left: 0px
+        dl
+            padding-left: 0px 
+            dd 
+                margin-left: 20px
+                ul 
+                    margin-left: 0px
         ul 
             list-style-type: square
         img 
@@ -28,7 +41,7 @@
         .title
             border-bottom: 1px solid silver 
             padding-bottom: 12px
-            max-width: 400px
+            margin-bottom: 25px
             +clearfix
         p.code
             margin-bottom: 0px
