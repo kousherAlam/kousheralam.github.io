@@ -290,4 +290,5 @@ button{
 }
 {% endhighlight %}
 
-<p class="m-t-10 m-b-10">It have lot of advantage. SASS can make your developer life more easier.</p>
+
+<p class="m-t-10 m-b-10">It have lot of advantage. SASS can make your developer life more easier. <a href="{{ site.baseurl }}/downloads/sass_example.zip" target="_blank">Download example code</a></p>
