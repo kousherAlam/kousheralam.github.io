@@ -117,13 +117,11 @@ function contact_form_update(text_to_change){
 
 
 (function(){
-    var send_btn = _("send_contact"),        
-        contact_animation = _("message-status-animation");
+    var send_btn = _("send_contact");
     if(!send_btn){return;}
     send_btn.addEventListener("click",function(e){
-        var evt = e || window.e || window.event;
+        var evt = e|| window.event || window.e ;
         evt.preventDefault();
-
         var name = _("user_name").value,
             mail_or_phone = _("user_email_or_phone").value,
             message = _("user_message").value,
@@ -162,24 +160,22 @@ function contact_form_update(text_to_change){
         }
         if(can_submit_name && can_submit_mail && can_submit_message){
             var data = "name="+name+"&mail_or_phone="+mail_or_phone+"&message="+message;
-            postForm('http://localhost/contact/sendMail.php', data, function(){// onload 
-                    addClass(contact_animation, 'sending');
-                    removeClass(contact_animation, 'send-success');
-                    removeClass(contact_animation, 'send-fail');  
+            postForm('http://irfanurrahmanrafin.net/contactform/sendMail.php', data, function(){// onload
+                    contact_after_send('sending','send-success','send-fail');
                 }, function(){ //onsuccess
-                    addClass(contact_animation, 'send-success');
-                    removeClass(contact_animation, 'sending');
-                    removeClass(contact_animation, 'send-fail');
+                    contact_after_send('send-success','sending','send-fail');
                 }, function(){// onerror         
-                    addClass(contact_animation, 'send-fail');
-                    removeClass(contact_animation, 'sending');
-                    removeClass(contact_animation, 'send-success');
+                    contact_after_send('send-fail', 'send-success','sending');
                 });
         }
-
     });
 }());
-
+function contact_after_send(add, remove1, remove2){
+    var contact_animation = _("message-status-animation");
+    addClass(contact_animation, add);
+    removeClass(contact_animation, remove1);
+    removeClass(contact_animation, remove2);  
+}
 (function(){
     var close_btn = document.querySelectorAll(".close-message-status"),
         contact_animation = _("message-status-animation");
@@ -193,7 +189,6 @@ function contact_form_update(text_to_change){
         })
     })
 }());
-
 function clear(){
     _("user_name").value = "";
     _("user_email_or_phone").value = "";

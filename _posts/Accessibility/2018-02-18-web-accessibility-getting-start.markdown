@@ -76,7 +76,7 @@ Most of the time the designer and developer is not aware of accessibility. And o
             <li>Stressed</li>
         </ul>
     </dd>
-    <dt>We Don't know the sisutation</dt>
+    <dt>We Don't know the situtation</dt>
     <dd></dd>
 </dl>
 
