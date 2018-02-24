@@ -2,7 +2,33 @@
 
 var CACHE = 'kousheralam-precache';
 var precacheFiles = [
-      /* Add an array of files to precache for your app */
+      '/js/app.js',
+      'img/author.jpg',
+      '/css/main.css',
+      '/img/apple-icon-57x57.png',
+      '/img/apple-icon-60x60.png',
+      '/img/apple-icon-72x72.png',
+      '/img/apple-icon-76x76.png',
+      '/img/apple-icon-114x114.png',
+      '/img/apple-icon-120x120.png',
+      '/img/apple-icon-144x144.png',
+      '/img/apple-icon-152x152.png',
+      '/img/apple-icon-180x180.png',
+      '/img/android-icon-192x192.png',
+      '/img/favicon-32x32.png',
+      '/img/favicon-96x96.png',
+      '/img/favicon-16x16.png',
+      '/img/ms-icon-144x144.png',
+      '/img/android-icon-36x36.png',
+      '/img/android-icon-48x48.png',
+      '/img/android-icon-72x72.png',
+      '/img/android-icon-96x96.png',
+      '/img/android-icon-144x144.png',
+      '/img/android-icon-192x192.png',
+      '/img/ms-icon-70x70.png',
+      '/img/ms-icon-150x150.png',
+      '/img/ms-icon-310x310.png',
+      '/kousher_cv.pdf'
     ];
 
 //Install stage sets up the cache-array to configure pre-cache content
@@ -62,3 +88,48 @@ function fromServer(request){
   //this is the fallback if it is not in the cahche to go to the server and get it
 return fetch(request).then(function(response){ return response})
 }
+
+//This is the "Offline copy of pages" wervice worker
+
+//Install stage sets up the index page (home page) in the cahche and opens a new cache
+self.addEventListener('install', function(event) {
+  var indexPage = new Request('index.html');
+  event.waitUntil(
+    fetch(indexPage).then(function(response) {
+      return caches.open('pwabuilder-offline').then(function(cache) {
+        console.log('[PWA Builder] Cached index page during Install'+ response.url);
+        return cache.put(indexPage, response);
+      });
+  }));
+});
+
+//If any fetch fails, it will look for the request in the cache and serve it from there first
+self.addEventListener('fetch', function(event) {
+  var updateCache = function(request){
+    return caches.open('pwabuilder-offline').then(function (cache) {
+      return fetch(request).then(function (response) {
+        console.log('[PWA Builder] add page to offline'+response.url)
+        return cache.put(request, response);
+      });
+    });
+  };
+
+  event.waitUntil(updateCache(event.request));
+
+  event.respondWith(
+    fetch(event.request).catch(function(error) {
+      console.log( '[PWA Builder] Network request Failed. Serving content from cache: ' + error );
+
+      //Check to see if you have it in the cache
+      //Return response
+      //If not in the cache, then return error page
+      return caches.open('pwabuilder-offline').then(function (cache) {
+        return cache.match(event.request).then(function (matching) {
+          var report =  !matching || matching.status == 404?Promise.reject('no-match'): matching;
+          return report
+        });
+      });
+    })
+  );
+})
+
