@@ -17,12 +17,12 @@ layout: default
                 <legend>Send Your Message: </legend>
                 <div class="form-group">
                     <label for="user_name">Your Name: <span class='right'>Required</span></label>
-                    <input type="text" id="user_name" />
+                    <input type="text" id="user_name" required autocomplete/>
                     <span class="error_message" id="name_error">Please Enter your name</span>
                 </div>
                 <div class="form-group">
                     <label for="user_email_or_phone">Your Email Or Phone: <span class='right'>Required</span></label>
-                    <input type="text" id="user_email_or_phone" />
+                    <input type="text" id="user_email_or_phone" required autocomplete="email"/>
                     <span class="error_message" id="email_phone_error">Please enter your email or phone number</span>
                 </div>
                 <div class="form-group">
@@ -31,7 +31,7 @@ layout: default
                     <span class="error_message" id="message_error">Please write your message</span>
                 </div>
                 <div class="form-group m-b-0">
-                    <input id="send_contact" type="submit" value="Send Message" />
+                    <input id="send_contact" type="submit" value="Send Message" required/>
                 </div>
             </fieldset>
             
