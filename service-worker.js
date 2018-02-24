@@ -1,6 +1,6 @@
 //This is the service worker with the Cache-first network
 
-var CACHE = 'kousheralam-precache';
+var CACHE = 'kousheralam-precache-2';
 var precacheFiles = [
       '/js/app.js',
       'img/author.jpg',
@@ -28,6 +28,21 @@ var precacheFiles = [
       '/img/ms-icon-70x70.png',
       '/img/ms-icon-150x150.png',
       '/img/ms-icon-310x310.png',
+      '/css/fonts/roboto-slab-v7-latin-300.eot',
+      '/css/fonts/roboto-slab-v7-latin-300.svg',
+      '/css/fonts/roboto-slab-v7-latin-300.ttf',
+      '/css/fonts/roboto-slab-v7-latin-300.woff',
+      '/css/fonts/roboto-slab-v7-latin-300.woff2',
+      '/css/fonts/roboto-slab-v7-latin-700.eot',
+      '/css/fonts/roboto-slab-v7-latin-700.svg',
+      '/css/fonts/roboto-slab-v7-latin-700.ttf',
+      '/css/fonts/roboto-slab-v7-latin-700.woff',
+      '/css/fonts/roboto-slab-v7-latin-700.woff2',
+      '/css/fonts/roboto-slab-v7-latin-regular.eot',
+      '/css/fonts/roboto-slab-v7-latin-regular.svg',
+      '/css/fonts/roboto-slab-v7-latin-regular.ttf',
+      '/css/fonts/roboto-slab-v7-latin-regular.woff',
+      '/css/fonts/roboto-slab-v7-latin-regular.woff2',
       '/kousher_cv.pdf'
     ];
 
@@ -47,7 +62,6 @@ self.addEventListener('install', function(evt) {
 self.addEventListener('activate', function(event) {
 console.log('[ServiceWorker] Claiming clients for current page');
       return self.clients.claim();
-
 });
 
 self.addEventListener('fetch', function(evt) {
