@@ -131,7 +131,7 @@ function contact_form_update(text_to_change){
             can_submit_name = false,
             can_submit_mail = false,
             can_submit_message = false;
-        
+
         if( name.length < 2 ){
             can_submit_name = false;
             name_error.style.display = 'inline-block';
@@ -160,11 +160,11 @@ function contact_form_update(text_to_change){
         }
         if(can_submit_name && can_submit_mail && can_submit_message){
             var data = "name="+name+"&mail_or_phone="+mail_or_phone+"&message="+message;
-            postForm('http://irfanurrahmanrafin.net/contactform/sendMail.php', data, function(){// onload
+            postForm('https://dokansystem.com/sendMail.php', data, function(){// onload
                     contact_after_send('sending','send-success','send-fail');
                 }, function(){ //onsuccess
                     contact_after_send('send-success','sending','send-fail');
-                }, function(){// onerror         
+                }, function(){// onerror
                     contact_after_send('send-fail', 'send-success','sending');
                 });
         }
@@ -174,7 +174,7 @@ function contact_after_send(add, remove1, remove2){
     var contact_animation = _("message-status-animation");
     addClass(contact_animation, add);
     removeClass(contact_animation, remove1);
-    removeClass(contact_animation, remove2);  
+    removeClass(contact_animation, remove2);
 }
 (function(){
     var close_btn = document.querySelectorAll(".close-message-status"),
