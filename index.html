@@ -6,17 +6,26 @@ layout: default
 ---
 
 {% for post in paginator.posts %}
-  <article class="post-article {% if forloop.first %}first{% elsif forloop.last %}last{% else %}middle{% endif %}">
-		<div class="article-head">
-			<h2 class="title"><a href="{{site.baseurl}}{{ post.url }}" class="js-pjax">{{ post.title }}</a></h2>
-			<p class="date">{{ post.date | date: "%b %d, %Y" }}</p>
-		</div><!--/.article-head-->
-		<div class="article-content">
-		{{ post.short_description }}
-        <!-- <a href="{{site.baseurl}}{{ post.url }}" class="full-post-link js-pjax">
-            <button>Read more</button>
-        </a>	 -->
-		</div><!--/.article-content-->
+  <article class="post-article {% if forloop.first %}first{% elsif forloop.last %}last{% else %}middle{% endif %} {% if post.type == 'project' %}yap-project{% endif %}">
+		{% if post.type == "project" %}
+			<div class="its-a-project"></div>
+		{% endif %}
+		<div class="post-container {% if post.type == 'project' %}a-project{% endif %}">
+			<div class="article-head">
+				<h2 class="title">
+					<a href="{{site.baseurl}}{{ post.url }}" class="js-pjax">
+						{% if post.type == 'project' %}<span>Project:</span> {% endif %} {{ post.title }}
+					</a>
+				</h2>
+				<p class="date">{{ post.date | date: "%b %d, %Y" }}</p>
+			</div><!--/.article-head-->
+			<div class="article-content">
+			{{ post.short_description }}
+			<!-- <a href="{{site.baseurl}}{{ post.url }}" class="full-post-link js-pjax">
+				<button>Read more</button>
+			</a>	 -->
+			</div><!--/.article-content-->
+		</div>
 	</article>
 {% endfor %}
 

@@ -4,13 +4,48 @@ $post-link-color: #fff
     background: $post-bg
     padding: 10px
     margin-bottom: 20px
+    position: relative
+    &.yap-project
+        background: #565656
+    .its-a-project
+        position: absolute
+        top: 0px
+        left: 0px
+        height: 100%
+        width: 10px
+        background-color: #fff 
+    .post-container.a-project
+        margin-left: 10px
+        .article-head
+            .title 
+                a 
+                    text-decoration: none
     .article-head
         margin-bottom: 8px
         .title
             font-size: 2em
+            margin-bottom: 10px
             a
                 padding-left: 0px
                 color: $post-link-color
+                text-decoration: none
+                position: relative 
+                &:hover
+                    &:after
+                        width: 100%
+                &:after
+                    content: ''
+                    display: block 
+                    position: absolute
+                    bottom: 10px 
+                    left: 0px
+                    height: 1px
+                    background-color: #fff 
+                    width: 0px
+                    transition: width 200ms ease-in
+
+                span 
+                    color: yellow 
         .date
             font-size: .8em
             color: #efefef
@@ -22,5 +57,3 @@ $post-link-color: #fff
                 content: ''
                 display: block
                 margin-top: 10px
-    &.last
-        margin-bottom: 0px
