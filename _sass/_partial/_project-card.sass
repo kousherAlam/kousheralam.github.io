@@ -10,21 +10,28 @@
     margin-right: 0px
     margin-bottom: 50px
     position: relative
+    display: flex 
+    flex-wrap: wrap
+    flex-basis: 100%
+    justify-content: center
     &:last-child
         margin-right: 0px!important
     @media (min-width: 1060px)
         width: calc( 50% - 23px )
+        flex-basis: calc( 50% - 23px )
         margin-right: 20px
         &:nth-child(2n)
             margin-right: 0px
     @media (min-width: 1300px)
         width: calc( 33.3333% - 23px )
+        flex-basis: calc( 33.3333% - 23px )
         &:nth-child(2n)
             margin-right: 20px
         &:nth-child(3n)
             margin-right: 0px
     @media (min-width: 1780px)
         width: calc( 25% - 24px )
+        flex-basis:  calc( 25% - 24px )
         &:nth-child(2n)
             margin-right: 20px
         &:nth-child(3n)
@@ -34,6 +41,7 @@
     .card-meta
         padding: 20px 20px 
         background: #003f5d
+        width: 100%
         a 
             padding: 0px
             color: #f5f5f5
@@ -63,9 +71,10 @@
         min-height: 210px
         overflow: auto
     .read-full-article
-        position: absolute
+        // position: absolute
         width: 100%
         bottom: 0px
+        align-self: flex-end
         a 
             display: block
             text-align: center

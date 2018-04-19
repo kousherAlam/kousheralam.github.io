@@ -10,6 +10,7 @@ layout: default
 		{% if post.type == "project" %}
 			<div class="its-a-project"></div>
 		{% endif %}
+		
 		<div class="post-container {% if post.type == 'project' %}a-project{% endif %}">
 			<div class="article-head">
 				<h2 class="title">
@@ -17,7 +18,7 @@ layout: default
 						{% if post.type == 'project' %}<span>Project:</span> {% endif %} {{ post.title }}
 					</a>
 				</h2>
-				<p class="date">{{ post.date | date: "%b %d, %Y" }}</p>
+				<p class="date">Written In: {{ post.date | date: "%b %d, %Y" }}</p>
 			</div><!--/.article-head-->
 			<div class="article-content">
 			{{ post.short_description }}
@@ -26,6 +27,7 @@ layout: default
 			</a>	 -->
 			</div><!--/.article-content-->
 		</div>
+		
 	</article>
 {% endfor %}
 
