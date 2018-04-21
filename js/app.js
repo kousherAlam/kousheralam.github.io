@@ -194,3 +194,35 @@ function clear(){
     _("user_email_or_phone").value = "";
     _("user_message").value = "";
 }
+
+/* New Feature -- animating text 
+window.onload = function () {
+    var text = ["Front End", "Developer", "Kousher", "Alam"];
+    addInASecound(text, document.getElementById("site-title"));  
+}
+
+function addInASecound(txt, elm){
+    var txt1 = '';
+    var current = 0;
+    var arrNum = 0; 
+    console.log("text length ", txt.length);
+    var len = txt[arrNum].length;
+    var timing = setInterval( function(){
+        if(current >= len ){
+            current = 0;
+            arrNum ++; 
+            if(arrNum >= txt.length ){
+                arrNum = 0;
+            }
+            txt1 = '';
+            len = txt[arrNum].length;
+        }
+        console.log("current is", current);
+        console.log("Array number is", arrNum);
+        txt1 += txt[arrNum][current];
+        elm.innerHTML = txt1;
+        // console.log(txt1);
+        current ++;
+    }, 300);
+}
+*/

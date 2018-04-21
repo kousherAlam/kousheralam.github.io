@@ -20,6 +20,10 @@ header
         padding: 4px 10px
         background: $header-bg
         +clearfix
+        a 
+            &:hover,
+            &:focus
+                opacity: 1
         @media (min-width: #{$layout-big})
             position: static
             img 
