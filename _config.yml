@@ -1,10 +1,12 @@
 title: Kousher Alam -- Full Stack Developer
 email: kousheralampranto@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines until next property
   I love to code, have experience with large architecture design 
   for front end application, web development and mobile application development.  
   I believe code must be maintainable, scaleable and  readable in 5 
   second cookie rule And I do not write nested ternary code. 
+
+sub_description: I love to use build and automated tools such as webpack, gulp, sometimes simple node-script do the job. And also  bitbuket pipeline.
 
 
 baseurl: "/" # the subpath of your site, e.g. /blog
@@ -14,30 +16,35 @@ url: "https://kousheralam.github.io" # the base hostname & protocol for your sit
 twitter_username: jekyllrb
 github_username:  jekyll
 
+# Description
+skill_description: My Skill Description 
+experience_description: My Experience Description
+workprocess_description: My work process description
+thinking_description: My thinking description
+hobby_description: My Hobby description 
+contact_description: My Contact Description
+contact_hire_description: My contact hire description
+
 # Journey 
 skills: 
   - 
-    title: Javascript Front End Development
+    title: Front End Development
     type: expert 
-    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
-  - 
-    title: Angular, Rect And Vue
-    type: expert 
-    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+    description: I have over 2 year of experience working with angular react and vue. I have in dept knowledge in rxjs, ngrx,redux,vux, axios and other library. I Have in dept knowledge in HTML5, CSS3, Diffeent templating laguage such as pug, markdown, jekyll, and I also have experience in different css architecture such as triangle css, smacss architecture. 
   - 
     title: NodeJS, express and nestjs
     type: expert 
     description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
-    title: PHP, Codeigniter, Laravel
+    title: PHP Development
     type: expert 
     description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
-    title: SQL, PostgreSQL
+    title: Database Programming
     type: expert 
-    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+    description: SQL, PostgreSQ, NoSql, Mongodb, In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
-    title: d3 Data Visualization and Charting
+    title: Data Visualization and Charting
     type: intermediate 
     description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
@@ -45,31 +52,19 @@ skills:
     type: expert 
     description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
-    title: Wordpress Theme and Plugin Development
+    title: Wordpress Development
     type: expert 
     description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
-    title: Flutter Mobile App Development
+    title: Mobile App Development
     type: intermediate 
-    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
-  - 
-    title: Nativescript Mobile App Development
-    type: expert 
-    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
-  - 
-    title: Ionic Mobile App Development
-    type: expert 
-    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+    description: Flutter, Nativescript, Ionic, In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
     title: Continuous Integration
     type: basic 
     description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
     title: Docker
-    type: basic 
-    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
-  - 
-    title: Polyment
     type: basic 
     description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
   - 
@@ -96,6 +91,17 @@ articles:
     description: In this Topic I try to clearify the base misconception about software engineering
 
 
+# Work Process 
+workprocess: 
+  - 
+    title: My Strategy for developing a project from ground to production
+    description: Some Description about the process 
+  - 
+    title: My approch to a probelm
+    description: Some Description about the process 
+  - 
+    title: My approch to a challenge
+    description: Some Description about the process 
 
 # Assests description 
 my_image: images/me.jpg

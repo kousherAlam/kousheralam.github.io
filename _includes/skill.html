@@ -1,10 +1,8 @@
-<div class="row">
+<div class="row" id="skills">
     <div class="col-3">
         <div class="topic-title">
             <h2 class="title">My Skills</h2>
-            <div class="skill-description">
-                <p>In these following types of work i have complement and confident skillset.</p>
-            </div>
+            <p class="description">{{site.skill_description}}</p>
             <div class="indentifier">
                 <div class="basic">
                     <span class="type-bg"></span>
@@ -23,8 +21,8 @@
     </div>
     <div class="col-9 skill-holder">
         {% for skill in site.skills %}
-            <div class="skill {{skill.type}} shadow p-2 mb-4">
-                <p class="name">{{skill.title}}</p>
+            <div class="skill shadow-sm p-3 mb-3">
+                <p class="title" title="{{skill.type}}"><span class="squre {{skill.type}}"></span>{{skill.title}}</p>
                 <p class="description">{{skill.description}}</p>
             </div>
         {% endfor %}

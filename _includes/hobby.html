@@ -2,15 +2,13 @@
     <div class="col-3">
         <div class="topic-title">
             <h2 class="title">My Hobby</h2>
-            <div class="description">
-                <p>In these following types of work i have complement and confident skillset.</p>
-            </div>
+            <p class="description">{{site.hobby_description}}</p>
         </div>
     </div>
     <div class="col-9 hobby-holder">
             {% for hobby in site.hobbies %}
             <div class="full hobby shadow-sm p-3 mb-3">
-                <p class="tilte">{{hobby.title}}</p>
+                <p class="title font-weight-bold m-0">{{hobby.title}}</p>
                 <p class="description">{{hobby.description}}</p>
             </div>
         {% endfor %}

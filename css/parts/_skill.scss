@@ -8,36 +8,35 @@ $basic-bg : #ffd4d4;
     justify-content: space-between;
 }
 .skill{
-    border: 1px solid silver;
-    max-width: 32%;
-    min-width: 25%;
-    margin-right: 5px;
-    .name{
-        font-weight: bold;
-        font-size: 1.1em;
-        margin: 0px;
-    }
+    margin-bottom: 15px;
     .description{
         font-size: .8em;
         margin: 0px;
+        color: #495057;
     }
 }
 
-
-.skill.expert {
+.squre{
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    margin-right: 15px;
+    border: 1px solid black;
+}
+.squre.expert {
     background: $expert-bg;
 }
-.skill.intermediate{
+.squre.intermediate{
     background: $intermediate-bg;
 }
-.skill.basic{
+.squre.basic{
     background: $basic-bg;
 }
 
 .indentifier{
     .type-bg{
-        width: 10px;
-        height: 10px;
+        width: 15px;
+        height: 15px;
         display: inline-block;
         border: 1px solid black;
     }

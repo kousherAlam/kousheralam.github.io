@@ -3,13 +3,13 @@
         <div class="col-3">
             <div class="topic-title">
                 <h2 class="title">Thinking</h2>
-                <p class="description">In these following types of work i have complement and confident skillset</p>
+                <p class="description">{{site.thinking_description}}</p>
             </div>
         </div>
         <div class="col-9 skill-holder">
             {% for article in site.articles %}
                 <div class="full thinking shadow-sm p-3 mb-3">
-                    <p class="tilte"><a href="{{article.link}}">{{article.title}}</a></p>
+                    <p class="title m-0 font-weight-bold"><a target="_blank" href="{{article.link}}">{{article.title}}</a></p>
                     <p class="description">{{article.description}}</p>
                 </div>
             {% endfor %}
