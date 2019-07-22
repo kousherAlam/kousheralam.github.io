@@ -1,30 +1,110 @@
-title: Front End Developer
+title: Kousher Alam -- Full Stack Developer
 email: kousheralampranto@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-analytics: UA-111712473-1
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.kousheralam.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+  I love to code, have experience with large architecture design 
+  for front end application, web development and mobile application development.  
+  I believe code must be maintainable, scaleable and  readable in 5 
+  second cookie rule And I do not write nested ternary code. 
 
-twitter_username: kousehralam
-github_username:  kousheralam
 
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://kousheralam.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Url And Links 
+twitter_username: jekyllrb
+github_username:  jekyll
+
+# Journey 
+skills: 
+  - 
+    title: Javascript Front End Development
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Angular, Rect And Vue
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: NodeJS, express and nestjs
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: PHP, Codeigniter, Laravel
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: SQL, PostgreSQL
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: d3 Data Visualization and Charting
+    type: intermediate 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Python, Flask, Django
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Wordpress Theme and Plugin Development
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Flutter Mobile App Development
+    type: intermediate 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Nativescript Mobile App Development
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Ionic Mobile App Development
+    type: expert 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Continuous Integration
+    type: basic 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Docker
+    type: basic 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Polyment
+    type: basic 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+  - 
+    title: Electron
+    type: basic 
+    description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
+
+
+
+
+# Articles or My thought Publish on Platform 
+articles: 
+  - 
+    title: Main Key Of Software Development
+    link: https://getbootstrap.com/docs/4.3/getting-started/download/
+    description: In this Topic I try to clearify the base misconception about software engineering
+  - 
+    title: Angular and how i made my life easier
+    link: https://getbootstrap.com/docs/4.3/getting-started/download/
+    description: In this Topic I try to clearify the base misconception about software engineering
+
+
+
+# Assests description 
+my_image: images/me.jpg
 
 # Build settings
 markdown: kramdown
-paginate: 15
-paginate_path: "/blog-page/page:num/"
-# theme: minima
+sass:
+  sass_dir: css
+  style: compressed
+
 plugins:
   - jekyll-feed
-  - jekyll-paginate
-sass:
-  sass_dir: _sass
-  sourcemap: true
-  style: compressed
-  
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

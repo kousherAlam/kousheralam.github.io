@@ -1,0 +1,62 @@
+$expert-bg : #d4ffd7;
+$intermediate-bg : #feffd4;
+$basic-bg : #ffd4d4;
+
+.skill-holder{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.skill{
+    border: 1px solid silver;
+    max-width: 32%;
+    min-width: 25%;
+    margin-right: 5px;
+    .name{
+        font-weight: bold;
+        font-size: 1.1em;
+        margin: 0px;
+    }
+    .description{
+        font-size: .8em;
+        margin: 0px;
+    }
+}
+
+
+.skill.expert {
+    background: $expert-bg;
+}
+.skill.intermediate{
+    background: $intermediate-bg;
+}
+.skill.basic{
+    background: $basic-bg;
+}
+
+.indentifier{
+    .type-bg{
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        border: 1px solid black;
+    }
+    .type-name{
+        font-size: 1.1em;
+    }
+    .basic{
+        .type-bg{
+            background-color: $basic-bg; 
+        }
+    }
+    .intermediate{
+        .type-bg{
+            background-color: $intermediate-bg;
+        }
+    }
+    .expert{
+        .type-bg{
+            background-color: $expert-bg;
+        }
+    }
+}

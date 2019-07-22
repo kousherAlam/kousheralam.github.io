@@ -1,0 +1,24 @@
+.topic-title{
+    position: relative;
+    &::before{
+        position: absolute;
+        content: '';
+        width: 150px;
+        height: 5px;
+        background: #6c757d;
+        top: -8px;
+        left: 0px;
+        font-weight: bold;
+    }
+    .title{
+        font-size: 1.2em;
+        margin-top: 15px;
+    }
+    .description{
+
+    }
+}
+
+.single-row {
+    padding: 35px 0px;
+}

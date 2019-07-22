@@ -31,7 +31,19 @@
 </head>
 <body class="bg-dark">
 
-    {{ content }}
+    <header class="main-header container bg-white mt-3">
+        {% include my-intro.html %}
+    </header>
 
+    <main class="main-content container bg-white">
+        {{ content }}
+    </main>
+
+
+    <footer class="site-footer container bg-white mb-3">
+
+    </footer>
+
+    <script src="{{site.baseurl}}js/app.js"></script>
 </body>
 </html>
