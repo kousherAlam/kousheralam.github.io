@@ -78,7 +78,11 @@ skills:
     description: In April 2013 I start my development journey, First i learn how to develop a web page with dreamwaver then i strt learning HTML and CSS. 
 
 
-
+# My Hobby
+hobbies: 
+  - 
+    title: Cycling
+    description: I love to ride cycle. 
 
 # Articles or My thought Publish on Platform 
 articles: 

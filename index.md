@@ -13,9 +13,7 @@ layout: home
 <div class="single-row">
     {% include work-process.html %}
 </div>
-<div class="single-row">
-    {% include hire.html %}
-</div>
+
 
 
 <div class="single-row">
