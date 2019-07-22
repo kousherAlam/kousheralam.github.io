@@ -10,9 +10,9 @@ layout: home
 <div class="single-row">
     {% include experience.html %}
 </div>
-<div class="single-row">
-    {% include work-process.html %}
-</div>
+
+
+{% include work-process.html %}
 
 
 

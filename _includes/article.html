@@ -1,5 +1,6 @@
 {% if site.articles.size > 0 %}
-<div class="row" id="article">
+<div class="single-row">
+    <div class="row" id="article">
         <div class="col-3">
             <div class="topic-title">
                 <h2 class="title">Thinking</h2>
@@ -8,11 +9,13 @@
         </div>
         <div class="col-9 skill-holder">
             {% for article in site.articles %}
-                <div class="full thinking shadow-sm p-3 mb-3">
-                    <p class="title m-0 font-weight-bold"><a target="_blank" href="{{article.link}}">{{article.title}}</a></p>
-                    <p class="description">{{article.description}}</p>
-                </div>
+            <div class="full thinking shadow-sm p-3 mb-3">
+                <p class="title m-0 font-weight-bold"><a target="_blank" href="{{article.link}}">{{article.title}}</a>
+                </p>
+                <p class="description">{{article.description}}</p>
+            </div>
             {% endfor %}
         </div>
     </div>
+</div>
 {% endif %}
