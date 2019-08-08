@@ -27,7 +27,7 @@ function fixedmainMenuOnTop(){
 
     window.addEventListener("scroll", fixedOnTop);
     window.addEventListener("resize", function(){
-        sizeToCompare = parseInt(getComputedStyle(_("")).height);
+        sizeToCompare = parseInt(getComputedStyle(_("main-header")).height);
         fixedOnTop();
     });
 }

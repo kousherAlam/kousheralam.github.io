@@ -1,11 +1,11 @@
-<div class="col-10 col-sm-10 col-md-10 pl-0">
-    <nav class="navbar navbar-expand pl-0">
+<div class="col-10 col-sm-12 col-md-10 pl-0">
+    <nav class="navbar navbar-expand-md pl-0">
         <ul class="navbar-nav" id="main-menu-links">
-            <li class="nav-item d-none mr-3" id="main-menu-image">
+            <li class="nav-item d-none mr-0 mr-md-3 text-center" id="main-menu-image">
                 <img src="{{site.my_image}}" class="img-thubnail" style="height:50px;" alt="KOUSER" />
             </li>
             <li class="nav-item">
-                <a class="nav-link pl-0 pr-3" href="#skills">Skills</a>
+                <a class="nav-link pl-3 pl-md-0 pr-3" href="#skills">Skills</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link pl-3 pr-3" href="#">Experience</a>
@@ -19,14 +19,13 @@
         </ul>
     </nav>
 </div>
-<div class="col-2 text-right pr-0">
+<div class="col-sm-12 col-md-2 text-md-right pr-0">
     <a class="extra-link" href="{{site.cvlink}}" download="kousher_resume.pdf">
-        <span class="icon">{% include icons/pdf.html %}</span>
+        <span class="icon d-md-block d-sm-none">{% include icons/pdf.html %}</span>
+        <spna class="text d-sm-block d-md-none">Download Resume</spna>
     </a>
     <a class="extra-link" href="{{site.linkedin}}" target="blank" download="kousher_resume.pdf">
-        <span class="icon">{% include icons/linkedin.html %}</span>
+        <span class="icon d-md-block d-sm-none">{% include icons/linkedin.html %}</span>
+        <spna class="text d-sm-block d-md-none">LinkedIn Profile</spna>
     </a>
-    <!-- <a class="extra-link" href="cv.pdf" target="blank" download="kousher_resume.pdf">
-        <span class="icon">{% include icons/upwork.html %}</span>
-    </a> -->
 </div>
