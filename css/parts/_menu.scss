@@ -18,13 +18,22 @@
     }
 }
 .menu-btn{
-    position: fixed;
-    top: 20px;
-    left: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
     z-index: 8;
     svg{
         width: 20px;
         fill: white;
+    }
+}
+#close_menu_btn{
+    position: absolute;
+    left: 250px;
+    top: 10px;
+    z-index: 99999;
+    svg{
+        width: 20px;
     }
 }
 #shade,

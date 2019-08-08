@@ -42,20 +42,34 @@ function fixedmainMenuOnTop(){
 
 (function(){
     fixedmainMenuOnTop();
-    _("shade").addEventListener("click", function(){
-        _("mobile-menu").classList.add("d-none");
-        _("mobile-menu").classList.add("d-sm-none");
-        this.classList.add("d-none");
-        this.classList.remove("d-sm-block");
-    });
-
-    _("open_menu_btn").addEventListener("click", function(){
-        _("mobile-menu").classList.remove("d-none");
-        _("mobile-menu").classList.remove("d-sm-none");
-        _("shade").classList.remove("d-none");
-        _("shade").classList.add("d-block");
-    });
+    var shade = _("shade"),
+        close_menu_btn = _("close_menu_btn"),
+        mobile_menu = _("mobile-menu"),
+        allLinks = document.querySelectorAll("#mobile-menu a"),
+        open_menu_btn = _("open_menu_btn");
     
+    
+    function closeMenu(){
+        mobile_menu.classList.remove("d-block");
+        mobile_menu.classList.add("d-none");
+        shade.classList.add("d-none");
+        shade.classList.remove("d-block");
+    }
+    function openMenu(){
+        mobile_menu.classList.remove("d-none");
+        mobile_menu.classList.remove("d-sm-none");
+        mobile_menu.classList.add("d-block");
+        shade.classList.remove("d-none");
+        shade.classList.add("d-block");
+    }
+    for(var i=0; i<allLinks.length; i++){
+        allLinks[i].addEventListener("click", closeMenu);
+    }
+
+    shade.addEventListener("click", closeMenu);
+    close_menu_btn.addEventListener("click", closeMenu);
+    open_menu_btn.addEventListener("click", openMenu);
+
     var firebaseConfig = {
         apiKey: "AIzaSyDJPI-v3nsTE5eXSTEE1nhcFlCesj_A5UQ",
         authDomain: "mypersonalsite-451454.firebaseapp.com",
