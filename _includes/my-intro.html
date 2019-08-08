@@ -1,23 +1,14 @@
 <div class="my-intro row" my-intro>
-    <div class="my-pic col-3">
-        <img src="{{site.my_image}}" class="img-thumbnail" alt="My Image" /> 
+    <div class="my-pic md-2 md-sm-1 mb-md-0 col-12 text-center col-sm-12 col-md-4 col-xl-3">
+        <img id="my-image-thubnail" src="{{site.my_image}}" class="img-thumbnail" alt="My Image" />
     </div>
-    <div class="my-description col-9">
+    <div class="my-description col-12 col-sm-12 col-md-8 col-xl-9">
         <div class="name">
-            <h1>Kousher alam - Full Stack Developer</h1>
+            <h1 class="font-italic font-weight-lighter text-light">Hi, I'm Kousher alam</h1>
         </div>
         <div class="description">
-            <p class="main-description">{{ site.description }}</p>
-            <p class="main-description">{{site.sub_description}}</p>
-        </div>
-        
-        <div class="controll-btn tex-right mt-3">
-            <a href="#skills" class="btn btn-primary mr-2">Skills</a>
-            <a href="#experience" class="btn btn-primary mr-2">Experience</a>
-            <a href="#hobby" class="btn btn-primary mr-2">Hobby</a>
-            <a href="#contact" class="btn btn-primary mr-2">Contact</a>
+            <p class="main-description text-light">{{ site.description }}</p>
+            <p class="main-description sub-description text-light">{{site.sub_description}}</p>
         </div>
     </div>
 </div>
-
-

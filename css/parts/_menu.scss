@@ -1,0 +1,19 @@
+.extra-link{
+    width: 80px;
+    .icon{
+        svg{
+            width: 50px;
+        }
+    }
+}
+
+.fixed-top{
+    .navbar{
+        position: relative;
+        top: 3px;
+    }
+    img{
+        position: relative;
+        top: -5px;
+    }
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,24 +25,37 @@
     <meta name="msapplication-TileImage" content="{{site.baseurl}}/img/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
      -->
-     <meta name="description" content="The Site About Myself" />
-     <meta name="tags" content="Full Stack Developer, Kousher Alam, Pranto, HTML5, CSS3, CSS Architecture, Javascript, Python" />
+    <meta name="description" content="The Site About Myself" />
+    <meta name="tags"
+        content="Full Stack Developer, Kousher Alam, Pranto, HTML5, CSS3, CSS Architecture, Javascript, Python" />
 
-     <link rel="stylesheet" href="{{site.baseurl}}css/style.css" />
+    <link rel="stylesheet" href="{{site.baseurl}}css/style.css" />
 
 </head>
-<body class="bg-dark">
 
-    <header class="main-header container bg-white mt-3">
-        {% include my-intro.html %}
+<body>
+
+    <header class="main-header" id="main-header">
+        <div class="container-fluid max-width mt-0">
+            {% include my-intro.html %}
+        </div>
     </header>
 
-    <main class="main-content container bg-white">
+
+    <div class="main-menu bg-white pt-2 pb-2" id="main-menu">
+        <div class="container-fluid max-width">
+            <div class="row">
+                {% include main-menu.html %}
+            </div>
+        </div>
+    </div>
+
+    <main id="main-content" class="main-content container-fluid max-width  bg-white">
         {{ content }}
     </main>
 
 
-    <footer class="site-footer container bg-white mb-3">
+    <footer class="site-footer container-fluid max-width  bg-white mb-sm-0 mb-xl-3">
 
     </footer>
 
@@ -50,9 +64,10 @@
         <div class="message p-3" id="message">Sending ...</div>
     </div>
 
-    
+
     <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
     <script src="{{site.baseurl}}js/app.js"></script>
 </body>
+
 </html>

@@ -1,12 +1,18 @@
 title: Kousher Alam -- Full Stack Developer
 email: kousheralampranto@gmail.com
-description: >- # this means to ignore newlines until next property
+description: >- # this means to ignore newlines until next property 
+
   I love to code, have experience with large architecture design 
   for front end application, web development and mobile application development.  
   I believe code must be maintainable, scaleable and  readable in 5 
   second cookie rule And I do not write nested ternary code. 
 
-sub_description: I'm also addicted to automated tools such as webpack, gulp, sometimes simple node-script or python script. so i spend some of my time tweaking and updating automation tools. I love automation scripts and tools very much as they simplify boaring task, and create time by doing repetative task. 
+sub_description: >-
+  I'm also addicted to automated tools such as webpack, gulp, 
+  sometimes simple node-script or python script. 
+  so i spend some of my time tweaking and updating automation tools. 
+  I love automation scripts and tools very much as they simplify boaring task, 
+  and create time by doing repetative task. 
 
 
 baseurl: "/" # the subpath of your site, e.g. /blog
@@ -17,81 +23,143 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Description
-skill_description: Here is my all skillset in which i've expertise and i'm confident , i can full fill any requirement in this skill.  
-experience_description: Programming is always solving problem. And when we work togather in a team, or solve large scale problem, we can understand verity of problem and their best solution, i have 4+ years of experices in this path.   
-workprocess_description: Everyone has their own workprocess, somethimes we follow industry stundard workflow and guideline to made our work effectively and efficiently. In this section how i shared my workflow, i hope it will give you very good idea. 
-thinking_description: Sometimes i love to share my knowledge with others, it's enable me to share my prospective with others and also justify my idea on public.
-hobby_description: In my free time i spend my time on my hobby, it give me courage and remove my all failure and Frustration. 
-contact_description: If you want to tell / ask me something you can do so by the form. 
-contact_hire_description: Do want to hire me ?? It's very easy, Just send message or hire on upwork. 
+skill_description: >- 
+  Here is my all skillset in which i've expertise and i'm confident , 
+  i can full fill any requirement in this skill.  
+
+experience_description: >- 
+  Programming is always solving problem. 
+  And when we work togather in a team, 
+  or solve large scale problem, we can understand verity of problem and their best solution,
+  i have 4+ years of experices in this path.   
+
+workprocess_description: >- 
+  Everyone has their own workprocess, somethimes we follow industry 
+  stundard workflow and guideline to made our work effectively and efficiently. 
+  In this section how i shared my workflow, i hope it will give you very good idea. 
+
+thinking_description: >- 
+  Sometimes i love to share my knowledge with others, it's enable me 
+  to share my prospective with others and also justify my idea on public.
+
+hobby_description: >- 
+  In my free time i spend my time on my hobby, it 
+  give me courage and remove my all failure and Frustration. 
+
+contact_description: >- 
+  If you want to tell / ask me something you can do so by the form. 
+
+contact_hire_description: >-
+  Do want to hire me ?? It's very easy, Just send message or hire on upwork. 
 
 # Journey 
 skills: 
   - 
     title: Front End Development
     type: expert 
-    description: I have over 2 year of experience working with angular react and vue. I have in dept knowledge in rxjs, ngrx,redux,vux, axios and other library. I Have in dept knowledge in HTML5, CSS3, Diffeent templating laguage such as pug, markdown, jekyll, and I also have experience in different css architecture such as triangle css, smacss architecture. I love to write my javascript code in typescript as it give me complete type support and make our life more easire by detecting problem before hppening and made debugging easier. 
+    description: >- 
+      I have over 2 year of experience working with angular react and vue. 
+      I have in dept knowledge in rxjs, ngrx,redux,vux, axios and other library. 
+      I Have in dept knowledge in HTML5, CSS3, Diffeent templating laguage such as pug, markdown, 
+      jekyll, and I also have experience in different css architecture such as triangle css, smacss
+       architecture. I love to write my javascript code in typescript 
+       as it give me complete type support and make our life more easire by detecting 
+       problem before hppening and made debugging easier. 
   - 
     title: NodeJS, express and nestjs
     type: expert 
-    description: Nodejs is very lightweight single threaded server side framework for javascript. I have expertise knowledge in nodejs automation tools development, express and nest js. 
+    description: >- 
+      Nodejs is very lightweight single threaded server side framework for javascript. 
+      I have expertise knowledge in nodejs automation tools development, express and nest js. 
   - 
     title: PHP Development
     type: expert 
-    description: I bulild 5-6 solution using php, I used php codeigniter, laravel to build those solution, they are, HR-Management System, Directory Management System, Employee management System, School Management System , etc..
+    description: >-
+      I bulild 5-6 solution using php, I used php codeigniter, 
+      laravel to build those solution, they are, HR-Management System, 
+      Directory Management System, Employee management System, School Management System , etc..
   - 
     title: Database Programming
     type: expert 
-    description: Modern day's programming without database is unbeliveable, I have extertise in SQL, Postgresql, and In Mongodb. I can easily made dicision about which kind of database will be use for out solution.  
+    description: >- 
+      Modern day's programming without database is unbeliveable, 
+      I have extertise in SQL, Postgresql, and In Mongodb. 
+      I can easily made dicision about which kind of database will be use for out solution.  
   - 
     title: Data Visualization and Charting
     type: intermediate 
-    description: In modern day solution, without at a glance visulalization is impossible, I have experiecne building different kind of visualization. Which make our application more attractive and easier to understand. 
+    description: >- 
+      In modern day solution, without at a glance visulalization is impossible, 
+      I have experiecne building different kind of visualization. 
+      Which make our application more attractive and easier to understand. 
   - 
     title: Python, Flask, Django
     type: expert 
-    description: Python is a very suffisticated tool to develop solution quickly and reliably. There are thousand of pacakages for helping us quick development. 
+    description: >- 
+      Python is a very suffisticated tool to develop solution quickly and reliably. 
+      There are thousand of pacakages for helping us quick development. 
   - 
     title: Wordpress Development
     type: expert 
-    description: In modern day, there 25% of website build on wordpress, I have experience in wordpress customization, theme and plugin development. 
+    description: >- 
+      In modern day, there 25% of website build on wordpress, 
+      I have experience in wordpress customization, theme and plugin development. 
   - 
     title: Mobile App Development
     type: intermediate 
-    description: I Build Mobile application very ofthen, sometimes i use ionic, somtimes nativescript, but recently i'm using flutter, With flutter i can develop application very quickly , it is native and very fast compare to other compititor of it's. And It's also make cross platform application which is win win.  
+    description: >- 
+      I Build Mobile application very ofthen, sometimes i use ionic, 
+      somtimes nativescript, but recently i'm using flutter, With flutter 
+      i can develop application very quickly , it is native and very fast compare 
+      to other compititor of it's. And It's also make cross platform application which is win win.  
   - 
     title: Continuous Integration
     type: basic 
-    description: Continuous integration is the backbone of very large scale application. cause in very large scale app if . 
+    description: >- 
+      Continuous integration is the backbone of very large scale application. 
+      cause in very large scale app if . 
   - 
     title: Docker
     type: basic 
-    description: Docker is a very nice technology to work with. It help us to solve, i't work on my pc problem and it is very fast than virtual matchine.  
+    description: >- 
+      Docker is a very nice technology to work with. It help us to solve, 
+      i't work on my pc problem and it is very fast than virtual matchine.  
   - 
-    title: Electron
+    title: Desktop Application Development
     type: basic 
-    description: To build cross platform desktop application i use electron, it allow me to use html, css as ui language and javascript as programming language, it easy, fast and relaiable. 
+    description: >- 
+      To build cross platform desktop application i use electron, 
+      it allow me to use html, css as ui language and javascript as programming language, 
+      it easy, fast and relaiable. 
 
 
 # My Hobby
 hobbies: 
   - 
     title: Cycle riding
-    description: I love to ride cycle. 
+    description: >- 
+      I love to ride cycle. 
   - 
     title: Book Reading
-    description: I love to read book, my favorite write is Arthur Conan Doyle, Humayn Ahmed, And I love poetry of Kazi Nozrul Islam and Robindronath. 
+    description: >- 
+      I love to read book, my favorite write is Arthur Conan Doyle, 
+      Humayn Ahmed, And I love poetry of Kazi Nozrul Islam and Robindronath. 
   - 
     title: Travelling
-    description: Travelling in different place. 
+    description: >-
+      Travelling in different place. 
+
 
 # Articles or My thought Publish on Platform 
 articles: 
-  # - 
-  #   title: Main Key Of Software Development
-  #   link: https://getbootstrap.com/docs/4.3/getting-started/download/
-  #   description: In this Topic I try to clearify the base misconception about software engineering
+  - 
+    title: Main Key Of Software Development
+    link: https://getbootstrap.com/docs/4.3/getting-started/download/
+    description: In this Topic I try to clearify the base misconception about software engineering
 
+
+linkedin: "https://www.linkedin.com/in/kousheralam/"
+cvlink: "https://drive.google.com/file/d/1EuWTBF1UwEP-cf3I92zeqhEhdGxLhATX/view?usp=sharing" 
 
 
 # Assests description 
@@ -106,14 +174,12 @@ sass:
 plugins:
   - jekyll-feed
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
