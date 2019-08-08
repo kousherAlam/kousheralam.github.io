@@ -9,6 +9,13 @@ function fixedmainMenuOnTop(){
     imageLink = _('main-menu-image'),
     sizeToCompare = parseInt(getComputedStyle(_("main-header")).height) + 10;
     function fixedOnTop(){
+        if(window.innerWidth <= 768){
+            mainMenu.classList.add(fiexToTopClass);
+            mainMenu.classList.add(shadowClass);
+            imageLink.classList.remove("d-none");
+            isOnFixed = true;
+            return;
+        }
         var x = window.pageYOffset;
         if(x >= sizeToCompare){
             if(!isOnFixed){
@@ -25,6 +32,7 @@ function fixedmainMenuOnTop(){
         }
     }
 
+    fixedOnTop();
     window.addEventListener("scroll", fixedOnTop);
     window.addEventListener("resize", function(){
         sizeToCompare = parseInt(getComputedStyle(_("main-header")).height);
@@ -34,6 +42,20 @@ function fixedmainMenuOnTop(){
 
 (function(){
     fixedmainMenuOnTop();
+    _("shade").addEventListener("click", function(){
+        _("mobile-menu").classList.add("d-none");
+        _("mobile-menu").classList.add("d-sm-none");
+        this.classList.add("d-none");
+        this.classList.remove("d-sm-block");
+    });
+
+    _("open_menu_btn").addEventListener("click", function(){
+        _("mobile-menu").classList.remove("d-none");
+        _("mobile-menu").classList.remove("d-sm-none");
+        _("shade").classList.remove("d-none");
+        _("shade").classList.add("d-block");
+    });
+    
     var firebaseConfig = {
         apiKey: "AIzaSyDJPI-v3nsTE5eXSTEE1nhcFlCesj_A5UQ",
         authDomain: "mypersonalsite-451454.firebaseapp.com",
