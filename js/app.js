@@ -1,6 +1,39 @@
 
+function _(id){return document.getElementById(id);}
+
+function fixedmainMenuOnTop(){
+    isOnFixed = false,
+    fiexToTopClass = "fixed-top", 
+    shadowClass = "shadow", 
+    mainMenu = _("main-menu"),
+    imageLink = _('main-menu-image'),
+    sizeToCompare = parseInt(getComputedStyle(_("main-header")).height) + 10;
+    function fixedOnTop(){
+        var x = window.pageYOffset;
+        if(x >= sizeToCompare){
+            if(!isOnFixed){
+                mainMenu.classList.add(fiexToTopClass);
+                mainMenu.classList.add(shadowClass);
+                imageLink.classList.remove("d-none");
+                isOnFixed = true;
+            }
+        } else {
+            mainMenu.classList.remove(fiexToTopClass);
+            mainMenu.classList.remove(shadowClass);
+            imageLink.classList.add("d-none");
+            isOnFixed = false;
+        }
+    }
+
+    window.addEventListener("scroll", fixedOnTop);
+    window.addEventListener("resize", function(){
+        sizeToCompare = parseInt(getComputedStyle(_("")).height);
+        fixedOnTop();
+    });
+}
 
 (function(){
+    fixedmainMenuOnTop();
     var firebaseConfig = {
         apiKey: "AIzaSyDJPI-v3nsTE5eXSTEE1nhcFlCesj_A5UQ",
         authDomain: "mypersonalsite-451454.firebaseapp.com",
@@ -12,15 +45,6 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
-    function _(id){return document.getElementById(id);}
-    function addClass(element){
-        
-    }
-    function removeClass(element){}
-    function show(element){}
-    function hide(element){}
-    function sendMessage(element){}
 
 
     (function(){
