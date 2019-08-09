@@ -6,6 +6,8 @@ function fixedmainMenuOnTop(){
     fiexToTopClass = "fixed-top", 
     shadowClass = "shadow", 
     mainMenu = _("main-menu"),
+    mainContent = _("main-content"),
+    skills = _("skills"),
     imageLink = _('main-menu-image'),
     sizeToCompare = parseInt(getComputedStyle(_("main-header")).height) + 10;
     function fixedOnTop(){
@@ -13,6 +15,8 @@ function fixedmainMenuOnTop(){
             mainMenu.classList.add(fiexToTopClass);
             mainMenu.classList.add(shadowClass);
             imageLink.classList.remove("d-none");
+            mainContent.classList.add("mt-5");
+            skills.classList.add("pt-5");
             isOnFixed = true;
             return;
         }
@@ -22,11 +26,15 @@ function fixedmainMenuOnTop(){
                 mainMenu.classList.add(fiexToTopClass);
                 mainMenu.classList.add(shadowClass);
                 imageLink.classList.remove("d-none");
+                mainContent.classList.add("mt-5");
+                skills.classList.add("pt-5");
+                skills.classList.remove("pt-5");
                 isOnFixed = true;
             }
         } else {
             mainMenu.classList.remove(fiexToTopClass);
             mainMenu.classList.remove(shadowClass);
+            mainContent.classList.remove("mt-5");
             imageLink.classList.add("d-none");
             isOnFixed = false;
         }
