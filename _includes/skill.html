@@ -1,6 +1,6 @@
 <div class="container-fluid max-width pt-5 pb-5">
     <div class="row">
-        <div class="col-12 mb-3 text-white"><span class="lead">My Skills</span></div>
+        <div class="col-12 mb-3 text-white text-center mb-5 h2 pb-2 border-bottom"><span class="h2 font-weight-light">My Skills</span></div>
         <div class="col-12 skill-holder row">
             {% for skill in site.skills %}
             <div class="col-12 col-sm-6 col-md-4 col-xl-3">
@@ -13,7 +13,7 @@
                     </div>
                     <div class="pb-4 d-block"></div>
                     
-                    <button {% if skill.projects.size < 0 %} disabled{% endif %} class="btn btn-block btn-link" sheet-toggle="{{skill.id}}">Details</button>
+                    <button class="btn btn-block btn-link {% if skill.projects.size < 1 %} btn-disabled {% endif %}" sheet-toggle="{{skill.id}}">Details</button>
                 </div>
             </div>
             {% if skill.projects.size > 0 %}
@@ -26,7 +26,7 @@
                                     <span class="font-weight-bold lead">{{skill.title}} Project\s</span>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <button class="btn btn-outline-danger">Close</button>
+                                    <button class="btn btn-outline-danger"  sheet-close="{{skill.id}}">Close</button>
                                 </div>
                             </div>
                         </div>

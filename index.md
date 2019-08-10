@@ -20,9 +20,6 @@ layout: home
     {% include article.html %}
 </div>
 
-<div class="hobby-container">
-    {% include hobby.html %}
-</div>
 
 <div class="contact-form-container">
     {% include contact.html %}

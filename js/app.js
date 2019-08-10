@@ -60,7 +60,20 @@ function showSkillsDetails(){
                 projects.classList.remove("d-none");
                 projects.classList.add("d-block");
             }
-            console.log("clicked");
+        });
+    }
+
+
+    var close_element = document.querySelectorAll("[sheet-close]");
+    for(var i=0; i<close_element.length; i++){
+        close_element[i].addEventListener("click", function(){
+            var element_id = this.getAttribute("sheet-close");
+            var projects= _(element_id);
+            if(projects){
+                document.body.classList.remove("overflow-hidden");
+                projects.classList.remove("d-block");
+                projects.classList.add("d-none");
+            }
         });
     }
 }
