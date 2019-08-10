@@ -48,8 +48,26 @@ function fixedmainMenuOnTop(){
     });
 }
 
+
+function showSkillsDetails(){
+    var buttons = document.querySelectorAll("[sheet-toggle]");
+    for(var i=0; i<buttons.length; i++){
+        buttons[i].addEventListener("click", function(){
+            var element_id = this.getAttribute("sheet-toggle");
+            var projects= _(element_id);
+            if(projects){
+                document.body.classList.add("overflow-hidden");
+                projects.classList.remove("d-none");
+                projects.classList.add("d-block");
+            }
+            console.log("clicked");
+        });
+    }
+}
+
 (function(){
     fixedmainMenuOnTop();
+    showSkillsDetails();
     var shade = _("shade"),
         close_menu_btn = _("close_menu_btn"),
         mobile_menu = _("mobile-menu"),

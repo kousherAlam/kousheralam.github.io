@@ -22,10 +22,7 @@ url: "https://kousheralam.github.io" # the base hostname & protocol for your sit
 twitter_username: jekyllrb
 github_username:  jekyll
 
-# Description
-skill_description: >- 
-  Here is my all skillset in which i've expertise and i'm confident , 
-  i can full fill any requirement in this skill.  
+
 
 experience_description: >- 
   Programming is always solving problem. 
@@ -52,11 +49,12 @@ contact_description: >-
 contact_hire_description: >-
   Do want to hire me ?? It's very easy, Just send message or hire on upwork. 
 
-# Journey 
+# My Skills List and Their Details 
 skills: 
   - 
+    id: front_end_development
     title: Front End Development
-    type: expert 
+    image: ''
     description: >- 
       I have over 2 year of experience working with angular react and vue. 
       I have in dept knowledge in rxjs, ngrx,redux,vux, axios and other library. 
@@ -64,73 +62,150 @@ skills:
       jekyll, and I also have experience in different css architecture such as triangle css, smacss
        architecture. I love to write my javascript code in typescript 
        as it give me complete type support and make our life more easire by detecting 
-       problem before hppening and made debugging easier. 
+       problem before hppening and made debugging easier.
+    projects: 
+      - 
+        project_name: CellMon
+        description: Some description about angular
+        my_responsibility: This was my responsiblity
+        team: true
+        technology: 
+          - 
+            skill_name: "Angular"
+            me: true
+      - 
+        project_name: CDAS
+        description: Some description about angular
+        my_responsibility: This was my responsiblity
+        team: true
+        technology: 
+          - 
+            skill_name: "Angular"
+      - 
+        project_name: DrinkWell
+        description: Some description about angular
+        my_responsibility: This was my responsiblity
+        team: true
+        technology: 
+          - 
+            skill_name: "Angular"
+            me: true
+      - 
+        project_name: IG100 Dashboard
+        description: Some description about angular
+        my_responsibility: This was my responsiblity
+        team: true
+        technology: 
+          - 
+            skill_name: "Angular"
+            me: true
+        
+
+
   - 
+    id: nodejs
     title: Nodejs
-    type: expert 
+    image: ''
     description: >- 
       Nodejs is very lightweight single threaded server side framework for javascript. 
       I have expertise knowledge in nodejs automation tools development, express and nest js. 
+    projects: 
+
+
+
   - 
+    id: php_development
     title: PHP Development
-    type: expert 
+    image: ''
     description: >-
       I bulild 5-6 solution using php, I used php codeigniter, 
       laravel to build those solution, they are, HR-Management System, 
       Directory Management System, Employee management System, School Management System , etc..
+    projects: 
+
+
   - 
+    id: database_programming
     title: Database Programming
-    type: expert 
+    image: ''
     description: >- 
       Modern day's programming without database is unbeliveable, 
       I have extertise in SQL, Postgresql, and In Mongodb. 
       I can easily made dicision about which kind of database will be use for out solution.  
+    projects: 
+
+
   - 
+    id: data_sualization
     title: Data Visualization
-    type: intermediate 
     description: >- 
       In modern day solution, without at a glance visulalization is impossible, 
       I have experiecne building different kind of visualization. 
       Which make our application more attractive and easier to understand. 
+    projects: 
+
+
   - 
+    id: python_flask_django
     title: Python, Flask, Django
-    type: expert 
+    image: ''
     description: >- 
       Python is a very suffisticated tool to develop solution quickly and reliably. 
       There are thousand of pacakages for helping us quick development. 
+    projects: 
+
+
   - 
+    id: wordpress_development
     title: Wordpress
-    type: expert 
+    image: ''
     description: >- 
       In modern day, there 25% of website build on wordpress, 
       I have experience in wordpress customization, theme and plugin development. 
+    projects: 
+
+
   - 
-    title: Mobile App 
-    type: intermediate 
+    id: mobile_app_development
+    title: Mobile App     
+    image: ''
     description: >- 
       I Build Mobile application very ofthen, sometimes i use ionic, 
       somtimes nativescript, but recently i'm using flutter, With flutter 
       i can develop application very quickly , it is native and very fast compare 
       to other compititor of it's. And It's also make cross platform application which is win win.
+    projects: 
+
+      
   - 
+    id: desktop_app_dev
     title: Desktop Application
-    type: basic 
+    image: ''
     description: >- 
       To build cross platform desktop application i use electron, 
       it allow me to use html, css as ui language and javascript as programming language, 
       it easy, fast and relaiable.   
+    projects: 
+
+
   - 
+    id: continuous_integration
     title: Continuous Integration
-    type: basic 
+    image: ''
     description: >- 
       Continuous integration is the backbone of very large scale application. 
       cause in very large scale app if . 
+    projects: 
+
+      
   - 
+    id: dockers
     title: Docker
-    type: basic 
+    image: ''
     description: >- 
       Docker is a very nice technology to work with. It help us to solve, 
       i't work on my pc problem and it is very fast than virtual matchine.  
+    projects: 
 
 
 # My Hobby

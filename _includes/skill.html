@@ -1,25 +1,70 @@
 <div class="container-fluid max-width pt-5 pb-5">
     <div class="row">
-        <div class="col-12">
-            <div class="topic-title">
-                <h2 class="title text-white">My Skills</h2>
-                <p class="description text-white-50">{{site.skill_description}}</p>
-            </div>
-        </div>
+        <div class="col-12 mb-3 text-white"><span class="lead">My Skills</span></div>
         <div class="col-12 skill-holder row">
             {% for skill in site.skills %}
             <div class="col-12 col-sm-6 col-md-4 col-xl-3">
                 <div class="skill card">
                     <div class="card-header pl-3 pr-3">
                         <span class="skill-name d-block">{{skill.title}}</span>
-                        <span class="skill-type d-block">{{skill.type}}</span>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body mb-0 pt-2">
                         {{skill.description}}
                     </div>
-                    <button class="btn btn-block btn-primary">Details</button>
+                    <div class="pb-4 d-block"></div>
+                    
+                    <button {% if skill.projects.size < 0 %} disabled{% endif %} class="btn btn-block btn-link" sheet-toggle="{{skill.id}}">Details</button>
                 </div>
             </div>
+            {% if skill.projects.size > 0 %}
+            <div id="{{skill.id}}" class="botton-sheet d-none">
+                <div class="sheet sheet-content pb-5">
+                    <div class="title bg-white">
+                        <div class="container-fluid max-width border-bottom">
+                            <div class="p-3 row">
+                                <div class="col-8">
+                                    <span class="font-weight-bold lead">{{skill.title}} Project\s</span>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <button class="btn btn-outline-danger">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overflow-auto main-project-content bg-white">
+                        <div class="container-fluid max-width mb-4">
+                            <ul class="projects list-group">
+                                {% for project in skill.projects %}
+                                <li class="list-group-item bg-dark text-white mb-2">
+                                    <div class="d-flex w-100 justify-content-between mb-3">
+                                        <h5 class="mb-1">{{project.project_name}}</h5>
+                                        {% if project.team %}
+                                            <span class="badge badge-primary">TEAM</span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="description">
+                                        <p class="proj_des mb-2 small">{{project.description}}</p>
+                                        <p class="my_responsibility small">
+                                            {% if project.team %}
+                                                <strong>My Responsibility: </strong>
+                                            {% endif %}
+                                            {{project.my_responsibility}}
+                                        </p>
+                                    </div>
+                                    <div class="technology">
+                                        {% for tech in project.technology %}
+                                            <span class="name {% if tech.me %} me {% endif %}">{{tech.skill_name}}</span>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="shade shade-container" sheet-close="{{skill.id}}"></div>
+            </div>
+            {% endif %}
             {% endfor %}
         </div>
     </div>
