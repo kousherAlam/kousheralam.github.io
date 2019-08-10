@@ -3,20 +3,27 @@ $intermediate-bg: #feffd4;
 $basic-bg: #ffd4d4;
 
 .skills-container {
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3f4c6b+0,3f4c6b+100;Blue+Grey+Flat */
-  background: rgb(63, 76, 107); /* Old browsers */
-  background: -moz-linear-gradient(top, rgba(63, 76, 107, 1) 0%, rgba(63, 76, 107, 1) 100%); /* FF3.6-15 */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+6,2e5c91+39,3f51b5+100 */
+  background: rgb(30, 87, 153); /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    rgba(30, 87, 153, 1) 6%,
+    rgba(46, 92, 145, 1) 39%,
+    rgba(63, 81, 181, 1) 100%
+  ); /* FF3.6-15 */
   background: -webkit-linear-gradient(
     top,
-    rgba(63, 76, 107, 1) 0%,
-    rgba(63, 76, 107, 1) 100%
+    rgba(30, 87, 153, 1) 6%,
+    rgba(46, 92, 145, 1) 39%,
+    rgba(63, 81, 181, 1) 100%
   ); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(
     to bottom,
-    rgba(63, 76, 107, 1) 0%,
-    rgba(63, 76, 107, 1) 100%
+    rgba(30, 87, 153, 1) 6%,
+    rgba(46, 92, 145, 1) 39%,
+    rgba(63, 81, 181, 1) 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#3f4c6b',GradientType=0 ); /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#3f51b5',GradientType=0 ); /* IE6-9 */
 }
 .skill {
   margin-bottom: 15px;

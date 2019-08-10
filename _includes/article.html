@@ -1,24 +1,17 @@
-<div class="container-fluid max-width">
-    <div class="row">
-        <div class="col-12">
-            <div class="topic-title">
-                <h2 class="title">Thinking</h2>
-                <p class="description">{{site.thinking_description}}</p>
-            </div>
-        </div>
-
-        <div class="col-12">
-            {% if site.articles.size > 0 %}
-                <div class="col-3 skill-holder">
+{% if site.articles.size > 0 %}
+<div class="container-fluid max-width mb-5">
+    <div class="card">
+        <div class="card-header">Thinking</div>
+        <div class="card-body">
+            <div class="list-group">
                     {% for article in site.articles %}
-                    <div class="full thinking shadow-sm p-3 mb-3">
-                        <p class="title m-0 font-weight-bold"><a target="_blank" href="{{article.link}}">{{article.title}}</a>
-                        </p>
-                        <p class="description">{{article.description}}</p>
-                    </div>
-                    {% endfor %}
-                </div>
-            {% endif %}
+                <a href="{{article.link}}" class="list-group-item list-group-item-action flex-column align-items-start mb-2">
+                    <p class="mb-1 font-weight-bold">{{article.title}}</p>
+                    <p class="mb-1 small">{{article.description}}</p>
+                </a>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
+{% endif %}

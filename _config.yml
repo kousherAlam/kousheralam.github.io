@@ -53,10 +53,53 @@ experiecnes:
       A School management system. Mainly for managing their student and teacher data.
       Work as a team lead. I Manage the team code complex part of the application.
 
-workprocess_description: >- 
-  Everyone has their own workprocess, somethimes we follow industry 
-  stundard workflow and guideline to made our work effectively and efficiently. 
-  In this section how i shared my workflow, i hope it will give you very good idea. 
+workprocess: 
+  - 
+    title: How I Build / Develop a Project 
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  - 
+    title: Discusssion And Finding Complexity
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  - 
+    title: How I Fix Bug or Improve Project
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  - 
+    title: Small Project
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  - 
+    title: Medium Project
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  - 
+    title: Large Project
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  - 
+    title: Project Development And Automation
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  - 
+    title: Production Build and Deployment
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  - 
+    title: Continuous Integration
+    description: >- 
+      When i start a project, i begain with the business. I think if i can understand the
+      business properly then it will made working with project much easier.
+  
 
 thinking_description: >- 
   Sometimes i love to share my knowledge with others, it's enable me 
