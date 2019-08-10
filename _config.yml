@@ -23,12 +23,35 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 
-
-experience_description: >- 
-  Programming is always solving problem. 
-  And when we work togather in a team, 
-  or solve large scale problem, we can understand verity of problem and their best solution,
-  i have 4+ years of experices in this path.   
+experiecnes: 
+  - 
+    company_name: Nybsys 
+    website: https://nybsys.com 
+    start: July 15 2017
+    end: Currently Working Here
+    position: Web Developer
+    description: >-
+      Nybsys is a multinational company they are mainly focus on iot and machine
+      learning. My responsibility here is develop new optimized client application for their existing
+      software and iot device control panel. I also develop website for them if necessary.
+  - 
+    company_name: AtiqeIT
+    website: https://www.facebook.com/atiqueit/
+    start: March 2017
+    end: June 2017
+    position: PHP Programmer
+    description: >-
+      A Web development base company my main work area was, develop new feature for
+      their client use php - codeigniter framework.
+  - 
+    company_name: ugdm.gov.edu
+    website: https://nybsys.com 
+    start: 2016
+    end: 2017
+    position: Web Developer
+    description: >-
+      A School management system. Mainly for managing their student and teacher data.
+      Work as a team lead. I Manage the team code complex part of the application.
 
 workprocess_description: >- 
   Everyone has their own workprocess, somethimes we follow industry 
