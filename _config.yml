@@ -66,7 +66,7 @@ skills:
        as it give me complete type support and make our life more easire by detecting 
        problem before hppening and made debugging easier. 
   - 
-    title: NodeJS, express and nestjs
+    title: Nodejs
     type: expert 
     description: >- 
       Nodejs is very lightweight single threaded server side framework for javascript. 
@@ -86,7 +86,7 @@ skills:
       I have extertise in SQL, Postgresql, and In Mongodb. 
       I can easily made dicision about which kind of database will be use for out solution.  
   - 
-    title: Data Visualization and Charting
+    title: Data Visualization
     type: intermediate 
     description: >- 
       In modern day solution, without at a glance visulalization is impossible, 
@@ -99,19 +99,26 @@ skills:
       Python is a very suffisticated tool to develop solution quickly and reliably. 
       There are thousand of pacakages for helping us quick development. 
   - 
-    title: Wordpress Development
+    title: Wordpress
     type: expert 
     description: >- 
       In modern day, there 25% of website build on wordpress, 
       I have experience in wordpress customization, theme and plugin development. 
   - 
-    title: Mobile App Development
+    title: Mobile App 
     type: intermediate 
     description: >- 
       I Build Mobile application very ofthen, sometimes i use ionic, 
       somtimes nativescript, but recently i'm using flutter, With flutter 
       i can develop application very quickly , it is native and very fast compare 
-      to other compititor of it's. And It's also make cross platform application which is win win.  
+      to other compititor of it's. And It's also make cross platform application which is win win.
+  - 
+    title: Desktop Application
+    type: basic 
+    description: >- 
+      To build cross platform desktop application i use electron, 
+      it allow me to use html, css as ui language and javascript as programming language, 
+      it easy, fast and relaiable.   
   - 
     title: Continuous Integration
     type: basic 
@@ -124,13 +131,6 @@ skills:
     description: >- 
       Docker is a very nice technology to work with. It help us to solve, 
       i't work on my pc problem and it is very fast than virtual matchine.  
-  - 
-    title: Desktop Application Development
-    type: basic 
-    description: >- 
-      To build cross platform desktop application i use electron, 
-      it allow me to use html, css as ui language and javascript as programming language, 
-      it easy, fast and relaiable. 
 
 
 # My Hobby

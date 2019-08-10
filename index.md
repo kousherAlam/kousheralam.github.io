@@ -4,10 +4,10 @@
 title: Kousher Alam -- Full Stack Developer
 layout: home
 ---
-<div class="single-row">
+<div class="skills-container"  id="skills">
     {% include skill.html %}
 </div>
-<div class="single-row">
+<div class="experience-container">
     {% include experience.html %}
 </div>
 
@@ -16,15 +16,15 @@ layout: home
 
 
 
-<div class="single-row">
+<div class="article-container">
     {% include article.html %}
 </div>
 
-<div class="single-row">
+<div class="hobby-container">
     {% include hobby.html %}
 </div>
 
-<div class="single-row">
+<div class="contact-form-container">
     {% include contact.html %}
 </div>
 

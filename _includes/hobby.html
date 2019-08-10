@@ -1,11 +1,12 @@
-<div class="row" id="hobby">
-    <div class="col-3">
+<div class="container-fluid max-width" id="hobby">
+    <div class="row">
+    <div class="col-12">
         <div class="topic-title">
             <h2 class="title">My Hobby</h2>
             <p class="description">{{site.hobby_description}}</p>
         </div>
     </div>
-    <div class="col-9 hobby-holder">
+    <div class="col-12 hobby-holder">
             {% for hobby in site.hobbies %}
             <div class="full hobby shadow-sm p-3 mb-3">
                 <p class="title font-weight-bold m-0">{{hobby.title}}</p>
@@ -13,4 +14,5 @@
             </div>
         {% endfor %}
     </div>
+</div>
 </div>

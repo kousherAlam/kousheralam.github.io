@@ -1,61 +1,41 @@
-$expert-bg : #d4ffd7;
-$intermediate-bg : #feffd4;
-$basic-bg : #ffd4d4;
+$expert-bg: #d4ffd7;
+$intermediate-bg: #feffd4;
+$basic-bg: #ffd4d4;
 
-.skill-holder{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.skills-container {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3f4c6b+0,3f4c6b+100;Blue+Grey+Flat */
+  background: rgb(63, 76, 107); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(63, 76, 107, 1) 0%, rgba(63, 76, 107, 1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(63, 76, 107, 1) 0%,
+    rgba(63, 76, 107, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(63, 76, 107, 1) 0%,
+    rgba(63, 76, 107, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f4c6b', endColorstr='#3f4c6b',GradientType=0 ); /* IE6-9 */
 }
-.skill{
-    margin-bottom: 15px;
-    .description{
-        font-size: .8em;
-        margin: 0px;
-        color: #495057;
+.skill {
+  margin-bottom: 15px;
+  .description {
+    font-size: 0.8em;
+    margin: 0px;
+    color: #495057;
+  }
+  &.card {
+    .card-body {
+      height: 200px;
+      overflow: auto;
     }
+  }
 }
 
-.squre{
-    height: 15px;
-    width: 15px;
-    display: inline-block;
-    margin-right: 15px;
-    border: 1px solid black;
+.skill-name {
+  font-size: 1.3em;
 }
-.squre.expert {
-    background: $expert-bg;
-}
-.squre.intermediate{
-    background: $intermediate-bg;
-}
-.squre.basic{
-    background: $basic-bg;
-}
-
-.indentifier{
-    .type-bg{
-        width: 15px;
-        height: 15px;
-        display: inline-block;
-        border: 1px solid black;
-    }
-    .type-name{
-        font-size: 1.1em;
-    }
-    .basic{
-        .type-bg{
-            background-color: $basic-bg; 
-        }
-    }
-    .intermediate{
-        .type-bg{
-            background-color: $intermediate-bg;
-        }
-    }
-    .expert{
-        .type-bg{
-            background-color: $expert-bg;
-        }
-    }
+.skill-type {
+  font-size: 0.7em;
 }
