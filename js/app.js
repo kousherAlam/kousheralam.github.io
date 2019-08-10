@@ -1,5 +1,14 @@
 
 function _(id){return document.getElementById(id);}
+function cssShow(element){
+    element.classList.remove("d-none");
+    element.classList.add("d-block");
+}
+
+function cssHide(element){
+    element.classList.remove("d-block");
+    element.classList.add("d-none");
+}
 
 function fixedmainMenuOnTop(){
     isOnFixed = false,
@@ -109,6 +118,30 @@ function showSkillsDetails(){
     close_menu_btn.addEventListener("click", closeMenu);
     open_menu_btn.addEventListener("click", openMenu);
 
+
+    var contact_mesage_btn = _("contact_mesage_ok"),
+        contact_message_holder = _("confrim-message-holder"),
+        contact_message = _("confirm_message"),
+        contact_form_loader = _("loader");
+    
+    function showLoading(){
+        cssHide(contact_message_holder);
+        cssShow(contact_form_loader);
+    }
+
+    function showConfirmMessage(message){
+        contact_message.innerHTML = message;
+        cssShow(contact_message_holder);
+        cssHide(contact_form_loader);
+    }
+
+
+    contact_mesage_btn.addEventListener("click", function(){
+        cssHide(contact_message_holder);
+        cssHide(contact_form_loader);
+    });
+
+
     var firebaseConfig = {
         apiKey: "AIzaSyDJPI-v3nsTE5eXSTEE1nhcFlCesj_A5UQ",
         authDomain: "mypersonalsite-451454.firebaseapp.com",
@@ -131,10 +164,10 @@ function showSkillsDetails(){
 
         var email = _("email"), 
             name = _("name"),
-            message = _("message"),
-            sendReply = _("reply"); 
+            message = _("message"); 
         
         var db = firebase.firestore();
+
         contactForm.addEventListener("submit", function(event){
             event.preventDefault();
             if(email.value.trim().lenght < 5){
@@ -150,21 +183,20 @@ function showSkillsDetails(){
                 return false;
             }
 
-            document.body.classList.add(overflow)
-            messageContainer.classList.add(open);
+            showLoading();
             db.collection("messages").add({
                 email: email.value,
                 message: message.value,
                 name: name.value, 
                 browser: window.navigator.userAgent,
-                reply: !sendReply.getAttribute('checked'),
+                reply: false,
                 created_at: new Date(),
             })
             .then(function(docRef) {
-                alert("Successfully Message Sended!");
+                showConfirmMessage("Your message successfully sended. Thankyou for your interest.");
             })
             .catch(function(error) {
-                alert("Error Happend");
+                showConfirmMessage("Your message not sended. Please resend after some time.");
             }).then(function(){
                 messageContainer.classList.remove(open); 
                 document.body.classList.remove(overflow);

@@ -15,7 +15,7 @@
                     </div>
                     <div class="pb-4 d-block"></div>
                     
-                    <button class="btn btn-block btn-link {% if skill.projects.size < 1 %} btn-disabled {% endif %}" sheet-toggle="{{skill.id}}">Details</button>
+                    <button class="btn btn-block btn-link {% if skill.projects.size == 0 %} btn-disabled {% endif %}" sheet-toggle="{{skill.id}}">Details</button>
                 </div>
             </div>
             {% if skill.projects.size > 0 %}
@@ -25,7 +25,7 @@
                         <div class="container-fluid max-width border-bottom">
                             <div class="p-3 row">
                                 <div class="col-8">
-                                    <span class="font-weight-bold lead">{{skill.title}} Project\s</span>
+                                    <span class="font-weight-bold lead">{{skill.title}} {% if skill.projects.size == 1 %} Project {% elsif skill.projects.size > 1 %} Projects {%endif%}</span>
                                 </div>
                                 <div class="col-4 text-right">
                                     <button class="btn btn-outline-danger"  sheet-close="{{skill.id}}">Close</button>
