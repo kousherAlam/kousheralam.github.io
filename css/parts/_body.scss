@@ -1,26 +1,6 @@
 body {
-    overflow-x: hidden;
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#cb60b3+0,ad1283+50,de47ac+100;Pink+3D */
-  background: rgb(203, 96, 179); /* Old browsers */
-  background: -moz-linear-gradient(
-    top,
-    rgba(203, 96, 179, 1) 0%,
-    rgba(173, 18, 131, 1) 50%,
-    rgba(222, 71, 172, 1) 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    rgba(203, 96, 179, 1) 0%,
-    rgba(173, 18, 131, 1) 50%,
-    rgba(222, 71, 172, 1) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgba(203, 96, 179, 1) 0%,
-    rgba(173, 18, 131, 1) 50%,
-    rgba(222, 71, 172, 1) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#de47ac',GradientType=0 ); /* IE6-9 */
+  overflow-x: hidden;
+  background: white;
 }
 
 .max-width {
