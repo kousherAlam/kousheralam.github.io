@@ -1,7 +1,6 @@
 title: Kousher Alam -- Full Stack Developer
 email: kousheralampranto@gmail.com
 description: >- # this means to ignore newlines until next property 
-
   I love to code, have experience with large architecture design 
   for front end application, web development and mobile application development.  
   I believe code must be maintainable, scaleable and  readable in 5 
@@ -53,27 +52,22 @@ experiecnes:
       A School management system. Mainly for managing their student and teacher data.
       Work as a team lead. I Manage the team code complex part of the application.
 
+"
 workprocess: 
   - 
-    title: How I Build / Develop a Project 
+    title: How I Find Project Size and Complexity
     description: >- 
-      When i start a project, i begain with the business. I think if i can understand the
-      business properly then it will made working with project much easier.
-  - 
-    title: Discusssion And Finding Complexity
-    description: >- 
-      When i start a project, i begain with the business. I think if i can understand the
-      business properly then it will made working with project much easier.
+      Every project start with a discussion, in that discussion we can determine the initial feature
+      and also we can understand the project. is it small, medium or big and it's complexity lavel. 
   - 
     title: How I Fix Bug or Improve Project
     description: >- 
-      When i start a project, i begain with the business. I think if i can understand the
-      business properly then it will made working with project much easier.
+      To fix bug in a project if the project does not done by me then. i work with incremental changes. 
+      Small fix at a time and very careful checking in every small fix. 
   - 
     title: Small Project
     description: >- 
-      When i start a project, i begain with the business. I think if i can understand the
-      business properly then it will made working with project much easier.
+      If the project is small, if first draw the project pattern and made modularization chart. then 
   - 
     title: Medium Project
     description: >- 
@@ -99,15 +93,7 @@ workprocess:
     description: >- 
       When i start a project, i begain with the business. I think if i can understand the
       business properly then it will made working with project much easier.
-  
-
-thinking_description: >- 
-  Sometimes i love to share my knowledge with others, it's enable me 
-  to share my prospective with others and also justify my idea on public.
-
-hobby_description: >- 
-  In my free time i spend my time on my hobby, it 
-  give me courage and remove my all failure and Frustration. 
+"
 
 contact_description: >- 
   If you want to share your idea/plan with me. or want to talk with me about something, 
@@ -289,17 +275,17 @@ hobbies:
     description: >-
       Travelling in different place. 
 
-
+"
 # Articles or My thought Publish on Platform 
 articles: 
   - 
     title: Main Key Of Software Development
     link: https://getbootstrap.com/docs/4.3/getting-started/download/
     description: In this Topic I try to clearify the base misconception about software engineering
+"
 
-
-linkedin: "https://www.linkedin.com/in/kousheralam/"
-cvlink: "https://drive.google.com/file/d/1EuWTBF1UwEP-cf3I92zeqhEhdGxLhATX/view?usp=sharing" 
+linkedin: https://www.linkedin.com/in/kousheralam/
+cvlink: https://drive.google.com/file/d/1EuWTBF1UwEP-cf3I92zeqhEhdGxLhATX/view?usp=sharing
 
 
 # Assests description 
