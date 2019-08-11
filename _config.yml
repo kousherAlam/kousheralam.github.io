@@ -117,38 +117,61 @@ skills:
     projects: 
       - 
         project_name: CellMon
-        description: Some description about angular
-        my_responsibility: This was my responsiblity
+        description: CellMon is a tracking system, by this system one can know someone current position using the service. Feature included, GeoFencing, Monitoring, History, Routes, Servillence
+        my_responsibility: I Develop the front end using angular, and we use google map api for ploating user and help admin visualize user position. 
         team: true
         technology: 
           - 
             skill_name: "Angular"
             me: true
+          - 
+            skill_name: "ngRx"
+            me: true
+          - 
+            skill_name: "Google Map"
+            me: true
+          - 
+            skill_name: "Dot Net Core"
+            me: false
       - 
         project_name: CDAS
-        description: Some description about angular
-        my_responsibility: This was my responsiblity
-        team: true
-        technology: 
-          - 
-            skill_name: "Angular"
-      - 
-        project_name: DrinkWell
-        description: Some description about angular
-        my_responsibility: This was my responsiblity
+        description: Central Deduction System. 
+        my_responsibility: Develop the Front-end. First in Angular.js Then in Angular. 
         team: true
         technology: 
           - 
             skill_name: "Angular"
             me: true
+          - 
+            skill_name: "Dot net Core"
+            me: false
+            
       - 
-        project_name: IG100 Dashboard
-        description: Some description about angular
-        my_responsibility: This was my responsiblity
+        project_name: DrinkWell
+        description: Drinkwell is a technology platform for clean water. Our technology is embedded within water infrastructure purifying millions of liters of water every month, worldwide.
+        my_responsibility: Develop admin dashboard for controlling different booth. 
         team: true
         technology: 
           - 
             skill_name: "Angular"
+            me: true
+          - 
+            skill_name: "Dot net Core"
+            me: false
+      - 
+        project_name: IG100 Dashboard
+        description: The iG100 is an entry level general purpose IoT gateway to connect fusions of sensors, collects signals and internally process those signal and transmit to aggregators or cloud based platform
+        my_responsibility: Write service for communcate with user, and develop the dashboard in anglar
+        team: true
+        technology: 
+          - 
+            skill_name: "Angular"
+            me: true
+          - 
+            skill_name: "State Management"
+            me: true
+          - 
+            skill_name: "Lua Scripting"
             me: true
         
 
