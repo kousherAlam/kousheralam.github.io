@@ -24,7 +24,7 @@ function fixedmainMenuOnTop(){
             mainMenu.classList.add(fiexToTopClass);
             mainMenu.classList.add(shadowClass);
             imageLink.classList.remove("d-none");
-            mainContent.classList.add("mt-5");
+            mainContent.classList.add("mt-md-5");
             skills.classList.add("pt-5");
             isOnFixed = true;
             return;
@@ -35,7 +35,7 @@ function fixedmainMenuOnTop(){
                 mainMenu.classList.add(fiexToTopClass);
                 mainMenu.classList.add(shadowClass);
                 imageLink.classList.remove("d-none");
-                mainContent.classList.add("mt-5");
+                mainContent.classList.add("mt-md-5");
                 skills.classList.add("pt-5");
                 skills.classList.remove("pt-5");
                 isOnFixed = true;
@@ -43,7 +43,7 @@ function fixedmainMenuOnTop(){
         } else {
             mainMenu.classList.remove(fiexToTopClass);
             mainMenu.classList.remove(shadowClass);
-            mainContent.classList.remove("mt-5");
+            mainContent.classList.remove("mt-md-5");
             imageLink.classList.add("d-none");
             isOnFixed = false;
         }

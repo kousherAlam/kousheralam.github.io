@@ -26,6 +26,10 @@
                             <div class="p-3 row">
                                 <div class="col-8">
                                     <span class="font-weight-bold lead">{{skill.title}} {% if skill.projects.size == 1 %} Project {% elsif skill.projects.size > 1 %} Projects {%endif%}</span>
+                                    <span class="d-block technology">
+                                        <span class="mr-1 name me text-white">Done By Me</span>
+                                        <span class="name">Not Done By Me</span>
+                                    </span>
                                 </div>
                                 <div class="col-4 text-right">
                                     <button class="btn btn-outline-danger"  sheet-close="{{skill.id}}">Close</button>
