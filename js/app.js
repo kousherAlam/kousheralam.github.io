@@ -114,9 +114,15 @@ function showSkillsDetails(){
         allLinks[i].addEventListener("click", closeMenu);
     }
 
-    shade.addEventListener("click", closeMenu);
-    close_menu_btn.addEventListener("click", closeMenu);
-    open_menu_btn.addEventListener("click", openMenu);
+    if(shade){
+        shade.addEventListener("click", closeMenu);
+    }
+    if(close_menu_btn){
+        close_menu_btn.addEventListener("click", closeMenu);
+    }
+    if(open_menu_btn){
+        open_menu_btn.addEventListener("click", openMenu);
+    }
 
 
     var contact_mesage_btn = _("contact_mesage_ok"),

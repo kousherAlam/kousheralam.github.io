@@ -7,7 +7,7 @@ layout: home
 <div class="skills-container"  id="skills">
     {% include skill.html %}
 </div>
-<div class="experience-container">
+<div class="experience-container" id="experience">
     {% include experience.html %}
 </div>
 
@@ -16,12 +16,12 @@ layout: home
 
 
 
-<div class="article-container">
+<div class="article-container" id="article">
     {% include article.html %}
 </div>
 
 
-<div class="contact-form-container">
+<div class="contact-form-container" id="contact">
     {% include contact.html %}
 </div>
 

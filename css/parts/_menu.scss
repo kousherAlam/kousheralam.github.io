@@ -6,6 +6,21 @@
         }
     }
 }
+.menubar{
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    height: 50px;
+    background: white;
+    z-index: 999;
+    padding-top: 9px;
+
+    .other-menubutton{
+        position: relative;
+        top: -12px;
+    }
+}
 
 .fixed-top{
     .navbar{
@@ -18,10 +33,6 @@
     }
 }
 .menu-btn{
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    z-index: 8;
     svg{
         width: 20px;
         fill: white;
@@ -52,6 +63,10 @@
     }
     img{
         height: 120px;
+    }
+    .other-menubutton{
+        position: relative;
+        top: -12px;
     }
 }
 

@@ -14,8 +14,11 @@
                         {{skill.description}}
                     </div>
                     <div class="pb-4 d-block"></div>
-                    
-                    <button class="btn btn-block btn-link {% if skill.projects.size == 0 %} btn-disabled {% endif %}" sheet-toggle="{{skill.id}}">Details</button>
+                    {% if skill.projects.size > 0 0 %}
+                        <button class="btn btn-block btn-link" sheet-toggle="{{skill.id}}">Details</button>
+                    {% else %}    
+                        <button class="btn btn-block btn-link text-muted" disabled sheet-toggle="{{skill.id}}">Details</button>
+                    {% endif %}
                 </div>
             </div>
             {% if skill.projects.size > 0 %}

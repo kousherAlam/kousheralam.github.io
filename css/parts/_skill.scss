@@ -68,12 +68,18 @@ $basic-bg: #ffd4d4;
         top: auto;
         bottom: 0px;
         z-index: 2;
-        background-color: #3F51B5;
+        background-color: white;
     }
     .main-project-content{
         padding-top: 15px;
         height: 100vh;
-        max-height: 750px;
+        max-height: 83%;
+        @media(min-width: 400px){
+          max-height: 88%;
+        }
+        @media(min-width: 500px){
+          max-height: 90%;
+        }
     }
 }
 
