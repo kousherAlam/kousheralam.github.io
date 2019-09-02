@@ -1,6 +1,6 @@
 title: Kousher Alam -- Full Stack Developer
 email: kousheralampranto@gmail.com
-description: >- # this means to ignore newlines until next property 
+description: >- # this means to ignore newlines until next property
   I love to code, have experience with large architecture design 
   for front end application, web development and mobile application development.  
   I believe code must be maintainable, scaleable and  readable in 5 
@@ -13,19 +13,16 @@ sub_description: >-
   I love automation scripts and tools very much as they simplify boaring task, 
   and create time by doing repetative task. 
 
-
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://kousheralam.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
-# Url And Links 
+# Url And Links
 twitter_username: jekyllrb
-github_username:  jekyll
+github_username: jekyll
 
-
-experiecnes: 
-  - 
-    company_name: Nybsys 
-    website: https://nybsys.com 
+experiecnes:
+  - company_name: Nybsys
+    website: https://nybsys.com
     start: July 15 2017
     end: Currently Working Here
     position: Web Developer
@@ -33,8 +30,7 @@ experiecnes:
       Nybsys is a multinational company they are mainly focus on iot and machine
       learning. My responsibility here is develop new optimized client application for their existing
       software and iot device control panel. I also develop website for them if necessary.
-  - 
-    company_name: AtiqeIT
+  - company_name: AtiqeIT
     website: https://www.facebook.com/atiqueit/
     start: March 2017
     end: June 2017
@@ -42,9 +38,8 @@ experiecnes:
     description: >-
       A Web development base company my main work area was, develop new feature for
       their client use php - codeigniter framework.
-  - 
-    company_name: ugdm.gov.edu
-    website: https://nybsys.com 
+  - company_name: ugdm.gov.edu
+    website: https://nybsys.com
     start: 2016
     end: 2017
     position: Web Developer
@@ -52,61 +47,57 @@ experiecnes:
       A School management system. Mainly for managing their student and teacher data.
       Work as a team lead. I Manage the team code complex part of the application.
 
-
-# workprocess: 
-#   - 
+# workprocess:
+#   -
 #     title: How I Find Project Size and Complexity
-#     description: >- 
+#     description: >-
 #       Every project start with a discussion, in that discussion we can determine the initial feature
-#       and also we can understand the project. is it small, medium or big and it's complexity lavel. 
-#   - 
+#       and also we can understand the project. is it small, medium or big and it's complexity lavel.
+#   -
 #     title: How I Fix Bug or Improve Project
-#     description: >- 
-#       To fix bug in a project if the project does not done by me then. i work with incremental changes. 
-#       Small fix at a time and very careful checking in every small fix. 
-#   - 
+#     description: >-
+#       To fix bug in a project if the project does not done by me then. i work with incremental changes.
+#       Small fix at a time and very careful checking in every small fix.
+#   -
 #     title: Small Project
-#     description: >- 
-#       If the project is small, if first draw the project pattern and made modularization chart. then 
-#   - 
+#     description: >-
+#       If the project is small, if first draw the project pattern and made modularization chart. then
+#   -
 #     title: Medium Project
-#     description: >- 
+#     description: >-
 #       When i start a project, i begain with the business. I think if i can understand the
 #       business properly then it will made working with project much easier.
-#   - 
+#   -
 #     title: Large Project
-#     description: >- 
+#     description: >-
 #       When i start a project, i begain with the business. I think if i can understand the
 #       business properly then it will made working with project much easier.
-#   - 
+#   -
 #     title: Project Development And Automation
-#     description: >- 
+#     description: >-
 #       When i start a project, i begain with the business. I think if i can understand the
 #       business properly then it will made working with project much easier.
-#   - 
+#   -
 #     title: Production Build and Deployment
-#     description: >- 
+#     description: >-
 #       When i start a project, i begain with the business. I think if i can understand the
 #       business properly then it will made working with project much easier.
-#   - 
+#   -
 #     title: Continuous Integration
-#     description: >- 
+#     description: >-
 #       When i start a project, i begain with the business. I think if i can understand the
 #       business properly then it will made working with project much easier.
 
-
-contact_description: >- 
+contact_description: >-
   If you want to share your idea/plan with me. or want to talk with me about something, 
   please let me know using the form below.  
 
-
-# My Skills List and Their Details 
-skills: 
-  - 
-    id: front_end_development
+# My Skills List and Their Details
+skills:
+  - id: front_end_development
     title: Front End Development
-    image: ''
-    description: >- 
+    image: ""
+    description: >-
       I have over 2 year of experience working with angular react and vue. 
       I have in dept knowledge in rxjs, ngrx,redux,vux, axios and other library. 
       I Have in dept knowledge in HTML5, CSS3, Diffeent templating laguage such as pug, markdown, 
@@ -114,203 +105,289 @@ skills:
        architecture. I love to write my javascript code in typescript 
        as it give me complete type support and make our life more easire by detecting 
        problem before hppening and made debugging easier.
-    projects: 
-      - 
-        project_name: CellMon
+    projects:
+      - project_name: CellMon
         description: CellMon is a tracking system, by this system one can know someone current position using the service. Feature included, GeoFencing, Monitoring, History, Routes, Servillence
-        my_responsibility: I Develop the front end using angular, and we use google map api for ploating user and help admin visualize user position. 
+        my_responsibility: I Develop the front end using angular, and we use google map api for ploating user and help admin visualize user position.
         team: true
-        technology: 
-          - 
-            skill_name: "Angular"
+        technology:
+          - skill_name: "Angular"
             me: true
-          - 
-            skill_name: "ngRx"
+          - skill_name: "ngRx"
             me: true
-          - 
-            skill_name: "Google Map"
+          - skill_name: "Google Map"
             me: true
-          - 
-            skill_name: "Dot Net Core"
+          - skill_name: "Dot Net Core"
             me: false
-      - 
-        project_name: CDAS
-        description: Central Deduction System. 
-        my_responsibility: Develop the Front-end. First in Angular.js Then in Angular. 
+      - project_name: CDAS
+        description: Central Deduction System.
+        my_responsibility: Develop the Front-end. First in Angular.js Then in Angular.
         team: true
-        technology: 
-          - 
-            skill_name: "Angular"
+        technology:
+          - skill_name: "Angular"
             me: true
-          - 
-            skill_name: "Dot net Core"
+          - skill_name: "Dot net Core"
             me: false
-            
-      - 
-        project_name: DrinkWell
+
+      - project_name: DrinkWell
         description: Drinkwell is a technology platform for clean water. Our technology is embedded within water infrastructure purifying millions of liters of water every month, worldwide.
-        my_responsibility: Develop admin dashboard for controlling different booth. 
+        my_responsibility: Develop admin dashboard for controlling different booth.
         team: true
-        technology: 
-          - 
-            skill_name: "Angular"
+        technology:
+          - skill_name: "Angular"
             me: true
-          - 
-            skill_name: "Dot net Core"
+          - skill_name: "Dot net Core"
             me: false
-      - 
-        project_name: IG100 Dashboard
+      - project_name: IG100 Dashboard
         description: The iG100 is an entry level general purpose IoT gateway to connect fusions of sensors, collects signals and internally process those signal and transmit to aggregators or cloud based platform
         my_responsibility: Write service for communcate with user, and develop the dashboard in anglar
         team: true
-        technology: 
-          - 
-            skill_name: "Angular"
+        technology:
+          - skill_name: "Angular"
             me: true
-          - 
-            skill_name: "State Management"
+          - skill_name: "State Management"
             me: true
-          - 
-            skill_name: "Lua Scripting"
+          - skill_name: "Lua Scripting"
             me: true
-        
 
-
-  - 
-    id: nodejs
+  - id: nodejs
     title: Nodejs
-    image: ''
-    description: >- 
-      Nodejs is very lightweight single threaded server side framework for javascript. 
-      I have expertise knowledge in nodejs automation tools development, express and nest js. 
-    projects: 
-
-
-
-  - 
-    id: php_development
-    title: PHP Development
-    image: ''
+    image: ""
     description: >-
-      I bulild 5-6 solution using php, I used php codeigniter, 
+      I have indept knowledge in nodejs, and it's different framework like express, 
+      nestjs, passpostjs, typeorm etc.. I work on api, graphql api buildng, realtime communication
+       with websocket and different module like dns, simple audio and image processing
+    projects:
+      - project_name: Translation Service
+        description: Realtime translation using google's api.
+        my_responsibility: I work on the full project, like capture audio form user and process and send them in realtime to google service and show user the translation
+        team: true
+        technology:
+          - skill_name: "NODEJS"
+            me: true
+          - skill_name: "Gooogle API"
+            me: true
+          - skill_name: "Angular"
+            me: true
+      - project_name: Account Microservice
+        description: Microservice for create/update/manage user and their role(assign/check/get)
+        my_responsibility: I build the service using nestjs, passportjs and mongodb.
+        team: true
+        technology:
+          - skill_name: "NODEJS"
+            me: true
+          - skill_name: "Nest Js"
+            me: true
+          - skill_name: "PassportJs"
+            me: true
+          - skill_name: "Memcache"
+            me: true
+          - skill_name: "MongoDB"
+            me: true
+      - project_name: Media Microservice
+        description: Microservice for manage media
+        my_responsibility: I build the service using nestjs, passportjs and postgresql.
+        team: true
+        technology:
+          - skill_name: "NODEJS"
+            me: true
+          - skill_name: "Nest Js"
+            me: true
+          - skill_name: "PassportJs"
+            me: true
+          - skill_name: "MongoDB"
+            me: true
+
+  - id: php_development
+    title: PHP Development
+    image: ""
+    description: >-
+      I experience over bulilding 5-6 solution using php, I used php codeigniter, 
       laravel to build those solution, they are, HR-Management System, 
       Directory Management System, Employee management System, School Management System , etc..
-    projects: 
+    projects:
+      - project_name: OfficeBox For HR
+        description: This product is for helping hr to easily manage their employee, thir salary, leave and others. It help hr to track hr performance and their outcome.
+        my_responsibility: I work on the backend part of the application, build leave and salary module using codeingniter
+        team: true
+        technology:
+          - skill_name: "PHP"
+            me: true
+          - skill_name: "Codeingniter"
+            me: true
+          - skill_name: "MySQL"
+            me: true
+          - skill_name: "HTML5"
+            me: true
+          - skill_name: "CSS3"
+            me: true
+      - project_name: Directory Management System
+        description: For managing multiple organization under on umbrela we develop this system.
+        my_responsibility: I work on payment system, adding and show data from indivisual directory, managing multiple directory.
+        team: true
+        technology:
+          - skill_name: "PHP"
+            me: true
+          - skill_name: "Codeingniter"
+            me: true
+          - skill_name: "MySQL"
+            me: true
+          - skill_name: "HTML5"
+            me: true
+          - skill_name: "CSS3"
+            me: true
 
-
-  - 
-    id: database_programming
+  - id: database_programming
     title: Database Programming
-    image: ''
-    description: >- 
+    image: ""
+    description: >-
       Modern day's programming without database is unbeliveable, 
       I have extertise in SQL, Postgresql, and In Mongodb. 
-      I can easily made dicision about which kind of database will be use for out solution.  
-    projects: 
+      I can easily made dicision about which kind of database will be use for out solution.
+    projects:
 
-
-  - 
-    id: data_sualization
+  - id: data_sualization
     title: Data Visualization
-    description: >- 
+    description: >-
       In modern day solution, without at a glance visulalization is impossible, 
       I have experiecne building different kind of visualization. 
-      Which make our application more attractive and easier to understand. 
-    projects: 
+      Which make our application more attractive and easier to understand.
+    projects:
 
-
-  - 
-    id: python_flask_django
+  - id: python_flask_django
     title: Python, Flask, Django
-    image: ''
-    description: >- 
+    image: ""
+    description: >-
       Python is a very suffisticated tool to develop solution quickly and reliably. 
-      There are thousand of pacakages for helping us quick development. 
-    projects: 
+      There are thousand of pacakages for helping us quick development.
+    projects:
+      - project_name: Documentaion Generator
+        description: Documentation generator is for managing and sharing document easily and securely.
+        my_responsibility: I work on the full system
+        team: true
+        technology:
+          - skill_name: "Python"
+            me: true
+          - skill_name: "Django"
+            me: true
+          - skill_name: "Postgresql"
+            me: true
+          - skill_name: "HTML5"
+            me: true
+          - skill_name: "CSS3"
+            me: true
 
-
-  - 
-    id: wordpress_development
+  - id: wordpress_development
     title: Wordpress
-    image: ''
-    description: >- 
+    image: ""
+    description: >-
       In modern day, there 25% of website build on wordpress, 
-      I have experience in wordpress customization, theme and plugin development. 
-    projects: 
+      I have experience in wordpress customization, theme and plugin development.
+    projects:
+      - project_name: Nybsys Main Website
+        description: main website for nybsys. 
+        my_responsibility: I build the theme and do initial design implementation. 
+        team: true
+        technology:
+          - skill_name: "Wordpress"
+            me: true
+          - skill_name: "HTML5"
+            me: true
+          - skill_name: "CSS3"
+            me: true
+      - project_name: Racson Website
+        description: main website for racson
+        my_responsibility: I build the full website
+        team: true
+        technology:
+          - skill_name: "Wordpress"
+            me: true
+          - skill_name: "HTML5"
+            me: true
+          - skill_name: "CSS3"
+            me: true
+      - project_name: NMC Website
+        description: Main website for National mize corporation 
+        my_responsibility: I build the full website
+        team: true
+        technology:
+          - skill_name: "Wordpress"
+            me: true
+          - skill_name: "HTML5"
+            me: true
+          - skill_name: "CSS3"
+            me: true
 
-
-  - 
-    id: mobile_app_development
-    title: Mobile App     
-    image: ''
-    description: >- 
+  - id: mobile_app_development
+    title: Mobile App
+    image: ""
+    description: >-
       I Build Mobile application very ofthen, sometimes i use ionic, 
       somtimes nativescript, but recently i'm using flutter, With flutter 
       i can develop application very quickly , it is native and very fast compare 
       to other compititor of it's. And It's also make cross platform application which is win win.
-    projects: 
+    projects:
+      - project_name: Drinkwell Website
+        description: Mobile application for drinkwell to recharge and register new user. 
+        my_responsibility: I Build the app
+        team: true
+        technology:
+          - skill_name: "Flutter"
+            me: true
+          - skill_name: "NFC"
+            me: true
+          - skill_name: "Dart"
+            me: true
 
-      
-  - 
-    id: desktop_app_dev
+  - id: desktop_app_dev
     title: Desktop Application
-    image: ''
-    description: >- 
+    image: ""
+    description: >-
       To build cross platform desktop application i use electron, 
       it allow me to use html, css as ui language and javascript as programming language, 
-      it easy, fast and relaiable.   
-    projects: 
+      it easy, fast and relaiable.
+    projects:
 
-
-  - 
-    id: continuous_integration
+  - id: continuous_integration
     title: Continuous Integration
-    image: ''
-    description: >- 
+    image: ""
+    description: >-
       Continuous integration is the backbone of very large scale application. 
-      cause in very large scale app if . 
-    projects: 
+      cause in very large scale app if .
+    projects:
 
-      
-  - 
-    id: dockers
+  - id: dockers
     title: Docker
-    image: ''
-    description: >- 
+    image: ""
+    description: >-
       Docker is a very nice technology to work with. It help us to solve, 
-      i't work on my pc problem and it is very fast than virtual matchine.  
-    projects: 
-
+      i't work on my pc problem and it is very fast than virtual matchine.
+    projects:
 
 # My Hobby
-hobbies: 
-  - 
-    title: Cycle riding
-    description: >- 
-      I love to ride cycle. 
-  - 
-    title: Book Reading
-    description: >- 
+hobbies:
+  - title: Cycle riding
+    description: >-
+      I love to ride cycle.
+  - title: Book Reading
+    description: >-
       I love to read book, my favorite write is Arthur Conan Doyle, 
-      Humayn Ahmed, And I love poetry of Kazi Nozrul Islam and Robindronath. 
-  - 
-    title: Travelling
+      Humayn Ahmed, And I love poetry of Kazi Nozrul Islam and Robindronath.
+  - title: Travelling
     description: >-
       Travelling in different place. 
 
-# Articles or My thought Publish on Platform 
-# articles: 
-#   - 
+# Articles or My thought Publish on Platform
+# articles:
+#   -
 #     title: Main Key Of Software Development
 #     link: https://getbootstrap.com/docs/4.3/getting-started/download/
 #     description: In this Topic I try to clearify the base misconception about software engineering
 
-
 linkedin: https://www.linkedin.com/in/kousheralam/
 cvlink: https://drive.google.com/file/d/1EuWTBF1UwEP-cf3I92zeqhEhdGxLhATX/view?usp=sharing
 
-
-# Assests description 
+# Assests description
 my_image: images/me.jpg
 
 # Build settings
@@ -321,7 +398,6 @@ sass:
 
 plugins:
   - jekyll-feed
-
 
 exclude:
   - Gemfile
