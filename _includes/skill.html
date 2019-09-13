@@ -5,20 +5,19 @@
         </div>
         <div class="col-12 skill-holder row">
             {% for skill in site.skills %}
-            <div class="col-12 col-sm-6 col-md-4 col-xl-3">
-                <div class="skill card">
-                    <div class="card-header pl-3 pr-3">
-                        <span class="skill-name d-block">{{skill.title}}</span>
-                    </div>
+            <div class="col-12 col-sm-6 col-md-4 col-xl-4 mb-3">
+                <div class="skill card rounded-0">
                     <div class="card-body mb-0 pt-2">
-                        {{skill.description}}
+                        <div class="card-title">
+                            <span class="skill-name d-block">{{skill.title}}</span>
+                        </div>
+                        <p class="card-text">{{skill.description}}</p>
                     </div>
-                    <div class="pb-4 d-block"></div>
-                    {% if skill.projects.size > 0 0 %}
-                        <button class="btn btn-block btn-link" sheet-toggle="{{skill.id}}">Details</button>
-                    {% else %}    
-                        <button class="btn btn-block btn-link text-muted" disabled sheet-toggle="{{skill.id}}">Details</button>
-                    {% endif %}
+                    <div class="text-right action-btn pt-2 pb-2 pr-2">
+                        {% if skill.projects.size > 0  %}
+                            <button class="btn btn-primary pl-5 pr-5 shadow rounded-0" sheet-toggle="{{skill.id}}">Details</button>
+                        {% endif %} 
+                    </div>
                 </div>
             </div>
             {% if skill.projects.size > 0 %}

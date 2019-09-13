@@ -7,6 +7,7 @@ layout: home
 <div class="skills-container"  id="skills">
     {% include skill.html %}
 </div>
+
 <div class="experience-container" id="experience">
     {% include experience.html %}
 </div>

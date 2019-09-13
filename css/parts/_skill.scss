@@ -27,6 +27,7 @@ $basic-bg: #ffd4d4;
 }
 .skill {
   margin-bottom: 15px;
+  height: 100%;
   .description {
     font-size: 0.8em;
     margin: 0px;
@@ -34,7 +35,6 @@ $basic-bg: #ffd4d4;
   }
   &.card {
     .card-body {
-      height: 200px;
       overflow: auto;
     }
   }
