@@ -66,12 +66,10 @@ function showSkillsDetails(){
             var projects= _(element_id);
             if(projects){
                 document.body.classList.add("overflow-hidden");
-                projects.classList.remove("d-none");
-                projects.classList.add("d-block");
+                projects.classList.add("show");
             }
         });
     }
-
 
     var close_element = document.querySelectorAll("[sheet-close]");
     for(var i=0; i<close_element.length; i++){
@@ -80,8 +78,7 @@ function showSkillsDetails(){
             var projects= _(element_id);
             if(projects){
                 document.body.classList.remove("overflow-hidden");
-                projects.classList.remove("d-block");
-                projects.classList.add("d-none");
+                projects.classList.remove("show");
             }
         });
     }

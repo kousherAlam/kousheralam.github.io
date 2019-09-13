@@ -44,3 +44,13 @@
 // Application sCSS
 @import "_common";
 @import "parts/index";
+
+
+html, body, *{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.navbar-nav li.nav-item a{
+    border: 2px solid #167af6;
+}

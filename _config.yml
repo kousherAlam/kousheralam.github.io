@@ -98,13 +98,10 @@ skills:
     title: Front End Development
     image: ""
     description: >-
-      I have over 2 year of experience working with angular react and vue. 
-      I have in dept knowledge in rxjs, ngrx,redux,vux, axios and other library. 
-      I Have in dept knowledge in HTML5, CSS3, Diffeent templating laguage such as pug, markdown, 
-      jekyll, and I also have experience in different css architecture such as triangle css, smacss
-       architecture. I love to write my javascript code in typescript 
-       as it give me complete type support and make our life more easire by detecting 
-       problem before hppening and made debugging easier.
+      Experienced 2+ years, expert in VanilaJS, CSS3, HTML5, Angular, Typescript, SCSS, CSS Architecture, RxJS, NgRx and Variaous templating language,
+      I concern about Accesibilty, i18n, SSR and PWA and i love to implement those on my production app. 
+      <hr/>
+      I have basics knowledge in, rect, vuejs, polymer, web-component, svelte.
     projects:
       - project_name: CellMon
         description: CellMon is a tracking system, by this system one can know someone current position using the service. Feature included, GeoFencing, Monitoring, History, Routes, Servillence
