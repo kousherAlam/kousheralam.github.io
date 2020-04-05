@@ -47,47 +47,6 @@ experiecnes:
       A School management system. Mainly for managing their student and teacher data.
       Work as a team lead. I Manage the team code complex part of the application.
 
-# workprocess:
-#   -
-#     title: How I Find Project Size and Complexity
-#     description: >-
-#       Every project start with a discussion, in that discussion we can determine the initial feature
-#       and also we can understand the project. is it small, medium or big and it's complexity lavel.
-#   -
-#     title: How I Fix Bug or Improve Project
-#     description: >-
-#       To fix bug in a project if the project does not done by me then. i work with incremental changes.
-#       Small fix at a time and very careful checking in every small fix.
-#   -
-#     title: Small Project
-#     description: >-
-#       If the project is small, if first draw the project pattern and made modularization chart. then
-#   -
-#     title: Medium Project
-#     description: >-
-#       When i start a project, i begain with the business. I think if i can understand the
-#       business properly then it will made working with project much easier.
-#   -
-#     title: Large Project
-#     description: >-
-#       When i start a project, i begain with the business. I think if i can understand the
-#       business properly then it will made working with project much easier.
-#   -
-#     title: Project Development And Automation
-#     description: >-
-#       When i start a project, i begain with the business. I think if i can understand the
-#       business properly then it will made working with project much easier.
-#   -
-#     title: Production Build and Deployment
-#     description: >-
-#       When i start a project, i begain with the business. I think if i can understand the
-#       business properly then it will made working with project much easier.
-#   -
-#     title: Continuous Integration
-#     description: >-
-#       When i start a project, i begain with the business. I think if i can understand the
-#       business properly then it will made working with project much easier.
-
 contact_description: >-
   If you want to share your idea/plan with me. or want to talk with me about something, 
   please let me know using the form below.  

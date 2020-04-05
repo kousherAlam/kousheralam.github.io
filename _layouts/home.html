@@ -7,70 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{page.title}}</title>
 
-    <!-- <link rel="apple-touch-icon" sizes="57x57" href="{{site.baseurl}}/img/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{site.baseurl}}/img/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{site.baseurl}}/img/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{site.baseurl}}/img/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{site.baseurl}}/img/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{site.baseurl}}/img/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{site.baseurl}}/img/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{site.baseurl}}/img/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{site.baseurl}}/img/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{site.baseurl}}/img/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{site.baseurl}}/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{site.baseurl}}/img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{site.baseurl}}/img/favicon-16x16.png">
-    <link rel="manifest" href="{{site.baseurl}}/img/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="{{site.baseurl}}/img/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-     -->
-     <link rel="icon"  href="{{site.baseurl}}images/favicon.ico">
+    <link rel="icon" href="{{site.baseurl}}images/favicon.ico">
 
     <meta name="description" content="The Site About Myself" />
     <meta name="tags"
         content="Full Stack Developer, Kousher Alam, Pranto, HTML5, CSS3, CSS Architecture, Javascript, Python" />
-        
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{site.baseurl}}css/style.css" />
 
 </head>
 
-<body>
-
-    <header class="main-header bg-white mt-5 mt-md-0" id="main-header">
-        {% include my-intro.html %}
-    </header>
-
-
-    <div id="shade" class="shade d-none d-md-none "></div>
-    <div class="main-menu bg-white pt-2 pb-2">
-        <div class="container-fluid max-width">
-                {% include main-menu.html %}
-        </div>
+<body class="bg-dark">
+    <div class="text-center">
+        <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
     </div>
-
-    <main id="main-content" class="main-content bg-white mt-0">
-        {{ content }}
-    </main>
-
-
-    <footer class="site-footer bg-dark mb-0 pb-5 pt-5">
-        <div class=" container-fluid max-width">
-            <p class="text-center text-muted mb-0"><small>Anyone is allowed to copy this site with or without any permission.</small></p>
-            <p class="text-center text-muted mb-0">This website is design/develop by <a href="{{site.baseurl}}">kousher alam</a>.</p>
-        </div>
-    </footer>
-
-    <div id="sending-message">
-        <div class="shade"></div>
-        <div class="message p-3" id="message">Sending ...</div>
-    </div>
-
-
-    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-firestore.js"></script>
-    <script src="{{site.baseurl}}js/app.js"></script>
 </body>
 
 </html>
