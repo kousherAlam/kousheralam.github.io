@@ -1,28 +1,40 @@
 ---
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-title: Kousher Alam -- Full Stack Developer
+title: Full Stack Developer
 layout: home
 ---
-<div class="skills-container"  id="skills">
-    {% include skill.html %}
+
+<div class="text-center">
+    <h1 class="text-white">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">Wait For it, I'm Working on it.</h1>
+    <h1 class="text-white mt-5">last</h1>
 </div>
-
-<div class="experience-container" id="experience">
-    {% include experience.html %}
-</div>
-
-
-{% include work-process.html %}
-
-
-
-<div class="article-container" id="article">
-    {% include article.html %}
-</div>
-
-
-<div class="contact-form-container" id="contact">
-    {% include contact.html %}
-</div>
-

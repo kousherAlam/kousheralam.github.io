@@ -41,16 +41,13 @@
 @import "bs_scss/utilities";
 @import "bs_scss/print";
 
-// Application sCSS
-@import "_common";
-@import "parts/index";
+// Application sCSS 
+@import 
+    "parts/index", 
+    "./components/index";
 
 
 html, body, *{
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
 }
 
-.navbar-nav li.nav-item a{
-    border: 2px solid #167af6;
-}
