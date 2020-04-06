@@ -7,4 +7,4 @@ permalink: /organizational/communication
 ---
 
 # Communication
-How to communicate, Benefits of better communication, How communication work.
+This is a dummy place holder document 

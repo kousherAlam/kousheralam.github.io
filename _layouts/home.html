@@ -23,7 +23,7 @@
 
 </head>
 
-<body class="text-black overflow-hidden">
+<body class="text-black">
 
     {% include parts/navbar.html %}
 
@@ -36,26 +36,6 @@
     </div>
 
     {% include parts/footer.html %}
-
-    <script>
-        var topButton = document.getElementById("top-nav-button");
-        var main_content = document.getElementById("main-content");
-        if(topButton){
-            if(!main_content){
-                topButton.style.display = "none";
-            } else {
-                topButton.style.display = "block";
-            }
-            topButton.addEventListener("click", function(e){
-                console.log("top clicked");
-                e.preventDefault();
-                e.stopPropagation();
-                if(main_content){
-                    main_content.scrollTop = 0;
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>
