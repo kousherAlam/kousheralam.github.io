@@ -8,34 +8,43 @@
     <title>{{page.title}} | Kousher's Blog</title>
 
     <link rel="icon" href="{{site.baseurl}}images/favicon.ico">
+    <style>
+        body {
+            text-align: center;
+            padding: 150px;
+        }
 
-    <meta name="description" content="The Site About Myself" />
-    <meta name="tags"
-        content="Full Stack Developer, Kawsar, Kousher Alam Prato, Kousher Alam, Pranto, HTML5, CSS3, CSS Architecture, Javascript, Python" />
+        h1 {
+            font-size: 50px;
+        }
 
+        body {
+            font: 20px Helvetica, sans-serif;
+            color: #333;
+        }
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
-        rel="stylesheet">
+        article {
+            display: block;
+            text-align: left;
+            width: 650px;
+            margin: 0 auto;
+        }
 
+        a {
+            color: #dc8100;
+            text-decoration: none;
+        }
 
-    <link rel="stylesheet" href="{{site.baseurl}}css/style.css" />
+        a:hover {
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
 
 </head>
 
-<body class="text-black">
-
-    {% include parts/navbar.html %}
-
-    <div class="main-content overflow-auto" id="main-content">
-        <div class="container">
-            <div class="row">
-                {{ content }}
-            </div>
-        </div>
-    </div>
-
-    {% include parts/footer.html %}
+<body>
+    {{ content }}
 </body>
 
 </html>

@@ -1,94 +1,17 @@
 ---
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-title: Full Stack Developer
+title: Developer
 layout: home
 ---
 
-<div class="col-12">
-<div class="text-center" markdown="1">
-  <p class="lead text-justify">I Love build digital solutions, and help peoples to solve their digital problem. In my daily life, I develop and cutomize wordpress based website write client site code and web api, sometimes write some code to run on iot device. And very rarely write app for mobile platform. I love to build quality apps which are unit tested optimize by different build tools, and automated by CI/CD. But most of my experience is in building prototype apps. In my free time, i watch movie, online course, or i read books. My favorit author is কাজি নজরুল ইসলাম, and my favorit book is নকশি কাঁথার মাঠ by জসীম উদ্দিন । </p>
-</div>
 
-<div class="table-responsive mt-4">
-<table class="table table-bordered home-page-table">
-<thead>
-  <tr>
-    <th>Topic</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Name</td>
-    <td>Koushe Alam</td>
-  </tr>
-  <tr>
-    <td>Birth Date</td>
-    <td>12 Oct 1997</td>
-  </tr>
-  <tr>
-    <td>Address</td>
-    <td>
-      <ul>
-        <li><strong>Present: </strong> Mirpur 6, Dhaka Bangladesh</li>
-        <li><strong>Permanent: </strong> Mirpur 6, Dhaka Bangladesh</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Education</td>
-    <td>
-    <ul>
-        <li><strong>High School: </strong> Khaleya Khaprikhal School and College</li>
-        <li><strong>Diploma: </strong> Kurigram Polytechnic Institute, Computer Department</li>
-        <li><strong>BSC: </strong> Bangladesh University Of Business Of Technology CSE Department</li>
-      </ul>
-    </td>
-  </tr>
+<article>
+    <h1>We&rsquo;ll be back soon!</h1>
+    <div>
+        <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. If you need to you can always <a href="mailto:#">contact us</a>, otherwise we&rsquo;ll be back online shortly!</p>
+        <p>&mdash; <strong>Nybsys</strong></p>
+    </div>
+</article>
 
-  <tr>
-    <td>Skills</td>
-    <td>
-    <ul>
-        <li>HTML, CSS, Javascript</li>
-        <li>Jquery, Angular, React, VueJS, Svelte</li>
-        <li>Webpack, Gulp</li>
-        <li>NodeJs, express, buffer, Stream, c++ addon, Cluster, RPC, Rest</li>
-        <li>Postman, Unit Testing, Mocking, e2e Testing</li>
-        <li>G++, Go Lang, Concurrent Programming, Linux Openwrt</li>
-        <li>SQL, Postgresql, Mongodb</li>
-        <li>Docker, Kubernetes</li>
-        <li>Azile Development, Project Management</li>
-        <li>Dart, Flutter, Nativescript</li>
-      </ul>
-    </td>
-  </tr>
 
-  <tr>
-    <td>Experiences</td>
-    <td>
-    <ul>
-        <li>PHP Programmer @ Atique IT</li>
-        <li>Web Developer @ Nybsys</li>
-        <li>Sr. Web Developer @ Nybsys</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>Open For Job</td>
-    <td>No</td>
-  </tr>
-  <tr>
-    <td>Contact</td>
-    <td>
-    <ul>
-        <li><strong>Mobile No: </strong> <a href="tel:+8801778641026">+8801778641026</a></li>
-        <li><strong>Email: </strong> <a href="mailto:kousherlamapranto@gmail.com">kousheralampranto@gmail.com</a></li>
-      </ul>
-    </td>
-  </tr>
-</tbody>
-</table>
-</div>
-</div>
