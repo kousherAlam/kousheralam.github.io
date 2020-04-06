@@ -5,6 +5,16 @@ title: About MySelf
 layout: home
 ---
 
+## I'm Kousher alam Pranto 
 
-<h1> hi about myself </h1> 
+- Email: kousheralampranto@gmail.com
+- Parmanent Address: Uttor Khaleya, Rangpur, Bangladesh
+- Present address: Mirpur 6, Dhaka Bangladesh
+- Education 
+    - Khaleya Khaprikhal School and College 
+    - Kurigram Polytechnic Institute - CMT Dept
+    - Bangladesh University of Business Of Technology - CSE Dept
+- I love to 
+    - Read Book - Favorit Book (Nokshi Kathar Math By Jsim Uddin)
+    - Travelling 
 

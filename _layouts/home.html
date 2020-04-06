@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{page.title}}</title>
+    <title>{{page.title}} | Kousher's Blog</title>
 
     <link rel="icon" href="{{site.baseurl}}images/favicon.ico">
 
@@ -13,7 +13,12 @@
     <meta name="tags"
         content="Full Stack Developer, Kawsar, Kousher Alam Prato, Kousher Alam, Pranto, HTML5, CSS3, CSS Architecture, Javascript, Python" />
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap"
+        rel="stylesheet">
+
+
     <link rel="stylesheet" href="{{site.baseurl}}css/style.css" />
 
 </head>
@@ -23,13 +28,20 @@
         <div class="container">
             <nav class="row">
                 <div class="col-2">
-                    <div class="home-icon">
-                       {% include icons/logo.html %}
-                    </div>
+                    <a class="home-icon" href="{{site.url}}">
+                        {% include icons/logo.html %}
+                    </a>
                 </div>
                 <div class="col-10 text-right">
                     <div class="right-menu">
-                        <a class="btn btn-outline-primary btn-sm pl-4 pr-4 mt-2" href="{{site.url}}/about.html">About</a>
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-primary btn-sm pl-4 pr-4" href="{{site.url}}/technology.html">Technology</a>
+                            <a class="btn btn-primary btn-sm pl-4 pr-4" href="{{site.url}}/books_and_story.html">Books/Story</a>
+                            <a class="btn btn-primary btn-sm pl-4 pr-4" href="{{site.url}}/skills.html">Skills</a>
+                            <a class="btn btn-primary btn-sm pl-4 pr-4" href="{{site.url}}/about.html">About</a>
+                        </div>
+                        <!-- <a class="btn btn-outline-primary btn-sm pl-4 pr-4 mt-2"
+                            href="{{site.url}}/about.html">About</a> -->
                     </div>
                 </div>
             </nav>
@@ -41,10 +53,10 @@
             {{ content }}
         </div>
     </div>
-    
+
     {% include parts/footer.html %}
-    
-    
+
+
     <script src="{{site.baseurl}}js/dom-lib.js"></script>
     <script src="{{site.baseurl}}js/app.js"></script>
 </body>

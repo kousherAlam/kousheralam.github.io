@@ -1,9 +1,10 @@
 ---
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-title: Full Stack Developer
+title: Books And Story
 layout: home
 ---
+# Books And Story Page
 <ul>
   {% for post in site.posts %}
     <li>
@@ -14,3 +15,4 @@ layout: home
     </li>
   {% endfor %}
 </ul>
+
