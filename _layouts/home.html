@@ -23,42 +23,39 @@
 
 </head>
 
-<body class="bg-dark text-white overflow-hidden">
-    <div id="navbar">
-        <div class="container">
-            <nav class="row">
-                <div class="col-2">
-                    <a class="home-icon" href="{{site.url}}">
-                        {% include icons/logo.html %}
-                    </a>
-                </div>
-                <div class="col-10 text-right">
-                    <div class="right-menu">
-                        <div class="btn-group" role="group">
-                            <a class="btn btn-primary btn-sm pl-4 pr-4" href="{{site.url}}/technology.html">Technology</a>
-                            <a class="btn btn-primary btn-sm pl-4 pr-4" href="{{site.url}}/books_and_story.html">Books/Story</a>
-                            <a class="btn btn-primary btn-sm pl-4 pr-4" href="{{site.url}}/skills.html">Skills</a>
-                            <a class="btn btn-primary btn-sm pl-4 pr-4" href="{{site.url}}/about.html">About</a>
-                        </div>
-                        <!-- <a class="btn btn-outline-primary btn-sm pl-4 pr-4 mt-2"
-                            href="{{site.url}}/about.html">About</a> -->
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+<body class="text-black overflow-hidden">
 
-    <div class="main-content overflow-auto">
+    {% include parts/navbar.html %}
+
+    <div class="main-content overflow-auto" id="main-content">
         <div class="container">
-            {{ content }}
+            <div class="row">
+                {{ content }}
+            </div>
         </div>
     </div>
 
     {% include parts/footer.html %}
 
-
-    <script src="{{site.baseurl}}js/dom-lib.js"></script>
-    <script src="{{site.baseurl}}js/app.js"></script>
+    <script>
+        var topButton = document.getElementById("top-nav-button");
+        var main_content = document.getElementById("main-content");
+        if(topButton){
+            if(!main_content){
+                topButton.style.display = "none";
+            } else {
+                topButton.style.display = "block";
+            }
+            topButton.addEventListener("click", function(e){
+                console.log("top clicked");
+                e.preventDefault();
+                e.stopPropagation();
+                if(main_content){
+                    main_content.scrollTop = 0;
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

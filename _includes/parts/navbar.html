@@ -1,0 +1,21 @@
+<div id="navbar">
+    <div class="container">
+        <nav class="row">
+            <div class="col-2">
+                <a class="home-icon" href="{{site.url}}">
+                    {% include icons/logo.html %}
+                </a>
+            </div>
+            <div class="col-10 text-right">
+                <div class="right-menu">
+                    
+                    <a class="pl-4 pr-4 {% if page.url contains '/technology' %}active{% endif %}" href="{{site.url}}/technology.html">Technology</a>
+                    <a class="pl-4 pr-4  {% if page.url contains '/cultural' %}active{% endif %}" href="{{site.url}}/cultural-study.html">Cultural
+                        Study</a>
+                    <a class="pl-4 pr-4  {% if page.url contains '/organizational' %}active{% endif %}" href="{{site.url}}/organizational.html">Organizational
+                        Skills</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>

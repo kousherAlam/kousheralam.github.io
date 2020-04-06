@@ -4,14 +4,17 @@
 title: Technology
 layout: home
 ---
-# Technology Page
-<ul>
+<div class="col-12">
+<ul class="blog-list tehnology-items">
   {% for post in site.posts %}
+  {%if post.type == "tech_blog"  %}
     <li>
       <a href="{{ post.url }}">
         <p class="lead">{{ post.title }}</p>
         <p>{{ post.topics }}</p>
       </a>
     </li>
+    {% endif %}
   {% endfor %}
 </ul>
+</div>

@@ -20,8 +20,8 @@
 @import "bs_scss/button-group";
 @import "bs_scss/input-group";
 @import "bs_scss/custom-forms";
-@import "bs_scss/nav";
-@import "bs_scss/navbar";
+// @import "bs_scss/nav";
+// @import "bs_scss/navbar";
 @import "bs_scss/card";
 @import "bs_scss/breadcrumb";
 @import "bs_scss/pagination";
@@ -50,6 +50,10 @@
 html, body, *{
     font-family: 'Inria Sans', sans-serif;
     font-size: 17px;
+    color: black;
+}
+body{
+    background-color: #bdbdbda8;
 }
 
 

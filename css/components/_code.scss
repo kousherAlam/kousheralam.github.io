@@ -1,0 +1,42 @@
+
+.highlight{
+    background-color: #656565;
+    color: white;
+    padding: 5px 15px;
+    span{
+        color: white;
+        &.o,
+        &.kt,
+        &.k{
+            color: #0cf2ff;
+            font-weight: bolder;;
+        }
+        &.o{
+            padding: 0px 0px 0px 3px;
+            margin: 0px -3px 0px 0px;
+            letter-spacing: 5px;
+            font-size: 1.5em;
+            line-height: 0px;
+        }
+        &.p{
+            color: #ffc107;
+            padding: 0px 5px;
+        }
+        &.nl{
+            color: yellow;
+        }
+        &.n{
+            color: #9aeb87;
+        }
+    }
+}
+div.highlighter-rouge{
+    margin-bottom: 15px;
+}
+code.highlighter-rouge{
+    padding: 4px 10px;
+    background-color: #004085;
+    color: white;
+    border-radius: 5px;
+}
+
