@@ -1,8 +1,4 @@
----
-layout: default
-title: "Home"
----
-<style>
+I"ª<style>
         body {
             text-align: center;
             padding: 150px;
@@ -42,3 +38,4 @@ title: "Home"
         <p>&mdash; <strong>Kousher Alam</strong></p>
     </div>
 </article>
+:ET

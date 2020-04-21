@@ -1,29 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{page.title}}</title>
-    <meta name="description" content="The Site About Myself" />
-    <meta name="tags"
-        content="Full Stack Developer, Kousher Alam, Pranto, HTML5, CSS3, CSS Architecture, Javascript, Python" />
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{site.baseurl}}css/style.css" />
-    <meta http-equiv="refresh" content="10; url=/">
-    <style>
-        body {
-            color: white;
-        }
-    </style>
-</head>
-
-<body class="bg-dark">
-
-    {{ content }}
-
-</body>
-
+    <meta charset="utf-8">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  </head>
+  <body>
+    {{ content}}
+  </body>
 </html>
