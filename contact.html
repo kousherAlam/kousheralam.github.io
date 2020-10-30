@@ -1,0 +1,78 @@
+---
+layout: base-page
+title: "Kousher Alam - Contact With Me"
+wrapper: contact-page
+---
+
+<div class='demo-title bg-info pt-5 pb-5'>
+    <h1 class="text-center mb-0 pt-5 pb-5">Send Your Message</h1>
+</div>
+
+<div class="container pt-5 pb-3 pl-3 pl-md-0 pr-3 pr-md-0">
+    <div class="row shadow">
+        <div
+            class="col-12 col-md-6 pt-5 pt-md-0 pb-3 pb-md-0 align-items-center bg-white d-flex justify-content-center mt-3">
+            <div class="text-center address">
+                <h3>
+                    <span class="key text-dark font-weight-light">City: </span>
+                    <span class="value text-primary">Dhaka</span>
+                </h3>
+                <h3>
+                    <span class="key text-dark font-weight-light">Country: </span>
+                    <span class="value text-primary">Bangladesh</span>
+                </h3>
+                <h3>
+                    <span class="key text-dark font-weight-light">Mobile: </span>
+                    <span class="value text-primary">+88 0177-8641026</span>
+                </h3>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 bg-primary p-3 text-white mt-3">
+            <form class="pt-5 pb-5" [formGroup]="contactForm">
+                <div class="form-group">
+                    <label for="your-name">Name</label>
+                    <input [class.is-invalid]="name.dirty && name.errors" formControlName="name" type="name"
+                        class="form-control" id="your-name" placeholder="Name">
+                    <!-- <div class="small text-danger" *ngIf="name.dirty && name.errors">
+                        <p *ngIf="name.hasError('required')">Your is required.</p>
+                        <p *ngIf="name.hasError('minlength')">Your must be greater than 3 Charecter</p>
+                        <p *ngIf="name.hasError('maxlength')">Your must be less than 250 Charecter</p>
+                    </div> -->
+                </div>
+                <div class="form-group">
+                    <label for="message-subject">Subject</label>
+                    <input [class.is-invalid]="subject.dirty && subject.errors" formControlName="subject" type="name"
+                        class="form-control" id="message-subject" placeholder="Subject">
+                    <!-- <div class="small text-danger" *ngIf="subject.dirty && subject.errors">
+                        <p *ngIf="subject.hasError('required')">Subject is required.</p>
+                        <p *ngIf="subject.hasError('minlength')">Subject must be greater than 0 Charecter</p>
+                        <p *ngIf="subject.hasError('maxlength')">Subject must be less than 250 Charecter</p>
+                    </div> -->
+                </div>
+                <div class="form-group">
+                    <label for="yourEmail">Email address</label>
+                    <input [class.is-invalid]="email.dirty && email.errors" formControlName="email" type="email"
+                        class="form-control" id="yourEmail" aria-describedby="emailHelp"
+                        placeholder="example@email.com">
+                    <small id="emailHelp" class="form-text text-warning" *ngIf="!(email.dirty && email.errors)">We'll
+                        never share your email with anyone else.</small>
+                    <!-- <div class="small text-danger" *ngIf="email.dirty && email.errors">
+                        <p *ngIf="email.dirty && email.errors">Email is required.</p>
+                    </div> -->
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea [class.is-invalid]="message.dirty && message.errors" formControlName="message"
+                        class="form-control" id="message" placeholder="Write Your Message"></textarea>
+                    <!-- <div class="small text-danger" *ngIf="message.dirty && message.errors">
+                        <p *ngIf="message.hasError('required')">Message is required.</p>
+                    </div> -->
+                </div>
+                <div class="text-right">
+                    <button [disabled]="this.contactForm.invalid" type="submit" class="btn btn-success pl-5 pr-5"
+                        (click)="sendContactMessage()">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

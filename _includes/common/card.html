@@ -1,0 +1,36 @@
+<div class="content-card border shadow-sm bg-white">
+    <div class="row align-items-center">
+        <div class="col-12 col-sm-5 col-md-4 preview position-relative text-center bg-info">
+            {% if include.thubmail != "" or include.thubmail != nil %}
+            <div class="thumb-image card-bg-image" style="background-image:url('/assets/images/blog-default.jpg')"></div>
+            {% else %}
+            <div class="thumb-image card-bg-image" style="background-image:url('{{include.thubmail}}')"></div>
+            {% endif %}
+            <div class="published position-absolute text-info text-center pt-2 pb-2">
+                <span class="published-on">{{ include.created | date: '%B %d, %Y' }}</span>
+            </div>
+        </div>
+        <div class="col-12 col-sm-7 col-md-8 p-3 row card-content">
+            <div class="col-12">
+                <a href="{{include.url}}">
+                    <h3 class="title">{{include.title}}</h3>
+                </a>
+    
+                <p class="description">{{include.description}}</p>
+            </div>
+            <div class="col-12 align-self-end">
+                <div class="categories">
+                    <ul class="unlist inline tag-list tech">
+                        {% for tag in include.tags %}
+                        <li>
+                            <span class="btn btn-outline-primary btn-sm mr-2 mb-2">
+                                {{tag}}
+                            </span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

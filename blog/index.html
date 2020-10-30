@@ -1,0 +1,50 @@
+---
+layout: base-page
+title: "Kousher Alam - Software Engineer"
+wrapper: blog-page
+---
+<div class='blog-title bg-info pb-5 pt-5'>
+    <div class="pt-5 pb-5 text-center">
+        <h1 class="text-center">Blog / My Thinking</h1>
+    </div>
+</div>
+
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-12 col-md-9">
+            {% for post in site.posts %}
+            <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
+                {% 
+                    include common/card.html 
+                    url = post.url
+                    title = post.title 
+                    description = post.description
+                    tags = post.tags
+                    created = post.date
+                    thubmail = post.thubmail
+                %}
+            </div>
+            {% endfor %}
+            <div class="single-blog p-3 p-md-0">
+                <div class="pagination text-right mb-3">
+                    <mat-paginator (page)="pageChagne($event)" [length]="pagination.pageLength"
+                        [pageSize]="pagination.perpage" [pageSizeOptions]="pagination.pageSizeOption">
+                    </mat-paginator>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-3 pl-3">
+            <h2>Categories</h2>
+            <div class="all-categories text-justify">
+                {% for category in site.blog_category %}
+                <a class="btn btn-outline-primary mr-2 mb-2"
+                    href="{{category.url}}" routerLinkActive="active">
+                    {{category.name}}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>

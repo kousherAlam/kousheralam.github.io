@@ -1,9 +1,55 @@
-$backgroundColor: #ffffff;
-$bodyColor: #000000;
-$bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+@import "var";
 
-body {
-  background: $backgroundColor;
-  color: $bodyColor;
-  font-family: $bodyFont;
+
+@import "./libs/bootstrap/functions";
+@import "./libs/bootstrap/variables";
+@import "./libs/bootstrap/mixins";
+@import "./libs/bootstrap/root";
+@import "./libs/bootstrap/reboot";
+@import "./libs/bootstrap/type";
+@import "./libs/bootstrap/images";
+@import "./libs/bootstrap/code";
+@import "./libs/bootstrap/grid";
+// @import "./libs/bootstrap/tables";
+@import "./libs/bootstrap/forms";
+@import "./libs/bootstrap/buttons";
+// @import "./libs/bootstrap/transitions";
+// @import "./libs/bootstrap/dropdown";
+// @import "./libs/bootstrap/button-group";
+@import "./libs/bootstrap/input-group";
+// @import "./libs/bootstrap/custom-forms";
+// @import "./libs/bootstrap/nav";
+// @import "./libs/bootstrap/navbar";
+// @import "./libs/bootstrap/card";
+// @import "./libs/bootstrap/breadcrumb";
+// @import "./libs/bootstrap/pagination";
+// @import "./libs/bootstrap/badge";
+// @import "./libs/bootstrap/jumbotron";
+// @import "./libs/bootstrap/alert";
+// @import "./libs/bootstrap/progress";
+// @import "./libs/bootstrap/media";
+// @import "./libs/bootstrap/list-group";
+// @import "./libs/bootstrap/close";
+// @import "./libs/bootstrap/toasts";
+// @import "./libs/bootstrap/modal";
+// @import "./libs/bootstrap/tooltip";
+// @import "./libs/bootstrap/popover";
+// @import "./libs/bootstrap/carousel";
+// @import "./libs/bootstrap/spinners";
+@import "./libs/bootstrap/utilities";
+// @import "./libs/bootstrap/print";
+
+
+// custom style sheet
+@import "./_pages/pages";
+@import "./_utility/index";
+@import "./_component/index";
+@import "./_section/index";
+
+body{
+  background-color: #f6f6f6;
+}
+
+img{
+  max-width: 100%;
 }

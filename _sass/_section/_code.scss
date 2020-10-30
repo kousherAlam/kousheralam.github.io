@@ -1,0 +1,15 @@
+pre{
+  width: 100%;
+  padding: 15px;
+  background-color: black;
+  color: white;
+  .hljs-keyword{
+    color: #CDDC39;
+  }
+  .hljs-number{
+    color: #93ff98;
+  }
+  .hljs-function{
+    color: #FFEB3B;
+  }
+}

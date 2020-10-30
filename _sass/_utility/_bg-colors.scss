@@ -1,0 +1,13 @@
+.bg-{
+  &secondary{
+    &-dark{
+        background-color: darken(map-get($theme-colors, 'secondary'), 3);
+    }
+    &-light{
+        background-color: lighten(map-get($theme-colors, 'secondary'), 3);
+    }
+  }
+  &black{
+    background-color: map-get($theme-colors, 'black');
+  }
+}

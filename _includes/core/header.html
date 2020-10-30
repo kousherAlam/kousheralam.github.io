@@ -1,0 +1,44 @@
+<div class="header bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-9 col-md-3 pl-3 pl-md-0">
+                <a href="/">Kousher Alam</a>
+            </div>
+            <div class="col-3 d-md-none d-block mt-2">
+                <button class="btn btn-outline-success" (click)="toggleMenu()">Menu</button>
+            </div>
+            <div class="menu-holder d-none d-md-block col-9 text-right">
+                <ul class="menu mb-0">
+                    <li routerLinkActive="active"> <a href="/blog">Blog</a></li>
+                    <li routerLinkActive="active"> <a href="/portfolio">Portfolio</a> </li>
+                    <li routerLinkActive="active"> <a href="/demo">Demo</a> </li>
+                    <li routerLinkActive="active"> <a href="/contact">Contact</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu fixed-top bg-primary d-md-none d-block" [class.open]="isMenuOpen">
+    <div class="close-button position-absolute text-center">
+        <button class="btn btn-danger" (click)="toggleMenu()">Close</button>
+    </div>
+    <div class="pl-3 pr-3 pt-5">
+        <ul class="list-style-none pt-5">
+            <li>
+                <a routerLinkActive="active" class="btn text-light btn-block text-left" routerLink="/blog">Blog</a>
+            </li>
+            <li>
+                <a routerLinkActive="active" class="btn text-light btn-block text-left"
+                    routerLink="/portfolio">Portfolio</a>
+            </li>
+            <li>
+                <a routerLinkActive="active" class="btn text-light btn-block text-left" routerLink="/demo">Demo</a>
+            </li>
+            <li>
+                <a routerLinkActive="active" class="btn text-light btn-block text-left"
+                    routerLink="/contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+- title: 'Programming Languages'
+  skills: 
+    - title: 'JavaScript'
+      link: 'javascript'
+    - title: 'Typescript'
+      link: 'node-js'
+    - title: 'Go Lang'
+      link: 'go-lang'
+    - title: 'Dart Lang'
+      link: 'dart-lang'
+    - title: 'C++'
+      link: 'cpp'
+    - title: 'PHP'
+      link: 'php'
+    - title: 'Python'
+      link: 'python'
+    - title: 'Lua'
+      link: 'lua'
+
+- title: 'Web Design'
+  skills: 
+    - title: 'HTML5'
+      link: 'html5'
+
+    - title: 'Pug'
+      link: 'pug'
+
+    - title: 'CSS3'
+      link: 'css3'
+
+    - title: 'SASS'
+      link: 'sass'
+
+    - title: 'SMACSS'
+      link: 'smacss'
+
+    - title: 'ITCSS'
+      link: 'itcss'
+
+    - title: 'Jekyll'
+      link: 'itcss'
+

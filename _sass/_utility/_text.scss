@@ -1,0 +1,13 @@
+.letter-space{
+  &-3{
+      letter-spacing: 3px;
+  }
+}
+
+
+.title{
+  .title-text{
+    width: 240px;
+    border-bottom: 4px solid #0c5069;
+  }
+}

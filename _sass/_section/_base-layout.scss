@@ -1,0 +1,103 @@
+$header-min-height: 64px;
+.header{
+    position: fixed;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    min-height: $header-min-height;
+    background-color: $main-bg-color;
+    padding: 10px 0px;
+}
+.logo{
+    a{
+        font-size: 2em;
+        color: $main-white-color;
+    }
+}
+.menu{
+    list-style-type: none;
+    display: inline-block;
+    li{
+        float: left;
+        button,
+        a{
+            display: block;
+            padding: 8px 15px;
+            color: $main-white-color;
+        }
+        &.active{
+            a{
+                color: red;
+            }
+        }
+    }
+}
+.mobile-menu{
+  height: 100%;
+  will-change: transform;
+  transform: translate(100%, 0px);
+  transition: transform 300ms ease-in-out;
+  &.open{
+    transform: translate(0px, 0px);
+  }
+  ul {
+    li{
+      a{
+        &.active{
+          color: #FFEB3B!important;
+          border-bottom: 2px solid #FFEB3B!important;
+        }
+      }
+    }
+  }
+}
+.close-button{
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, 0px);
+}
+
+.main-content{
+    margin-top: $header-min-height;
+    min-height: calc(100vh - 320px);
+}
+
+.list-style-none{
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  li{
+    padding: 10px 0px;
+  }
+}
+
+.footer{
+    background-color: $main-bg-color;
+    ul{
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+        li{
+            a{
+                color: #e0e0e0;
+                padding: 8px 02px;
+                display: block;
+                &:hover{
+                    color: white;
+                }
+            }
+        }
+        &.inline{
+          li{
+            float: left;
+          }
+        }
+    }
+}
+
+.socila-media{
+  img{
+    width: 30px;
+  }
+}

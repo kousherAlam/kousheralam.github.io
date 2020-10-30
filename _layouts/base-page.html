@@ -1,0 +1,16 @@
+--- 
+layout: default
+--- 
+{% include core/header.html %}
+
+<div class="main-content">
+  {% if page.wrapper %}
+  <div class="page-wrapper {{page.wrapper}}">
+    {{ content }}
+  </div>
+  {% else %}
+  {{ content }}
+  {% endif %}
+</div>
+
+{% include core/footer.html %}

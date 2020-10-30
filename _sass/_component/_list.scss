@@ -1,0 +1,14 @@
+.unlist{
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    &.inline{
+        li{
+            float: left;
+            a{
+                padding: 5px 10px;
+            }
+        }
+    }
+  }
+  

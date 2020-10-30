@@ -1,0 +1,64 @@
+experiences: 
+  - title: Software Engineer
+    company: SELIES roocin
+    link: 'https://selise.ch/'
+    image: '/assets/images/selise-logo.png'
+    from: 15 July 2020
+    till: 31 July 2020
+    bgClass: bg-info
+    details:  'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+  - title: Senior Web Developer
+    company: 'Bright Brains Technology - UAE/Dubai'
+    link: 'https://nybsys.com/'
+    image: '/assets/images/Bright-Brains-Technology.jpg'
+    from: 15 July 2020
+    till: 31 July 2020
+    bgClass: bg-black
+    details: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+  - title: Web Developer
+    company: Nybsys
+    link: 'https://nybsys.com/'
+    image: '/assets/images/nybsys.png'
+    from: 15 July 2020
+    till: 31 July 2020
+    bgClass: bg-primary
+    details: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+  - title: PHP Programmer
+    company: AtiqueIT
+    link: 'https://nybsys.com/'
+    image: '/assets/images/atique-it.png'
+    from: 15 July 2020
+    till: 31 July 2020
+    bgClass: bg-info
+    details: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+
+educations: 
+  - title: 'BSC in CSE'
+    institute: 'Bangladesh University Of Business and Technology'
+    from: '12 Oct 2012'
+    till: '1th January 2017'
+    link: 'kpik.org'
+    image: '/assets/images/BUBT-Logo.png'
+    bgClass: 'bg-info'
+    details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque quod voluptatem id magnam corporis!'
+  - title: 'Diploma In Computer Technology'
+    institute: 'Kurigram Polytechnic Institute'
+    from: '12 Oct 2012'
+    till: '1th January 2017'
+    link: 'kpik.org'
+    image: '/assets/images/kpik.jpg'
+    bgClass: 'bg-white'
+    details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+
+hobbies: 
+  - title: 'Traveling'
+    image: '/assets/images/traveling.jpg'
+
+  - title: 'Cycling'
+    image: '/assets/images/cycling_unsplash.jpg'
+
+  - title: 'Reading'
+    image: '/assets/images/reading.jpg'
+
+
+RESUME_LINK : 'https://drive.google.com/file/d/1fjSFtCjubZLdM30imNpnueatzhmLtqk3/view?usp=sharing'
