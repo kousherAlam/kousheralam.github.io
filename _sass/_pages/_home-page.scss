@@ -17,6 +17,7 @@ $padding-top-bottom: 100px;
     &:hover {
         background-color: map-get($map: $theme-colors, $key: "primary");
         color: map-get($map: $theme-colors, $key: "info");
+        text-decoration: none;
     }
 }
 

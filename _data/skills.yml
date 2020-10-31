@@ -21,12 +21,14 @@
   skills: 
     - title: 'HTML5'
       link: 'html5'
-
     - title: 'CSS3'
       link: 'css'
-      
     - title: 'Jekyll'
       link: 'jekyll'
+    - title: 'JavaScript'
+      link: 'javascript'
+    - title: 'Bootstrap'
+      link: 'css#bootstrap'
 
 
 - title: 'Front End  Development'
