@@ -1,7 +1,7 @@
 <div class="content-card border shadow-sm bg-white border-primary">
     <div class="row align-items-center">
         <div class="col-12 col-sm-5 col-md-4 preview position-relative text-center bg-info">
-            {% if include.thubmail != "" or include.thubmail != nil %}
+            {% if include.thubmail != "" and include.thubmail != nil %}
             <div class="thumb-image card-bg-image" style="background-image:url('{{include.thubmail}}')"></div>
             {% else %}
             <div class="thumb-image card-bg-image" style="background-image:url('/assets/images/blog-default.jpg')"></div>
