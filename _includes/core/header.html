@@ -5,7 +5,7 @@
                 <a href="/">Kousher Alam</a>
             </div>
             <div class="col-3 d-md-none d-block mt-2">
-                <button class="btn btn-outline-success" (click)="toggleMenu()">Menu</button>
+                <button class="btn btn-outline-success" onclick="toggleMenu()">Menu</button>
             </div>
             <div class="menu-holder d-none d-md-block col-9 text-right">
                 <ul class="menu mb-0">
@@ -27,9 +27,9 @@
     </div>
 </div>
 
-<div class="mobile-menu fixed-top bg-primary d-md-none d-block" [class.open]="isMenuOpen">
+<div class="mobile-menu fixed-top bg-primary d-md-none d-block" id="mobile-menu">
     <div class="close-button position-absolute text-center">
-        <button class="btn btn-danger" (click)="toggleMenu()">Close</button>
+        <button class="btn btn-danger" onclick="toggleMenu()">Close</button>
     </div>
     <div class="pl-3 pr-3 pt-5">
         <ul class="list-style-none pt-5">
