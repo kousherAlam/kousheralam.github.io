@@ -17,7 +17,7 @@ demo:
       text: Test Demo 1
 ---
 
-Details body of the, lodash, jquery, momentjs, 
+Details body of the 
 
 <div class="mt-5">
     {% include skill/post-link.html title="Portfolio" data=page.posts %}
