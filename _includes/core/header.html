@@ -34,18 +34,32 @@
     <div class="pl-3 pr-3 pt-5">
         <ul class="list-style-none pt-5">
             <li>
-                <a routerLinkActive="active" class="btn text-light btn-block text-left" routerLink="/blog">Blog</a>
+                <a 
+                    class='btn text-light btn-block text-left {% if page.url contains "/blog/" %} active {% endif %}' 
+                    href="/blog">
+                    Blog
+                </a>
             </li>
             <li>
-                <a routerLinkActive="active" class="btn text-light btn-block text-left"
-                    routerLink="/portfolio">Portfolio</a>
+                <a 
+                    class='btn text-light btn-block text-left {% if page.url contains "/portfolio/" %} active {% endif %}'
+                    href="/portfolio">
+                    Portfolio
+                </a>
             </li>
             <li>
-                <a routerLinkActive="active" class="btn text-light btn-block text-left" routerLink="/demo">Demo</a>
+                <a 
+                    class='btn text-light btn-block text-left {% if page.url contains "/demo/" %} active {% endif %}' 
+                    href="/demo">
+                    Demo
+                </a>
             </li>
             <li>
-                <a routerLinkActive="active" class="btn text-light btn-block text-left"
-                    routerLink="/contact">Contact</a>
+                <a 
+                    class='btn text-light btn-block text-left {% if page.url contains "/contact/" or page.url == "/contact" or page.url == "/contact.html" %} active {% endif %}'
+                    href="/contact">
+                    Contact
+                </a>
             </li>
         </ul>
     </div>
