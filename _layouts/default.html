@@ -29,9 +29,12 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="{{ "/assets/favicon.ico/ms-icon-144x144.png" | relative_url }}">
   <meta name="theme-color" content="#ffffff">
-
+  {% for css in layout.css %}
+  <link rel="stylesheet" href="{{css}}">
+  {% endfor %}
   {% feed_meta %}
   {% seo %}
+  <script src="/assets/js/app.js"></script>
 </head>
 <body>
   {{ content}}
@@ -39,5 +42,9 @@
   {% if jekyll.environment == 'production' %}
   {% include analytics/analytics.html %}
   {% endif %}
+
+  {% for script in layout.scripts %}
+  <script src="{{ script }}"></script>
+  {% endfor %}
 </body>
 </html>

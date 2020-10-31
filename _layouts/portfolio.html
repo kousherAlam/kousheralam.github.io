@@ -1,5 +1,10 @@
 --- 
 layout: base-page
+css: 
+  - "/assets/css/viewer.min.css"
+scripts: 
+  - "/assets/js/viewer.min.js"
+  - "/assets/js/sharer.min.js"
 --- 
 <div class='details-page-title bg-info' style="background-image: url('{{page.image}}');">
   <div class="pt-5 pb-5">
@@ -10,14 +15,16 @@ layout: base-page
 </div>
 
 
-<div class="container pt-4">
+<div class="container pt-4 mb-5">
   <div class="row">
     <div class="col-12 p-3 p-md-0">
       {{content}}
     </div>
-    <div class="col-12 p-3 p-md-0 mt-5">
-      <app-share-on-social-media></app-share-on-social-media>
+    <div class="col-12 p-3 p-md-0 mt-2">
+      {% include common/devider.html %}
+      {% include common/share.html %}
+      {% include common/image-viewer.html %}
+      {% include common/comment.html %}
     </div>
   </div>
 </div>
-
