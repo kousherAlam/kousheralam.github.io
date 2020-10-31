@@ -14,10 +14,10 @@ description: some text about the blog post, in a short lang, accutaly what is it
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 
 demo_link: 
-  - link: http://nybsys.com/ig100
+  - link: https://kousheralam.tech/angular-test-app
     class: 'btn-success'
     text: Live Preview
-  - link: http://nybsys.com/ig100
+  - link: https://github.com/kousherAlam/angular-test-app
     class: 'btn-primary'
     text: Code On Github
 ---

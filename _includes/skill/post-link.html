@@ -1,0 +1,12 @@
+<div class="related-link-section">
+    <h3 class="title">{{include.title}}</h3>
+    <div class="link-holder">
+        <ul>
+            {% for data in include.data %}
+            <li>
+                <a href="{{data.link}}" class="">{{data.text}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

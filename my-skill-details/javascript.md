@@ -1,29 +1,26 @@
 ---
-layout: blog
-title: CSS Grid System 
-categories: 
-    - CSS
-
-tags: 
-    - CSS
-    - SCSS
-    - Web Design
-
-thubmail: '/assets/blog/css-grid/future_technology_prospects.png'
+layout: skill
+title: Javascript
 image: '/assets/blog/css-grid/future_technology_prospects.png'
-
-description: some text about the blog post, in a short lang, accutaly what is it, it will be here, and wil not include on the post.
+description: Skill Destails description will be here 
+level: 80
+posts: 
+    - link: /posts/my-post.html 
+      text: Test Post 1
+    - link: /posts/my-post.html 
+      text: Test Post 2
+portfolio: 
+    - link: /posts/my-post.html 
+      text: Portfolio 1
+demo: 
+    - link: /posts/my-post.html 
+      text: Test Demo 1
 ---
 
-# This is a test 
-it's like wow, a blog is ready within 2-3 hours. 
+Details body of the 
 
-lets add some demo code
-
-```scss
-.card{
-    .name{
-        width: 100%;
-    }
-}
-```
+<div class="mt-5">
+    {% include skill/post-link.html title="Portfolio" data=page.posts %}
+    {% include skill/post-link.html title="Related Posts" data=page.portfolio %}
+    {% include skill/post-link.html title="Demo" data=page.demo %}
+</div>
