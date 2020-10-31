@@ -6,6 +6,18 @@ collections:
   blog_category : 
     output: true
     permalink: /blog/by-category/:path/
+  portfolio : 
+    output: true
+    permalink: /portfolio/:path/
+  portfolio_category : 
+    output: true
+    permalink: /portfolio/by-category/:path/
+  demo : 
+    output: true
+    permalink: /demo/:path/
+  demo_category : 
+    output: true
+    permalink: /demo/by-category/:path/
 
 # Pagination
 paginate: 15
@@ -22,15 +34,34 @@ social_links:
 
 defaults:
   - scope:
-      path: "_porfolios"
-      type: "porfolios"
+      path: "_portfolio"
+      type: "portfolio"
     values:
       layout: portfolio
       permalink: /portfolio/:title:output_ext
   - scope:
+      path: "_portfolio_category"
+      type: "portfolio"
+    values:
+      layout: portfolio-category
+      permalink: /portfolio/:title:output_ext
+  - scope:
+      path: "_demo"
+      type: "demo"
+    values:
+      layout: demo
+      permalink: /demo/:title:output_ext
+  - scope:
+      path: "_demo_category"
+      type: "demo"
+    values:
+      layout: demo-category
+      permalink: /demo/:title:output_ext
+  - scope:
       path: "_posts"
     values:
       layout: blog
+      type: post
       permalink: /blog/:categories/:year/:month/:day/:title:output_ext
   - scope:
       path: "_blog_category"

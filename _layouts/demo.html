@@ -1,10 +1,23 @@
 --- 
-layout: default
+layout: base-page
 --- 
-{% include core/header.html %}
-
-<div class="main-content">
-  {{ content }}
+<div class='details-page-title bg-info' style="background-image: url('{{page.image}}');">
+  <div class="pt-5 pb-5">
+    <h1 class="text-center">
+      <span class="bg-white text-primary pt-3 pb-3">{{page.title}}</span>
+    </h1>
+  </div>
 </div>
 
-{% include core/footer.html %}
+
+<div class="container pt-4">
+  <div class="row">
+    <div class="col-12 p-3 p-md-0">
+      {{content}}
+    </div>
+    <div class="col-12 p-3 p-md-0 mt-5">
+      <app-share-on-social-media></app-share-on-social-media>
+    </div>
+  </div>
+</div>
+

@@ -1,4 +1,46 @@
 ---
 layout: base-page
 title: "Kousher Alam - Software Engineer"
+wrapper: blog-page
+title: Demo Work
+image: '/assets/blog/css-grid/future_technology_prospects.png'
 ---
+
+<div class='details-page-title bg-info' style="background-image: url('{{page.image}}');">
+    <div class="pt-5 pb-5">
+      <h1 class="text-center">
+        <span class="bg-white text-primary pt-3 pb-3">{{page.title}}</span>
+      </h1>
+    </div>
+  </div>
+
+<div class="container pt-4 mb-5">
+    <div class="row">
+        <div class="col-12 col-md-9">
+            {% for demo in site.demo %}
+            <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
+                {% 
+                    include common/text-card.html 
+                    url = demo.url
+                    title = demo.title 
+                    description = demo.description
+                    tags = demo.tags
+                    created = demo.date
+                    thubmail = demo.thubmail
+                %}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-12 col-md-3 pl-3">
+            <h2>Categories</h2>
+            <div class="all-categories text-justify">
+                {% for category in site.demo_category %}
+                <a class="btn btn-outline-primary mr-2 mb-2" href="{{category.url}}" routerLinkActive="active">
+                    {{category.name}}
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
