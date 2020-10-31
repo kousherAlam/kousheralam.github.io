@@ -1,0 +1,17 @@
+.image-viewer{
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2.5em;
+    ul{
+        li{
+            max-width: 350px;
+            float: left;
+            padding: 5px;
+            cursor: pointer;
+            img{
+                width: 100%;
+                border: 3px solid black;
+            }
+        }
+    }
+}
