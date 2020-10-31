@@ -2,7 +2,7 @@
 layout: portfolio
 title: Nybsys Website
 categories: 
-    - Web Application
+    - website
 
 tags: 
   - javascript

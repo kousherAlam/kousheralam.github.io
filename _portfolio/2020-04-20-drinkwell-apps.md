@@ -2,7 +2,7 @@
 layout: portfolio
 title: Drinkwell Mobile Apps 
 categories: 
-    - Mobile Application
+    - mobile-application
 
 tags: 
   - Flutter

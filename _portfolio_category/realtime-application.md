@@ -1,9 +1,8 @@
 ---
 layout: portfolio-category
-title: Awesome Test Portfolio
-name: SCSS
-load: TEST
-pathmatch: /scss/
+title: Real Time Application
+load: realtime-application
+pathmatch: /realtime-application/
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 ---
 <div class="css-category-details bg-info" >

@@ -2,7 +2,7 @@
 layout: portfolio
 title: Attendance System 
 categories: 
-    - Web Application
+    - web-application
 
 tags: 
   - Node 

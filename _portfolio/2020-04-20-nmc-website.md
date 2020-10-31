@@ -2,7 +2,7 @@
 layout: portfolio
 title: National Maize Corporation
 categories: 
-    - Web Application
+    - website
 
 tags: 
   - PHP

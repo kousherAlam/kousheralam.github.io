@@ -2,7 +2,8 @@
 layout: portfolio
 title: LTE Dashboard
 categories: 
-    - Web Application
+    - web-application
+    - realtime-application
 
 tags: 
   - Node 

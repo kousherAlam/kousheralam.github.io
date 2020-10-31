@@ -2,7 +2,8 @@
 layout: portfolio
 title: CellPhone Tracker
 categories: 
-    - Web Application
+    - web-application
+    - realtime-application
 
 tags: 
   - Javascript 
