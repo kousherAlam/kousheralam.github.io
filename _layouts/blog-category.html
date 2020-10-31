@@ -31,7 +31,7 @@ layout: base-page
     <div class="col-12 col-md-3 pl-3">
       <h2>Categories</h2>
       <div class="all-categories text-justify">
-        {% for category in site.blog_category %}
+        {% for category in site.post_category %}
         <a 
           class="btn btn-outline-primary mr-2 mb-2 {% if page.url contains category.pathmatch %}active{% endif %}" 
           href="{{category.url}}">

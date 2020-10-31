@@ -3,7 +3,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 title: "Kousher Alam" # the name of your site, e.g. ACME Corp.
 
 collections:
-  blog_category : 
+  post_category : 
     output: true
     permalink: /blog/by-category/:path/
   portfolio : 
