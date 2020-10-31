@@ -9,10 +9,10 @@ wrapper: blog-page
     </div>
 </div>
 
-<div class="container pt-4">
+<div class="container pt-4 mb-5">
     <div class="row">
         <div class="col-12 col-md-9">
-            {% for post in site.posts %}
+            {% for post in paginator.posts %}
             <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
                 {% 
                     include common/card.html 
@@ -27,9 +27,21 @@ wrapper: blog-page
             {% endfor %}
             <div class="single-blog p-3 p-md-0">
                 <div class="pagination text-right mb-3">
-                    <mat-paginator (page)="pageChagne($event)" [length]="pagination.pageLength"
-                        [pageSize]="pagination.perpage" [pageSizeOptions]="pagination.pageSizeOption">
-                    </mat-paginator>
+                    {% if paginator.previous_page %}
+                    <a href="{{ paginator.previous_page_path }}" class="previous">
+                        Previous
+                    </a>
+                    {% else %}
+                    <span class="previous">Previous</span>
+                    {% endif %}
+                    <span class="page_number ">
+                        Page: {{ paginator.page }} of {{ paginator.total_pages }}
+                    </span>
+                    {% if paginator.next_page %}
+                    <a href="{{ paginator.next_page_path }}" class="next">Next</a>
+                    {% else %}
+                    <span class="next ">Next</span>
+                    {% endif %}
                 </div>
             </div>
 
@@ -38,8 +50,7 @@ wrapper: blog-page
             <h2>Categories</h2>
             <div class="all-categories text-justify">
                 {% for category in site.blog_category %}
-                <a class="btn btn-outline-primary mr-2 mb-2"
-                    href="{{category.url}}" routerLinkActive="active">
+                <a class="btn btn-outline-primary mr-2 mb-2" href="{{category.url}}" routerLinkActive="active">
                     {{category.name}}
                 </a>
                 {% endfor %}

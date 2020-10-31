@@ -5,7 +5,7 @@ title: "Kousher Alam" # the name of your site, e.g. ACME Corp.
 collections:
   blog_category : 
     output: true
-
+    permalink: /blog/by-category/:path/
 
 # Pagination
 paginate: 15
@@ -13,21 +13,12 @@ paginate_path: "/blog/page:num/"
 
 
 social_links:
-  - image: twitter.svg
-    link: https://twitter.com/Kousheralam1
-    alt: Twitter
-  - image: linkedin.svg
-    link: https://www.linkedin.com/in/kousheralam/
-    alt: LinkedIn
-  - image: github.svg
-    link: https://github.com/kousherAlam
-    alt: Github
-  - image: stackoverflow.svg
-    link: https://stackoverflow.com/users/7448841/kousher-alam-pranto
-    alt: StackOverlfow
-  - image: npm.svg
-    link: https://www.npmjs.com/~kousher
-    alt: npm - Node Package Manager
+  facebook: https://facebook.com/MdKousherAlam
+  twitter: https://twitter.com/Kousheralam1
+  linkedin: https://www.linkedin.com/in/kousheralam/
+  github: https://github.com/kousherAlam
+  stackoverflow: https://stackoverflow.com/users/7448841/kousher-alam-pranto
+  npm: https://www.npmjs.com/~kousher
 
 defaults:
   - scope:
@@ -38,7 +29,6 @@ defaults:
       permalink: /portfolio/:title:output_ext
   - scope:
       path: "_posts"
-      type: "blog"
     values:
       layout: blog
       permalink: /blog/:categories/:year/:month/:day/:title:output_ext

@@ -9,10 +9,18 @@
             </div>
             <div class="menu-holder d-none d-md-block col-9 text-right">
                 <ul class="menu mb-0">
-                    <li routerLinkActive="active"> <a href="/blog">Blog</a></li>
-                    <li routerLinkActive="active"> <a href="/portfolio">Portfolio</a> </li>
-                    <li routerLinkActive="active"> <a href="/demo">Demo</a> </li>
-                    <li routerLinkActive="active"> <a href="/contact">Contact</a> </li>
+                    <li {% if page.url contains "/blog/" %} class="active" {% endif %}> 
+                        <a href="/blog">Blog</a>
+                    </li>
+                    <li {% if page.url contains "/portfolio/" %} class="active" {% endif %}> 
+                        <a href="/portfolio">Portfolio</a> 
+                    </li>
+                    <li {% if page.url contains "/demo/" %} class="active" {% endif %}> 
+                        <a href="/demo">Demo</a> 
+                    </li>
+                    <li {% if page.url contains "/contact/" or page.url == "/contact" or page.url == "/contact.html" %} class="active" {% endif %}> 
+                        <a href="/contact">Contact</a> 
+                    </li>
                 </ul>
             </div>
         </div>
