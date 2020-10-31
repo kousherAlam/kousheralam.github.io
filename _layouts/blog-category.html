@@ -1,13 +1,8 @@
 ---
 layout: base-page
 ---
-<div class='details-page-title bg-info' style="background-image: url('{{page.image}}');">
-  <div class="pt-5 pb-5">
-    <h1 class="text-center">
-      <span class="bg-white text-primary pt-3 pb-3">Blog / {{page.title}}</span>
-    </h1>
-  </div>
-</div>
+{% include common/top-header.html %}
+
 
 <div class="blog-category category-details">
   {{content}}
