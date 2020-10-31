@@ -72,3 +72,86 @@
       link: 'laravel'
     - title: 'Codigniter'
       link: 'codigniter'
+
+- title: 'CMS'
+  skills: 
+    - title: 'Wordpress'
+      link: 'wordpress'
+    - title: 'Woocommerce'
+      link: 'woocommerce'
+
+- title: 'Build Tools'
+  skills: 
+    - title: 'Gulp'
+      link: 'gulp'
+    - title: 'Webpack'
+      link: 'webpack'
+    - title: 'CMAKE'
+      link: 'cmake'
+
+- title: 'Cross Platform Communication'
+  skills: 
+    - title: 'JSON'
+      link: 'javascript#json'
+    - title: 'XML'
+      link: 'html5#json'
+    - title: 'Protocol Buffer'
+      link: 'protocol-buffer'
+    - title: 'gRPC'
+      link: 'grpc'
+
+- title: 'Mobile App Development'
+  skills: 
+    - title: 'Flutter'
+      link: 'flutter'
+    - title: 'NativeScript'
+      link: 'nativescript'
+    - title: 'Cordova'
+      link: 'cordova'
+
+- title: 'Database System'
+  skills: 
+    - title: 'MySQL'
+      link: 'mysql'
+    - title: 'MySQL Lite'
+      link: 'mysql-lite'
+    - title: 'PostgreSQL'
+      link: 'postgresql'
+    - title: 'MongoDB'
+      link: 'mongodb'
+
+- title: 'ServerLess Technology'
+  skills: 
+    - title: 'Firebase'
+      link: 'firebase'
+
+- title: 'Desktop App Development'
+  skills: 
+    - title: 'Electron'
+      link: 'electorn'
+    - title: 'Flutter'
+      link: 'flutter'
+
+- title: 'Real Time & Event Sourcing'
+  skills: 
+    - title: 'WebSocket'
+      link: 'realtime#websocket'
+    - title: 'MQTT'
+      link: 'realtime#mqtt'
+    - title: 'Web RTC'
+      link: 'realtime#webrtc'
+    - title: 'Apache Kafka'
+      link: 'realtime#apache-kafka'
+    - title: 'Rabbit MQ'
+      link: 'realtime#rabbit-mq'
+
+- title: 'DevOps'
+  skills: 
+    - title: 'Linux'
+      link: 'linux'
+    - title: 'Git'
+      link: 'git'
+    - title: 'Docker'
+      link: 'docker'
+    - title: 'Kubernetes'
+      link: 'kubernetes'
