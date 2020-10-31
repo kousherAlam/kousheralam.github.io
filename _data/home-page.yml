@@ -1,54 +1,59 @@
 experiences: 
   - title: Software Engineer
-    company: SELIES roocin
+    company: SELIES roocin Software
     link: 'https://selise.ch/'
     image: '/assets/images/selise-logo.png'
-    from: 15 July 2020
-    till: 31 July 2020
+    from: 01 Sept 2020
+    till: Currently Working Here
     bgClass: bg-info
-    details:  'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+    type: Full Time
+    details:  Angular, Agile, Mongodb, GraphQL,NodeJS,  
   - title: Senior Web Developer
     company: 'Bright Brains Technology - UAE/Dubai'
-    link: 'https://nybsys.com/'
+    link: 'https://brightbrains.ae/en-us/'
     image: '/assets/images/Bright-Brains-Technology.jpg'
     from: 15 July 2020
     till: 31 July 2020
+    type: Full Time
+    special: Remote
     bgClass: bg-black
-    details: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+    details: Used PHP, Nodejs, Mysql and socket to update existing web applications, fixing existing rest api.
   - title: Web Developer
     company: Nybsys
     link: 'https://nybsys.com/'
     image: '/assets/images/nybsys.png'
-    from: 15 July 2020
+    from: 15 July 2017
     till: 31 July 2020
+    type: Full Time
     bgClass: bg-primary
-    details: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+    details: Worked in angular, node, php, wordpress, lua, python, dart, flutter, mqtt, web socket, tcp, aws, openwrt, firebase, lambda and different technology. And worked with multiple teams to complete projects with combination with different technology such as mobile, web, IoT, LTE etc.
   - title: PHP Programmer
     company: AtiqueIT
-    link: 'https://nybsys.com/'
+    link: https://www.linkedin.com/company/atique-it/
     image: '/assets/images/atique-it.png'
-    from: 15 July 2020
-    till: 31 July 2020
+    from: 1st March 2017
+    till: 30th June, 2020
+    type: Full Time
     bgClass: bg-info
-    details: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+    details: Build and manage different types of management systems. Most frequently used technologies were PHP, Codigniter, Jquery, Ajax, HTML5, CSS3, mysql. Scaling and adding new features into existing web applications and improving their efficiency was part of my job.
 
 educations: 
   - title: 'BSC in CSE'
     institute: 'Bangladesh University Of Business and Technology'
-    from: '12 Oct 2012'
-    till: '1th January 2017'
-    link: 'kpik.org'
+    from: October 2018 
+    till: February 2023
+    link: https://www.bubt.edu.bd/
     image: '/assets/images/BUBT-Logo.png'
     bgClass: 'bg-info'
-    details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque quod voluptatem id magnam corporis!'
+    details: Dropout After studying 6 Semester. 
   - title: 'Diploma In Computer Technology'
     institute: 'Kurigram Polytechnic Institute'
-    from: '12 Oct 2012'
-    till: '1th January 2017'
-    link: 'kpik.org'
+    from: October 2012 
+    till: January 2017
+    link: 'http://kpik.org'
     image: '/assets/images/kpik.jpg'
     bgClass: 'bg-white'
-    details: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium aliquid sed obcaecati atque molestias doloremque, quod voluptatem id magnam corporis!'
+    details: Studying 4 years in computer technology, topics included different programming languages, Data-Structure, Algorithms, Operating systems, Database ,Computer Network, Peripherals etc ..
 
 hobbies: 
   - title: 'Traveling'

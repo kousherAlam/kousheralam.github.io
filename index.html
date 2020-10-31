@@ -10,16 +10,12 @@ title: "Kousher Alam - Software Engineer"
           <div class="col-md-2 col-12"></div>
           <div class="col-md-8 col-12">
             <h1 class="text-center text-white mt-0 h3">
-              Software Engineering is my profession and
-              <span class="bg-primary text-info pl-1 pr-1">passion</span>&nbsp;.
+              Software Engineering is my profession and PASSION
             </h1>
             <h2 class="text-center text-white h3 mt-3 mb-3">... I Beleve That ...</h2>
             <blockquote
               class="text-center text-primary rounded font-weight-bold mb-0 mt-0 pl-3 pr-3 pt-4 pb-4 bg-light h2">
-              Developing digital solution shouldn't be that hard</blockquote>
-            <a routerLink="/contact" class="btn btn-link btn-primary pl-5 pr-4 pt-2 pb-2 mt-3 text-white">Let's talk
-              about
-              your Idea</a>
+              Developing digital solution shouldn't be that hard.</blockquote>
           </div>
           <div class="col-md-2 col-12"></div>
         </div>
@@ -43,12 +39,20 @@ title: "Kousher Alam - Software Engineer"
       <div class="col-12 col-md-10 p-4">
         <h3 class="title pb-0">{{experience.title}}</h3>
         <p class="company-details">
-          <span class="name"><a class="btn btn-link p-0" href="{{experience.link}}" norel
-              norefer>{{experience.company}}</a></span>
-          <span class="dash">-</span>
+          <span class="name">
+            <a class="btn btn-link p-0" href="{{experience.link}}" norel
+              norefer>{{experience.company}}</a>
+            </span>
+          <span class="dash">|</span>
           <span class="timeline">
-            <span class="from">{{experience.from}}</span>
-            <span class="from">{{experience.till}}</span>
+            <span class="from font-weight-bold text-primary">{{experience.from}}</span>
+            <span class="space"> -  </span>
+            <span class="from font-weight-bold text-primary">{{experience.till}}</span>
+            <span class="space"> | </span>
+            <span class="from">{{experience.type}}</span>
+            {% if experience.special != nil %}
+            <span class="space font-weight-bold"> | {{experience.special}}</span>
+            {% endif %}
           </span>
         </p>
         <p class="description">{{experience.details}}</p>

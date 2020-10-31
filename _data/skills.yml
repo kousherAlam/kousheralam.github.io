@@ -94,7 +94,7 @@
     - title: 'JSON'
       link: 'javascript#json'
     - title: 'XML'
-      link: 'html5#json'
+      link: 'html5#xml'
     - title: 'Protocol Buffer'
       link: 'protocol-buffer'
     - title: 'gRPC'
