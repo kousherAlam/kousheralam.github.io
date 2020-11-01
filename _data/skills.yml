@@ -83,11 +83,11 @@
 - title: 'Build Tools'
   skills: 
     - title: 'Gulp'
-      link: 'gulp'
+      link: 'build-tools#gulp'
     - title: 'Webpack'
-      link: 'webpack'
+      link: 'build-tools#webpack'
     - title: 'CMAKE'
-      link: 'cmake'
+      link: 'build-tools#cmake'
 
 - title: 'Cross Platform Communication'
   skills: 
