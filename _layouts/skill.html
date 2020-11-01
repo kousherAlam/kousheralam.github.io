@@ -1,6 +1,6 @@
---- 
+---
 layout: base-page
---- 
+---
 {% include common/top-header.html suffix="Skill Details /" %}
 
 <div class="container pt-5 mb-5">
@@ -9,18 +9,25 @@ layout: base-page
       <div class="title-section mb-4">
         <h1 class="mb-1">My {{page.title}} Skill Details</h1>
         <div class='percent-holder row'>
+          {% assign page.level = page.level | plus: 0 %}
+          {% if page.level < 40 %}
           <div class="col-12 col-md-7 percent border rounded border-primary bg-info">
-            {% if page.level < 40 }
-            <div style="width: {{page.level}}%; height: 20px;" class="bg-danger"></div>
-            {% else %}
-            <div style="width: {{page.level}}%; height: 20px;" class="bg-success"></div>
-            {% endif %}
+            <div style="width: {{page.level}}%; height: 20px;" class="bg-danger">{{page.level}}</div>
           </div>
+          {% elsif page.level < 80 %}
+          <div class="col-12 col-md-7 percent border rounded border-succss bg-info">
+            <div style="width: {{page.level}}%; height: 20px;" class="bg-primary">{{page.level}}</div>
+          </div>
+          {% else %}
+          <div class="col-12 col-md-7 percent border rounded border-primary bg-info">
+            <div style="width: {{page.level}}%; height: 20px;" class="bg-success">{{page.level}}</div>
+          </div>
+          {% endif %}
           <div class="col-12 col-md-5"></div>
         </div>
       </div>
       {{content}}
     </div>
-    
+
   </div>
 </div>
