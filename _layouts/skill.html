@@ -10,7 +10,11 @@ layout: base-page
         <h1 class="mb-1">My {{page.title}} Skill Details</h1>
         <div class='percent-holder row'>
           <div class="col-12 col-md-7 percent border rounded border-primary bg-info">
+            {% if page.level < 40 }
+            <div style="width: {{page.level}}%; height: 20px;" class="bg-danger"></div>
+            {% else %}
             <div style="width: {{page.level}}%; height: 20px;" class="bg-success"></div>
+            {% endif %}
           </div>
           <div class="col-12 col-md-5"></div>
         </div>

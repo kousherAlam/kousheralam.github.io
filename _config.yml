@@ -20,7 +20,7 @@ collections:
     permalink: /demo/by-category/:path/
 
 # Pagination
-paginate: 15
+paginate: 20
 paginate_path: "/blog/page:num/"
 
 
