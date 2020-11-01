@@ -4,3 +4,4 @@ _site
 .vscode
 Cache
 .jekyll-cache
+.DS_Store
