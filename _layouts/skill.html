@@ -11,16 +11,16 @@ layout: base-page
         <div class='percent-holder row'>
           {% assign page.level = page.level | plus: 0 %}
           {% if page.level < 40 %}
-          <div class="col-12 col-md-7 percent border rounded border-primary bg-info">
-            <div style="width: {{page.level}}%; height: 20px;" class="bg-danger text-white">{{page.level}} %</div>
+          <div class="col-12 col-md-7 percent border rounded border-danger bg-info">
+            <div style="width: {{page.level}}%; height: 20px;" class="bg-danger text-center text-white small">{{page.level}} %</div>
           </div>
           {% elsif page.level < 80 %}
-          <div class="col-12 col-md-7 percent border rounded border-succss bg-info">
-            <div style="width: {{page.level}}%; height: 20px;" class="bg-primary text-white">{{page.level}} %</div>
+          <div class="col-12 col-md-7 percent border rounded border-success bg-info">
+            <div style="width: {{page.level}}%; height: 20px;" class="bg-primary text-center text-white small">{{page.level}} %</div>
           </div>
           {% else %}
-          <div class="col-12 col-md-7 percent border rounded border-primary bg-info">
-            <div style="width: {{page.level}}%; height: 20px;" class="bg-success text-center text-white">{{page.level}} %</div>
+          <div class="col-12 col-md-7 percent border rounded border-success bg-info">
+            <div style="width: {{page.level}}%; height: 20px;" class="bg-success text-center text-white small">{{page.level}} %</div>
           </div>
           {% endif %}
           <div class="col-12 col-md-5"></div>

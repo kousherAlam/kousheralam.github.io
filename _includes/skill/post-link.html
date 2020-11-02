@@ -1,6 +1,7 @@
-{% if data != nil and dataSize > 0 %}
+{% assign dataSize = include.data | size %}
+{% if include.data != nil and dataSize > 0 %}
 <div class="related-link-section">
-    <h3 class="title text-muted border-bottom text-capitalize">{{include.title}}</h3>
+    <h4 class="title text-muted border-bottom text-capitalize font-weight-light">{{include.title}}</h4>
     <div class="link-holder">
         <ul>
             {% for data in include.data %}
