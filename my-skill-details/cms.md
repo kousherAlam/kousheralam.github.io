@@ -1,6 +1,6 @@
 ---
 layout: skill
-title: Jekyll
+title: ChartJS
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 description: Skill Destails description will be here 
 level: 80
@@ -17,7 +17,9 @@ demo:
       text: Test Demo 1
 ---
 
-Details body of the 
+Details body of cms , 
+## wordpress
+## woocommoerce 
 
 <div class="mt-5">
     {% include skill/post-link.html title="Related Portfolio" data=page.posts %}
