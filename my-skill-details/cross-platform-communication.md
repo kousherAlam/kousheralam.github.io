@@ -1,6 +1,6 @@
 ---
 layout: skill
-title: Protocol Buffer
+title: Mobile apps development
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 description: Skill Destails description will be here 
 level: 80
@@ -19,8 +19,20 @@ demo:
 
 Details body of the 
 
+- title: 'Cross Platform Communication'
+  skills: 
+    - title: 'JSON'
+      link: 'cross-platform-communication#json'
+    - title: 'XML'
+      link: 'cross-platform-communication#xml'
+    - title: 'Protocol Buffer'
+      link: 'cross-platform-communication#protocol-buffer'
+    - title: 'gRPC'
+      link: 'cross-platform-communication#grpc'
+      
 <div class="mt-5">
     {% include skill/post-link.html title="Related Portfolio" data=page.posts %}
     {% include skill/post-link.html title="Related Posts" data=page.portfolio %}
     {% include skill/post-link.html title="Related Demo" data=page.demo %}
 </div>
+

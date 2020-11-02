@@ -92,22 +92,22 @@
 - title: 'Cross Platform Communication'
   skills: 
     - title: 'JSON'
-      link: 'javascript#json'
+      link: 'cross-platform-communication#json'
     - title: 'XML'
-      link: 'html5#xml'
+      link: 'cross-platform-communication#xml'
     - title: 'Protocol Buffer'
-      link: 'protocol-buffer'
+      link: 'cross-platform-communication#protocol-buffer'
     - title: 'gRPC'
-      link: 'grpc'
+      link: 'cross-platform-communication#grpc'
 
 - title: 'Mobile App Development'
   skills: 
     - title: 'Flutter'
       link: 'flutter'
     - title: 'NativeScript'
-      link: 'nativescript'
+      link: 'mobile-app#nativescript'
     - title: 'Cordova'
-      link: 'cordova'
+      link: 'mobile-app#cordova'
 
 - title: 'Database System'
   skills: 
@@ -123,12 +123,12 @@
 - title: 'ServerLess Technology'
   skills: 
     - title: 'Firebase'
-      link: 'firebase'
+      link: 'serverless#firebase'
 
 - title: 'Desktop App Development'
   skills: 
     - title: 'Electron'
-      link: 'electorn'
+      link: 'desktop-app#electorn'
     - title: 'Flutter'
       link: 'flutter'
 
