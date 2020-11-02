@@ -1,6 +1,6 @@
 ---
 layout: skill
-title: Git
+title: Flutter
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 description: Skill Destails description will be here 
 level: 80
@@ -17,10 +17,18 @@ demo:
       text: Test Demo 1
 ---
 
+- title: 'DevOps'
+  skills: 
+    - title: 'Linux'
+      link: 'devops#linux'
+    - title: 'Git'
+      link: 'devops#git'
+    - title: 'Docker'
+      link: 'devops#docker'
+    - title: 'Kubernetes'
+      link: 'devops#kubernetes'
+      
 Details body of the 
-
-github action
-bitbuket pipeline 
 
 <div class="mt-5">
     {% include skill/post-link.html title="Related Portfolio" data=page.posts %}
