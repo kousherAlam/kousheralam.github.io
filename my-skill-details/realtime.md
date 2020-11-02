@@ -31,7 +31,7 @@ Details body of the
 
 
 <div class="mt-5">
-    {% include skill/post-link.html title="Portfolio" data=page.posts %}
+    {% include skill/post-link.html title="Related Portfolio" data=page.posts %}
     {% include skill/post-link.html title="Related Posts" data=page.portfolio %}
-    {% include skill/post-link.html title="Demo" data=page.demo %}
+    {% include skill/post-link.html title="Related Demo" data=page.demo %}
 </div>

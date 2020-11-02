@@ -1,5 +1,6 @@
+{% if data != nil and dataSize > 0 %}
 <div class="related-link-section">
-    <h3 class="title">{{include.title}}</h3>
+    <h3 class="title text-muted border-bottom text-capitalize">{{include.title}}</h3>
     <div class="link-holder">
         <ul>
             {% for data in include.data %}
@@ -10,3 +11,4 @@
         </ul>
     </div>
 </div>
+{% endif %}
