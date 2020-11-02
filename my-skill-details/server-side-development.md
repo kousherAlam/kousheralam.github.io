@@ -1,6 +1,6 @@
 ---
 layout: skill
-title: Passport JS
+title: Codigniter
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 description: Skill Destails description will be here 
 level: 80
@@ -17,10 +17,22 @@ demo:
       text: Test Demo 1
 ---
 
-Details body of the 
+
+- title: 'Server Side Development'
+
+rest-api'
+graphql'
+oauth-2'
+mvc'
+orm'
+express-js'      
+passport-js'
+laravel'
+codigniter'
+
 
 <div class="mt-5">
     {% include skill/post-link.html title="Related Portfolio" data=page.posts %}
-    {% include skill/post-link.html title="Related Related Posts" data=page.portfolio %}
+    {% include skill/post-link.html title="Related Posts" data=page.portfolio %}
     {% include skill/post-link.html title="Related Demo" data=page.demo %}
 </div>
