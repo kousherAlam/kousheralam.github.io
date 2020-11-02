@@ -112,13 +112,13 @@
 - title: 'Database System'
   skills: 
     - title: 'MySQL'
-      link: 'mysql'
+      link: 'database#mysql'
     - title: 'MySQL Lite'
-      link: 'mysql-lite'
+      link: 'database#mysql-lite'
     - title: 'PostgreSQL'
-      link: 'postgresql'
+      link: 'database#postgresql'
     - title: 'MongoDB'
-      link: 'mongodb'
+      link: 'database#mongodb'
 
 - title: 'ServerLess Technology'
   skills: 

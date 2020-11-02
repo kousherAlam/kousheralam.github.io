@@ -1,6 +1,6 @@
 ---
 layout: skill
-title: MySQL
+title: Database
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 description: Skill Destails description will be here 
 level: 80
@@ -17,7 +17,16 @@ demo:
       text: Test Demo 1
 ---
 
-Details body of the 
+- title: 'Database System'
+  skills: 
+    - title: 'MySQL'
+      link: 'database#mysql'
+    - title: 'MySQL Lite'
+      link: 'database#mysql-lite'
+    - title: 'PostgreSQL'
+      link: 'database#postgresql'
+    - title: 'MongoDB'
+      link: 'database#mongodb'
 
 <div class="mt-5">
     {% include skill/post-link.html title="Related Portfolio" data=page.posts %}
