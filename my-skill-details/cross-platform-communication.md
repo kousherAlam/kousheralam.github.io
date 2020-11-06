@@ -1,9 +1,9 @@
 ---
 layout: skill
-title: Mobile apps development
+title: Cross Platform Communication
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 description: Skill Destails description will be here 
-level: 80
+level: 45
 posts: 
     # - link: /posts/my-post.html 
     #   text: Test Post 1

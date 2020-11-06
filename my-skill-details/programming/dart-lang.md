@@ -3,7 +3,7 @@ layout: skill
 title: Dart Programming
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 description: Skill Destails description will be here 
-level: 80
+level: 55
 posts: 
     # - link: /posts/my-post.html 
     #   text: Test Post 1
