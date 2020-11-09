@@ -17,11 +17,7 @@ image: "/assets/portfolio/nmc/screenshot.jpg"
 demo_link:
   link: http://nmc.co.sz
   text: Live Preview
-screnshots:
-- 1
-- 2
-- 3
-- 4
+screnshots: ["1.png", "2.png", "3.png", "4.png" ]
 preview_ids:
 - images
 ---
@@ -31,14 +27,12 @@ The website is build using wordpess, and created custom theme for the website to
 
 <br/>
 ## Screenshots 
-<div class="image-viewer">
-  <ul id="images" class="unlist my-slider">
-  {% for image in page.screnshots %}
-    {% capture image_name %}
-       /assets/portfolio/nmc/{{image}}.png
-    {% endcapture %}
-    <li><img loading="lazy" src="{{image_name}}" alt="Picture {{image_name}}"></li>
-    {% endfor %}
-  </ul>
-</div>
+
+{% 
+  include media/image-viewer.html 
+  basehref="/assets/portfolio/nmc/" 
+  screnshots= page.screnshots
+  id="images" 
+%}
+
 

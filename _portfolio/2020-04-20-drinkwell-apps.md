@@ -19,29 +19,29 @@ demo_link:
   link: http://drinkwellsystems.com/
   text: More Info
 screnshots:
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
-- 7
-- 8
-- 9
-- 10
-- 11
-- 12
-- 13
-- 14
-- 15
-- 16
-- 17
+- 1.png
+- 2.png
+- 3.png
+- 4.png
+- 5.png
+- 6.png
+- 7.png
+- 8.png
+- 9.png
+- 10.png
+- 11.png
+- 12.png
+- 13.png
+- 14.png
+- 15.png
+- 16.png
+- 17.png
 screnshots_2:
-- 1
-- 2
-- 3
-- 4
-- 5
+- 1.png
+- 2.png
+- 3.png
+- 4.png
+- 5.png
 preview_ids:
 - images
 - images-2
@@ -53,35 +53,24 @@ used dart and flutter to create drinkwell app. it ensure productive development 
 
 <br/>
 ## Screenshots [Pump Operator]
-<div class="image-viewer">
-  <ul id="images" class="unlist my-slider">
-  {% for image in page.screnshots %}
-    {% capture image_name %}
-       /assets/portfolio/drinkwell/{{image}}.png
-    {% endcapture %}
-    <li>
-      <img loading="lazy" src="{{image_name}}" alt="{{image_name}}">
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+{% 
+  include media/image-viewer.html 
+  basehref="/assets/portfolio/drinkwell/" 
+  screnshots= page.screnshots
+  id="images" 
+%}
+
 <br/>
 <br/>
 
 
 
 ## Screenshots [Dealer]
-<div class="image-viewer">
-  <ul id="images-2" class="unlist my-slider">
-  {% for image in page.screnshots_2 %}
-    {% capture image_name %}
-       /assets/portfolio/drinkwell/wasa_dealer/{{image}}.png
-    {% endcapture %}
-    <li>
-      <img loading="lazy" src="{{image_name}}" alt="Picture {{image_name}}">
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+{% 
+  include media/image-viewer.html 
+  basehref="/assets/portfolio/drinkwell/wasa_dealer/" 
+  screnshots= page.screnshots_2
+  id="images-2" 
+%}
 <br/>
 <br/>
