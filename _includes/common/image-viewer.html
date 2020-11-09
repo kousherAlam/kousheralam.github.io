@@ -6,6 +6,14 @@
               const gallery = new Viewer(document.getElementById(ids[i]));
           }
       }
+      if(tns){
+        var slider = tns({
+            container: '.my-slider',
+            items: 3,
+            slideBy: 'page',
+            autoplay: true
+        });
+      }
     });
 </script>
   

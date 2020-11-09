@@ -36,7 +36,7 @@ It use custom post type and meta box for some of it's feature.
 ## Screenshots 
 
 <div class="image-viewer">
-  <ul id="images" class="unlist">
+  <ul id="images" class="unlist my-slider">
   {% for image in page.screnshots %}
     {% capture image_name %}
        /assets/portfolio/nybsys/{{image}}.png

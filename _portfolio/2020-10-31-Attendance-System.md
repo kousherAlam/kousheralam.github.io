@@ -64,7 +64,7 @@ It use mqtt to communicate between ai and node backend. and use websocket betwee
 ## Preview of V1 
 
 <div class="image-viewer">
-  <ul id="images" class="unlist">
+  <ul id="images" class="unlist my-slider">
   {% for image in page.v1_images %}
     {% capture image_name %}
       /assets/portfolio/attendance/v1/{{image}}.png
@@ -80,7 +80,7 @@ It use mqtt to communicate between ai and node backend. and use websocket betwee
 ## Preview of V2
 
 <div class="image-viewer">
-  <ul id="imagesv1" class="unlist">
+  <ul id="imagesv1" class="unlist my-slider">
   {% for image in page.v1_images %}
     {% capture image_name %}
       /assets/portfolio/attendance/v2/{{image}}.png

@@ -32,7 +32,7 @@ The website is build using wordpess, and created custom theme for the website to
 <br/>
 ## Screenshots 
 <div class="image-viewer">
-  <ul id="images" class="unlist">
+  <ul id="images" class="unlist my-slider">
   {% for image in page.screnshots %}
     {% capture image_name %}
        /assets/portfolio/nmc/{{image}}.png

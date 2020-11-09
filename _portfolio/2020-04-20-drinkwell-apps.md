@@ -54,7 +54,7 @@ used dart and flutter to create drinkwell app. it ensure productive development 
 <br/>
 ## Screenshots [Pump Operator]
 <div class="image-viewer">
-  <ul id="images" class="unlist">
+  <ul id="images" class="unlist my-slider">
   {% for image in page.screnshots %}
     {% capture image_name %}
        /assets/portfolio/drinkwell/{{image}}.png
@@ -72,7 +72,7 @@ used dart and flutter to create drinkwell app. it ensure productive development 
 
 ## Screenshots [Dealer]
 <div class="image-viewer">
-  <ul id="images-2" class="unlist">
+  <ul id="images-2" class="unlist my-slider">
   {% for image in page.screnshots_2 %}
     {% capture image_name %}
        /assets/portfolio/drinkwell/wasa_dealer/{{image}}.png
