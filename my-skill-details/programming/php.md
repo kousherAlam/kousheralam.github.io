@@ -1,6 +1,6 @@
 ---
-layout: skill
 title: PHP
+layout: skill
 image: "/assets/blog/css-grid/future_technology_prospects.png"
 description: 'PHP Is My first programming language. I start my career with php. Used
   Codigniter and Laravel Framework as well as raw PHP to develop solution. '
