@@ -3,6 +3,10 @@ title: Work / Portfolio
 layout: base-page
 wrapper: blog-page
 image: "/assets/blog/css-grid/future_technology_prospects.png"
+pagination: 
+  enabled: true
+  permalink: '/portfolio/:num/'
+  collection: portfolio
 ---
 
 {% include common/top-header.html %}
@@ -10,7 +14,7 @@ image: "/assets/blog/css-grid/future_technology_prospects.png"
 <div class="container pt-4 mb-5">
     <div class="row">
         <div class="col-12 col-md-9">
-            {% for portfolio in site.portfolio %}
+            {% for portfolio in paginator.posts %}
             <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
                 {% 
                     include common/text-card.html 
@@ -23,6 +27,26 @@ image: "/assets/blog/css-grid/future_technology_prospects.png"
                 %}
             </div>
             {% endfor %}
+            
+            <div class="pagination">
+                <h1>pagination: </h1>
+                {% if paginator.total_pages > 1 %}
+                <ul>
+                {% if paginator.previous_page %}
+                <li>
+                    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
+                </li>
+                {% endif %}
+                {% if paginator.next_page %}
+                <li>
+                    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
+                </li>
+                {% endif %}
+                </ul>
+                {% else %}
+                <h1>No Post: {{paginator.total_pages | size}} </h1>
+                {% endif %}
+            </div>
         </div>
         <div class="col-12 col-md-3 pl-3">
             <h2>Categories</h2>

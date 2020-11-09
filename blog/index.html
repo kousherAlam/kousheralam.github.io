@@ -3,6 +3,8 @@ title: Blog / My Thinking
 layout: base-page
 wrapper: blog-page
 image: "/assets/blog/css-grid/future_technology_prospects.png"
+pagination: 
+  enabled: true
 ---
 
 {% include common/top-header.html %}
@@ -24,6 +26,27 @@ image: "/assets/blog/css-grid/future_technology_prospects.png"
                 %}
             </div>
             {% endfor %}
+
+            <div class="pagination">
+                <h1>pagination: </h1>
+                {% if paginator.total_pages > 1 %}
+                <ul>
+                {% if paginator.previous_page %}
+                <li>
+                    <a href="{{ paginator.previous_page_path | prepend: site.baseurl }}">Newer</a>
+                </li>
+                {% endif %}
+                {% if paginator.next_page %}
+                <li>
+                    <a href="{{ paginator.next_page_path | prepend: site.baseurl }}">Older</a>
+                </li>
+                {% endif %}
+                </ul>
+                {% else %}
+                <h1>No Post: {{paginator.total_pages | size}} </h1>
+                {% endif %}
+            </div>
+
             <div class="single-blog p-3 p-md-0">
                 <div class="pagination text-right mb-3">
                     {% if paginator.previous_page %}
