@@ -1,26 +1,60 @@
 ---
+title: Attendance System
+date: 2020-10-31 00:00:00 Z
+categories:
+- web-application
+tags:
+- Node
+- MySQL
+- Rest Api
+- Angular
+- MQTT
+- Websocket
 layout: portfolio
-title: Attendance System 
-categories: 
-    - web-application
-
-tags: 
-  - Node 
-  - MySQL 
-  - Rest Api 
-  - Angular 
-  - MQTT 
-  - Websocket 
-
-description: Attendance System is a ai driven project. In it's backend it run ai to detect user faces. and in the backend it generate user attendance report. 
-
-thubmail: '/assets/portfolio/attendance/screenshot.jpg'
-image: '/assets/portfolio/attendance/screenshot.jpg'
-v1_images: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] 
-v2_images: [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17] 
-preview_ids: ["images", "imagesv1"]
+description: Attendance System is a ai driven project. In it's backend it run ai to
+  detect user faces. and in the backend it generate user attendance report.
+thubmail: "/assets/portfolio/attendance/screenshot.jpg"
+image: "/assets/portfolio/attendance/screenshot.jpg"
+v1_images:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+v2_images:
+- 1
+- 2
+- 3
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
+- 10
+- 11
+- 12
+- 13
+- 14
+- 15
+- 16
+- 17
+preview_ids:
+- images
+- imagesv1
 ---
-
 
 ## Technology Overview 
 It use mqtt to communicate between ai and node backend. and use websocket between admin panel and the server. It provide realtime user attendance and the full monthly and yearly report

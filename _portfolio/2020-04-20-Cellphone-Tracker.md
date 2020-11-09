@@ -1,24 +1,23 @@
 ---
-layout: portfolio
 title: CellPhone Tracker
-categories: 
-    - web-application
-    - realtime-application
-
-tags: 
-  - Javascript 
-  - Angular
-  - c# 
-  - Rest Api
-
-description: Cellphone tracker is a monitoring application, to monitor someones location. travel path and pridict the future path. The application also have, geo fence and network covarage maps.
-
-thubmail: '/assets/portfolio/cellmon/screenshot.png'
-image: '/assets/portfolio/cellmon/screenshot.png'
+date: 2020-04-20 00:00:00 Z
+categories:
+- web-application
+- realtime-application
+tags:
+- Javascript
+- Angular
+- c#
+- Rest Api
+layout: portfolio
+description: Cellphone tracker is a monitoring application, to monitor someones location.
+  travel path and pridict the future path. The application also have, geo fence and
+  network covarage maps.
+thubmail: "/assets/portfolio/cellmon/screenshot.png"
+image: "/assets/portfolio/cellmon/screenshot.png"
 demo_link:
   link: https://buy.co.sz
   text: Live Preview
-
 ---
 
 ## Technology Overview

@@ -1,29 +1,74 @@
-url: "https://kousheralam.github.io" # http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-title: "Kousher Alam" # the name of your site, e.g. ACME Corp.
-
+---
+title: Kousher Alam
+timezone: UTC
 collections:
-  post_category : 
+  demo:
+    title: Demo
     output: true
-    permalink: /blog/by-category/:path/
-  portfolio : 
+    permalink: "/demo/:path/"
+  demo_category:
+    title: Demo Category
     output: true
-    permalink: /portfolio/:path/
-  portfolio_category : 
+    permalink: "/demo/by-category/:path/"
+  portfolio:
+    title: Portfolio
     output: true
-    permalink: /portfolio/by-category/:path/
-  demo : 
+    permalink: "/portfolio/:path/"
+  portfolio_category:
+    title: Portfolio Category
     output: true
-    permalink: /demo/:path/
-  demo_category : 
+    permalink: "/portfolio/by-category/:path/"
+  post_category:
+    title: Post Category
     output: true
-    permalink: /demo/by-category/:path/
-
-# Pagination
+    permalink: "/blog/by-category/:path/"
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+- scope:
+    path: _portfolio
+    type: portfolio
+  values:
+    layout: portfolio
+    permalink: "/portfolio/:title:output_ext"
+- scope:
+    path: _portfolio_category
+    type: portfolio
+  values:
+    layout: portfolio-category
+    permalink: "/portfolio/:title:output_ext"
+- scope:
+    path: _demo
+    type: demo
+  values:
+    layout: demo
+    permalink: "/demo/:title:output_ext"
+- scope:
+    path: _demo_category
+    type: demo
+  values:
+    layout: demo-category
+    permalink: "/demo/:title:output_ext"
+- scope:
+    path: _posts
+  values:
+    layout: blog
+    type: post
+    permalink: "/blog/:categories/:year/:month/:day/:title:output_ext"
+- scope:
+    path: _blog_category
+    type: blog-category
+  values:
+    layout: blog-category
+    permalink: "/blog/:categories/:title:output_ext"
+url: https://kousheralam.github.io
+baseurl: ''
 paginate: 20
 paginate_path: "/blog/page:num/"
-
-
 social_links:
   facebook: https://facebook.com/MdKousherAlam
   twitter: https://twitter.com/Kousheralam1
@@ -31,51 +76,9 @@ social_links:
   github: https://github.com/kousherAlam
   stackoverflow: https://stackoverflow.com/cv/kousheralam
   npm: https://www.npmjs.com/~kousher
-
-defaults:
-  - scope:
-      path: "_portfolio"
-      type: "portfolio"
-    values:
-      layout: portfolio
-      permalink: /portfolio/:title:output_ext
-  - scope:
-      path: "_portfolio_category"
-      type: "portfolio"
-    values:
-      layout: portfolio-category
-      permalink: /portfolio/:title:output_ext
-  - scope:
-      path: "_demo"
-      type: "demo"
-    values:
-      layout: demo
-      permalink: /demo/:title:output_ext
-  - scope:
-      path: "_demo_category"
-      type: "demo"
-    values:
-      layout: demo-category
-      permalink: /demo/:title:output_ext
-  - scope:
-      path: "_posts"
-    values:
-      layout: blog
-      type: post
-      permalink: /blog/:categories/:year/:month/:day/:title:output_ext
-  - scope:
-      path: "_blog_category"
-      type: "blog-category"
-    values:
-      layout: blog-category
-      permalink: /blog/:categories/:title:output_ext
-
-
-# Plugin configuration
 plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-  - jekyll-get-json
-  - jekyll-paginate
-  # - jekyll-paginate
+- jekyll-feed
+- jekyll-sitemap
+- jekyll-seo-tag
+- jekyll-get-json
+- jekyll-paginate

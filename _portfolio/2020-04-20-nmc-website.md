@@ -1,25 +1,29 @@
 ---
-layout: portfolio
 title: National Maize Corporation
-categories: 
-    - website
-
-tags: 
-  - PHP
-  - Wordpress  
-  - Theme Development
-
-description: National Maize Corporation (NMC) is a fully state owned enterprise that has an annual turnover of approximately one hundred and twenty million emalangeni ( E120M ). The Corporation was established in 1985 in accordance with the Companies Act of 1912.
-
-thubmail: '/assets/portfolio/nmc/screenshot.jpg'
-image: '/assets/portfolio/nmc/screenshot.jpg'
-
-demo_link: 
+date: 2020-04-20 00:00:00 Z
+categories:
+- website
+tags:
+- PHP
+- Wordpress
+- Theme Development
+layout: portfolio
+description: National Maize Corporation (NMC) is a fully state owned enterprise that
+  has an annual turnover of approximately one hundred and twenty million emalangeni
+  ( E120M ). The Corporation was established in 1985 in accordance with the Companies
+  Act of 1912.
+thubmail: "/assets/portfolio/nmc/screenshot.jpg"
+image: "/assets/portfolio/nmc/screenshot.jpg"
+demo_link:
   link: http://nmc.co.sz
   text: Live Preview
-
-screnshots: [1,2,3,4]
-preview_ids: ["images"]
+screnshots:
+- 1
+- 2
+- 3
+- 4
+preview_ids:
+- images
 ---
 
 ## Technology Overview 
