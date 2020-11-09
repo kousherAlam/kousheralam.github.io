@@ -6,13 +6,11 @@ $header-min-height: 64px;
     left: 0px;
     width: 100%;
     min-height: $header-min-height;
-    background-color: $main-bg-color;
     padding: 10px 0px;
 }
 .logo{
     a{
         font-size: 2em;
-        color: $main-white-color;
     }
 }
 .menu{
@@ -22,9 +20,9 @@ $header-min-height: 64px;
         float: left;
         button,
         a{
+            color: map-get($map: $theme-colors, $key: light);
             display: block;
             padding: 8px 15px;
-            color: $main-white-color;
         }
         &.active{
             a{
@@ -33,6 +31,7 @@ $header-min-height: 64px;
         }
     }
 }
+
 .mobile-menu{
   height: 100%;
   will-change: transform;
@@ -73,7 +72,6 @@ $header-min-height: 64px;
 }
 
 .footer{
-    background-color: $main-bg-color;
     ul{
         margin: 0px;
         padding: 0px;
