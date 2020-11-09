@@ -15,10 +15,3 @@ I used python on or two project, in <a href="https://nbysys.com">Nybsys</a> to d
 
 In python, i do not have very much theoretically and working knowledge. But find satisfaction and enjoyed my time when i worked on python. 
 
-
-
-<div class="mt-5">
-    {% include skill/post-link.html title="Related Portfolio" data=page.portfolio %}
-    {% include skill/post-link.html title="Related Posts" data=page.posts %}
-    {% include skill/post-link.html title="Related Demo" data=page.demo %}
-</div>

@@ -10,9 +10,3 @@ demo:
 ---
 
 Typescript is my must use tools, when i work on javascript project. As a static typed language it help me a lot. It's make my life more easier. 
-
-<div class="mt-5">
-    {% include skill/post-link.html title="Related Portfolio" data=page.posts %}
-    {% include skill/post-link.html title="Related Posts" data=page.portfolio %}
-    {% include skill/post-link.html title="Related Demo" data=page.demo %}
-</div>
