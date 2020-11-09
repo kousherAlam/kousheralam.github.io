@@ -121,9 +121,10 @@ layout: base-page
     <div class="all-hobby row">
       {% for hobby in site.data.home-page.hobbies %}
       <div class="single-hobby col-12 col-md-4 p-3">
-        <div class="bg-info shadow pt-3">
-          <h3 class="title text-center">{{hobby.title}}</h3>
-          <div class="hobby-image" style="background-image:url('{{hobby.image}}')"></div>
+        <div class="bg-info shadow">
+          <div class="hobby-image position-relative" style="background-image:url('{{hobby.image}}')">
+            <h3 class="title text-center m-0 position-absolute">{{hobby.title}}</h3>
+          </div>
         </div>
       </div>
       {% endfor %}

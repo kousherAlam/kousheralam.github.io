@@ -1,5 +1,5 @@
 <div class="content-card border shadow-sm bg-white border-primary">
-    <div class="row align-items-center">
+    <div class="row">
         <div class="col-12 col-sm-5 col-md-4 preview position-relative text-center bg-info">
             {% if include.thubmail != "" and include.thubmail != nil %}
             <div class="thumb-image card-bg-image" style="background-image:url('{{include.thubmail}}')"></div>
@@ -23,7 +23,7 @@
                     <ul class="unlist inline tag-list tech">
                         {% for tag in include.tags %}
                         <li>
-                            <span class="bg-info pt-2 pb-2 pl-3 pr-3 border border-success rounded text-primary btn-sm mr-2 mb-2">
+                            <span class="d-inline-block bg-info pt-2 pb-2 pl-3 pr-3 border rounded-pill text-capitalize text-primary btn-sm mr-2 mb-2">
                                 {{tag}}
                             </span>
                         </li>

@@ -23,9 +23,17 @@ $padding-top-bottom: 100px;
 }
 
 .hobby-image{
-    min-height: 150px;
+    min-height: 210px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-  }
+    .title{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 5px 12px;
+        background-color: map-get($map: $theme-colors, $key: primary);
+        color: map-get($map: $theme-colors, $key: info);
+    }
+}
   
