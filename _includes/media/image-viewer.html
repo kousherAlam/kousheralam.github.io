@@ -1,0 +1,13 @@
+<div class="image-viewer">
+    <ul id="{{include.id}}" class="unlist">
+    {% for image in include.screnshots %}
+      {% capture image_name %}
+         {{include.basehref}}{{image}}
+      {% endcapture %}
+      <li>
+        <img loading="lazy" src="{{image_name}}" alt="Picture {{image_name}}">
+      </li>
+      {% endfor %}
+    </ul>
+</div>
+  

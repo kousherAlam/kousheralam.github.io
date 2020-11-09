@@ -1,18 +1,21 @@
 <script>
     window.addEventListener("load", function(){
-      var ids = {{page.preview_ids | jsonify }}
+      var ids = {{ page.preview_ids | jsonify }};
+      var isOneAutoplay = false;
       if(ids && ids != null && ids.length > 0){
           for(var i=0; i<ids.length; i++){
               const gallery = new Viewer(document.getElementById(ids[i]));
+                if(tns){
+                    var slider = tns({
+                        container: '#'+ids[i],
+                        items: 6,
+                        slideBy: 'page',
+                        mouseDrag: true,
+                        autoplay: !isOneAutoplay,
+                    });
+                    isOneAutoplay = true;
+                }
           }
-      }
-      if(tns){
-        var slider = tns({
-            container: '.my-slider',
-            items: 3,
-            slideBy: 'page',
-            autoplay: true
-        });
       }
     });
 </script>

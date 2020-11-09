@@ -15,15 +15,9 @@ demo_link:
   text: Live Preview
 thubmail: "/assets/portfolio/nybsys/screenshot.png"
 image: "/assets/portfolio/nybsys/screenshot.png"
-screnshots:
-- 1
-- 2
-- 3
-- 4
-- 5
-- 6
+screnshots: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"] 
 preview_ids:
-- images
+  - images
 ---
 
 ## Overview 
@@ -35,16 +29,11 @@ It use custom post type and meta box for some of it's feature.
 
 ## Screenshots 
 
-<div class="image-viewer">
-  <ul id="images" class="unlist my-slider">
-  {% for image in page.screnshots %}
-    {% capture image_name %}
-       /assets/portfolio/nybsys/{{image}}.png
-    {% endcapture %}
-    <li>
-      <img loading="lazy" src="{{image_name}}" alt="Picture {{image_name}}">
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+
+{% 
+  include media/image-viewer.html 
+  basehref="/assets/portfolio/nybsys/" 
+  screnshots=page.screnshots 
+  id="images" 
+%}
 
