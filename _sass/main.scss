@@ -53,3 +53,21 @@ body{
 img{
   max-width: 100%;
 }
+
+.tns-controls{
+  text-align: right;
+  position: relative;
+  button{
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .rounded-pill;
+    @extend .pl-4;
+    @extend .pr-4;
+    &:first-child{
+      @extend .mr-2;
+    }
+  }
+}
+.tns-nav{
+  @extend .d-none;
+}
