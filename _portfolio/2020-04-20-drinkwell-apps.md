@@ -1,13 +1,7 @@
 ---
 title: Drinkwell Mobile Apps
-date: 2020-04-20 00:00:00 Z
-categories:
-- mobile-application
-tags:
-- Flutter
-- Node
-- Firebase
-- Rest Api
+categories: ["mobile-application"]
+tags: ["Flutter", "Node", "Firebase", "Rest Api"]
 layout: portfolio
 description: drinkwell provides both single and multi-tap ATM dispensing systems which
   reduce cash leakage at safe water points through RFID-enabled money management and
@@ -18,33 +12,13 @@ image: "/assets/portfolio/drinkwell/screenshot.jpg"
 demo_link:
   link: http://drinkwellsystems.com/
   text: More Info
-screnshots:
-- 1.png
-- 2.png
-- 3.png
-- 4.png
-- 5.png
-- 6.png
-- 7.png
-- 8.png
-- 9.png
-- 10.png
-- 11.png
-- 12.png
-- 13.png
-- 14.png
-- 15.png
-- 16.png
-- 17.png
-screnshots_2:
-- 1.png
-- 2.png
-- 3.png
-- 4.png
-- 5.png
-preview_ids:
-- images
-- images-2
+screnshots: [
+  "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", 
+  "7.png", "8.png", "9.png", "10.png", "11.png", "12.png", 
+  "13.png", "14.png", "15.png", "16.png", "17.png"
+]
+screnshots_2: [ "1.png", "2.png", "3.png", "4.png", "5.png" ]
+preview_ids: ["images", "images-2"]
 ---
 
 ## Technical Overview 

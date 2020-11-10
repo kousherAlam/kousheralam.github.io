@@ -1,12 +1,7 @@
 ---
 title: Nybsys Website
-date: 2020-04-20 00:00:00 Z
-categories:
-- website
-tags:
-- javascript
-- php
-- wrodpress
+categories: ["website"]
+tags: ["javascript", "php", "wordpress"]
 layout: portfolio
 description: The website of nybsys, it is the redesign of it's privious version, with
   some extra new feature such as events and career section.

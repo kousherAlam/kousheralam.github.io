@@ -1,12 +1,7 @@
 ---
 title: National Maize Corporation
-date: 2020-04-20 00:00:00 Z
-categories:
-- website
-tags:
-- PHP
-- Wordpress
-- Theme Development
+categories: ["website"]
+tags: ["PHP", "Wordpress", "Theme Development"]
 layout: portfolio
 description: National Maize Corporation (NMC) is a fully state owned enterprise that
   has an annual turnover of approximately one hundred and twenty million emalangeni

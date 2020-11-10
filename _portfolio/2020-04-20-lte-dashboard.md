@@ -1,15 +1,7 @@
 ---
 title: LTE Dashboard
-date: 2020-04-20 00:00:00 Z
-categories:
-- web-application
-- realtime-application
-tags:
-- Node
-- Rest Api
-- Angular
-- Websocket
-- MySQL
+categories: ["web-application", "realtime-application"]
+tags: ["Node", "Rest Api", "Angular", "Websocket", "MySQL"]
 layout: portfolio
 description: LTE is an abbreviation for Long Term Evolution. LTE is a 4G wireless
   communications standard developed by the 3rd Generation Partnership Project (3GPP)

@@ -1,15 +1,7 @@
 ---
 title: Attendance System
-date: 2020-10-31 00:00:00 Z
-categories:
-- web-application
-tags:
-- Node
-- MySQL
-- Rest Api
-- Angular
-- MQTT
-- Websocket
+categories: [ "web-application" ]
+tags: ["Node", "MySQL", "Rest Api", "Angular", "MQTT", "Websocket"]
 layout: portfolio
 description: Attendance System is a ai driven project. In it's backend it run ai to
   detect user faces. and in the backend it generate user attendance report.
@@ -20,12 +12,10 @@ v1_images: [
   "8.png", "9.png", "10.png", "11.png", "12.png", "13.png", "14.png", 
   "15.png", "16.png", "17.png"
 ]
-
 v2_images: [
   "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", 
   "9.png", "10.png", "11.png", "12.png", "13.png", "14.png", "15.png", "16.png", "17.png"
 ]
-
 preview_ids: ["images", "imagesv1"]
 ---
 
