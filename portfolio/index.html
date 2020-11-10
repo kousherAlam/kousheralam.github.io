@@ -1,64 +1,42 @@
 ---
 title: Work / Portfolio
-layout: base-page
-wrapper: blog-page
+layout: portfolio-layout
 image: "/assets/blog/css-grid/future_technology_prospects.png"
 pagination: 
   enabled: true
-  per_page: 5
+  per_page: 2
   collection: portfolio
 ---
 
-{% include common/top-header.html %}
-
-<div class="container pt-4 mb-5">
-    <div class="row">
-        <div class="col-12 col-md-9">
-            {% for portfolio in paginator.posts %}
-            <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
-                {% 
-                    include common/text-card.html 
-                    url = portfolio.url
-                    title = portfolio.title 
-                    description = portfolio.description
-                    tags = portfolio.tags
-                    created = portfolio.date
-                    thubmail = portfolio.thubmail
-                %}
-            </div>
-            {% endfor %}
-
-            <div class="single-blog p-3 p-md-0">
-                <div class="pagination text-right mb-3">
-                    {% if paginator.previous_page %}
-                    <a href="{{ paginator.previous_page_path }}" class="btn btn-primary pl-3 pr-3 previous">
-                        Previous
-                    </a>
-                    {% else %}
-                    <span class="previous">Previous</span>
-                    {% endif %}
-                    <span class="page_number ">
-                        Page: {{ paginator.page }} of {{ paginator.total_pages }}
-                    </span>
-                    {% if paginator.next_page %}
-                    <a href="{{ paginator.next_page_path }}" class="btn btn-primary pl-3 pr-3 next">Next</a>
-                    {% else %}
-                    <span class="next ">Next</span>
-                    {% endif %}
-                </div>
-            </div>
-           
-        </div>
-        <div class="col-12 col-md-3 pl-3">
-            <h2>Categories</h2>
-            <div class="all-categories text-justify">
-                {% for category in site.portfolio_category %}
-                <a class="btn btn-outline-primary mr-2 mb-2" href="{{category.url}}" routerLinkActive="active">
-                    {{category.title}}
-                </a>
-                {% endfor %}
-            </div>
-        </div>
+{% for portfolio in paginator.posts %}
+<div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
+    {% 
+        include common/text-card.html 
+        url = portfolio.url
+        title = portfolio.title 
+        description = portfolio.description
+        tags = portfolio.tags
+        created = portfolio.date
+        thubmail = portfolio.thubmail
+    %}
+</div>
+{% endfor %}
+<div class="single-blog p-3 p-md-0">
+    <div class="pagination text-right mb-3">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}" class="btn btn-primary pl-3 pr-3 previous">
+            Previous
+        </a>
+        {% else %}
+        <span class="previous">Previous</span>
+        {% endif %}
+        <span class="page_number ">
+            Page: {{ paginator.page }} of {{ paginator.total_pages }}
+        </span>
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}" class="btn btn-primary pl-3 pr-3 next">Next</a>
+        {% else %}
+        <span class="next ">Next</span>
+        {% endif %}
     </div>
-
 </div>

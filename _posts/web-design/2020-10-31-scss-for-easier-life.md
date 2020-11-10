@@ -1,6 +1,6 @@
 ---
-title: CSS Grid System
-categories: ["css"]
+title: SCSS For Easier Life
+categories: ["scss"]
 tags: ["CSS", "SCSS", "Web Design"]
 layout: blog
 image: "/assets/blog/css-grid/future_technology_prospects.png"

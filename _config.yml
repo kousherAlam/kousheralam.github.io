@@ -13,7 +13,7 @@ social_links:
   stackoverflow: https://stackoverflow.com/cv/kousheralam
   npm: https://www.npmjs.com/~kousher
 
-  
+
 ## Pagination 
 pagination: 
   enabled: true
@@ -28,21 +28,18 @@ collections:
   demo_category:
     title: Demo Category
     output: true
+    permalink: /demo/:path
   portfolio:
     title: Portfolio
     output: true
   portfolio_category:
     title: Portfolio Category
     output: true
+    permalink: /portfolio/:path
   post_category:
     title: Post Category
     output: true
-  posts:
-    title: Posts
-    output: true
-  uploads:
-    title: Uploads
-    output: true
+    permalink: /portfolio/:path
 
 ## Default variables 
 defaults:

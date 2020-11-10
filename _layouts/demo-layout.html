@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+{% include core/header.html %}
+
+<div class="main-content">
+    <div class="page-wrapper demo-main-page">
+        {% include common/top-header.html %}
+
+        <div class="container pt-4 mb-5">
+            <div class="row">
+                <div class="col-12 col-md-9">
+                    {{ content }}
+                </div>
+                <div class="col-12 col-md-3 pl-3">
+                    <h2>Categories</h2>
+                    <div class="all-categories text-justify">
+                        {% for category in site.demo_category %}
+                        <a class="btn btn-outline-primary mr-2 mb-2" href="{{category.url}}" routerLinkActive="active">
+                            {{category.title}}
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include core/footer.html %}
