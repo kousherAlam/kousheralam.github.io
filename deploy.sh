@@ -21,6 +21,14 @@ git checkout gh-pages
 mv /Users/kousheralam/Desktop/dist.zip ./
 
 
+rm -rf .jekyll-cache
+
+
+rm -rf ./deploy.sh 
+
+mv  -v ./_site/* ./
+
+
 # extract it 
 
 # remove the zip 
