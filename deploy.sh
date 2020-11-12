@@ -25,3 +25,5 @@ git push
 
 # optimize image make max image size 1366px, 80% optimize 
 
+
+git checkout master
