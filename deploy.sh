@@ -17,6 +17,7 @@ rm -rf ./deploy.sh
 
 rm -rf ./_site
 
+git add . 
 
 git commit -m "updated website"
 
