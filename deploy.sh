@@ -14,7 +14,7 @@ cd ../
 
 
 # checkout to gh-pages branch
-git checkout -b gh-pages
+git checkout gh-pages
 
 
 # move zip from desktop to current dir
