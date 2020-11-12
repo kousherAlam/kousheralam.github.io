@@ -18,8 +18,9 @@ rm -rf ./deploy.sh
 rm -rf ./_site
 
 
-# git commit -m "updated website"
-# git push
+git commit -m "updated website"
+
+git push
 
 # optimize image make max image size 1366px, 80% optimize 
 
