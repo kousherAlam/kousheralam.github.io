@@ -1,24 +1,13 @@
 # Build the project 
 JEKYLL_ENV=production jekyll build
 
-cd ./_site/
-# make it zip 
-zip -r dist.zip ./
-
-
-# move to the desktop 
-mv ./dist.zip /Users/kousheralam/Desktop
-
-
-cd ../
 
 
 # checkout to gh-pages branch
 git checkout gh-pages
 
 
-# move zip from desktop to current dir
-mv /Users/kousheralam/Desktop/dist.zip ./
+mv  -v ./_site/* ./
 
 
 rm -rf .jekyll-cache
@@ -26,17 +15,11 @@ rm -rf .jekyll-cache
 
 rm -rf ./deploy.sh 
 
-mv  -v ./_site/* ./
+rm -rf ./_site
 
 
-# extract it 
-
-# remove the zip 
+# git commit -m "updated website"
+# git push
 
 # optimize image make max image size 1366px, 80% optimize 
 
-# add go git
-
-# commit - updated website
-
-# push 
