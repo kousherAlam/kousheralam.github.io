@@ -39,7 +39,7 @@ collections:
   post_category:
     title: Post Category
     output: true
-    permalink: /portfolio/:path
+    permalink: /blog/:path
 
 ## Default variables 
 defaults:

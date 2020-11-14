@@ -1,9 +1,8 @@
 ---
 title: Awesome CSS
 layout: blog-category
-name: CSS
-load: CSS
-pathmatch: "/css/"
+load: css
+pathmatch: "/blog/css"
 image: "/assets/blog/css-grid/future_technology_prospects.png"
 ---
 
