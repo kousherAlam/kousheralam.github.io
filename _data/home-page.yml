@@ -3,6 +3,7 @@ experiences:
     company: SELIES roocin Software
     link: 'https://selise.ch/'
     image: '/assets/images/selise-logo.png'
+    maxWidth: 160px
     from: 01 Sept 2020
     till: Currently Working Here
     bgClass: bg-info
@@ -12,6 +13,7 @@ experiences:
     company: 'Bright Brains Technology - UAE/Dubai'
     link: 'https://brightbrains.ae/en-us/'
     image: '/assets/images/Bright-Brains-Technology.jpg'
+    maxWidth: 160px
     from: 15 July 2020
     till: 31 July 2020
     type: Full Time
@@ -22,6 +24,7 @@ experiences:
     company: Nybsys
     link: 'https://nybsys.com/'
     image: '/assets/images/nybsys.png'
+    maxWidth: 200px
     from: 15 July 2017
     till: 31 July 2020
     type: Full Time
@@ -31,6 +34,7 @@ experiences:
     company: AtiqueIT
     link: https://www.linkedin.com/company/atique-it/
     image: '/assets/images/atique-it.png'
+    maxWidth: 120px
     from: 1st March 2017
     till: 30th June, 2020
     type: Full Time
@@ -44,6 +48,7 @@ educations:
     till: February 2023
     link: https://www.bubt.edu.bd/
     image: '/assets/images/BUBT-Logo.png'
+    maxWidth: 120px
     bgClass: 'bg-info'
     details: Dropout After studying 6 Semester. 
   - title: 'Diploma In Computer Technology'
@@ -52,6 +57,7 @@ educations:
     till: January 2017
     link: 'http://kpik.org'
     image: '/assets/images/kpik.jpg'
+    maxWidth: 120px
     bgClass: 'bg-white'
     details: Studying 4 years in computer technology, topics included different programming languages, Data-Structure, Algorithms, Operating systems, Database ,Computer Network, Peripherals etc ..
 

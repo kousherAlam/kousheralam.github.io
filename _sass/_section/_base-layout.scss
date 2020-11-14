@@ -18,15 +18,29 @@ $header-min-height: 64px;
     display: inline-block;
     li{
         float: left;
+        margin-right: 10px;
+        &:last-child{
+          margin-right: 0px;
+        }
         button,
         a{
+          text-align: center;
             color: map-get($map: $theme-colors, $key: light);
             display: block;
-            padding: 8px 15px;
+            padding: 8px 20px;
+            min-width: 120px;
+            border: 2px solid map-get($map: $theme-colors, $key: primary);
+            text-decoration: none;
+            opacity: .8;
+            &:hover{
+              opacity: 1;
+            }
         }
         &.active{
             a{
-                color: red;
+                opacity: 1;
+                color: map-get($map: $theme-colors, $key: info);
+                border-color: map-get($map: $theme-colors, $key: info);
             }
         }
     }
