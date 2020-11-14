@@ -1,15 +1,18 @@
-<html  lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: "en-US" }}">
+
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }} - {{ site.title }}</title>
-  <meta name="description"  content="This is an example of a meta description.This will often show up in search results.">
-  <meta name="keyword"  content="Software Engineer, Web Developer, Angular, Flutter, C++, Developer">
+  <meta name="description"
+    content="This is an example of a meta description.This will often show up in search results.">
+  <meta name="keyword" content="Software Engineer, Web Developer, Angular, Flutter, C++, Developer">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico/favicon.ico?v=2">
 
   <link rel="apple-touch-icon" sizes="57x57" href="{{ "/assets/favicon.ico/apple-icon-57x57.png" | relative_url }}">
@@ -21,7 +24,8 @@
   <link rel="apple-touch-icon" sizes="144x144" href="{{ "/assets/favicon.ico/apple-icon-144x144.png" | relative_url }}">
   <link rel="apple-touch-icon" sizes="152x152" href="{{ "/assets/favicon.ico/apple-icon-152x152.png" | relative_url }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/favicon.ico/apple-icon-180x180.png" | relative_url }}">
-  <link rel="icon" type="image/png" sizes="192x192"  href="{{ "/assets/favicon.ico/android-icon-192x192.png" | relative_url }}">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="{{ "/assets/favicon.ico/android-icon-192x192.png" | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/favicon.ico/favicon-32x32.png" | relative_url }}">
   <link rel="icon" type="image/png" sizes="96x96" href="{{ "/assets/favicon.ico/favicon-96x96.png" | relative_url }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/favicon.ico/favicon-16x16.png" | relative_url }}">
@@ -36,7 +40,9 @@
   {% seo %}
   <script src="/assets/js/app.js"></script>
 </head>
-<body>
+
+<body class="overflow-hidden">
+  {% include core/loader.html %}
   {{ content}}
 
   {% if jekyll.environment == 'production' %}
@@ -47,4 +53,5 @@
   <script src="{{ script }}"></script>
   {% endfor %}
 </body>
+
 </html>
