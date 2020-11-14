@@ -5,7 +5,6 @@ wrapper: blog-page
 image: "/assets/blog/css-grid/future_technology_prospects.png"
 pagination: 
   enabled: true
-  per_page: 5
   collection: demo
 ---
 
@@ -23,21 +22,5 @@ pagination:
 </div>
 {% endfor %}
 <div class="single-blog p-3 p-md-0">
-    <div class="pagination text-right mb-3">
-        {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="btn btn-primary pl-3 pr-3 previous">
-            Previous
-        </a>
-        {% else %}
-        <span class="previous">Previous</span>
-        {% endif %}
-        <span class="page_number ">
-            Page: {{ paginator.page }} of {{ paginator.total_pages }}
-        </span>
-        {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="btn btn-primary pl-3 pr-3 next">Next</a>
-        {% else %}
-        <span class="next ">Next</span>
-        {% endif %}
-    </div>
+    {% include common/pagination.html %}
 </div>
