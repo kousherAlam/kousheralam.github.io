@@ -6,8 +6,7 @@ JEKYLL_ENV=production jekyll build
 # checkout to gh-pages branch
 git checkout gh-pages
 
-
-mv -vf ./_site/* ./
+cp -r ./_site/* ./ && rm -R ./_site/*
 
 
 rm -rf .jekyll-cache
