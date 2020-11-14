@@ -13,7 +13,7 @@ mv  ./_site/* .
 rm -rf .jekyll-cache
 
 
-rm -rf ./deploy.sh 
+rm -f ./deploy.sh 
 
 rm -rf ./_site
 
