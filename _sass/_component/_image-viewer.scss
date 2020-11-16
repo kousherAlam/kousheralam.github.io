@@ -1,9 +1,12 @@
 .image-viewer{
     display: inline-block;
+    display: flex;
+    flex-wrap: nowrap;
     width: 100%;
     margin-bottom: 2.5em;
     position: relative;
     top: -20px;
+    overflow: hidden;
     ul{
         li{
             max-width: 350px;

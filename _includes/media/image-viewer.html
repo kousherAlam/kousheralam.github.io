@@ -1,5 +1,10 @@
-<div class="image-viewer">
-    <ul id="{{include.id}}" class="unlist">
+<div class="image-viewer image-viewer-slider">
+    <div 
+      style="background-color: #e4f1f9!important;"
+      class="d-flex w-100 justify-content-center align-items-center mt-3 loading text-center shadow border border-light" style="min-height: 180px;">
+      <p>Loading Preview</p>
+    </div> 
+    <ul id="{{include.id}}" class="unlist d-none">
     {% for image in include.screnshots %}
       {% capture image_name %}
          {{include.basehref}}{{image}}
