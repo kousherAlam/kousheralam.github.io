@@ -2,8 +2,10 @@ function toggleMenu(){
     var menu = document.getElementById("mobile-menu");
     if(menu.classList.contains('open')){
         menu.classList.remove('open');
+        document.body.classList.remove('overflow-hidden');
     } else {
         menu.classList.add('open');
+        document.body.classList.add('overflow-hidden');
     }
 }
 
