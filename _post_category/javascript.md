@@ -1,8 +1,8 @@
 ---
-title: Awesome CSS
+title: Javascript
 layout: blog-category
-load: css
-pathmatch: "/blog/css"
+load: javascript
+pathmatch: "/blog/javascript"
 image: "/assets/blog/css-grid/future_technology_prospects.png"
 ---
 
