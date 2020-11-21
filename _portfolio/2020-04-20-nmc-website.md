@@ -7,7 +7,7 @@ description: National Maize Corporation (NMC) is a fully state owned enterprise 
   has an annual turnover of approximately one hundred and twenty million emalangeni
   ( E120M ). The Corporation was established in 1985 in accordance with the Companies
   Act of 1912.
-thubmail: "/assets/portfolio/nmc/screenshot.jpg"
+thumbnail: "/assets/portfolio/nmc/screenshot.jpg"
 image: "/assets/portfolio/nmc/screenshot.jpg"
 demo_link:
   link: http://nmc.co.sz

@@ -10,7 +10,7 @@ description: LTE is an abbreviation for Long Term Evolution. LTE is a 4G wireles
 demo_link:
   link: http://t10001.surge.sh/
   text: Live Preview
-thubmail: "/assets/portfolio/lte/screenshot.png"
+thumbnail: "/assets/portfolio/lte/screenshot.png"
 image: "/assets/portfolio/lte/screenshot.png"
 ---
 

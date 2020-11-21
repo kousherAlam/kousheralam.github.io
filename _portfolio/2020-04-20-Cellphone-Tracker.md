@@ -6,7 +6,7 @@ layout: portfolio
 description: Cellphone tracker is a monitoring application, to monitor someones location.
   travel path and pridict the future path. The application also have, geo fence and
   network covarage maps.
-thubmail: "/assets/portfolio/cellmon/screenshot.png"
+thumbnail: "/assets/portfolio/cellmon/screenshot.png"
 image: "/assets/portfolio/cellmon/screenshot.png"
 demo_link:
   link: https://buy.co.sz

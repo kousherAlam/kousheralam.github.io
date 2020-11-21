@@ -5,7 +5,7 @@ tags: ["Node", "MySQL", "Rest Api", "Angular", "MQTT", "Websocket"]
 layout: portfolio
 description: Attendance System is a ai driven project. In it's backend it run ai to
   detect user faces. and in the backend it generate user attendance report.
-thubmail: "/assets/portfolio/attendance/screenshot.jpg"
+thumbnail: "/assets/portfolio/attendance/screenshot.jpg"
 image: "/assets/portfolio/attendance/screenshot.jpg"
 v1_images: [
   "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png",

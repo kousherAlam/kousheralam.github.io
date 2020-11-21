@@ -7,7 +7,7 @@ description: drinkwell provides both single and multi-tap ATM dispensing systems
   reduce cash leakage at safe water points through RFID-enabled money management and
   metered dispensing. The apps for drinkwell allow them to register new account. check
   account balance, recharge and more.
-thubmail: "/assets/portfolio/drinkwell/screenshot.jpg"
+thumbnail: "/assets/portfolio/drinkwell/screenshot.jpg"
 image: "/assets/portfolio/drinkwell/screenshot.jpg"
 demo_link:
   link: http://drinkwellsystems.com/

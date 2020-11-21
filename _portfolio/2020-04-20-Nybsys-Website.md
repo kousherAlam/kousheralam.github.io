@@ -8,7 +8,7 @@ description: The website of nybsys, it is the redesign of it's privious version,
 demo_link:
   link: http://nybsys.com
   text: Live Preview
-thubmail: "/assets/portfolio/nybsys/screenshot.png"
+thumbnail: "/assets/portfolio/nybsys/screenshot.png"
 image: "/assets/portfolio/nybsys/screenshot.png"
 screnshots: ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"] 
 preview_ids:
