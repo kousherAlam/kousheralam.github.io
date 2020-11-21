@@ -9,3 +9,9 @@ description: Javascript advance topics, such as object, prototype, inheritance e
 
 # Advance Javascript 
 
+## Javascript Scope and Nested Scope
+
+## this keyword
+
+## Javascript closer 
+
