@@ -25,10 +25,11 @@ Group of regional data center. Sometimes there are some restriction where user d
 Azure porovide lot of services to use. such as azure provide virtual machine, databases, functions, iot, machine learning etc service. 
 
 
-
 ## Azure Resource Group 
 Logical group of resources on azure. By Create resource group we can control all the related resource from one central group. 
 
 
 ## Network Security Group 
 
+
+## Azure Compute Unit 

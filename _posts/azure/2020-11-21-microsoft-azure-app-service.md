@@ -5,10 +5,52 @@ tags: ["azure", "App Service", "nodejs" "web application"]
 layout: blog
 thubmail: "/assets/blog/cloud/microsoft-azure-thumb.png"
 image: "/assets/blog/cloud/microsoft-azure.png"
-description: Microsfot Azure App Service 
+description: Microsfot Azure App Service is an HTTP based service for hosting web application, Rest APIs, and Mobile backends. 
+
+
+features: 
+  - title: Provisioning
+  - title: Deployment
+  - title: Load Balancing
+  - title: Scaling
+  - title: Custom Domain And SSL
+  - title: Backup
+  - title: High Availability
+    subtitle: Ability to use multiple region to support high availability
+  - title: Compaliance
+    subtitle: App service is ISO, SOC, and PIC Compliant.
 ---
 
 # Azure App Service  
-In azure it's like Platfrom as a Service (IaaS).
+In azure it's like Platfrom as a Service (IaaS). App Services Feature are
+
+{% include blog/feature.html features="page.features" %}
 
 
+## App Service Plan
+Defines the resources that will run your web application as well as the the features from the services that will be available for your application. 
+
+- App Service Plan is Region Specific
+- Number of vm instances 
+- Size of vm instances 
+- Pricing Tear
+
+### Pricing Tear Categories
+- Shared Compute 
+- Dedicated Compute 
+- Isolated Compute 
+
+
+## Scaling App Service Application
+- Vertical Scaling / Scale UP : added new resources suche as cpu core. 
+- Horizontal Scaling / Scale Out : added new vertual machine on multiple region. 
+
+
+## Depoloy an Application On App Service Application 
+- deploy 
+- redeploy 
+
+
+## Deployment Pipeline 
+
+## Monitoring and Scaling 
