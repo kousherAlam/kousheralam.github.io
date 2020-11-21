@@ -19,6 +19,12 @@ features:
     subtitle: Ability to use multiple region to support high availability
   - title: Compaliance
     subtitle: App service is ISO, SOC, and PIC Compliant.
+
+application_consideration: 
+  - title: Application Lifecycle
+  - title: Monitoring
+  - title: Scaling
+  - title: Debuging
 ---
 
 # Azure App Service  
@@ -47,9 +53,14 @@ Defines the resources that will run your web application as well as the the feat
 
 
 ## Depoloy an Application On App Service Application 
+we can deploy our app into azure via deployment center, from where we can select our version control system or we can use our local repository to depoly. and we can setup custom pipeline. 
+
 - deploy 
 - redeploy 
 
+After deploying our application it's not over, we need to add new feature over time, or scale if needed. 
+
+{% include blog/feature.html features="page.application_consideration" %}
 
 ## Deployment Pipeline 
 
