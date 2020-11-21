@@ -1,4 +1,4 @@
-d---
+---
 title: Javascript Scope
 categories: ["javascript"]
 tags: ["javascript", "nodejs"]
