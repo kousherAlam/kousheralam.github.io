@@ -4,7 +4,7 @@ categories: ["javascript"]
 tags: ["javascript", "nodejs", "advance"]
 layout: blog
 image: "/assets/blog/css-grid/future_technology_prospects.png"
-description: Javascript advance topics, such as object, prototype, inheritance etc...
+description: Javascript Scope, Nested scope, this keyword, closer etc..
 ---
 
 # Advance Javascript 
