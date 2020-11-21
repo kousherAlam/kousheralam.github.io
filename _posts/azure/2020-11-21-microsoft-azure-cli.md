@@ -3,7 +3,7 @@ title: Microsoft Azure CLI
 categories: ["azure", "cloud"]
 tags: ["azure", "azure-cli"]
 layout: blog
-thubmail: "/assets/blog/cloud/microsoft-azure-thumb.png"
+thumbnail: "/assets/blog/cloud/microsoft-azure-thumb.png"
 image: "/assets/blog/cloud/microsoft-azure.png"
 description: Microsfot Azure cli is build for easy working with azure. It support all major operating system and installing it is very easy. 
 ---
