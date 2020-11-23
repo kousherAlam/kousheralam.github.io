@@ -65,3 +65,14 @@ After deploying our application it's not over, we need to add new feature over t
 ## Deployment Pipeline 
 
 ## Monitoring and Scaling 
+
+## Deployment Slot 
+Depolyment slot allow us to multi-enviroment lifecycle on a single app. It enable zero downtime deployment. 
+
+### swaping Slot 
+need_to_think_more / study_more
+
+
+## Monitoring Application
+we can monitor an application full via matrix section 
+
