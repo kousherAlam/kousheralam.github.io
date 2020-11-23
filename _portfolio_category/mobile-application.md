@@ -1,5 +1,6 @@
 ---
 title: Mobile Application
+suffix: Portfolio / 
 layout: portfolio-category
 load: mobile-application
 pathmatch: "/portfolio/mobile-application"

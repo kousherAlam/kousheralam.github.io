@@ -1,5 +1,6 @@
 ---
 title: Drinkwell Mobile Apps
+suffix: Portfolio / 
 categories: ["mobile-application"]
 tags: ["Flutter", "Node", "Firebase", "Rest Api"]
 layout: portfolio

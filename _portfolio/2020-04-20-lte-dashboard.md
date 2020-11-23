@@ -1,5 +1,6 @@
 ---
 title: LTE Dashboard
+suffix: Portfolio / 
 categories: ["web-application", "realtime-application"]
 tags: ["Node", "Rest Api", "Angular", "Websocket", "MySQL"]
 layout: portfolio

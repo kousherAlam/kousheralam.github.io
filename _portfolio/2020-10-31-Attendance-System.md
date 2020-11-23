@@ -1,5 +1,6 @@
 ---
 title: Attendance System
+suffix: Portfolio / 
 categories: [ "web-application" ]
 tags: ["Node", "MySQL", "Rest Api", "Angular", "MQTT", "Websocket"]
 layout: portfolio

@@ -1,5 +1,6 @@
 ---
 title: Real Time Application
+suffix: Portfolio / 
 layout: portfolio-category
 load: realtime-application
 pathmatch: "/portfolio/realtime-application"
