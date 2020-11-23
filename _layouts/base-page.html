@@ -7,11 +7,20 @@ layout: default
 <div class="main-content">
   {% if page.wrapper %}
   <div class="page-wrapper {{page.wrapper}}">
-    {{ content }}
-  </div>
-  {% else %}
-  {{ content }}
-  {% endif %}
+    {% include common/top-header.html %}
+    <div class="container shadow pt-4 p-3 pr-3 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
+      {% include common/page-title.html suffix=page.suffix suffixlink=page.suffixlink %}
+        {{ content }}
+      </div>
+    </div>
+    {% else %}
+    {% include common/top-header.html %}
+    <div class="container shadow pt-4 p-3 pr-3 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
+      {% include common/page-title.html suffix=page.suffix suffixlink=page.suffixlink %}
+        {{ content }}
+      </div>
+    </div>
+    {% endif %}
 </div>
 
 {% include core/footer.html %}

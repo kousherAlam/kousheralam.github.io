@@ -2,28 +2,20 @@
 layout: base-page
 ---
 
-
-{% include common/top-header.html %}
-
-
-<div class="container shadow pt-4 p-3 pr-3 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
-    {% include common/page-title.html %}
-    <div class="row">
-        <div class="col-12 col-md-9">
-            {{ content }}
-        </div>
-        <div class="col-12 col-md-3 pl-3">
-            <h2>Categories</h2>
-            <div class="all-categories text-justify">
-                {% for category in site.post_category %}
-                <a 
-                    class="btn btn-outline-primary mr-2 mb-2" 
-                    href="{{category.url}}">
-                    {{category.title}}
-                </a>
-                {% endfor %}
-            </div>
+<div class="row">
+    <div class="col-12 col-md-9">
+        {{ content }}
+    </div>
+    <div class="col-12 col-md-3 pl-3">
+        <h2>Categories</h2>
+        <div class="all-categories text-justify">
+            {% for category in site.post_category %}
+            <a 
+                class="btn btn-outline-primary mr-2 mb-2" 
+                href="{{category.url}}">
+                {{category.title}}
+            </a>
+            {% endfor %}
         </div>
     </div>
-
 </div>
