@@ -1,0 +1,16 @@
+<div class="my-hobby">
+    <div class="container pt-5 pb-5 hobby">
+        {% include common/section-title.html  title="Love To Do" %}
+        <div class="all-hobby row">
+            {% for hobby in site.data.home-page.hobbies %}
+            <div class="single-hobby col-12 col-md-4 p-3">
+                <div class="bg-info shadow">
+                    <div class="hobby-image position-relative" style="background-image:url('{{hobby.image}}')">
+                      <h3 class="title text-center m-0 position-absolute">{{hobby.title}}</h3>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
