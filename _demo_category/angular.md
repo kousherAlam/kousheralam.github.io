@@ -1,5 +1,6 @@
 ---
 title: Angular
+suffix: Demo /
 layout: demo-category
 load: angular
 pathmatch: "/demo/angular"

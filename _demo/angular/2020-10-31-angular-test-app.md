@@ -1,5 +1,6 @@
 ---
 title: Angular Complete Project, Animation, SSR, Unit Tested
+suffix: Demo /
 date: 2020-10-31 00:00:00 Z
 categories:
 - angular

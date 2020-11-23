@@ -1,45 +1,35 @@
 ---
 layout: base-page
 ---
-
-{% include common/top-header.html suffix="Demo /" %}
-
-<div class="blog-category category-details">
-  {{content}}
-</div>
-
-<div class="container pt-5 mb-5">
-  <div class="row">
-    <div class="col-12 col-md-9">
-      {% for demo in site.demo %}
-      {% if demo.categories contains page.load %}
-      <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
-        {% 
-                  include common/card.html 
-                  url = demo.url
-                  title = demo.title 
-                  description = demo.description
-                  tags = demo.tags
-                  created = demo.date
-                  thumbnail = demo.thumbnail
-              %}
-      </div>
-      {% endif %}
-      {% endfor %}
-
+<div class="row">
+  <div class="col-12 col-md-9">
+    {% for demo in site.demo %}
+    {% if demo.categories contains page.load %}
+    <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
+      {% 
+                include common/card.html 
+                url = demo.url
+                title = demo.title 
+                description = demo.description
+                tags = demo.tags
+                created = demo.date
+                thumbnail = demo.thumbnail
+            %}
     </div>
-    <div class="col-12 col-md-3 pl-3">
-      <h2>Categories</h2>
-      <div class="all-categories text-justify">
-        {% for category in site.demo_category %}
-        <a 
-          class="btn btn-outline-primary mr-2 mb-2 {% if page.url contains category.pathmatch %}active{% endif %}" 
-          href="{{category.url}}">
-          {{category.title}}
-        </a>
-        {% endfor %}
-      </div>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+  <div class="col-12 col-md-3 pl-3">
+    <h2>Categories</h2>
+    <div class="all-categories text-justify">
+      {% for category in site.demo_category %}
+      <a 
+        class="btn btn-outline-primary mr-2 mb-2 {% if page.url contains category.pathmatch %}active{% endif %}" 
+        href="{{category.url}}">
+        {{category.title}}
+      </a>
+      {% endfor %}
     </div>
   </div>
-
 </div>
