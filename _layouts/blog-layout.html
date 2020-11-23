@@ -1,15 +1,13 @@
 ---
-layout: default
+layout: base-page
 ---
-
-{% include core/header.html %}
-
 
 
 {% include common/top-header.html %}
 
 
-<div class="container pt-4 mb-5">
+<div class="container shadow pt-4 p-3 pr-3 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
+    {% include common/page-title.html %}
     <div class="row">
         <div class="col-12 col-md-9">
             {{ content }}
@@ -29,5 +27,3 @@ layout: default
     </div>
 
 </div>
-
-{% include core/footer.html %}
