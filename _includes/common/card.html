@@ -1,4 +1,4 @@
-<div class="content-card border shadow-sm bg-white border-primary">
+<a class="content-card border shadow-sm bg-white shadow-sm" href="{{include.url}}">
     <div class="row">
         <div class="col-12 col-sm-5 col-md-4 preview position-relative text-center bg-info">
             {% if include.thumbnail != "" and include.thumbnail != nil %}
@@ -12,10 +12,7 @@
         </div>
         <div class="col-12 col-sm-7 col-md-8 p-3 row card-content card-content-min-height">
             <div class="col-12">
-                <a href="{{include.url}}">
-                    <h3 class="title">{{include.title}}</h3>
-                </a>
-    
+                <h3 class="title">{{include.title}}</h3>
                 <p class="description">{{include.description}}</p>
             </div>
             <div class="col-12 align-self-end">
@@ -33,4 +30,4 @@
             </div>
         </div>
     </div>
-</div>
+</a>
