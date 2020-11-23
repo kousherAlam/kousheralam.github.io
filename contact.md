@@ -5,7 +5,7 @@ wrapper: contact-page
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 ---
 <div class="row" style="margin: -15px;">
-    <div class="col-12 col-md-6 pt-5 pt-md-0 pb-3 pb-md-0 align-items-center bg-white d-flex justify-content-center mt-3">
+    <div class="col-12 col-md-6 pt-5 pt-md-0 pb-3 pb-md-0 align-items-center bg-info d-flex justify-content-center mt-3">
         <div class="text-center address">
             <h3>
                 <span class="key text-dark font-weight-light">City: </span>
