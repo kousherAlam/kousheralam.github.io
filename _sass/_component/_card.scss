@@ -18,6 +18,15 @@ $min-height: 225px;
 .content-card {
     display: block;
     color: black;
+    will-change: transform;
+    transition: transform 200ms ease-out;
+    z-index: 1;
+    position: relative;
+    &:hover{
+        text-decoration: none;
+        box-shadow: 3px 1px 5px 1px rgba(0,0,0,.3) !important;
+        transform: scale(1.03);
+    }
 }
 
 .published {

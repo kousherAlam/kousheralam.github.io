@@ -7,6 +7,8 @@ wrapper: blog-page
 image: "/assets/blog/css-grid/future_technology_prospects.png"
 pagination: 
   enabled: true
+  sort_field: 'date'
+  sort_reverse: true
 ---
 
 {% for post in paginator.posts %}
