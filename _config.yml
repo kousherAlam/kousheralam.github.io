@@ -70,8 +70,6 @@ defaults:
   - scope:
       path: _posts
     values:
-      layout: blog
-      type: post
       suffix: Blog / 
       permalink: "/blog/:categories/:year/:month/:day/:title:output_ext"
   - scope:
