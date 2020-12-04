@@ -2,7 +2,23 @@
 layout: base-page
 ---
 <div class="row">
-  <div class="col-12 col-md-9">
+  <div class="col-12">
+    <div class="all-categories text-justify">
+      <a 
+        class="btn btn-outline-primary mr-2 mb-2" 
+        href="/demo">
+        All
+      </a>
+      {% for category in site.demo_category %}
+      <a 
+        class="btn btn-outline-primary mr-2 mb-2 {% if page.url contains category.pathmatch %}active{% endif %}" 
+        href="{{category.url}}">
+        {{category.title}}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-12">
     {% for demo in site.demo %}
     {% if demo.categories contains page.load %}
     <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
@@ -19,17 +35,5 @@ layout: base-page
     {% endif %}
     {% endfor %}
 
-  </div>
-  <div class="col-12 col-md-3 pl-3">
-    <h2>Categories</h2>
-    <div class="all-categories text-justify">
-      {% for category in site.demo_category %}
-      <a 
-        class="btn btn-outline-primary mr-2 mb-2 {% if page.url contains category.pathmatch %}active{% endif %}" 
-        href="{{category.url}}">
-        {{category.title}}
-      </a>
-      {% endfor %}
-    </div>
   </div>
 </div>
