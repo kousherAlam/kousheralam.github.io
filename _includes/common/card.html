@@ -1,18 +1,18 @@
 <a class="content-card border shadow-sm bg-white shadow-sm" href="{{include.url}}">
     <div class="row">
-        <div class="col-12 col-sm-5 col-md-4 preview position-relative text-center bg-info">
+        <div class="col-12 col-sm-5 col-md-4 preview position-relative text-center bg-white">
             {% if include.thumbnail != "" and include.thumbnail != nil %}
             <div class="thumb-image card-bg-image" style="background-image:url('{{include.thumbnail}}')"></div>
             {% else %}
             <div class="thumb-image card-bg-image" style="background-image:url('/assets/images/blog-default.jpg')"></div>
             {% endif %}
-            <div class="published position-absolute text-info text-center pt-2 pb-2">
-                <span class="published-on">{{ include.created | date: '%B %d, %Y' }}</span>
-            </div>
         </div>
         <div class="col-12 col-sm-7 col-md-8 p-3 row card-content card-content-min-height">
             <div class="col-12">
-                <h3 class="title">{{include.title}}</h3>
+                <h3 class="title mb-0">{{include.title}}</h3>
+                    <div class="published-on">
+                        <p class="mt-0 text-muted">Published on: <span>{{ include.created | date: '%B %d, %Y' }}</span></p>
+                    </div>
                 <p class="description">{{include.description}}</p>
             </div>
             <div class="col-12 align-self-end">
@@ -20,7 +20,7 @@
                     <ul class="unlist inline tag-list tech">
                         {% for tag in include.tags %}
                         <li>
-                            <span class="d-inline-block bg-info pt-2 pb-2 pl-3 pr-3 border rounded-pill text-capitalize text-primary btn-sm mr-2 mb-2">
+                            <span class="d-inline-block pt-2 pb-2 pl-3 pr-3 border border-primary rounded-pill text-capitalize text-primary btn-sm mr-2 mb-2">
                                 {{tag}}
                             </span>
                         </li>

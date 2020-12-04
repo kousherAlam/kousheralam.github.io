@@ -19,13 +19,12 @@ $min-height: 225px;
     display: block;
     color: black;
     will-change: transform;
-    transition: transform 200ms ease-out;
     z-index: 1;
     position: relative;
     &:hover{
         text-decoration: none;
-        box-shadow: 3px 1px 5px 1px rgba(0,0,0,.3) !important;
-        transform: scale(1.03);
+        border-color: map-get($map: $theme-colors, $key: info) !important;
+        background-color: map-get($map: $theme-colors, $key: info) !important;
     }
 }
 
