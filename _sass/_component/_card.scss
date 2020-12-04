@@ -18,13 +18,14 @@ $min-height: 225px;
 .content-card {
     display: block;
     color: black;
-    will-change: transform;
-    z-index: 1;
-    position: relative;
+    border: 3px solid map-get($map: $theme-colors, $key: primary) !important;
+    // border-bottom: 3px solid map-get($map: $theme-colors, $key: primary) !important;
+    &:focus,
     &:hover{
+        outline: 0;
         text-decoration: none;
-        border-color: map-get($map: $theme-colors, $key: info) !important;
-        background-color: map-get($map: $theme-colors, $key: info) !important;
+        border: 3px solid map-get($map: $theme-colors, $key: danger) !important;
+        // border-bottom: 3px solid map-get($map: $theme-colors, $key: danger) !important;
     }
 }
 

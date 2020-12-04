@@ -1,4 +1,4 @@
-<a class="content-card border shadow-sm bg-white shadow-sm" href="{{include.url}}">
+<a class="content-card border shadow-sm bg-white mb-3" href="{{include.url}}">
     <div class="row">
         <div class="col-12 col-sm-5 col-md-4 preview position-relative text-center bg-white">
             {% if include.thumbnail != "" and include.thumbnail != nil %}
@@ -7,7 +7,7 @@
             <div class="thumb-image card-bg-image" style="background-image:url('/assets/images/blog-default.jpg')"></div>
             {% endif %}
         </div>
-        <div class="col-12 col-sm-7 col-md-8 p-3 row card-content card-content-min-height">
+        <div class="col-12 col-sm-7 col-md-8 pt-3 pb-3 pl-4 pr-3 row card-content card-content-min-height">
             <div class="col-12">
                 <h3 class="title mb-0">{{include.title}}</h3>
                     <div class="published-on">

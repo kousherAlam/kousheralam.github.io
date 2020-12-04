@@ -2,17 +2,19 @@
 layout: base-page
 ---
 <div class="row">
-    <div class="col-12 col-md-9">
-        {{ content }}
-    </div>
-    <div class="col-12 col-md-3 pl-3">
-        <h2>Categories</h2>
+    <div class="col-12">
         <div class="all-categories text-justify">
+            <a class="btn active btn-outline-primary mr-2 mb-2" href="{{page.url}}" routerLinkActive="active">
+                All
+            </a>
             {% for category in site.portfolio_category %}
             <a class="btn btn-outline-primary mr-2 mb-2" href="{{category.url}}" routerLinkActive="active">
                 {{category.title}}
             </a>
             {% endfor %}
         </div>
+    </div>
+    <div class="col-12">
+        {{ content }}
     </div>
 </div>
