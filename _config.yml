@@ -72,6 +72,7 @@ defaults:
     values:
       layout: blog
       type: post
+      suffix: Blog / 
       permalink: "/blog/:categories/:year/:month/:day/:title:output_ext"
   - scope:
       path: _blog_category
@@ -79,6 +80,10 @@ defaults:
     values:
       layout: blog-category
       permalink: "/blog/:categories/:title:output_ext"
+  - scope:
+      path: my-skill-details
+    values: 
+      suffix: Skill Details / 
 
 plugins:
   - jekyll-feed

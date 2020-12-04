@@ -1,30 +1,32 @@
 ---
-layout: base-page
+layout: default
 title: Send Your Message
 wrapper: contact-page
 image: '/assets/blog/css-grid/future_technology_prospects.png'
 ---
-<div class="row" style="margin: -15px;">
-    <div class="col-12 col-md-6 pt-5 pt-md-0 pb-3 pb-md-0 align-items-center bg-info d-flex justify-content-center mt-3">
+
+{% include core/header.html %}
+
+<div class="main-content">
+  <div class="page-wrapper {{page.wrapper}}">
+    {% include common/top-header.html %}
+    <div class="container shadow p-0 mb-5 bg-white position-relative" style="top: -30px;">
+        <div class="row">
+        <div class="col-12 col-md-6 pt-5 pt-md-0 pb-3 pb-md-0 align-items-center bg-info d-flex justify-content-center">
         <div class="text-center address">
-            <h3>
-                <span class="key text-dark font-weight-light">City: </span>
-                <span class="value text-primary">Dhaka</span>
-            </h3>
-            <h3>
-                <span class="key text-dark font-weight-light">Country: </span>
-                <span class="value text-primary">Bangladesh</span>
-            </h3>
-            <h3>
-                <span class="key text-dark font-weight-light">Mobile: </span>
-                <span class="value text-primary">+88 0177-8641026</span>
-            </h3>
             <div class="socila-media text-center text-md-left mt-4">
                 {% include core/social-link.html %}
             </div>
+            <p class="small text-center">
+                <span>Email: </span>
+                <a class="" 
+                    href="mailto:kousheralampranto@gmail.com">
+                    kousheralampranto@gmail.com
+                </a>
+            </p>
         </div>
     </div>
-    <div class="col-12 col-md-6 bg-primary p-3 text-white mt-3">
+    <div class="col-12 col-md-6 bg-primary p-3 text-white">
         <form class="pt-5 pb-5" action="https://getform.io/f/1065200e-8bc0-4626-b6fa-c05f418d9ddf" method="POST">
             <div class="form-group">
                 <label for="your-name">Name</label>
@@ -51,3 +53,9 @@ image: '/assets/blog/css-grid/future_technology_prospects.png'
         </form>
     </div>
 </div>
+      </div>
+    </div>
+</div>
+
+{% include core/footer.html %}
+
