@@ -1,13 +1,19 @@
 <div class="header bg-primary">
     <div class="container">
         <div class="row">
-            <div class="logo col-9 col-md-3 pl-3 pl-md-0">
-                <a href="/" class="p-0 btn text-white">Kousher Alam</a>
+            <div class="logo col-9 col-md-4 pl-3 pl-md-0">
+                <a href="/" class="main-logo p-0 btn position-relative overflow-hidden">
+                    <img src="/assets/favicon.ico/android-icon-192x192.png" />
+                    <span class="text d-inline-block text-left pl-1 position-relative">
+                        <span class="title d-block font-weight-bold text-info">Kousher Alam</span>
+                        <span class="designation small d-block text-info">Love to learn, think, build, update</span>
+                    </span>
+                </a>
             </div>
-            <div class="col-3 d-md-none d-block mt-2">
-                <button class="btn btn-outline-success" onclick="toggleMenu()">Menu</button>
+            <div class="col-3 d-md-none d-block mt-2 text-right pr-3">
+                <button class="btn btn-outline-success mt-1 position-relative mobile-menu-btn" onclick="toggleMenu()">Menu</button>
             </div>
-            <div class="menu-holder d-none d-md-block col-9 text-right">
+            <div class="menu-holder d-none d-md-block col-8 text-right">
                 <ul class="menu mb-0">
                     <li {% if page.url contains "/blog/" %} class="active" {% endif %}> 
                         <a href="/blog">Blog</a>
