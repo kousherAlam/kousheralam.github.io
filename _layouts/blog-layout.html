@@ -4,20 +4,7 @@ layout: base-page
 
 <div class="row">
     <div class="col-12">
-        <div class="all-categories text-justify">
-            <a 
-                class="btn active btn-outline-primary mr-2 mb-2" 
-                href="{{page.url}}">
-                All
-            </a>
-            {% for category in site.post_category %}
-            <a 
-                class="btn btn-outline-primary mr-2 mb-2" 
-                href="{{category.url}}">
-                {{category.title}}
-            </a>
-            {% endfor %}
-        </div>
+        {% include common/category-pill.html url='/blog/' pageType="all" category=site.post_category %}
     </div>
     <div class="col-12">
         {{ content }}

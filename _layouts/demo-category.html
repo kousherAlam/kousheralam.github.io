@@ -3,20 +3,7 @@ layout: base-page
 ---
 <div class="row">
   <div class="col-12">
-    <div class="all-categories text-justify">
-      <a 
-        class="btn btn-outline-primary mr-2 mb-2" 
-        href="/demo">
-        All
-      </a>
-      {% for category in site.demo_category %}
-      <a 
-        class="btn btn-outline-primary mr-2 mb-2 {% if page.url contains category.pathmatch %}active{% endif %}" 
-        href="{{category.url}}">
-        {{category.title}}
-      </a>
-      {% endfor %}
-    </div>
+    {% include common/category-pill.html url='/demo/' pageType="category" category=site.demo_category %}
   </div>
   <div class="col-12">
     {% for demo in site.demo %}
