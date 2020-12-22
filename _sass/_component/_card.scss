@@ -1,4 +1,4 @@
-$min-height: 225px;
+$min-height: 275px;
 .card-bg-image {
     background-size: cover;
     width: 100%;
@@ -18,17 +18,14 @@ $min-height: 225px;
 .content-card {
     display: block;
     color: black;
-    border: 3px solid map-get($map: $theme-colors, $key: info) !important;
     will-change: box-shadow, background-color;
     transition: box-shadow 200ms ease-in-out, 
                 background-color 200ms ease-in-out;
-    // border-bottom: 3px solid map-get($map: $theme-colors, $key: primary) !important;
     &:focus,
     &:hover{
         outline: 0;
         text-decoration: none;
         background-color: map-get($map: $theme-colors, $key: info) !important;
-        // border: 3px solid map-get($map: $theme-colors, $key: info) !important;
         color: map-get($map: $theme-colors, $key: secondary) !important;
         box-shadow: .2rem .4rem .3rem rgba(0, 0, 0, 0.175) !important;
     }
