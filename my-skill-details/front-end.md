@@ -38,3 +38,11 @@ progressive web application.
 in website assets and response size is matter, so optimized assets and reponse is very helpful for faster web app or website. i have working experience in this. 
 
 #### gzip, http2, and HTTP Header for faster website
+
+
+##### Related Works
+[https://kousheralam.tech/portfolio/Cellphone-Tracker.html](CellPhone Tracker)
+[https://kousheralam.tech/portfolio/Attendance-System.html](Attendance System)
+[https://kousheralam.tech/portfolio/lte-dashboard.html](LTE Dashboard)
+
+##### Related Posts
