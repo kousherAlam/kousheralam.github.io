@@ -8,7 +8,7 @@ layout: base-page
   <div class="col-12">
     {% for portfolio in site.portfolio %}
     {% if portfolio.categories contains page.load %}
-    <div class="single-blog mb-4 mb-md-3 p-3 p-md-0">
+    <div class="single-blog mb-4 mb-md-3 p-0">
       {% 
                 include common/card.html 
                 url = portfolio.url

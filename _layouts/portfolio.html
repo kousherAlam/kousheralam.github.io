@@ -9,6 +9,19 @@ scripts:
 - "/assets/js/sharer.min.js"
 ---
 <div class="row">
+  <div class="col-12 align-self-end mb-3" style="position: relative; top: -15px;">
+    <div class="categories">
+        <ul class="unlist inline tag-list tech">
+            {% for tag in page.tags %}
+            <li>
+                <span class="d-inline-block small bg-dark text-info pl-3 pr-3 border border-primary rounded-pill text-capitalize text-primary btn-sm mr-2 mb-2">
+                    {{tag}}
+                </span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+  </div>
   <div class="col-12 p-0">
     <div class="text-right w-100 d-inline-block">
       {% if page.demo_link %}
