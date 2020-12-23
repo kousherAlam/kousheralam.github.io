@@ -6,6 +6,12 @@ description: Skill Destails description will be here
 level: 85
 posts: 
 portfolio: 
+  - link: https://kousheralam.tech/portfolio/Cellphone-Tracker.html
+    text: CellPhone Tracker
+  - link: https://kousheralam.tech/portfolio/Attendance-System.html
+    text: Attendance System 
+  - link: https://kousheralam.tech/portfolio/lte-dashboard.html
+    text: LTE Dashboard
 demo: 
 ---
 
@@ -38,11 +44,5 @@ progressive web application.
 in website assets and response size is matter, so optimized assets and reponse is very helpful for faster web app or website. i have working experience in this. 
 
 #### gzip, http2, and HTTP Header for faster website
+I have in dept knowledge in gzip , http2 and http caching header. They allow us to compress our network load and cache when necessary. 
 
-
-##### Related Works
-[https://kousheralam.tech/portfolio/Cellphone-Tracker.html](CellPhone Tracker)
-[https://kousheralam.tech/portfolio/Attendance-System.html](Attendance System)
-[https://kousheralam.tech/portfolio/lte-dashboard.html](LTE Dashboard)
-
-##### Related Posts
