@@ -30,6 +30,7 @@ description: Basic Understanding of different Network Terminology as a Developer
 ## IP Address
 ---
 ## Mac Address
+12 Digit Alpha Numerical Number Added in `Network Interface Card` of a Computer by The computer menufacturer. 
 ---
 ## Port 
 One computer to communicate with other computer with endpoint / ip address. But if in a computer there are multiple software is running on a single computer such as web server, email server or etc. to specifically point the software in a endpoint/host compoter we use port. 
