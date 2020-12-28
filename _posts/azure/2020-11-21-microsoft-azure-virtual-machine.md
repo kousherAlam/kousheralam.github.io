@@ -1,5 +1,6 @@
 ---
 title: Microsoft Azure Virtual Machine
+published: false
 categories: ["azure", "cloud"]
 tags: ["azure", "Virtual Machine",]
 layout: blog

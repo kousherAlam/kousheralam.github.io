@@ -1,5 +1,6 @@
 ---
 title: Microsoft Azure
+published: false
 categories: ["azure", "nodejs", "cloud"]
 tags: ["azure", "nodejs"]
 layout: blog

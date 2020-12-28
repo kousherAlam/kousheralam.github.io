@@ -1,5 +1,6 @@
 ---
 title: Javascript Function
+published: false
 categories: ["javascript"]
 tags: ["javascript", "nodejs"]
 layout: blog

@@ -19,12 +19,22 @@ I have long time experience in Front end Development.
 
 have good knowlede in css, html and javascript core. Have in-dept knowledge in How browser render a webpage and how javascript work on a page. 
 
-#### Frequently I used this Framework and Rendering 
-- Angular
-- RxJS
-- Moment.js
-- lodash
+#### I have in dept knowledge in this folowing technology
+- html5
+- css3
+- javscript
+- canvas 
+- web components 
 
+#### Angular 
+
+
+#### Rxjs
+
+
+#### Lodash
+
+### MomentJS
 
 #### Web Animation
 I love to implement web animation, it increase web page quality and user experience, i use following technology in Web Animation. 

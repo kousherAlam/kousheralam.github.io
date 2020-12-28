@@ -1,5 +1,6 @@
 ---
 title: Microsoft Azure Functions
+published: false
 categories: ["azure", "cloud"]
 tags: ["azure", "functions"]
 layout: blog

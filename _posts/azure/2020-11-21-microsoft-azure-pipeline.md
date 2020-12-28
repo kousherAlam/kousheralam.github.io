@@ -1,5 +1,6 @@
 ---
 title: Microsoft Azure Pipeline
+published: false
 categories: ["azure", "cloud"]
 tags: ["azure", "pipeline"]
 layout: blog

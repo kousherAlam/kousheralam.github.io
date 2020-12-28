@@ -1,5 +1,6 @@
 ---
 title: Microsoft Azure CLI
+published: false
 categories: ["azure", "cloud"]
 tags: ["azure", "azure-cli"]
 layout: blog

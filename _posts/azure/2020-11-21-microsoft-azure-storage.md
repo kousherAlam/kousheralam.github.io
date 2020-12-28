@@ -1,5 +1,6 @@
 ---
 title: Microsoft Azure Storage
+published: false
 categories: ["azure", "cloud"]
 tags: ["azure", "storage"]
 layout: blog

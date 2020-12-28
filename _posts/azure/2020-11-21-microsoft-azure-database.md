@@ -1,5 +1,6 @@
 ---
 title: Microsoft Azure Cloud Database
+published: false
 categories: ["azure", "cloud"]
 tags: ["azure", "database"]
 layout: blog

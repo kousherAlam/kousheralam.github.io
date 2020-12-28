@@ -1,5 +1,6 @@
 ---
 title: Javascript Scope
+published: false
 categories: ["javascript"]
 tags: ["javascript", "nodejs"]
 layout: blog
