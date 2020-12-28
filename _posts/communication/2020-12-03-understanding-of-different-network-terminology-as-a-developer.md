@@ -1,6 +1,6 @@
 ---
 title: Basic Understanding of different Network Terminology as a Developer
-published: false
+published: true
 categories: ["Network", "communication"]
 tags: ["Network", "HTTP", "TCP"]
 layout: blog
