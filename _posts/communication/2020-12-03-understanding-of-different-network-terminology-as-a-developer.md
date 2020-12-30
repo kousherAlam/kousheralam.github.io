@@ -1,20 +1,20 @@
 ---
-title: Basic Understanding of different Network Terminology as a Developer
+title: Basic of Computer Network for Software Engineer
 published: true
 categories: ["Network", "communication"]
 tags: ["Network", "HTTP", "TCP"]
 layout: blog
 thumbnail: "/assets/blog/communication/network-thumb.jpg"
 image: "/assets/blog/communication/network.jpg"
-description: Basic Understanding of different Network Terminology as a Developer
+description: Knowledge of basic networking and understanding the basic terminology of network is very helpful for software engineer. A big picture view of the network system will give you confident and capability of identifying problem faster.
 ---
 
 ## OSI Model 
 <div class="row">
   <div class="col-12 col-md-7">
-    <p>OSI Stand For `Open System Interconnection`, it is a standard to communication two computer accross the network. It defines some standard layer from how bit will be transfer to the application. </p>
+    <p>{{site.data.blog.network.osi.intro}}</p>
     <h3>The Problem OSI Model Solve</h3>
-    <p>Suppose we want to transfer data between two computer across the internet, the installted hardware and software may be different in this two computer. So encoding and decoding of bits from receiving to showing it to user can be different. This can cause huge problem. To resolve the problem OSI Model is born. </p> 
+    <p>{{site.data.blog.network.osi.problem_solved}} </p> 
     <a class="btn btn-link text-success" href="/blog/network/communication/2020/12/28/osi-model.html">Read More About OSI Model</a>
   </div>
   <div class="col-12 col-md-5">
@@ -29,8 +29,12 @@ description: Basic Understanding of different Network Terminology as a Developer
 
 ## IP Address
 ---
-## Mac Address
-12 Digit Alpha Numerical Number Added in `Network Interface Card` of a Computer by The computer menufacturer. 
+
+## MAC Address
+12 Digit Alpha Numerical Number Added in `Network Interface Card` of a Computer by The computer menufacturer. MAC Stand For `Media Access Control`, it identify the device in a local network. Generally mac address does not change. 
+
+Router use MAC address to indentify device for receiving packet. Mac address has two section first is for OUI or "Organizatioally Unique Indentifire", It's Indentify Vendoer. Last segment is a unique number assigned by the vendor, which make the device unique. 
+
 ---
 ## Port 
 One computer to communicate with other computer with endpoint / ip address. But if in a computer there are multiple software is running on a single computer such as web server, email server or etc. to specifically point the software in a endpoint/host compoter we use port. 
@@ -84,12 +88,18 @@ It's a process to mapping a ip address to another ip address.
 ## ARP (Adress Resolution Protocol)
 ---
 
-## Web Server
----
-
 ## HTTP
 -------
 
 
 ## HTTP2
 -------
+
+## Web Server
+---
+
+## Email Server
+---
+
+## VOIP
+---
