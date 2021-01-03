@@ -5,7 +5,7 @@ experiences:
     image: '/assets/images/selise-logo.png'
     maxWidth: 160px
     from: 01 Sept 2020
-    till: Currently Working Here
+    till: 31 Dec 2020
     bgClass: bg-info
     type: Full Time
     details:  Angular, Agile, Mongodb, GraphQL,NodeJS,  

@@ -1,6 +1,7 @@
 ---
 title: Cloud Computing
 layout: blog-category
+published: false
 load: cloud
 suffix: Blog /
 pathmatch: "/blog/cloud"
