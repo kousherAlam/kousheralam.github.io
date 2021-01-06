@@ -112,6 +112,7 @@ we can get any help from git cli by typing this command `git help <commang-name>
   <h2 class="mb-0">Git Commit</h2>
   `--allow-empty` flag is use to commit with no change. 
   `git commit -a<add-all> -m<add-message>
+  <h3>Git commit guideline</h3>
 </div>
 
 
@@ -133,9 +134,18 @@ we can get any help from git cli by typing this command `git help <commang-name>
 
 <div class="mt-5">
   <h2 class="mb-0">Git Reset</h2>
-  <p>A branch in git is a lightweight moveable pointer.</p>
-</div>
+  <p>Allow us to changes commited.</p>
+  git reset --soft : commit back to stagin area
+  git reset --mixed - move change back to working directory
+  git reset --hard move changes to trash  
 
+</div>
+https://git-school.github.io/visualizing-git/
+
+<div class="mt-5">
+  <h2 class="mb-0">Remove file from git</h2>
+  `git rm  <file_name>` --cached 
+</div>
 
 <div class="mt-5">
   <h2 class="mb-0">Git Branch</h2>
