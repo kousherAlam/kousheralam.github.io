@@ -57,7 +57,7 @@ description: Git track version of our file. It is a version control system commo
     <li>Commited: Data in this file in local git database.</li>
     <li>Modified: This file has updated content from git last recorded state. </li>
     <li>Saged: reday for commit after modified</li>
-    <li>Untrack File: File is not in git database yet.</li>
+    <li>Untrack File: File is not in git database yet. git will not track it's anything untill we explicitly tell git so. </li>
   </ul>
 </div>
 
@@ -98,7 +98,78 @@ we can get any help from git cli by typing this command `git help <commang-name>
 
 
 <div class="mt-5">
-  <h2 class="mb-0">Start a new repository</h2>
+  <h2 class="mb-0">Start a new repository and some basic commnad</h2>
+  <p>clone             Clone a repository into a new directory</p>
+  <p>init              Create an empty Git repository or reinitialize an existing one</p>
 </div>
 
-`--allow-empty` flag is use to commit with no change. 
+
+<div class="mt-5">
+  <h2 class="mb-0">Tracking files via git</h2>
+</div>
+
+<div class="mt-5">
+  <h2 class="mb-0">Git Commit</h2>
+  `--allow-empty` flag is use to commit with no change. 
+  `git commit -a<add-all> -m<add-message>
+</div>
+
+
+<div class="mt-5">
+  <h2 class="mb-0">History, Status And travel through time in git</h2>
+  git status --short
+</div>
+
+
+<div class="mt-5">
+  <h2 class="mb-0">How git track changes when we rename or move a file.</h2>
+</div>
+
+
+<div class="mt-5">
+  <h2 class="mb-0">Git Diff</h2>
+  git diff --staged 
+</div>
+
+<div class="mt-5">
+  <h2 class="mb-0">Git Reset</h2>
+  <p>A branch in git is a lightweight moveable pointer.</p>
+</div>
+
+
+<div class="mt-5">
+  <h2 class="mb-0">Git Branch</h2>
+  <p>A branch in git is a lightweight moveable pointer.</p>
+</div>
+
+## Remote and Origin in git 
+
+
+work on the current change (see also: git help everyday)
+   add               Add file contents to the index
+   mv                Move or rename a file, a directory, or a symlink
+   restore           Restore working tree files
+   rm                Remove files from the working tree and from the index
+   sparse-checkout   Initialize and modify the sparse-checkout
+
+examine the history and state (see also: git help revisions)
+   bisect            Use binary search to find the commit that introduced a bug
+   diff              Show changes between commits, commit and working tree, etc
+   grep              Print lines matching a pattern
+   log               Show commit logs
+   show              Show various types of objects
+   status            Show the working tree status
+
+grow, mark and tweak your common history
+   branch            List, create, or delete branches
+   commit            Record changes to the repository
+   merge             Join two or more development histories together
+   rebase            Reapply commits on top of another base tip
+   reset             Reset current HEAD to the specified state
+   switch            Switch branches
+   tag               Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch             Download objects and refs from another repository
+   pull              Fetch from and integrate with another repository or a local branch
+   push              Update remote refs along with associated objects
