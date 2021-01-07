@@ -185,8 +185,43 @@ https://git-school.github.io/visualizing-git/
   - to rename a branch use `git branch -m <oldBranchName> <newName>`
   - to delete a branch use `git branch -d <branch-name>` to force the command use `-D` command. 
 
+  ## Comparing and merging brances
+  - git merge branchToMarge
+  ### Fast Forward Merge 
+  target and source 
+  target: Refers to the branch that we want to modify by merging changes in
+  sources: Refers to the branch that has the changes we want. 
+  Whe we merge only the target branch changes. source is not changes while merge.s
+
+  - first we need to switch to the target branch by running `git chekcout <target-branch> `
+  - then merge the change with `git merge <source-branch>` command. 
+
+  git diff can be use to compare branches 
+  
+  git diff branch1 branch2 to see the changes between the two brances, it is a report only task. do not change anything on the file systems. 
+
+  
+  ## Git rebase - pick, squase, rebase
+  it use to clean the branches, it increase accuracy and clearity. 
+
+  - clean up local history before sharing 
+  - pull changes form another branch without performing merge.s
+  
+
+
+  - do not use rebase on a public branch. 
+  - do not use rebase anywhere , shome of the
+  - do not use rebase 
+
+
+  ## git feflog
+
+  ## git cherry-pick 
+
   
 </div> 
+
+
 
 
 <div class="mt-5">
