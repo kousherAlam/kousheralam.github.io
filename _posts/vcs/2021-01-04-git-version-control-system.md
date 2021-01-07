@@ -87,7 +87,7 @@ description: Git track version of our file. It is a version control system commo
 </div>
 
 
-## git documantation
+## Git Documantation From CLI
 we can get any help from git cli by typing this command `git help <commang-name>`. 
 
 
@@ -100,7 +100,12 @@ we can get any help from git cli by typing this command `git help <commang-name>
 <div class="mt-5">
   <h2 class="mb-0">Start a new repository and some basic commnad</h2>
   <p>clone             Clone a repository into a new directory</p>
-  <p>init              Create an empty Git repository or reinitialize an existing one</p>
+  <p>init              Create an empty Git repository or reinitialize an existing one</p>   
+  <p>fetch             Download objects and refs from another repository</p>
+  <p>pull              Fetch from and integrate with another repository or a local branch</p>
+  <p>push              Update remote refs along with associated objects</p>
+  <p>add</p>
+  <p>commit</p> 
 </div>
 
 
@@ -109,16 +114,27 @@ we can get any help from git cli by typing this command `git help <commang-name>
 </div>
 
 <div class="mt-5">
-  <h2 class="mb-0">Git Commit</h2>
+  <h2 class="mb-0">Working on the current change</h2>
   `--allow-empty` flag is use to commit with no change. 
   `git commit -a<add-all> -m<add-message>
   <h3>Git commit guideline</h3>
+  <p>add               Add file contents to the index</p>
+  <p>mv                Move or rename a file, a directory, or a symlink</p>
+  <p>restore           Restore working tree files</p>
+  <p>rm                Remove files from the working tree and from the index</p>
+  <p>sparse-checkout   Initialize and modify the sparse-checkout</p>
 </div>
 
 
 <div class="mt-5">
   <h2 class="mb-0">History, Status And travel through time in git</h2>
   git status --short
+  <p> bisect            Use binary search to find the commit that introduced a bug</p>
+  <p>diff              Show changes between commits, commit and working tree, etc</p>
+  <p>grep              Print lines matching a pattern</p>
+  <p>log               Show commit logs</p>
+  <p>show              Show various types of objects</p>
+  <p>status            Show the working tree status</p>
 </div>
 
 
@@ -148,38 +164,31 @@ https://git-school.github.io/visualizing-git/
 </div>
 
 <div class="mt-5">
-  <h2 class="mb-0">Git Branch</h2>
-  <p>A branch in git is a lightweight moveable pointer.</p>
+  <h2 class="mb-0">Git Branch and more tools</h2>
+  <p><span class="font-weight-bold">branch</span> List, create, or delete branches</p>
+  <p><span class="font-weight-bold">commit</span> Record changes to the repository</p>
+  <p><span class="font-weight-bold">merge</span>  Join two or more development histories together</p>
+  <p><span class="font-weight-bold">merge</span>  Join two or more development histories together</p>
+  <p><span class="font-weight-bold">merge</span>  Join two or more development histories together</p>
+  <p><span class="font-weight-bold">rebase</span> Reapply commits on top of another base tip</p>
+  <p><span class="font-weight-bold">reset</span>  Reset current HEAD to the specified state</p>
+  <p><span class="font-weight-bold">switch</span> Switch branches</p>
+  <p><span class="font-weight-bold">tag</span> Create, list, delete or verify a tag object signed with GPG</p>
+  
+  <p>A branch in git is a lightweight moveable pointer. It allow us to do make and maintain concurrent change on on project. which is very, very  helpful. Suppose we are working on a project and after sometime we want to test some of our code and feature, so in git we can create a branch for that and make or changes and maintain it on that brach without effecting others code.</p>
+
+  to create branch we use `git branch <branch-name>` command. and for switch branch we use `git checkout -b <branch-name>` command. 
+  some of the git branch related command
+
+  - to See all branch use `git branch` command it will list all branch and will show which one is currently using. 
+  - to go to another branch `git checkout -b <branch-name>`
+  - to rename a branch use `git branch -m <oldBranchName> <newName>`
+  - to delete a branch use `git branch -d <branch-name>` to force the command use `-D` command. 
+
+  
+</div> 
+
+
+<div class="mt-5">
+  <h2 class="mb-0">Remote and Origin in git </h2>
 </div>
-
-## Remote and Origin in git 
-
-
-work on the current change (see also: git help everyday)
-   add               Add file contents to the index
-   mv                Move or rename a file, a directory, or a symlink
-   restore           Restore working tree files
-   rm                Remove files from the working tree and from the index
-   sparse-checkout   Initialize and modify the sparse-checkout
-
-examine the history and state (see also: git help revisions)
-   bisect            Use binary search to find the commit that introduced a bug
-   diff              Show changes between commits, commit and working tree, etc
-   grep              Print lines matching a pattern
-   log               Show commit logs
-   show              Show various types of objects
-   status            Show the working tree status
-
-grow, mark and tweak your common history
-   branch            List, create, or delete branches
-   commit            Record changes to the repository
-   merge             Join two or more development histories together
-   rebase            Reapply commits on top of another base tip
-   reset             Reset current HEAD to the specified state
-   switch            Switch branches
-   tag               Create, list, delete or verify a tag object signed with GPG
-
-collaborate (see also: git help workflows)
-   fetch             Download objects and refs from another repository
-   pull              Fetch from and integrate with another repository or a local branch
-   push              Update remote refs along with associated objects
