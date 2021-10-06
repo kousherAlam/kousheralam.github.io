@@ -6,11 +6,11 @@ description: Skill Destails description will be here
 level: 85
 posts: 
 portfolio: 
-  - link: https://kousheralam.tech/portfolio/Cellphone-Tracker.html
+  - link: https://kousheralam.github.io/portfolio/Cellphone-Tracker.html
     text: CellPhone Tracker
-  - link: https://kousheralam.tech/portfolio/Attendance-System.html
+  - link: https://kousheralam.github.io/portfolio/Attendance-System.html
     text: Attendance System 
-  - link: https://kousheralam.tech/portfolio/lte-dashboard.html
+  - link: https://kousheralam.github.io/portfolio/lte-dashboard.html
     text: LTE Dashboard
 demo: 
 ---
