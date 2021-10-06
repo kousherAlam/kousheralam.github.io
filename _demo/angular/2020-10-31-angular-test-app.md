@@ -12,7 +12,7 @@ description: some text about the blog post, in a short lang, accutaly what is it
   it will be here, and wil not include on the post.
 image: "/assets/blog/css-grid/future_technology_prospects.png"
 demo_link:
-- link: https://kousheralam.tech/angular-test-app
+- link: https://kousheralam.github.io/angular-test-app
   class: btn-success
   text: Live Preview
 - link: https://github.com/kousherAlam/angular-test-app
