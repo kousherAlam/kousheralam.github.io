@@ -16,26 +16,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Get cached gems
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-gems-
-
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.TOKEN }}
-
-      - name: Copy
-        uses: andstor/copycat-action@v3
-        with:
-          personal_token: ${{ secrets.TOKEN }}
-          src_path: ./_site
-          dst_path: ./
-          dst_owner: kousheralam
-          dst_repo_name: kousheralam.github.io
-          dst_branch: gh-pages
+          target_branch: 'gh-pages'
 
