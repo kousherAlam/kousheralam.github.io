@@ -10,7 +10,7 @@ scripts:
 ---
 <div class="row">
   <div class="col-12 row " style="position: relative; top: -15px;">
-    <div class="col-12 col-md-6 categories">
+    <div class="col-12 col-md-8 categories">
         <ul class="unlist inline tag-list tech">
             <li>
                 <span class="d-inline-block small text-dark pl-3 pr-3 rounded-pill text-uppercase btn-sm mr-1 mb-1">Tags</span>
@@ -24,7 +24,7 @@ scripts:
             {% endfor %}
         </ul>
     </div>
-    <div class="col-12 col-md-6 text-left text-md-right">
+    <div class="col-12 col-md-4 text-left text-md-right">
       {% if page.demo_link %}
         {% for demolink in page.demo_link %}
         <a class="btn btn-sm {{demolink.class}} btn-rounded btn-live-demo" rel="noreferrer noopener" href="{{demolink.link}}" target="blank">{{ demolink.text }}</a>
