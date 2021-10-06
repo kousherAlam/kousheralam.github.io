@@ -1,4 +1,14 @@
 experiences: 
+  - title: API And Portal Developer
+    company: Otto International
+    link: 'https://www.ottoint.com/'
+    image: '/assets/images/otto.png'
+    maxWidth: 160px
+    from: 04 Feb 2021
+    till: Working Here
+    bgClass: bg-dark
+    type: Full Time
+    details: Create, manage and develop new solution using NodeJS, Mongodb, DocumentDb, Graphql, Nest, React and Aws
   - title: Software Engineer
     company: SELIES roocin Software
     link: 'https://selise.ch/'

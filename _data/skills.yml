@@ -10,14 +10,10 @@
       link: 'programming/dart-lang'
     - title: 'PHP'
       link: 'programming/php'
-    - title: 'Python'
-      link: 'programming/python'
     - title: 'Lua'
       link: 'programming/lua'
-    - title: 'C++'
-      link: 'programming/cpp'
 
-- title: 'Web Design'
+- title: 'Web Technology'
   skills: 
     - title: 'HTML5'
       link: 'front-end#html5'
@@ -29,10 +25,8 @@
       link: 'programming/javascript'
     - title: 'Bootstrap'
       link: 'front-end#bootstrap'
-
-
-- title: 'Front End  Development'
-  skills: 
+    - title: 'TailWind CSS'
+      link: 'front-end#tailwind'
     - title: 'RxJS'
       link: 'javascript#rxjs'
     - title: 'Angular'
@@ -51,9 +45,6 @@
       link: 'front-end#web-animation'
     - title: 'Accesibility'
       link: 'front-end#accesiblity'
-
-- title: 'Server Side Development'
-  skills: 
     - title: 'Rest API'
       link: 'server-side-development#rest-api'
     - title: 'GraphQl'
@@ -72,25 +63,16 @@
       link: 'server-side-development#laravel'
     - title: 'Codigniter'
       link: 'server-side-development#codigniter'
-
-- title: 'CMS'
-  skills: 
     - title: 'Wordpress'
       link: 'cms#wordpress'
     - title: 'Woocommerce'
       link: 'cms#woocommerce'
-
-- title: 'Build Tools'
-  skills: 
     - title: 'Gulp'
       link: 'build-tools#gulp'
     - title: 'Webpack'
       link: 'build-tools#webpack'
     - title: 'CMAKE'
       link: 'build-tools#cmake'
-
-- title: 'Cross Platform Communication'
-  skills: 
     - title: 'JSON'
       link: 'cross-platform-communication#json'
     - title: 'XML'
@@ -124,13 +106,9 @@
   skills: 
     - title: 'Firebase'
       link: 'serverless#firebase'
+    - title: 'Fn Functions'
+      link: 'serverless#fnfunc'
 
-- title: 'Desktop App Development'
-  skills: 
-    - title: 'Electron'
-      link: 'desktop-app#electorn'
-    - title: 'Flutter'
-      link: 'flutter'
 
 - title: 'Real Time & Event Sourcing'
   skills: 
@@ -145,10 +123,12 @@
     - title: 'Rabbit MQ'
       link: 'realtime#rabbit-mq'
 
-- title: 'DevOps'
+- title: 'DevOps And Cloud Computing'
   skills: 
     - title: 'Linux'
       link: 'devops#linux'
+    - title: 'AWS'
+      link: 'aws'
     - title: 'Git'
       link: 'devops#git'
     - title: 'Docker'
