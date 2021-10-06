@@ -27,12 +27,12 @@ jobs:
       - name: Build and deploy
         uses: helaili/jekyll-action@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TOKEN }}
 
       - name: Copy
         uses: andstor/copycat-action@v3
         with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          personal_token: ${{ secrets.TOKEN }}
           src_path: ./_site
           dst_path: ./
           dst_owner: kousheralam
