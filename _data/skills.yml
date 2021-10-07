@@ -135,3 +135,5 @@
       link: 'devops#docker'
     - title: 'Kubernetes'
       link: 'devops#kubernetes'
+    - title: 'Terraform'
+      link: 'devops#terraform'
