@@ -66,7 +66,7 @@ if we declare a variable and don't use then the compailer will throw a compilati
             <td>uint64</td>
         </tr>
         <tr>
-            <td>boolean</td>
+            <td>bool</td>
             <td></td>
             <td>rune</td>
             <td>uintptr</td>
@@ -76,8 +76,8 @@ if we declare a variable and don't use then the compailer will throw a compilati
         <tr>
             <td>complex64</td>
             <td>complex128</td>
-            <td></td>
-            <td></td>
+            <td>error</td>
+            <td>nil</td>
             <td></td>
             <td></td>
         </tr>
@@ -142,3 +142,175 @@ In go we can get the memory address of an variable or object via pointer, go doe
     // pointer value
     fmt.Println(*name)
 ```
+
+
+
+
+## Array and slices
+Fixed sized collection of similar data type is array. in go array are bound checked. array are the value type in array.
+```go
+    var arr [4] string;
+    arr := [3]string{
+        "hello", 
+        "how", 
+        "are you"
+    }
+```
+slice are pointed to array, slice does to have any specific type. we does not provide any size for slice.
+
+```go
+    slice := [3]int
+
+    slice = append(slice, 1)
+
+    fmt.Println(slice)
+```
+
+
+<br/>
+<br/>
+
+
+## Map 
+Maps are key value type. 
+```go
+    data := map[string]int {
+        "name": 1,
+        "roll": 2,
+    }
+
+    delete(data, roll)
+
+    fmt.Println(data)
+```
+
+<br/>
+<br/>
+
+
+
+## Struct 
+much like class in other programming languages. but much more dynamic and robust. fields of the struct are fixed in the compile time.
+
+```go
+type Person struct {
+    name string 
+    age  int8
+}
+
+p := Person{
+    name: "kousher",
+    age: 1,
+}
+```
+
+<br/>
+<br/>
+
+## Importing Package
+to import package we need to use fully qualified name support we have follwoing data structure
+```go
+// <package>
+//  - Person.go
+// main.go
+    import ("fullpakcage-name/<package>")
+// when using 
+<package>.Person 
+```
+
+<br/>
+<br/>
+
+
+
+## Functions 
+```go
+    func <name> (num1 int, num2 int) (int, int){
+        return num1*2, num2*3
+    }
+```
+we can return error. there are also a `errors` package. 
+
+constructure function start with `newFnName` by convension. 
+
+
+
+## OOP in Go
+```go
+package controllers
+
+import (
+	"net/http"
+	"regexp"
+)
+
+type personController struct {
+	personIdPattern *regexp.Regexp
+}
+
+func (pc personController) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("hello there"))
+}
+
+func newPersonController() *personController {
+	// this will not loose from memory
+	return &personController{
+		personIdPattern: regexp.MustCompile("^/persons/(\\d+)/2"),
+	}
+}
+```
+
+## Interfaces 
+```go
+    type Person interface{}
+```
+
+
+## Loop 
+in go every loop is for loops
+```go 
+    for i := 0; i < 5; i++ {
+		fmt.Println(i)
+	}
+```
+
+infinite loop
+```go 
+    for {
+		fmt.Println(i)
+	}
+```
+
+collection types loops
+```go
+	arr := []int{1, 2, 3}
+	for index, value := range arr {
+		fmt.Println(index, value)
+	}
+```
+
+naming variable `_` ignore that value. 
+
+
+## condtions
+
+```go
+
+    var num1 int 
+    var num2 int 
+
+    if num1 == num2 {
+        // equal 
+    } else if num1 < num2 {
+        // num1 less than num 2 
+    } else {
+        // default 
+    }
+
+```
+
+
+## Panic 
+when application can not successfully name. to raise panic, we need to call `panic` function.
+
+
