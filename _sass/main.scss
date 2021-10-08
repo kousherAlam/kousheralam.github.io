@@ -1,6 +1,5 @@
 @import "var";
 
-
 @import "./libs/bootstrap/functions";
 @import "./libs/bootstrap/variables";
 @import "./libs/bootstrap/mixins";
@@ -10,7 +9,7 @@
 @import "./libs/bootstrap/images";
 @import "./libs/bootstrap/code";
 @import "./libs/bootstrap/grid";
-// @import "./libs/bootstrap/tables";
+@import "./libs/bootstrap/tables";
 @import "./libs/bootstrap/forms";
 @import "./libs/bootstrap/buttons";
 // @import "./libs/bootstrap/transitions";
@@ -39,36 +38,50 @@
 @import "./libs/bootstrap/utilities";
 // @import "./libs/bootstrap/print";
 
-
 // custom style sheet
 @import "./_pages/pages";
 @import "./_utility/index";
 @import "./_component/index";
 @import "./_section/index";
 
-body{
+body {
   background-color: #f6f6f6;
   word-break: break-word;
 }
 
-img{
+img {
   max-width: 100%;
 }
 
-.tns-controls{
+.tns-controls {
   text-align: right;
   position: relative;
-  button{
+  button {
     @extend .btn;
     @extend .btn-secondary;
     @extend .rounded-pill;
     @extend .pl-4;
     @extend .pr-4;
-    &:first-child{
+    &:first-child {
       @extend .mr-2;
     }
   }
 }
-.tns-nav{
+.tns-nav {
   @extend .d-none;
+}
+
+.highlight {
+  .kt {
+    color: #03f503;
+  }
+  .k {
+    color: #6dfff8;
+  }
+  .p {
+    color: #a5d6ff;
+  }
+  .n {
+    color: wheat;
+  }
 }

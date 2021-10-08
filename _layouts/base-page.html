@@ -8,14 +8,14 @@ layout: default
   {% if page.wrapper %}
   <div class="page-wrapper {{page.wrapper}}">
     {% include common/top-header.html %}
-    <div class="container shadow pt-4 p-3 pr-3 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
+    <div class="container shadow p-4 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
       {% include common/page-title.html suffix=page.suffix suffixlink=page.suffixlink %}
         {{ content }}
       </div>
     </div>
     {% else %}
     {% include common/top-header.html %}
-    <div class="container shadow pt-4 p-3 pr-3 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
+    <div class="container shadow p-4 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
       {% include common/page-title.html suffix=page.suffix suffixlink=page.suffixlink %}
         {{ content }}
       </div>
