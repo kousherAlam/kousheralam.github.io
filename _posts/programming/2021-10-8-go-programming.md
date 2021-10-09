@@ -333,3 +333,4 @@ when application can not successfully run, come to an deadend then go has specia
 ```go
     panic("Cause of the panic.")
 ```
+
