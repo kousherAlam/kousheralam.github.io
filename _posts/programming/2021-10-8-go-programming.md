@@ -311,6 +311,9 @@ naming variable `_` ignore that value.
 
 
 ## Panic 
-when application can not successfully name. to raise panic, we need to call `panic` function.
+when application can not successfully run, come to an deadend then go has special machanism called `panic`, it is a function and we create panic to the full app. when the program reach in panic it's throw an error message and stop working.
 
 
+```go
+    panic("Cause of the panic.")
+```
