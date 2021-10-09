@@ -166,6 +166,7 @@ slice are pointed to array, slice does to have any specific type. we does not pr
     fmt.Println(slice)
 ```
 
+in go lang array support `...` structure for destrure array. 
 
 <br/>
 <br/>
@@ -294,6 +295,8 @@ naming variable `_` ignore that value.
 
 ## condtions
 
+go support if and switch conditions, here is the example of the if condition. 
+
 ```go
 
     var num1 int 
@@ -306,6 +309,19 @@ naming variable `_` ignore that value.
     } else {
         // default 
     }
+
+```
+go also support switch conditions and it's has default break macanism, we do not need to implecitly call break,it's breaks by default. by if we want to falldown by default we can use `fallThrough` keywords.
+
+```go
+	switch condition {
+		case val : 
+			// todo 
+		case val : 
+			// todo 
+		default : 
+			// todo 
+	}
 
 ```
 
