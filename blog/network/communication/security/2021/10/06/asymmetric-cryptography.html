@@ -1,0 +1,595 @@
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8">
+  <title>Asymmetric Cryptography for Securing Data - Kousher Alam</title>
+  <meta name="description"
+    content="This is an example of a meta description.This will often show up in search results.">
+  <meta name="keyword" content="Software Engineer, Web Developer, Angular, Flutter, C++, Developer">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico/favicon.ico?v=2">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon.ico/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon.ico/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon.ico/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon.ico/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon.ico/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon.ico/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon.ico/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon.ico/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon.ico/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="/assets/favicon.ico/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon.ico/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicon.ico/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon.ico/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
+  
+  <link rel="stylesheet" href="/assets/css/viewer.min.css">
+  
+  <link type="application/atom+xml" rel="alternate" href="https://kousheralam.github.io/feed.xml" title="Kousher Alam" />
+  <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Asymmetric Cryptography for Securing Data | Kousher Alam</title>
+<meta name="generator" content="Jekyll v4.2.1" />
+<meta property="og:title" content="Asymmetric Cryptography for Securing Data" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Todays world is depend on technology and technology depend on data, so in todays world data security does not need any introduction. In the data security world Asymmetric Cryptography is one of most important piller." />
+<meta property="og:description" content="Todays world is depend on technology and technology depend on data, so in todays world data security does not need any introduction. In the data security world Asymmetric Cryptography is one of most important piller." />
+<link rel="canonical" href="https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html" />
+<meta property="og:url" content="https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html" />
+<meta property="og:site_name" content="Kousher Alam" />
+<meta property="og:image" content="https://kousheralam.github.io/assets/blog/communication/ssl.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-06T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://kousheralam.github.io/assets/blog/communication/ssl.jpg" />
+<meta property="twitter:title" content="Asymmetric Cryptography for Securing Data" />
+<script type="application/ld+json">
+{"description":"Todays world is depend on technology and technology depend on data, so in todays world data security does not need any introduction. In the data security world Asymmetric Cryptography is one of most important piller.","image":"https://kousheralam.github.io/assets/blog/communication/ssl.jpg","url":"https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html","@type":"BlogPosting","headline":"Asymmetric Cryptography for Securing Data","dateModified":"2021-10-06T00:00:00+00:00","datePublished":"2021-10-06T00:00:00+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <script src="/assets/js/app.js"></script>
+</head>
+
+<body class="overflow-hidden">
+  <div id="loader-holder">
+    <div class="lds-roller">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+  
+
+  <div class="header bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-9 col-md-4 pl-3 pl-md-0">
+                <a href="/" class="main-logo p-0 btn position-relative overflow-hidden text-left">
+                    <img src="/assets/favicon.ico/android-icon-192x192.png" />
+                    <span class="text d-inline-block text-left pl-1 position-relative">
+                        <span class="title d-block font-weight-bold text-info">Kousher Alam</span>
+                        <span class="designation small d-block text-info">Love to learn, think, build</span>
+                    </span>
+                </a>
+            </div>
+            <div class="col-3 d-md-none d-block mt-2 text-right pr-3">
+                <button class="btn btn-outline-success mt-1 position-relative mobile-menu-btn" onclick="toggleMenu()">Menu</button>
+            </div>
+            <div class="menu-holder d-none d-md-block col-8 text-right">
+                <ul class="menu mb-0">
+                    <li  class="active" > 
+                        <a href="/blog">Blog</a>
+                    </li>
+                    <li > 
+                        <a href="/portfolio">Portfolio</a> 
+                    </li>
+                    <li > 
+                        <a href="/demo">Demo</a> 
+                    </li>
+                    <li > 
+                        <a href="/contact">Contact</a> 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-menu fixed-top bg-primary d-md-none d-block" id="mobile-menu">
+    <div class="close-button position-absolute text-center">
+        <button class="btn btn-danger pl-4 pr-4 pt-2 pb-2 rounded-pill" onclick="toggleMenu()">Close</button>
+    </div>
+    <div class="pl-3 pr-3 pt-5">
+        <ul class="list-style-none pt-5">
+            <li>
+                <a 
+                    class='btn text-light btn-block text-left  active ' 
+                    href="/blog">
+                    Blog
+                </a>
+            </li>
+            <li>
+                <a 
+                    class='btn text-light btn-block text-left '
+                    href="/portfolio">
+                    Portfolio
+                </a>
+            </li>
+            <li>
+                <a 
+                    class='btn text-light btn-block text-left ' 
+                    href="/demo">
+                    Demo
+                </a>
+            </li>
+            <li>
+                <a 
+                    class='btn text-light btn-block text-left '
+                    href="/contact">
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="main-content">
+  
+    <div class='details-page-title bg-info shadow' 
+    style="background-image: url('/assets/blog/communication/ssl.jpg'); min-height: 350px;">
+</div>
+    <div class="container shadow p-4 pb-2 mb-5 bg-white position-relative" style="top: -30px;">
+      
+<div class="row">
+    <div class="col-12">
+        <h1 class="h3 position-relative bg-white pb-3 pr-3">
+            <span class="text-dark">Blog /</span> 
+            <span style="color: rgba(0, 0, 0, .41)!important;">Asymmetric Cryptography for Securing Data</span>
+        </h1>
+    </div>
+</div>
+
+        <div class="row">
+  
+  <div class="col-12 row " style="position: relative; top: -15px;">
+    <div class="col-12 col-md-8 categories">
+        <ul class="unlist inline tag-list tech">
+            <li>
+                <span class="d-inline-block small text-dark pl-3 pr-3 rounded-pill text-uppercase btn-sm mr-1 mb-1">Tags</span>
+            </li>
+            
+            <li>
+                <span class="d-inline-block small bg-dark text-info pl-3 pr-3 border border-primary rounded-pill text-capitalize text-primary btn-sm mr-1 mb-1">
+                    Network
+                </span>
+            </li>
+            
+            <li>
+                <span class="d-inline-block small bg-dark text-info pl-3 pr-3 border border-primary rounded-pill text-capitalize text-primary btn-sm mr-1 mb-1">
+                    OpenSSL
+                </span>
+            </li>
+            
+            <li>
+                <span class="d-inline-block small bg-dark text-info pl-3 pr-3 border border-primary rounded-pill text-capitalize text-primary btn-sm mr-1 mb-1">
+                    Certificate
+                </span>
+            </li>
+            
+            <li>
+                <span class="d-inline-block small bg-dark text-info pl-3 pr-3 border border-primary rounded-pill text-capitalize text-primary btn-sm mr-1 mb-1">
+                    RSA
+                </span>
+            </li>
+            
+            <li>
+                <span class="d-inline-block small bg-dark text-info pl-3 pr-3 border border-primary rounded-pill text-capitalize text-primary btn-sm mr-1 mb-1">
+                    SHA256
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="col-12 col-md-4 text-left text-md-right">
+      
+    </div>
+    <div class="col-12">
+      <hr/>
+    </div>
+  </div>
+  <div class="col-12 p-0">
+    <p>Todays world is depend on technology and technology depend on data, so in todays world data security does not need any introduction. In the data security world Asymmetric Cryptography is one of most important piller.</p>
+
+<h2 id="public-key-infrastructure-pki">Public key infrastructure (PKI)</h2>
+<p>The public key infastructure is based on trust, when we received a certificate we need to trust the certificate. And there are a thirdparty who asure as that the received certificate is trusted. This third party is a <code class="language-plaintext highlighter-rouge">Certificate Authority</code> or <code class="language-plaintext highlighter-rouge">(CA)</code>.</p>
+
+<p>4 Responsibility of PKI</p>
+<ol>
+  <li>Authentication</li>
+  <li>Integrety</li>
+  <li>Confidentiallity: Who has acces to the data only they can access the data</li>
+  <li>Non-Repuclication</li>
+</ol>
+
+<h2 id="certificate-authority-ca">Certificate Authority (CA)</h2>
+
+<h3 id="root-certificate-authority">Root Certificate authority</h3>
+<ul>
+  <li>top of the hierarchy</li>
+  <li>not issue any certificate directly, they issue certificate to child CA</li>
+</ul>
+
+<h3 id="attribute-of-root-ca">Attribute of Root CA</h3>
+<ul>
+  <li>Self Signed</li>
+  <li>Root CA Kept offline for more security</li>
+</ul>
+
+<h3 id="why-we-have-ca-hierarchy-">Why we have CA Hierarchy ?</h3>
+<ul>
+  <li>For organization</li>
+  <li>Risk Mitigation</li>
+</ul>
+
+<h3 id="criteria-of-ca">Criteria of CA</h3>
+<ul>
+  <li>Issuance Criteria</li>
+  <li>Revocation Criteria</li>
+  <li>Renewal Criteria</li>
+</ul>
+
+<p>Different level of trust for different CA</p>
+
+<h3 id="ca-policies">CA Policies</h3>
+
+<h2 id="encryption-and-decryption">Encryption and Decryption</h2>
+<h4 id="private-key-ot-encrypt-and-public-key-to-decrypt">private key ot encrypt and public key to decrypt</h4>
+<p>so then everyone can decrypt the content</p>
+<h4 id="public-key-ot-encrypt-and-private-key-to-decrypt">public key ot encrypt and private key to decrypt</h4>
+<p>only private key owner can decrypt the content</p>
+
+<h2 id="signing-and-verification-of-data">Signing and Verification of Data</h2>
+<p>public key sign -&gt; only private key can verify , not ideal and also we will not able to figure out who sign the data.</p>
+
+<p>private key sign -&gt; public key to verify.</p>
+
+<h2 id="key-pair">Key Pair</h2>
+<p>Once we generate the key pair this key should be sign by the CA. So it will trasted when we make it publicly available. This process start with a <code class="language-plaintext highlighter-rouge">Generating a Certificate Signin Request</code></p>
+
+<p>once that are done then we will fill up some public information about us. This information store as <code class="language-plaintext highlighter-rouge">Distinguis name</code></p>
+
+<h2 id="fictious-extension">Fictious Extension</h2>
+
+<h2 id="store-key-pair">Store Key Pair</h2>
+<p>file format</p>
+<ul>
+  <li>PKCS#12 to store in hard drive,</li>
+  <li>PKCS#11, PKCS#15 for encryption device</li>
+</ul>
+
+<p>This file use <code class="language-plaintext highlighter-rouge">Safe Bag</code> Data Strucuture, there are many other data type derive from this data type such as</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Key Bag</code>, <code class="language-plaintext highlighter-rouge">PK CS8</code> for private key</li>
+  <li><code class="language-plaintext highlighter-rouge">Cert Bag</code> for Certificate</li>
+  <li><code class="language-plaintext highlighter-rouge">CRL Bag</code> for certificate Revocation</li>
+  <li><code class="language-plaintext highlighter-rouge">Secret Bag</code> for user define data.</li>
+</ul>
+
+<h2 id="x509-certificate">X.509 Certificate</h2>
+<p>PKI certificate type</p>
+<ol>
+  <li>Certificate Request</li>
+  <li>Certificate</li>
+  <li>Certificate Revocation List</li>
+</ol>
+
+<p>Attribute Certificate: Deal with authorization</p>
+
+<h2 id="privilize-management-infrastrucutre">Privilize Management Infrastrucutre</h2>
+
+<h2 id="tls--ssl">TLS / SSL</h2>
+<p>Plain old certifiate with some added extentions</p>
+
+<h3 id="x509-certificate-strucutre">x.509 certificate strucutre</h3>
+<ul>
+  <li>Attach attribute and information to a public key</li>
+  <li>Trust comes form third party validation of information</li>
+</ul>
+
+<h3 id="fields">Fields</h3>
+<ul>
+  <li>version: currently 3</li>
+  <li>Serial number: unique with the CA</li>
+  <li>Signeture Algorithms: different kind of algorithm is used such as SHA, RSA</li>
+  <li>issuer</li>
+  <li>subject</li>
+  <li>extentions</li>
+  <li>validity period</li>
+  <li>public key</li>
+</ul>
+
+<h3 id="certificate-signeture-request">certificate signeture request</h3>
+<ul>
+  <li>version</li>
+  <li>subject</li>
+  <li>public key</li>
+  <li>extension</li>
+</ul>
+
+<p>after the sign in ca add following attribute</p>
+<ul>
+  <li>serial number</li>
+  <li>signeture algorithms</li>
+  <li>validity period</li>
+</ul>
+
+<p>other info such as</p>
+<ul>
+  <li>subject</li>
+  <li>public key 
+are simply copy form the crertifiate</li>
+</ul>
+
+<p>this is a subset of x.509 certificate structure</p>
+
+<h3 id="certificate-revocation">Certificate Revocation</h3>
+
+<p>When a certifiate get leak CA add the certifiate serial number in Certification Revocation list</p>
+
+<h2 id="certificate-chain">Certificate Chain</h2>
+<p>Each certificate contian a data of it’s parent CA Atuhority who sign the certifiate it create a chain. so validate the certificate we check each signeture as we walk back up the chain.</p>
+
+
+  </div>
+  <div class="col-12 p-3 p-md-0 mt-2">
+    <div class="devider">
+    <img src="/assets/icons/devider.svg" alt="devider" />
+ </div>
+ 
+    <div id="share-holder" class="mb-4" style="padding-bottom: 30px;">
+    <h3 class="font-weight-bold small text-capitalize mb-0">Share on </h3>
+    <div class="share-content">
+        <button data-sharer="facebook" data-hashtag="kousheralam, , software engineer"
+            title="share on facebook"
+            style="padding-left: 0px;"
+            data-url="https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html">
+            <img src="/assets/icons/facebook.svg" alt="Facebook" />
+        </button>
+
+        <button data-sharer="twitter" data-title=""
+            title="share on twitter"
+            data-hashtags="kousheralam, software engineer" data-url="https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html">
+            <img src="/assets/icons/twitter.svg" alt="Twitter" />
+        </button>
+
+        <button class="button linkedin" data-sharer="linkedin"
+            title="share on linkedin"
+            data-url="https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html">
+            <img src="/assets/icons/linkedin.svg" alt="Linkedin" />
+        </button>
+
+        <button class="button" data-sharer="email" data-title=""
+            title="share via email"
+            data-url="https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html" data-subject="Kousher alam, Is an Awesome Software Engineer!"
+            data-to="some@email.com">
+            <img src="/assets/icons/email.svg" alt="Email" />
+        </button>
+
+        <button onclick="copyLink()" 
+        title="copy the link">
+            <img src="/assets/icons/copy.svg" alt="Copy" />
+        </button>
+    </div>
+</div>
+
+<script>
+    function copyLink() {
+        var url = "https://kousheralam.github.io/blog/network/communication/security/2021/10/06/asymmetric-cryptography.html";
+        var copyInp = document.createElement("input");
+        copyInp.style.display = "none!important";
+        document.body.appendChild(copyInp);
+        copyInp.value = url;
+        copyInp.select();
+        copyInp.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        copyInp.parentElement.removeChild(copyInp);
+        alert("link copied to clipboard");
+        toggleShare(true);
+    }
+</script>
+    <script>
+    window.addEventListener("load", function(){
+      var ids = null;
+      var isOneAutoplay = false;
+      if(ids && ids != null && ids.length > 0){
+          for(var i=0; i<ids.length; i++){
+              const gallery = new Viewer(document.getElementById(ids[i]));
+                if(tns){
+                    var slider = tns({
+                        container: '#'+ids[i],
+                        items: 4,
+                        mouseDrag: true,
+                        autoplay: !isOneAutoplay,
+                        autoplayButtonOutput: false,
+                    });
+                    isOneAutoplay = true;
+                }
+          }
+      }
+    });
+</script>
+  
+    <div class="post-comments" style="padding-bottom: 30px;">
+    <div id="disqus_thread"></div>
+    <script>
+        (function () {
+            var d = document,
+                s = d.createElement('script');
+            s.src = 'https://personal-website-kousher-alam.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+
+</div>
+  </div>
+</div>
+      </div>
+    </div>
+    
+</div>
+
+<footer class="footer pt-5 pt-md-3 bg-secondary">
+    <div class="container pb-4 pt-3">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 mb-5 mb-md-0">
+                <ul>
+                    
+                    
+                    <li>
+                        <a class="btn btn-link text-center text-md-left" href="/portfolio/Cellphone-Tracker.html">Cellphone Tracker</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a class="btn btn-link text-center text-md-left" href="/portfolio/Nybsys-Website.html">Nybsys Website</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a class="btn btn-link text-center text-md-left" href="/portfolio/drinkwell-apps.html">Drinkwell Mobile Apps</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a class="btn btn-link text-center text-md-left" href="/portfolio/ig100.html">IG100</a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mb-5 mb-md-0">
+                <ul>
+                    
+                    
+                    <li>
+                        <a class="btn btn-link text-center text-md-left" href="/portfolio/lte-dashboard.html">LTE Dashboard</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a class="btn btn-link text-center text-md-left" href="/portfolio/nmc-website.html">NMC Website</a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a class="btn btn-link text-center text-md-left" href="/demo/angular-test-app.html">Angular Complete Demo App</a>
+                    </li>
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 pt-2">
+                <div class="socila-media text-center text-md-left">
+                    <p class="small text-center text-md-left mb-1 text-info">Social Media</p>
+                    <ul class="inline d-inline-block">
+    <li class="mr-3 d-inline-block">
+        <a href="https://facebook.com/MdKousherAlam" rel="noreferrer noopener"  target="blank">
+            <img src="/assets/icons/facebook.svg" alt="facebook" />
+        </a>
+    </li>
+    <li class="mr-3 d-inline-block">
+        <a href="https://twitter.com/Kousheralam1" rel="noreferrer noopener"  target="blank">
+            <img src="/assets/icons/twitter.svg" alt="twitter" />
+        </a>
+    </li>
+    <li class="mr-3 d-inline-block">
+        <a href="https://www.linkedin.com/in/kousheralam/" rel="noreferrer noopener" target="blank">
+            <img src="/assets/icons/linkedin.svg" alt="linkedin" />
+        </a>
+    </li>
+    <li class="mr-3 d-inline-block">
+        <a href="https://github.com/kousherAlam" rel="noreferrer noopener" target="blank">
+            <img src="/assets/icons/github.svg" alt="github" />
+        </a>
+    </li>
+    <li class="mr-3 d-inline-block">
+        <a href="https://stackoverflow.com/cv/kousheralam" rel="noreferrer noopener" target="blank">
+            <img src="/assets/icons/stackoverflow.svg" alt="github" />
+        </a>
+    </li>
+    <li class="mr-3 d-inline-block">
+        <a href="https://www.npmjs.com/~kousher" rel="noreferrer noopener" target="blank">
+            <img src="/assets/icons/npm.svg" alt="github" />
+        </a>
+    </li>
+</ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-primary text-info">
+        <div class="container">
+            <p class="copyright text-center m-0 p-4 p-sm-3 small">Copyright &copy; 2021 Kousher Alam. All Rights
+                Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+  
+  <script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-111712473-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+  
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+  
+  <script src="/assets/js/viewer.min.js"></script>
+  
+  <script src="/assets/js/sharer.min.js"></script>
+  
+</body>
+
+</html>

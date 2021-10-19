@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://kousheralam.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://kousheralam.github.io/" rel="alternate" type="text/html" /><updated>2020-11-14T20:49:02+06:00</updated><id>https://kousheralam.github.io/feed.xml</id><title type="html">Kousher Alam</title><entry><title type="html">CSS Grid System</title><link href="https://kousheralam.github.io/blog/css/2020/10/31/css-grid.html" rel="alternate" type="text/html" title="CSS Grid System" /><published>2020-10-31T00:00:00+06:00</published><updated>2020-10-31T00:00:00+06:00</updated><id>https://kousheralam.github.io/blog/css/2020/10/31/css-grid</id><content type="html" xml:base="https://kousheralam.github.io/blog/css/2020/10/31/css-grid.html">&lt;h1 id=&quot;this-is-a-test&quot;&gt;This is a test&lt;/h1&gt;
+&lt;p&gt;it’s like wow, a blog is ready within 2-3 hours.&lt;/p&gt;
+
+&lt;p&gt;lets add some demo code&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;.name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="css" /><category term="CSS" /><category term="SCSS" /><category term="Web Design" /><summary type="html">This is a test it’s like wow, a blog is ready within 2-3 hours.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://kousheralam.github.io/assets/blog/css-grid/future_technology_prospects.png" /><media:content medium="image" url="https://kousheralam.github.io/assets/blog/css-grid/future_technology_prospects.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">SCSS For Easier Life</title><link href="https://kousheralam.github.io/blog/scss/2020/10/31/scss-for-easier-life.html" rel="alternate" type="text/html" title="SCSS For Easier Life" /><published>2020-10-31T00:00:00+06:00</published><updated>2020-10-31T00:00:00+06:00</updated><id>https://kousheralam.github.io/blog/scss/2020/10/31/scss-for-easier-life</id><content type="html" xml:base="https://kousheralam.github.io/blog/scss/2020/10/31/scss-for-easier-life.html">&lt;h1 id=&quot;this-is-a-test&quot;&gt;This is a test&lt;/h1&gt;
+&lt;p&gt;it’s like wow, a blog is ready within 2-3 hours.&lt;/p&gt;
+
+&lt;p&gt;lets add some demo code&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;.name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><category term="scss" /><category term="CSS" /><category term="SCSS" /><category term="Web Design" /><summary type="html">This is a test it’s like wow, a blog is ready within 2-3 hours.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://kousheralam.github.io/assets/blog/css-grid/future_technology_prospects.png" /><media:content medium="image" url="https://kousheralam.github.io/assets/blog/css-grid/future_technology_prospects.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
