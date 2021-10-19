@@ -85,3 +85,10 @@ img {
     color: wheat;
   }
 }
+
+.skill-link{
+  text-decoration: none !important;
+  &:hover{
+    opacity: .8 !important;
+  }
+}

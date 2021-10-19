@@ -8,7 +8,7 @@ experiences:
     till: Working Here
     bgClass: bg-dark
     type: Full Time
-    details: Create, manage and develop new solution using NodeJS, Mongodb, DocumentDb, Graphql, Nest, React and Aws
+    details: Otto International is a one-stop-shop for first-class sourcing services, with over 50 years of experience in the world's major production markets. My responsibility here create, manage and develop new solution using NodeJS, Mongodb, DocumentDb, Graphql, Nest, React and Aws
   - title: Software Engineer
     company: SELIES roocin Software
     link: 'https://selise.ch/'
@@ -21,7 +21,7 @@ experiences:
     details:  Angular, Agile, Mongodb, GraphQL,NodeJS,  
   - title: Senior Web Developer
     company: 'Bright Brains Technology - UAE/Dubai'
-    link: 'https://brightbrains.ae/en-us/'
+    link: 'https://brightbrainsit.com/'
     image: '/assets/images/Bright-Brains-Technology.jpg'
     maxWidth: 160px
     from: 15 July 2020
@@ -65,7 +65,7 @@ educations:
     institute: 'Kurigram Polytechnic Institute'
     from: October 2012 
     till: January 2017
-    link: 'http://kpik.org'
+    link: 'https://kpik.gov.bd/'
     image: '/assets/images/kpik.jpg'
     maxWidth: 120px
     bgClass: 'bg-white'
