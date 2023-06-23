@@ -20,7 +20,7 @@ export async function getStaticPaths({ paginate }: GetStaticPaths) {
   const sortedPosts = sortByDate(allPosts);
 
   // Return a paginated collection of paths for all posts
-  return paginate(sortedPosts, { pageSize: 6 });
+  return paginate(sortedPosts, { pageSize: 18 });
 }
 
 interface Props {
