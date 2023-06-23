@@ -64,6 +64,10 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
+      - id: commit
+        uses: pr-mpt/actions-commit-hash@v2
+      - name: Set env
+        run: echo "COMMIT_HASH=${{steps.commit.outputs.short}}" >> $GITHUB_ENV
       - name: Build with Astro
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
