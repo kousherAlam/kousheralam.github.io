@@ -33,7 +33,7 @@ export default function PhotoViewer(
         mouseDrag: true,
         prevButton: prevButtonRef.current,
         nextButton: nextButtonRef.current,
-        autoplay: true,
+        autoplay: false,
       });
     }
   }
@@ -49,7 +49,7 @@ export default function PhotoViewer(
   return (
     <>
       <div className="text-right">
-        <div>
+        <div className=" relative top-6">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
             ref={prevButtonRef}
