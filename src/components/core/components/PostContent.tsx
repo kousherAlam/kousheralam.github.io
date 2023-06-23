@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
-import type { IFrontmatter } from '../types/IFrontMatter';
+import type { IFrontmatter } from "../types/IFrontMatter";
 
 type IPostContentProps = {
   content: IFrontmatter;
@@ -12,8 +12,8 @@ const PostContent = (props: IPostContentProps) => (
     <div className="aspect-w-3 aspect-h-2">
       <img
         className="h-full w-full rounded-lg object-cover object-center"
-        src={props.content.imgSrc}
-        alt={props.content.imgAlt}
+        src={props.content.thumbnail.src}
+        alt={props.content.thumbnail.alt}
         loading="lazy"
       />
     </div>

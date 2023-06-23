@@ -1,11 +1,17 @@
+interface Thumbnail {
+  src: string;
+  alt: string;
+}
 export interface IFrontmatter {
   title: string;
   description: string;
   pubDate: string;
-  imgSrc: string;
-  imgAlt: string;
+  categories: string[];
+  tags: string[];
+  thumbnail: Thumbnail;
   draft: boolean;
 }
+
 
 // Workaround to import Astro type. Otherwise, it'll have some compilation errors
 // eslint-disable-next-line @typescript-eslint/consistent-type-imports

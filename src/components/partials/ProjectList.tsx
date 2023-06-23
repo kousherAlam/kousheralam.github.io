@@ -1,12 +1,20 @@
 import {
   ColorTags,
   GradientText,
+  IFrontmatter,
   Project,
   Section,
   Tags,
 } from "@/components/core";
+import type { MarkdownInstance } from "astro";
 
-const ProjectList = (props: { projectList: any[] } = { projectList: [] }) => (
+type IProjectListProps = {
+  frontmatter: MarkdownInstance<IFrontmatter>;
+};
+
+const ProjectList = (
+  props: { projectList: MarkdownInstance<IFrontmatter>[] } = { projectList: [] }
+) => (
   <Section
     title={
       <div className="flex items-baseline justify-between">
@@ -27,10 +35,10 @@ const ProjectList = (props: { projectList: any[] } = { projectList: [] }) => (
             key={`project-list-${index}`}
             name={proj.frontmatter.title}
             description={proj.frontmatter.description}
-            link={proj.url}
+            link={proj.url || ""}
             img={{
-              src: proj.frontmatter.imgSrc,
-              alt: proj.frontmatter.imgAlt,
+              src: proj.frontmatter.thumbnail.src,
+              alt: proj.frontmatter.thumbnail.alt,
             }}
             category={
               <>
