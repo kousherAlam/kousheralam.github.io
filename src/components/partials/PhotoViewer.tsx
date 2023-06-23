@@ -12,6 +12,9 @@ export default function PhotoViewer(
   } = { images: [], directory: "", name: "default-name" }
 ) {
   const imageDom = useRef(null);
+  // const autoPlayButtonRef = useRef(null);
+  const prevButtonRef = useRef(null);
+  const nextButtonRef = useRef(null);
   const settings = {
     lazyload: true,
     nav: false,
@@ -22,12 +25,17 @@ export default function PhotoViewer(
     if (imageDom === null || imageDom.current === null) {
       return;
     }
-    var slider = tns({
-      container: imageDom.current,
-      items: 3,
-      slideBy: "page",
-      autoplay: true,
-    });
+    if (prevButtonRef.current && nextButtonRef.current) {
+      var slider = tns({
+        container: imageDom.current,
+        items: 3,
+        slideBy: "page",
+        mouseDrag: true,
+        prevButton: prevButtonRef.current,
+        nextButton: nextButtonRef.current,
+        autoplay: true,
+      });
+    }
   }
   useEffect(() => {
     if (imageDom === null || imageDom.current === null) {
@@ -40,6 +48,22 @@ export default function PhotoViewer(
   }, []);
   return (
     <>
+      <div className="text-right">
+        <div>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            ref={prevButtonRef}
+          >
+            Prev
+          </button>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            ref={nextButtonRef}
+          >
+            Next
+          </button>
+        </div>
+      </div>
       <div>
         <ul ref={imageDom}>
           {props.images.map((img, index) => {
