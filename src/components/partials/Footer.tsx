@@ -25,9 +25,14 @@ const Footer = () => (
           <div className="text-right text-sm">
             <span className="text-white font-bold">Commit:</span>
             &nbsp;
-            <span className="text-cyan-400 hover:underline uppercase">
-              {import.meta.env.COMMIT_HASH}
-            </span>
+            <a
+              href={`https://github.com/kousherAlam/kousheralam.github.io/tree/${
+                import.meta.env.COMMIT_HASH
+              }`}
+              className="text-cyan-400 hover:underline"
+            >
+              {((import.meta.env.COMMIT_HASH || "") as string).substring(0, 7)}
+            </a>
           </div>
         </div>
       </div>
