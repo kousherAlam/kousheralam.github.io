@@ -1,3 +1,0 @@
-intro: "OSI Stand For `Open System Interconnection`, it is a standard to communication two computer accross the network. It defines some standard layer from how bit will be transfer to the application."
-
-problem_solved: Suppose we want to transfer data between two computer across the internet, the installted hardware and software may be different in this two computer. So encoding and decoding of bits from receiving to showing it to user can be different. This can cause huge problem. To resolve the problem OSI Model is born.
