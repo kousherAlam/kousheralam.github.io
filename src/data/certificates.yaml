@@ -1,0 +1,9 @@
+ImageDirectory: /assets/certificate-badge
+
+Certificates:
+  - Name: AWS Solutions developer assoicate
+    Issue: 10 Nov 2022
+    Expriry: 20 Dec 2025
+    Skills: Tech, Other, Things
+    BadgeURL: https://badge.com/image.jpeg
+    VerificationURL:
