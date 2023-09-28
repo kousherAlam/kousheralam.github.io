@@ -1,0 +1,14 @@
+myself:
+  photo: https://myphoto.com
+  title: Hi, I'm Kousher Alam
+  subTitle: Senior Solutions Developer
+  workplace:
+    name: Otto International
+    website: https://ottoint.com
+  socials:
+    - altText: Github
+      icon: icon.png
+      url: github.com/kousheralam
+    - altText: Linkedin
+      icon: icon.png
+      url: https://linkedin.com/kousheralam
