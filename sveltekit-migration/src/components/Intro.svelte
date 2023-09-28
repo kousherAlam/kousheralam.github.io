@@ -1,5 +1,19 @@
 <script>
 	import { YoutubeSolid, GithubSolid, LinkedinSolid } from 'flowbite-svelte-icons';
+	const skills = [
+		'Javascript',
+		'Nodejs',
+		'ExpressJS',
+		'NestJS',
+		'Svelte',
+		'React',
+		'Redux',
+		'Docker',
+		'AWS',
+		'Terraform',
+		'Web Security',
+		'Kubernetes'
+	];
 </script>
 
 <div class="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6">
@@ -32,8 +46,15 @@
 			My description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque illum magnam
 			alias dicta recusandae non fuga iusto saepe ullam magni?
 		</p>
-		<div>
-			<p>Skills</p>
+		<div class="mt-4">
+			<p class="flex flex-wrap space-x-2">
+				{#each skills as skill}
+					<span
+						class="border hover:bg-orange-200 cursor-pointer border-orange-400 px-2 py-1 text-sm mb-2 rounded-lg"
+						>{skill}</span
+					>
+				{/each}
+			</p>
 		</div>
 	</div>
 	<div class="order-1 sm:order-2 md:col-span-2 flex justify-center sm:justify-end">

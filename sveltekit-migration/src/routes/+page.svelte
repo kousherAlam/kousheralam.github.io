@@ -10,14 +10,14 @@
 			link: '/link',
 			published: '12 Oct 2023',
 			lastUpdate: '12 Oct 2023',
-			type: 'Blog Post'
+			type: 'Article'
 		},
 		{
 			title: 'Redux disect',
 			link: '/link',
 			published: '15 Oct 2023',
 			lastUpdate: '15 Oct 2023',
-			type: 'Blog Post'
+			type: 'Article'
 		},
 		{
 			title: 'Dinkwell Mobile Apps',
@@ -44,6 +44,14 @@
 </div>
 
 <div class="mt-8 pt-4">
+	<div class="grid grid-cols-2">
+		<div>
+			<h4 id="publications" class="">Publications</h4>
+		</div>
+		<div class="text-right">
+			<span>Filter</span>
+		</div>
+	</div>
 	{#each blogPosts as post}
 		<div class="mt-3">
 			<Articlecard {...post} />
