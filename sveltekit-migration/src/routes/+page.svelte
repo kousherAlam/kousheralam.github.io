@@ -1,6 +1,7 @@
 <script>
 	import Articlecard from '../components/Articlecard.svelte';
 	import Intro from '../components/Intro.svelte';
+	import Certificate from '../components/Certificate.svelte';
 
 	const blogPosts = [
 		{
@@ -28,7 +29,19 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Kousher's Webstie</title>
+</svelte:head>
+
 <Intro />
+
+<div class="pt-4 pb-4 mt-10">
+	<div class="grid grid-cols-3 gap-3">
+		<Certificate />
+		<Certificate />
+		<Certificate />
+	</div>
+</div>
 
 <div class="mt-8 pt-4">
 	{#each blogPosts as post}

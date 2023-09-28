@@ -1,5 +1,4 @@
 <script>
-	import Certificate from './Certificate.svelte';
 </script>
 
 <div class="grid grid-cols-6">
@@ -7,7 +6,7 @@
 		<p>Picture</p>
 	</div>
 	<div class="col-span-4">
-		<h1 class="text-4xl">Hi, I'm <span class="font-bold">Kousher Alam</span></h1>
+		<h1 class="text-4xl">Hi, I'm <span class="font-bold text-orange-400">Kousher Alam</span></h1>
 		<h2 class="text-2xl">Senior Solutions developer @ <span>Otto International</span></h2>
 		<div>
 			<ul>
@@ -29,15 +28,6 @@
 		<div>
 			<p>Skills</p>
 		</div>
-	</div>
-</div>
-
-<div class="pt-4 pb-4 mt-10">
-	<div class="grid grid-cols-4 gap-3">
-		<Certificate />
-		<Certificate />
-		<Certificate />
-		<Certificate />
 	</div>
 </div>
 

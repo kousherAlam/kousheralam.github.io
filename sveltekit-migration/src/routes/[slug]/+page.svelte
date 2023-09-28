@@ -1,1 +1,1 @@
-<h1>This is the article page</h1>
+<h1 class="text-4xl">This is the article page</h1>
