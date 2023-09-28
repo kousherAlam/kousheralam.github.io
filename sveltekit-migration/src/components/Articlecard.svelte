@@ -8,7 +8,7 @@
 
 <div class="py-4 px-6 bg-slate-100 shadow-sm border border-gray-200">
 	<h4 class="text-xl mb-2">
-		<a class="text-orange-600 visited:text-orange-700 hover:text-orange-400" href={link}>{title}</a>
+		<a class="text-orange-500 visited:text-orange-600 hover:text-orange-400" href={link}>{title}</a>
 	</h4>
 	<div>
 		<ul class="list-none flex justify-start text-sm text-slate-500">

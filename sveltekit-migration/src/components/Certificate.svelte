@@ -1,5 +1,11 @@
-<div class="shadow bg-slate-100 border w-full min-h-[12em] py-4 px-3">
-	<h4 class="text-xl">Google Cybersecurity Professional Certificate</h4>
+<script>
+	export let title = `Google Cybersecurity Professional Certificate`;
+	export let issued = `10 Oct 2023`;
+	export let verify = `https://www.credly.com/badges/63186822-9769-4af5-8717-28aa63de0cc2/public_url`;
+</script>
+
+<div class="shadow bg-slate-100 w-full min-h-[12em] py-4 px-3">
+	<h4 class="text-xl">{title}</h4>
 
 	<div aria-details="Verification badge pictutre" class="p-5">
 		<img src="/aws-sol-arc-associate.png" alt="Google Verification badge" />
@@ -7,13 +13,13 @@
 
 	<div class="grid grid-cols-6 align-middle">
 		<div class="col-span-4 align-middle">
-			<p class="m-0 mt-1">Issued: <span>10 Oct 2023</span></p>
+			<p class="m-0 mt-1"><span class="text-sm">Issued:</span> <span>{issued}</span></p>
 		</div>
 		<div class="col-span-2 text-right">
 			<a
-				href="/"
+				href={verify}
 				target="_blank"
-				class="inline-flex items-center gap-x-1.5 rounded-md bg-orange-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+				class="inline-flex items-center gap-x-1.5 rounded-md bg-orange-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
 			>
 				<svg class="-ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 					<path
