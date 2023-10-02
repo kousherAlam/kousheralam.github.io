@@ -6,7 +6,7 @@
 	const blogPosts = [
 		{
 			title:
-				'Complete developer guide of OAuth and AzureAD - How you should secure your API from day 1',
+				'Developer guide to OAuth and AzureAD - How you should secure your API from day 1',
 			link: '/link',
 			published: '12 Oct 2023',
 			lastUpdate: '12 Oct 2023',
@@ -36,7 +36,7 @@
 <Intro />
 
 <div class="pt-4 pb-4 mt-10">
-	<div class="grid grid-cols-3 gap-3">
+	<div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-4">
 		<Certificate />
 		<Certificate />
 		<Certificate />
@@ -44,14 +44,8 @@
 </div>
 
 <div class="mt-8 pt-4">
-	<div class="grid grid-cols-2">
-		<div>
-			<h4 id="publications" class="">Publications</h4>
-		</div>
-		<div class="text-right">
-			<span>Filter</span>
-		</div>
-	</div>
+	<h4 id="publications" class="">Publications</h4>
+
 	{#each blogPosts as post}
 		<div class="mt-3">
 			<Articlecard {...post} />

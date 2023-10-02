@@ -3,16 +3,16 @@
 	const skills = [
 		'Javascript',
 		'Nodejs',
-		'ExpressJS',
-		'NestJS',
+		'OAuth',
+		'Active Directory',
 		'Svelte',
 		'React',
-		'Redux',
-		'Docker',
 		'AWS',
 		'Terraform',
-		'Web Security',
-		'Kubernetes'
+		'Microservice',
+		'Docker',
+		'Kubernetes',
+		'Cyber Security',
 	];
 </script>
 
@@ -20,9 +20,14 @@
 	<div class="md:col-span-4 order-2 sm:order-1">
 		<p>Hello there 👋</p>
 		<h1 class="text-4xl">
-			I'm <span class="font-bold text-orange-500">Kousher Alam</span>
+			I'm 
+			<span class="font-bold text-orange-500">Kousher Alam</span>
 		</h1>
-		<p class="mt-1">Senior Solutions developer @ <span>Otto International</span></p>
+		<p class="mt-1">
+			<span>Senior Solutions developer</span>
+			<span>@</span>
+			<a class="text-blue-600" href="https://ottoint.com/" target="_blank">Otto International</a>
+		</p>
 		<div>
 			<ul class="list-none flex space-x-3 mt-1">
 				<li>
@@ -50,7 +55,7 @@
 			<p class="flex flex-wrap space-x-2">
 				{#each skills as skill}
 					<span
-						class="border hover:bg-orange-200 cursor-no-drop border-orange-400 px-2 py-1 text-sm mb-2 rounded-lg"
+						class="first:ml-2 border hover:bg-orange-200 cursor-no-drop border-orange-400 px-2 py-1 text-sm mb-2 rounded-lg"
 						>{skill}</span
 					>
 				{/each}

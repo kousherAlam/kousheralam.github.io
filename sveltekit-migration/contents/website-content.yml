@@ -1,6 +1,9 @@
+SEO:
+  description: multi line description of the website
+
 myself:
   photo: https://myphoto.com
-  title: Hi, I'm Kousher Alam
+  title: Kousher Alam
   subTitle: Senior Solutions Developer
   workplace:
     name: Otto International

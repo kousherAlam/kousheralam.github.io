@@ -7,13 +7,13 @@
 <div class="shadow bg-slate-100 w-full min-h-[12em] py-4 px-3">
 	<h4 class="text-xl">{title}</h4>
 
-	<div aria-details="Verification badge pictutre" class="p-5">
+	<div aria-details="Verification badge pictutre" class="p-8">
 		<img src="/aws-sol-arc-associate.png" alt="Google Verification badge" />
 	</div>
 
 	<div class="grid grid-cols-6 align-middle">
 		<div class="col-span-4 align-middle">
-			<p class="m-0 mt-1"><span class="text-sm">Issued:</span> <span>{issued}</span></p>
+			<p class="m-0 mt-1 text-sm"><span class="text-bold">Issued:</span> <span>{issued}</span></p>
 		</div>
 		<div class="col-span-2 text-right">
 			<a
