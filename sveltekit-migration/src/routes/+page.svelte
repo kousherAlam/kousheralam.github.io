@@ -2,11 +2,11 @@
 	import Articlecard from '../components/Articlecard.svelte';
 	import Intro from '../components/Intro.svelte';
 	import Certificate from '../components/Certificate.svelte';
+	export let data;
 
 	const blogPosts = [
 		{
-			title:
-				'Developer guide to OAuth and AzureAD - How you should secure your API from day 1',
+			title: 'Developer guide to OAuth and AzureAD - How you should secure your API from day 1',
 			link: '/link',
 			published: '12 Oct 2023',
 			lastUpdate: '12 Oct 2023',
@@ -36,10 +36,12 @@
 <Intro />
 
 <div class="pt-4 pb-4 mt-10">
-	<div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-4">
-		<Certificate />
-		<Certificate />
-		<Certificate />
+	<div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+		{#each data.certifications as cert}
+			<div class="mb-3">
+				<Certificate data={cert} />
+			</div>
+		{/each}
 	</div>
 </div>
 
