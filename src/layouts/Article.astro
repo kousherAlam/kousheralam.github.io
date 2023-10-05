@@ -5,6 +5,7 @@ import { BlogPost } from "@/core/partials/BlogPost";
 // import { CTA } from '@/partials/CTA';
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
+import { Footer } from "@/core/partials/Footer";
 
 export interface Props {
   content: IFrontmatter;
@@ -18,4 +19,8 @@ const title = `${content.title} - ${AppConfig.site_name}`;
   <BlogPost frontmatter={content}>
     <slot />
   </BlogPost>
-</Base>@/components/core/partials/BlogPost @/core
+
+  <footer class="mt-12">
+    <Footer />
+  </footer>
+</Base>

@@ -6,6 +6,7 @@ import Certificate from "@/core/components/Certificate";
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
 import ArticleCard from "../core/partials/ArticleCard";
+import { Footer } from "@/core/partials/Footer";
 
 const allArtilces = await Astro.glob<IFrontmatter>("/src/pages/*.mdx");
 
@@ -64,5 +65,8 @@ const certificates: any[] = [
       ))
     }
   </div>
-</Base>@/components/core/partials/Hero../components/core/partials/ArticleCard../components/core/partials/Certificate
-@/core
+
+  <footer class="mt-12">
+    <Footer />
+  </footer>
+</Base>
