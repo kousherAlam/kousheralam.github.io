@@ -1,7 +1,7 @@
 ---
 import type { IFrontmatter } from "@/components/core";
 
-import { BlogPost } from "@/components/partials/BlogPost";
+import { BlogPost } from "@/core/partials/BlogPost";
 // import { CTA } from '@/partials/CTA';
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
@@ -18,5 +18,4 @@ const title = `${content.title} - ${AppConfig.site_name}`;
   <BlogPost frontmatter={content}>
     <slot />
   </BlogPost>
-</Base>
-@/components/core/partials/BlogPost @/core
+</Base>@/components/core/partials/BlogPost @/core

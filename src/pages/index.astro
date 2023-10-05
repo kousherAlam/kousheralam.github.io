@@ -1,11 +1,11 @@
 ---
 import type { IFrontmatter } from "@/core";
 
-import { Hero } from "@/core/partials/Hero";
+import { Hero } from "@/core/components/Hero";
+import Certificate from "@/core/components/Certificate";
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
 import ArticleCard from "../core/partials/ArticleCard";
-import Certificate from "../core/partials/Certificate";
 
 const allArtilces = await Astro.glob<IFrontmatter>("/src/pages/*.mdx");
 

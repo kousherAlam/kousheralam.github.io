@@ -1,4 +1,5 @@
 import Skils from "./Skills";
+
 import { BsYoutube, BsLinkedin, BsGithub } from "react-icons/bs";
 const Hero = () => (
   <div className="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6">

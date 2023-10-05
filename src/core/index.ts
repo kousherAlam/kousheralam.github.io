@@ -1,6 +1,6 @@
 
-import { PostContent } from './components/PostContent';
-import { PostHeader } from './components/PostHeader';
+import { PostContent } from './partials/PostContent';
+import { PostHeader } from './partials/PostHeader';
 import type {
   FrontmatterPage,
   IFrontmatter,
