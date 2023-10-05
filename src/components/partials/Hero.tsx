@@ -1,62 +1,58 @@
-import {
-  GradientText,
-  HeroAvatar,
-  HeroSocial,
-  Section,
-} from "@/components/core";
+import Skils from "./Skills";
 
 const Hero = () => (
-  <Section>
-    <HeroAvatar
-      title={
-        <>
-          Hi there, I'm <GradientText>Kousher</GradientText> 👋
-        </>
-      }
-      description={
-        <>
-          In my everyday engineering life I enjoy solving problems and helping
-          people to succeed. Confident in my ability to drive success and foster
-          collaboration, I am excited to contribute to an organization's growth
-          and achieve shared goals.
-        </>
-      }
-      avatar={
-        <img
-          className="h-80 w-64"
-          src="/assets/images/avatar.svg"
-          alt="Avatar image"
-          loading="lazy"
-        />
-      }
-      socialButtons={
-        <>
-          <a href="https://www.linkedin.com/in/kousheralam/" target="_blank">
-            <HeroSocial
-              src="/assets/images/linkedin-icon.png"
-              alt="Linkedin icon"
-            />
-          </a>
-          <a
-            href="https://github.com/kousherAlam"
-            className="github-icon"
-            target="_blank"
-          >
-            <HeroSocial
-              src="/assets/images/github_icon.png"
-              alt="Github icon"
-            />
-          </a>
-          <a href="https://www.youtube.com/@kousheralam" target="_blank">
-            <HeroSocial
-              src="/assets/images/youtube-icon.png"
-              alt="Youtube icon"
-            />
-          </a>
-        </>
-      }
-    />
-  </Section>
+  <div className="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6">
+    <div className="md:col-span-4 order-2 sm:order-1">
+      <p>Hello there 👋</p>
+      <h1 className="text-4xl">
+        <span>I'm</span>
+        <span className="ml-3 font-bold text-orange-500">Kousher Alam</span>
+      </h1>
+      <p className="mt-1">
+        <span>Senior Solutions developer</span>
+        <span>@</span>
+        <a
+          className="text-blue-600"
+          href="https://ottoint.com/"
+          target="_blank"
+        >
+          Otto International
+        </a>
+      </p>
+      <div>
+        <ul className="list-none flex space-x-3 mt-1">
+          <li>
+            <a href="https://facebook.com" target="_blank">
+              {/* <GithubSolid class="h-6 w-6 text-gray-800 mr-4" /> */}
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com" target="_blank">
+              {/* <LinkedinSolid class="h-6 w-6 text-blue-500 mr-4" /> */}
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com" target="_blank">
+              {/* <YoutubeSolid class="h-6 w-6 text-red-500 mr-4" /> */}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <p className="mt-6">
+        My description: Lorem ipsum dolor, sit amet consectetur adipisicing
+        elit. Eaque illum magnam alias dicta recusandae non fuga iusto saepe
+        ullam magni?
+      </p>
+      <Skils />
+    </div>
+    <div className="order-1 sm:order-2 md:col-span-2 flex justify-center sm:justify-end">
+      <img
+        className="h-80 w-64 sm:pr-4"
+        src="/assets/images/avatar.svg"
+        alt="Kousher's Profile Picture"
+      />
+    </div>
+  </div>
 );
 
 export { Hero };

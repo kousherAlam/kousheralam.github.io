@@ -1,13 +1,13 @@
 ---
 import type { IFrontmatter } from "@/components/core";
 
-import { CTA } from "@/components/partials/CTA";
 import { Hero } from "@/components/partials/Hero";
 import { ProjectList } from "@/components/partials/ProjectList";
 import { RecentPosts } from "@/components/partials/RecentPosts";
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
 import { sortByDate } from "@/utils/Posts";
+import Certificate from '../components/partials/Certificate';
 
 const allPosts = await Astro.glob<IFrontmatter>("./posts/*.mdx");
 const sortedPosts = sortByDate(allPosts);
@@ -19,11 +19,46 @@ const lastThreeProjects = sortedProjects.slice(0, 3);
 
 const { title } = AppConfig;
 const { description } = AppConfig;
+
+const certificates:any[] = [
+  {
+    badge: "/assets/certificate-badge/aws-sol-arc-associate.png",
+    title: "AWS Solutions developer assoicate",
+    issue: {
+      website: "https://coursera.com",
+      by: "Coursera",
+      date: "Date",
+      expiry: "Date",
+    },
+    verify: "https://coursera.com"
+  },
+  {
+    badge: "/assets/certificate-badge/google-cybersecurity.png",
+    title: "AWS Solutions developer assoicate",
+    issue: {
+      website: "https://coursera.com",
+      by: "Coursera",
+      date: "Date",
+      expiry: "Date",
+    },
+    verify: "https://coursera.com"
+  }
+];
+
 ---
 
 <Base head={{ title, description }}>
   <Hero />
+  <div class="pt-4 pb-4 mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+      {certificates.map(cert => {
+        return <div class="mb-3">
+          <Certificate {...cert} />
+        </div>
+      })}
+    </div>
+  </div>
+
   <ProjectList projectList={lastThreeProjects} />
   <RecentPosts postList={lastThreePosts} />
-  <!-- <CTA /> -->
 </Base>
