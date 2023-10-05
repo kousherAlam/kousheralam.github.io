@@ -1,12 +1,10 @@
-import { Section } from "@/components/core";
-
 import { AppConfig } from "@/utils/AppConfig";
 
 const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <Section>
+    <div>
       <div className="border-t border-gray-600 pt-5">
         <div className="grid grid-cols-2">
           <div>
@@ -35,7 +33,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </Section>
+    </div>
   );
 };
 
