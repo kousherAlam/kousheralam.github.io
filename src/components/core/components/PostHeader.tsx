@@ -9,7 +9,7 @@ type IPostHeaderProps = {
 
 const PostHeader = (props: IPostHeaderProps) => (
   <>
-    <div className="mx-auto mt-5 max-w-prose relative">
+    <div className="mx-auto mt-5  relative">
       <div className="aspect-w-3 aspect-h-2">
         <img
           className="h-full w-full rounded-lg object-cover object-center"

@@ -12,7 +12,6 @@ type IBlogPostProps = {
 const BlogPost = (props: IBlogPostProps) => (
   <Section>
     <PostHeader content={props.frontmatter} author={AppConfig.author} />
-    <div className="mx-auto mt-5 max-w-prose relative mb-10"></div>
     <PostContent content={props.frontmatter}>{props.children}</PostContent>
   </Section>
 );
