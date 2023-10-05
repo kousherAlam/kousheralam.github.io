@@ -6,7 +6,7 @@ interface ArticleCardProps {
 
 function getArticleLink(link: string) {
   const withoutMdx = link.replace(/\.md(x)/, "");
-  return withoutMdx.replace(/src\/contents\/(articles|contents)\//, "");
+  return withoutMdx.replace(/src\/contents\/(articles|projects)\//, "");
 }
 
 export default function ArticleCard({ data }: ArticleCardProps) {
