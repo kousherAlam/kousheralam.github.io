@@ -2,25 +2,17 @@
 import type { IFrontmatter } from "@/components/core";
 
 import { Hero } from "@/components/partials/Hero";
-import { ProjectList } from "@/components/partials/ProjectList";
-import { RecentPosts } from "@/components/partials/RecentPosts";
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
-import { sortByDate } from "@/utils/Posts";
-import Certificate from '../components/partials/Certificate';
+import ArticleCard from "../components/partials/ArticleCard";
+import Certificate from "../components/partials/Certificate";
 
-const allPosts = await Astro.glob<IFrontmatter>("./posts/*.mdx");
-const sortedPosts = sortByDate(allPosts);
-const lastThreePosts = sortedPosts.slice(0, 3);
-
-const allProjects = await Astro.glob<IFrontmatter>("./projects/*.mdx");
-const sortedProjects = sortByDate(allProjects);
-const lastThreeProjects = sortedProjects.slice(0, 3);
+const allArtilces = await Astro.glob<IFrontmatter>("/src/contents/**/*.mdx");
 
 const { title } = AppConfig;
 const { description } = AppConfig;
 
-const certificates:any[] = [
+const certificates: any[] = [
   {
     badge: "/assets/certificate-badge/aws-sol-arc-associate.png",
     title: "AWS Solutions developer assoicate",
@@ -30,7 +22,7 @@ const certificates:any[] = [
       date: "Date",
       expiry: "Date",
     },
-    verify: "https://coursera.com"
+    verify: "https://coursera.com",
   },
   {
     badge: "/assets/certificate-badge/google-cybersecurity.png",
@@ -41,24 +33,35 @@ const certificates:any[] = [
       date: "Date",
       expiry: "Date",
     },
-    verify: "https://coursera.com"
-  }
+    verify: "https://coursera.com",
+  },
 ];
-
 ---
 
 <Base head={{ title, description }}>
   <Hero />
   <div class="pt-4 pb-4 mt-10">
     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
-      {certificates.map(cert => {
-        return <div class="mb-3">
-          <Certificate {...cert} />
-        </div>
-      })}
+      {
+        certificates.map((cert) => {
+          return (
+            <div class="mb-3">
+              <Certificate {...cert} />
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 
-  <ProjectList projectList={lastThreeProjects} />
-  <RecentPosts postList={lastThreePosts} />
+  <div class="mt-8 pt-4">
+    <h4 id="publications" class="mb-2">Publications</h4>
+    {
+      allArtilces.map((article) => (
+        <div class="grid gap-5">
+          <ArticleCard data={article} />
+        </div>
+      ))
+    }
+  </div>
 </Base>

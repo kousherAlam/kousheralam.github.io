@@ -1,0 +1,33 @@
+SEO:
+  description: multi line description of the website
+
+myself:
+  photo: https://myphoto.com
+  title: Kousher Alam
+  subTitle: Senior Solutions Developer
+  workplace:
+    name: Otto International
+    website: https://ottoint.com
+  socials:
+    - altText: Github
+      icon: icon.png
+      url: github.com/kousheralam
+    - altText: Linkedin
+      icon: icon.png
+      url: https://linkedin.com/kousheralam
+
+certifications:
+  - title: Google Cybersecurity Certificate
+    verify: https://verifylink.com
+    badge: /google-cybersecurity.png
+    issue:
+      by: Coursea
+      website: https://coursera.com
+      date: 12 Oct 1997
+  - title: AWS Certified Solutions Architect – Associate
+    verify: https://www.credly.com/badges/63186822-9769-4af5-8717-28aa63de0cc2/public_url
+    badge: /aws-sol-arc-associate.png
+    issue:
+      by: Amazon Web Services Training and Certification
+      website: https://aws.amazon.com/training/
+      date: November 30, 2022
