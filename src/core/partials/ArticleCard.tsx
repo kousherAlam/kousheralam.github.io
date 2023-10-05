@@ -11,7 +11,7 @@ function getArticleLink(link: string | undefined) {
 
 export default function ArticleCard({ data }: ArticleCardProps) {
   return (
-    <div className="py-4">
+    <div className="">
       <h4 className="text-xl mb-2">
         <a
           className="text-orange-500 visited:text-orange-600 hover:text-orange-400"

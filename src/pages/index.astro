@@ -56,14 +56,12 @@ const certificates: any[] = [
   </div>
 
   <div class="mt-8 pt-4">
-    <h4>Publications</h4>
-    {
-      allArtilces.map((article) => (
-        <div class="grid gap-5">
-          <ArticleCard data={article} />
-        </div>
-      ))
-    }
+    <h4 class="mb-3">
+      Publications <span class="text-bold text-xs">/</span> Projects
+    </h4>
+    <div class="grid gap-6">
+      {allArtilces.map((article) => <ArticleCard data={article} />)}
+    </div>
   </div>
 
   <footer class="mt-12">
