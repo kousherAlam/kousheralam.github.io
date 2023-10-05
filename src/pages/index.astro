@@ -1,11 +1,11 @@
 ---
-import type { IFrontmatter } from "@/components/core";
+import type { IFrontmatter } from "@/core";
 
-import { Hero } from "@/components/partials/Hero";
+import { Hero } from "@/core/partials/Hero";
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
-import ArticleCard from "../components/partials/ArticleCard";
-import Certificate from "../components/partials/Certificate";
+import ArticleCard from "../core/partials/ArticleCard";
+import Certificate from "../core/partials/Certificate";
 
 const allArtilces = await Astro.glob<IFrontmatter>("/src/pages/*.mdx");
 
@@ -64,4 +64,5 @@ const certificates: any[] = [
       ))
     }
   </div>
-</Base>
+</Base>@/components/core/partials/Hero../components/core/partials/ArticleCard../components/core/partials/Certificate
+@/core

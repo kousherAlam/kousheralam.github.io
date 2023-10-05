@@ -1,5 +1,5 @@
 import type { MDXInstance } from "astro";
-import type { IFrontmatter } from "../core";
+import type { IFrontmatter } from "..";
 
 interface ArticleCardProps {
   data: MDXInstance<IFrontmatter>;

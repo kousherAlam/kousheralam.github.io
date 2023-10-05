@@ -1,5 +1,5 @@
-import type { IFrontmatter } from "@/components/core";
-import { PostContent, PostHeader } from "@/components/core";
+import type { IFrontmatter } from "@/core";
+import { PostContent, PostHeader } from "@/core";
 import type { ReactNode } from "react";
 
 import { AppConfig } from "@/utils/AppConfig";
