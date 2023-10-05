@@ -9,11 +9,11 @@ const Hero = () => (
         <span>I'm</span>
         <span className="ml-3 font-bold text-orange-500">Kousher Alam</span>
       </h1>
-      <p className="mt-1">
+      <p className="mt-0 text-sm">
         <span>Senior Solutions developer</span>
-        <span>@</span>
+        <span className="ml-1 font-bold">@</span>
         <a
-          className="text-blue-600"
+          className="text-orange-500 hover:text-orange-400 visited:text-orange-600 ml-1"
           href="https://ottoint.com/"
           target="_blank"
         >
@@ -21,19 +21,31 @@ const Hero = () => (
         </a>
       </p>
       <div>
-        <ul className="list-none flex space-x-3 mt-1">
+        <ul className="text-2xl list-none flex space-x-3 mt-2">
           <li>
-            <a href="https://www.linkedin.com/in/kousheralam/" target="_blank">
+            <a
+              className="text-blue-500 hover:text-blue-400 visited:bg-blue-600"
+              href="https://www.linkedin.com/in/kousheralam/"
+              target="_blank"
+            >
               <BsLinkedin />
             </a>
           </li>
           <li>
-            <a href="https://github.com/kousherAlam" target="_blank">
+            <a
+              className="text-gray-500 hover:text-gray-400 visited:bg-gray-600"
+              href="https://github.com/kousherAlam"
+              target="_blank"
+            >
               <BsGithub />
             </a>
           </li>
           <li>
-            <a href="https://www.youtube.com/@kousheralam" target="_blank">
+            <a
+              className="text-red-500 hover:text-red-400 visited:bg-red-600"
+              href="https://www.youtube.com/@kousheralam"
+              target="_blank"
+            >
               <BsYoutube />
             </a>
           </li>
