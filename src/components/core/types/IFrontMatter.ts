@@ -3,21 +3,13 @@ interface Thumbnail {
   alt: string;
 }
 export interface IFrontmatter {
-  frontmatter?: {
-    layout: string;
-    title: string;
-    pubDate: string;
-    categories: string[];
-    tags: string[];
-    thumbnail: {
-      src: string;
-      alt: string;
-    };
-    description: string;
-  };
-  url: string;
-  file: string;
-  draft?: boolean;
+  title: string;
+  description: string;
+  pubDate: string;
+  categories: string[];
+  tags: string[];
+  thumbnail: Thumbnail;
+  draft: boolean;
 }
 
 

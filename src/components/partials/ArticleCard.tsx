@@ -1,11 +1,12 @@
+import type { MDXInstance } from "astro";
 import type { IFrontmatter } from "../core";
 
 interface ArticleCardProps {
-  data: IFrontmatter;
+  data: MDXInstance<IFrontmatter>;
 }
 
-function getArticleLink(link: string) {
-  return link.replace(/\.md(x)/, "");
+function getArticleLink(link: string | undefined) {
+  return (link || "").replace(/\.md(x)/, "");
 }
 
 export default function ArticleCard({ data }: ArticleCardProps) {
