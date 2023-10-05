@@ -1,5 +1,5 @@
 import Skils from "./Skills";
-
+import { BsYoutube, BsLinkedin, BsGithub } from "react-icons/bs";
 const Hero = () => (
   <div className="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6">
     <div className="md:col-span-4 order-2 sm:order-1">
@@ -22,18 +22,18 @@ const Hero = () => (
       <div>
         <ul className="list-none flex space-x-3 mt-1">
           <li>
-            <a href="https://facebook.com" target="_blank">
-              {/* <GithubSolid class="h-6 w-6 text-gray-800 mr-4" /> */}
+            <a href="https://www.linkedin.com/in/kousheralam/" target="_blank">
+              <BsLinkedin />
             </a>
           </li>
           <li>
-            <a href="https://facebook.com" target="_blank">
-              {/* <LinkedinSolid class="h-6 w-6 text-blue-500 mr-4" /> */}
+            <a href="https://github.com/kousherAlam" target="_blank">
+              <BsGithub />
             </a>
           </li>
           <li>
-            <a href="https://facebook.com" target="_blank">
-              {/* <YoutubeSolid class="h-6 w-6 text-red-500 mr-4" /> */}
+            <a href="https://www.youtube.com/@kousheralam" target="_blank">
+              <BsYoutube />
             </a>
           </li>
         </ul>
