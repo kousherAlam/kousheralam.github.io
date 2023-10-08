@@ -1,5 +1,6 @@
 import type { MDXInstance } from "astro";
-import type { IFrontmatter } from "..";
+import type { IFrontmatter } from "../types/IFrontMatter";
+import { format } from "date-fns";
 
 interface ArticleCardProps {
   data: MDXInstance<IFrontmatter>;
@@ -22,13 +23,12 @@ export default function ArticleCard({ data }: ArticleCardProps) {
       </h4>
       <div>
         <ul className="list-none flex justify-start text-sm text-slate-500">
-          <li>ArticleCard</li>
+          <li>[{data.frontmatter.type}]</li>
           <li className="pl-3">
-            <span>Published on: </span> <span>{data.frontmatter?.pubDate}</span>
-          </li>
-          <li className="pl-3">
-            <span>Last Update:</span>
-            <span>{data.frontmatter?.pubDate}</span>
+            <span>Last Updated on: </span>{" "}
+            <span>
+              {format(new Date(data.frontmatter?.published), "LLL d, yyyy")}
+            </span>
           </li>
         </ul>
       </div>

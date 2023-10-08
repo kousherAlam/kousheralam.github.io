@@ -5,11 +5,10 @@ interface Thumbnail {
 export interface IFrontmatter {
   title: string;
   description: string;
-  pubDate: string;
-  categories: string[];
-  tags: string[];
+  published: string;
   thumbnail: Thumbnail;
   draft: boolean;
+  type: 'Project' | 'Article';
 }
 
 
