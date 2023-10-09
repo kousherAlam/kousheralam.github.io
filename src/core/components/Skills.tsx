@@ -1,24 +1,11 @@
-export default function Skils() {
-  const my_skills = [
-    "Javascript",
-    "Nodejs",
-    "OAuth",
-    "Active Directory",
-    "Svelte",
-    "React",
-    "AWS",
-    "Terraform",
-    "Microservice",
-    "Docker",
-    "Kubernetes",
-    "Cyber Security",
-  ];
+import { AppConfig } from "@/utils/AppConfig";
 
+export default function Skils() {
   return (
     <>
       <div className="mt-6">
         <p className="flex flex-wrap justify-start gap-2 items-center">
-          {my_skills.map((skill, index) => {
+          {AppConfig.skills.map((skill, index) => {
             return (
               <span
                 key={index}

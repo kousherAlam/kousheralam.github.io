@@ -7,36 +7,10 @@ import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
 import ArticleCard from "../core/partials/ArticleCard";
 import { Footer } from "@/core/partials/Footer";
-
 const allArtilces = await Astro.glob<IFrontmatter>("/src/pages/*.mdx");
 
 const { title } = AppConfig;
 const { description } = AppConfig;
-
-const certificates: any[] = [
-  {
-    badge: "/assets/certificate-badge/aws-sol-arc-associate.png",
-    title: "AWS Solutions developer assoicate",
-    issue: {
-      website: "https://coursera.com",
-      by: "Coursera",
-      date: "Date",
-      expiry: "Date",
-    },
-    verify: "https://coursera.com",
-  },
-  {
-    badge: "/assets/certificate-badge/google-cybersecurity.png",
-    title: "AWS Solutions developer assoicate",
-    issue: {
-      website: "https://coursera.com",
-      by: "Coursera",
-      date: "Date",
-      expiry: "Date",
-    },
-    verify: "https://coursera.com",
-  },
-];
 ---
 
 <Base head={{ title, description }}>
@@ -44,7 +18,8 @@ const certificates: any[] = [
   <div class="pt-4 pb-4 mt-10">
     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
       {
-        certificates.map((cert) => {
+        AppConfig.certifications.map((cert) => {
+          if(!cert.title) {return <></>}
           return (
             <div class="mb-3">
               <Certificate {...cert} />

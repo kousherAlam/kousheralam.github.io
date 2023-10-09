@@ -1,13 +1,14 @@
 interface CertificateProp {
-  badge: string;
   title: string;
-  issue: {
-    website: string;
-    by: string;
-    date: string;
+  badge: string;
+  authority: {
+    name: string;
+    link: string;
   };
-  verify: string;
+  verificationLink: string;
+  issued: string;
 }
+
 export default function Certificate(data: CertificateProp) {
   return (
     <div className="bg-slate-800 w-full">
@@ -22,9 +23,9 @@ export default function Certificate(data: CertificateProp) {
               <li>
                 <p className="mb-0 mt-1 text-xs text-gray-100">
                   <span>
-                    <a href={data.issue.website} target="_blank">
+                    <a href={data.authority.link} target="_blank">
                       {" "}
-                      {data.issue.by}{" "}
+                      {data.authority.name}{" "}
                     </a>
                   </span>
                 </p>
@@ -32,7 +33,8 @@ export default function Certificate(data: CertificateProp) {
               <li>
                 <p className="mb-0 mt-1 text-xs text-gray-100">
                   <span>Issued On</span>
-                  <span>{data.issue.date}</span>
+                  <span>&nbsp;-&nbsp;</span>
+                  <span>{data.issued}</span>
                 </p>
               </li>
             </ul>
@@ -40,7 +42,7 @@ export default function Certificate(data: CertificateProp) {
           <div>
             <a
               className=" text-orange-500 hover:text-orange-400 visited:text-orange-600"
-              href={data.verify}
+              href={data.verificationLink}
               target="_blank"
             >
               Verify Certificate

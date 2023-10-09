@@ -1,5 +1,5 @@
 import Skils from "./Skills";
-
+import { AppConfig } from "@/utils/AppConfig";
 import { BsYoutube, BsLinkedin, BsGithub } from "react-icons/bs";
 const Hero = () => (
   <div className="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6">
@@ -14,10 +14,10 @@ const Hero = () => (
         <span className="ml-1 font-bold">@</span>
         <a
           className="text-orange-500 hover:text-orange-400 visited:text-orange-600 ml-1"
-          href="https://ottoint.com/"
+          href={AppConfig.job.link}
           target="_blank"
         >
-          Otto International
+          {AppConfig.job.org}
         </a>
       </p>
       <div>
@@ -25,7 +25,7 @@ const Hero = () => (
           <li>
             <a
               className="text-blue-500 hover:text-blue-400 visited:bg-blue-600"
-              href="https://www.linkedin.com/in/kousheralam/"
+              href={AppConfig.social.linkedIn}
               target="_blank"
             >
               <BsLinkedin />
@@ -34,7 +34,7 @@ const Hero = () => (
           <li>
             <a
               className="text-gray-500 hover:text-gray-400 visited:bg-gray-600"
-              href="https://github.com/kousherAlam"
+              href={AppConfig.social.github}
               target="_blank"
             >
               <BsGithub />
@@ -43,7 +43,7 @@ const Hero = () => (
           <li>
             <a
               className="text-red-500 hover:text-red-400 visited:bg-red-600"
-              href="https://www.youtube.com/@kousheralam"
+              href={AppConfig.social.youtube}
               target="_blank"
             >
               <BsYoutube />
@@ -51,11 +51,7 @@ const Hero = () => (
           </li>
         </ul>
       </div>
-      <p className="mt-6">
-        My description: Lorem ipsum dolor, sit amet consectetur adipisicing
-        elit. Eaque illum magnam alias dicta recusandae non fuga iusto saepe
-        ullam magni?
-      </p>
+      <p className="mt-6">{AppConfig.description}</p>
       <Skils />
     </div>
     <div className="order-1 sm:order-2 md:col-span-2 flex justify-center sm:justify-end">
