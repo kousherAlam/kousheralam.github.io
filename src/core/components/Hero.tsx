@@ -1,6 +1,6 @@
 import Skils from "./Skills";
 import { AppConfig } from "@/utils/AppConfig";
-import { BsYoutube, BsLinkedin, BsGithub } from "react-icons/bs";
+import { BsYoutube, BsLinkedin, BsGithub } from "react-icons/bs/index";
 const Hero = () => (
   <div className="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6">
     <div className="md:col-span-4 order-2 sm:order-1">

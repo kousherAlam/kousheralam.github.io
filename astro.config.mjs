@@ -3,12 +3,13 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
-import sitemap from "@astrojs/sitemap";
+import sitemap from '@astrojs/sitemap';
 
 import prefetch from "@astrojs/prefetch";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kousheralam.github.io',
   integrations: [
     tailwind({
       // Example: Disable injecting a basic `base.css` import on every page.
