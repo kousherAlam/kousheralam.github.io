@@ -1,7 +1,7 @@
 export const AppConfig = {
   site_name: "Kousher's blog",
   title: "Kousher's blog",
-  author: 'Kousher',
+  author: 'Kousher Alam',
   locale_region: 'en-us',
   locale: 'en',
   job: {

@@ -9,7 +9,8 @@ export default function PhotoViewer(
     images: Array<{ imagePath: string; alt: string }>;
     directory: string;
     name: string;
-  } = { images: [], directory: "", name: "default-name" }
+    title: string;
+  } = { images: [], directory: "", name: "default-name", title: "Screenshots" }
 ) {
   const imageDom = useRef(null);
   // const autoPlayButtonRef = useRef(null);
@@ -48,20 +49,25 @@ export default function PhotoViewer(
   }, []);
   return (
     <>
-      <div className="text-right">
-        <div className=" relative top-6">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            ref={prevButtonRef}
-          >
-            Prev
-          </button>
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            ref={nextButtonRef}
-          >
-            Next
-          </button>
+      <div className="relative top-10">
+        <div className="flex gap-4 justify-between">
+          <div>
+            <h3 className="m-0">{props.title}</h3>
+          </div>
+          <div className="flex gap-4">
+            <button
+              className="bg-blue-500 text-sm hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              ref={prevButtonRef}
+            >
+              Prev
+            </button>
+            <button
+              className="bg-blue-500 text-sm hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              ref={nextButtonRef}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
       <div>
