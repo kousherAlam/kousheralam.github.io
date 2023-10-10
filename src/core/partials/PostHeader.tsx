@@ -7,15 +7,15 @@ type IPostHeaderProps = {
 };
 
 const PostHeader = (props: IPostHeaderProps) => (
-  <div className="relative text-orange-500">
+  <div className="relative text-orange-400">
     <div
       className="aspect-w-3 aspect-h-1 bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url(${props.content.thumbnail.src})`,
       }}
     ></div>
-    <div className="h-24 absolute bottom-0 bg-gradient-to-r to-slate-500 from-slate-600 w-full pl-3 pr-3 pt-5 pb-5">
-      <h1 className="text-left text-3xl font-bold mb-1 tracking-wide [word-spacing:.15em]">
+    <div className="absolute bottom-0 bg-gradient-to-r to-slate-500 from-slate-600 w-full pl-3 pr-3 pt-5 pb-5">
+      <h1 className="text-left text-4xl font-bold mb-1 tracking-wide [word-spacing:.15em]">
         {props.content.title}
       </h1>
 

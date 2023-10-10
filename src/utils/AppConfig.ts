@@ -13,7 +13,10 @@ export const AppConfig = {
     github: `https://github.com/kousherAlam`,
     youtube: `https://www.youtube.com/@kousheralam`,
   },
-  description: `My description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque illum magnam alias dicta recusandae non fuga iusto saepe ullam magni?`,
+  description: `As a Software Engineer with 6+ years of experience in working for web
+applications and large tailor made systems. I believe with a good team
+and scalable mindset we can build revolutionary products which have the
+potential to change the world.`,
   skills: [
     'Javascript',
     'Nodejs',

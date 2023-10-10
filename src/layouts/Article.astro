@@ -17,7 +17,9 @@ const title = `${content.title} - ${AppConfig.site_name}`;
 
 <Base head={{ title, description: content.description }}>
   <BlogPost frontmatter={content}>
-    <slot />
+    <div style="min-height: 50vh;;">
+      <slot />
+    </div>
   </BlogPost>
 
   <footer class="mt-12">
