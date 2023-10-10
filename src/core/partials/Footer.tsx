@@ -22,7 +22,7 @@ const Footer = () => {
                 href={`https://github.com/kousherAlam/kousheralam.github.io/tree/${
                   import.meta.env.COMMIT_HASH
                 }`}
-                className="text-cyan-400 hover:underline"
+                className="text-orange-400 hover:underline"
               >
                 {((import.meta.env.COMMIT_HASH || "") as string).substring(
                   0,
