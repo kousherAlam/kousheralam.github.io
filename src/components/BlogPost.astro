@@ -1,0 +1,19 @@
+---
+import PostHeader from "@/components/PostHeader.astro";
+import { PostContent } from "@/components/PostContent";
+import { IFrontmatter } from "@/types/IFrontMatter";
+import { AppConfig } from "@/utils/AppConfig";
+
+type Props = {
+  frontmatter: IFrontmatter;
+};
+
+const { frontmatter } = Astro.props;
+---
+
+<div>
+  <PostHeader content={frontmatter} author={AppConfig.author} />
+  <PostContent content={frontmatter}>
+    <slot />
+  </PostContent>
+</div>
