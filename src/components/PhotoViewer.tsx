@@ -4,14 +4,21 @@ import "viewerjs/dist/viewer.css";
 import "viewerjs/dist/viewer.js";
 import "tiny-slider/dist/tiny-slider.css";
 
-export default function PhotoViewer(
-  props: {
-    images: Array<{ imagePath: string; alt: string }>;
-    directory: string;
-    name: string;
-    title: string;
-  } = { images: [], directory: "", name: "default-name", title: "Screenshots" }
-) {
+interface PhotoViewerProps {
+  images: Array<{ imagePath: string; alt: string }>;
+  directory: string;
+  name: string;
+  title: string;
+  minHeight: string;
+}
+
+export default function PhotoViewer({
+  images,
+  directory,
+  name,
+  title,
+  minHeight = "150px",
+}: PhotoViewerProps) {
   const imageDom = useRef(null);
   // const autoPlayButtonRef = useRef(null);
   const prevButtonRef = useRef(null);
@@ -52,7 +59,7 @@ export default function PhotoViewer(
       <div className="relative top-10">
         <div className="flex gap-4 justify-between">
           <div>
-            <h3 className="m-0">{props.title}</h3>
+            <h3 className="m-0">{title}</h3>
           </div>
           <div className="flex gap-4">
             <button
@@ -71,18 +78,16 @@ export default function PhotoViewer(
         </div>
       </div>
       <div>
-        <ul ref={imageDom}>
-          {props.images.map((img, index) => {
+        <ul ref={imageDom} style={{ minHeight }} className="flex items-center">
+          {images.map((img, index) => {
             return (
-              <li
-                key={`${props.name}-${index}`}
-                style={{ position: "relative" }}
-              >
+              <li key={`${name}-${index}`} className="relative ">
                 <img
-                  loading="lazy"
-                  src={`${props.directory}/${img.imagePath}`}
+                  style={{ minHeight }}
+                  className="bg-slate-400"
+                  src={`${directory}/${img.imagePath}`}
                   alt={img.imagePath}
-                  //   style={imgStyles}
+                  //   bg-slate-400
                 />
               </li>
             );
