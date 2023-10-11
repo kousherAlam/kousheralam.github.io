@@ -10,6 +10,10 @@ import prefetch from "@astrojs/prefetch";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kousheralam.github.io',
+  server: {
+    port: 3000,
+    open: true,
+  },
   integrations: [
     tailwind({
       // Example: Disable injecting a basic `base.css` import on every page.
