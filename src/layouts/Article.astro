@@ -1,11 +1,11 @@
 ---
-import type { IFrontmatter } from "@/core";
+import type { IFrontmatter } from "@/types/IFrontMatter";
 
-import { BlogPost } from "@/core/partials/BlogPost";
+import { BlogPost } from "@/components/BlogPost";
 // import { CTA } from '@/partials/CTA';
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
-import { Footer } from "@/core/partials/Footer";
+import { Footer } from "@/components/Footer";
 
 export interface Props {
   content: IFrontmatter;
