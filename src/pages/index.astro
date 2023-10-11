@@ -1,12 +1,12 @@
 ---
-import type { IFrontmatter } from "@/types/IFrontMatter";
+import type { IFrontmatter } from "@/utils/types";
 
 import Hero from "@/components/Hero.astro";
 import Certificate from "@/components/Certificate.astro";
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
-import ArticleCard from "../components/ArticleCard";
-import { Footer } from "@/components/Footer";
+import ArticleCard from "../components/ArticleCard.astro";
+import Footer from "@/components/Footer.astro";
 const allArtilces = await Astro.glob<IFrontmatter>("/src/pages/**/*.mdx");
 
 const { title } = AppConfig;
@@ -43,4 +43,4 @@ const { description } = AppConfig;
     <Footer />
   </footer>
 </Base>
-../core/components/ArticleCard../components/ArticleCard@/components/Footer
+../core/components/ArticleCard../components/ArticleCard@/components/Footer@/utils/types/IFrontMatter

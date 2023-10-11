@@ -1,7 +1,6 @@
 ---
 import PostHeader from "@/components/PostHeader.astro";
-import { PostContent } from "@/components/PostContent";
-import { IFrontmatter } from "@/types/IFrontMatter";
+import { IFrontmatter } from "@/utils/types";
 import { AppConfig } from "@/utils/AppConfig";
 
 type Props = {
@@ -13,7 +12,8 @@ const { frontmatter } = Astro.props;
 
 <div>
   <PostHeader content={frontmatter} author={AppConfig.author} />
-  <PostContent content={frontmatter}>
+  <div class="prose max-w-4xl prose-invert mt-8 prose-img:rounded-lg">
     <slot />
-  </PostContent>
+  </div>
 </div>
+ @/utils/types/IFrontMatter

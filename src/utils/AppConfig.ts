@@ -1,5 +1,5 @@
-import googleCyberSecBadge from "@/images/certificate-badge/google-cybersecurity.png";
-import awsSecBadge from "@/images/certificate-badge/aws-sol-arc-associate.png";
+import googleCyberSecBadge from "@/assets/images/certificate-badge/google-cybersecurity.png";
+import awsSecBadge from "@/assets/images/certificate-badge/aws-sol-arc-associate.png";
 
 export const AppConfig = {
   site_name: "Kousher's blog",
