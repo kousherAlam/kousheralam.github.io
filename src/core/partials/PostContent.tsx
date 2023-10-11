@@ -8,7 +8,7 @@ type IPostContentProps = {
 };
 
 const PostContent = (props: IPostContentProps) => (
-  <div className="prose max-w-4xl xl:prose-2xl prose-invert mt-8 prose-img:rounded-lg">
+  <div className="prose  max-w-4xl prose-invert mt-8 prose-img:rounded-lg">
     {props.children}
   </div>
 );
