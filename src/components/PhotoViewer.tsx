@@ -36,7 +36,21 @@ export default function PhotoViewer({
     if (prevButtonRef.current && nextButtonRef.current) {
       var slider = tns({
         container: imageDom.current,
-        items: 3,
+        items: 1,
+        responsive: {
+          640: {
+            edgePadding: 30,
+            gutter: 20,
+            items: 2,
+          },
+          700: {
+            gutter: 0,
+          },
+          900: {
+            gutter: 0,
+            items: 3,
+          },
+        },
         slideBy: "page",
         mouseDrag: true,
         prevButton: prevButtonRef.current,
@@ -63,13 +77,13 @@ export default function PhotoViewer({
           </div>
           <div className="flex gap-4">
             <button
-              className="bg-orange-500 text-sm hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-orange-500 text-sm self-center hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
               ref={prevButtonRef}
             >
               Prev
             </button>
             <button
-              className="bg-orange-500 text-sm hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
+              className="bg-orange-500 text-sm self-center hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
               ref={nextButtonRef}
             >
               Next
