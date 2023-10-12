@@ -1,36 +1,34 @@
 ---
 import type { MDXInstance } from "astro";
-import type { IFrontmatter } from "../types/IFrontMatter";
+import type { CollectionEntry } from "astro:content";
 import { format } from "date-fns";
 
-interface Props {
-  data: MDXInstance<IFrontmatter>;
-}
+type Props = CollectionEntry<"articles">;
 
 function getArticleLink(link: string | undefined) {
   return (link || "").replace(/\.md(x)/, "");
 }
-const { data } = Astro.props;
+const { data, slug, id } = Astro.props;
 ---
 
-<div class="">
+<article>
   <h4 class="text-xl mb-2">
     <a
       class="text-orange-500 visited:text-orange-600 hover:text-orange-400"
-      href={getArticleLink(data.url)}
+      href={`/${slug}`}
     >
-      {data.frontmatter?.title}
+      {data.title}
     </a>
   </h4>
   <div>
     <ul class="list-none flex justify-start text-sm text-slate-500">
-      <li>[{data.frontmatter.type}]</li>
+      <li>[{data.type}]</li>
       <li class="pl-3">
         <span>Last Updated on:</span>{" "}
         <span>
-          {format(new Date(data.frontmatter?.published), "LLL d, yyyy")}
+          {data.published}
         </span>
       </li>
     </ul>
   </div>
-</div>
+</article>

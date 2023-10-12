@@ -12,7 +12,7 @@ export default defineConfig({
   site: 'https://kousheralam.github.io',
   server: {
     port: 3000,
-    open: true,
+    open: false,
   },
   integrations: [
     tailwind({

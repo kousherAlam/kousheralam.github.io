@@ -1,13 +1,13 @@
 ---
 layout: "@/layouts/Article.astro"
-title: buy.co.sz
-published: 2020-02-05T00:00:00Z
+title: National Maize Corporation
+published: 2020-02-05
 thumbnail:
-  src: "/assets/projects/buy.co.sz/screenshot.jpg"
-  alt: "Buy website"
-image: "/assets/projects/buy.co.sz/screenshot.jpg"
+  src: "/assets/projects/nmc/screenshot.jpg"
+  alt: "NMC Website"
+image: "/assets/projects/nmc/screenshot.jpg"
 demo_link:
-  link: https://buy.co.sz
+  link: http://nmc.co.sz
   text: Live Preview
 screnshots:
   - imagePath: "1.png"
@@ -18,21 +18,20 @@ screnshots:
     alt: "Image Details"
   - imagePath: "4.png"
     alt: "Image Details"
-preview_ids: ["images"]
 type: Project
 draft: false
 ---
 
 import PhotoViewer from "@/components/PhotoViewer";
 
-## Technical Overview
+## Technology Overview
 
-We used php, wordpress and woocommerce robust and extensive help to develop this site.
+The website is build using wordpess, and created custom theme for the website to make sure good performance and easy to use functionality.
 
 <PhotoViewer
   name="v1"
   title="Screenshots"
   images={frontmatter.screnshots}
-  directory="/assets/projects/buy.co.sz"
+  directory="/assets/projects/nmc"
   client:only="react"
 />
