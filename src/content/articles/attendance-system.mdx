@@ -83,12 +83,26 @@ type: Project
 
 import PhotoViewer from "@/components/PhotoViewer";
 
-Attendance system with facial recognition aim to lower the friction in employee attendance. User can do their normal activity, they do not need to do anything. This attendance system will autometically recognize user and update their attendance.
+Attendance systems with facial recognition aim to lower the friction in attendance. Users can do their normal activity, they do not need to do anything. This attendance system will automatically recognize users and update their attendance.
 
-## Technology Overview
+This system can be used by large organizations where a lot of people work and saving their time can create a huge impact. Universities and schools can automatically track their student attendance and class presence, which could improve overall quality of student mental health.
 
-This software consist of multiple layer of software and system intigrate as one single unit to provide high quality of user expeirence.
-It use mqtt to communicate between ai and node backend. and use websocket between admin panel and the server. It provide realtime user attendance and the full monthly and yearly report
+## Technical Overview
+
+This software consists of multiple layers of software and system integrated as one single unit to provide high quality of user experience.
+
+- Facial recognition machine learning layer
+- Web Dashboard interface for management
+- API for 3rd party integration
+
+### Technology
+
+- Camera and Integrated computer
+- Nodejs and Angular for web dashboard
+- Postgresql as database layer
+- Python for machine learning layer
+- Docker and managed server for hosting
+- WebSocket for real time alert
 
 <PhotoViewer
   name="v1"
