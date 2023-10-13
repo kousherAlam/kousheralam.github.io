@@ -8,6 +8,7 @@ export const AppConfig = {
   locale_region: 'en-us',
   locale: 'en',
   job: {
+    title: 'Senior solutions developer',
     org: `Otto International`,
     link: `https://ottoint.com`,
   },
