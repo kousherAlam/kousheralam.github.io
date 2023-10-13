@@ -1,13 +1,9 @@
 ---
-import type { MDXInstance } from "astro";
 import type { CollectionEntry } from "astro:content";
 import { format } from "date-fns";
 
 type Props = CollectionEntry<"articles">;
 
-function getArticleLink(link: string | undefined) {
-  return (link || "").replace(/\.md(x)/, "");
-}
 const { data, slug, id } = Astro.props;
 ---
 
