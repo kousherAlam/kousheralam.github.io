@@ -1,29 +1,47 @@
 ---
-import type { IFrontmatter } from "@/components/core";
+import type { IFrontmatter } from "@/utils/types";
 
-import { CTA } from "@/components/partials/CTA";
-import { Hero } from "@/components/partials/Hero";
-import { ProjectList } from "@/components/partials/ProjectList";
-import { RecentPosts } from "@/components/partials/RecentPosts";
+import Hero from "@/components/Hero.astro";
+import Certificate from "@/components/Certificate.astro";
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
-import { sortByDate } from "@/utils/Posts";
-
-const allPosts = await Astro.glob<IFrontmatter>("./posts/*.mdx");
-const sortedPosts = sortByDate(allPosts);
-const lastThreePosts = sortedPosts.slice(0, 3);
-
-const allProjects = await Astro.glob<IFrontmatter>("./projects/*.mdx");
-const sortedProjects = sortByDate(allProjects);
-const lastThreeProjects = sortedProjects.slice(0, 3);
-
+import ArticleCard from "../components/ArticleCard.astro";
+import Footer from "@/components/Footer.astro";
+import { getCollection } from 'astro:content';
+import { fileterPublishedConent } from '@/utils/Posts';
+const allArticle = await getCollection('articles', fileterPublishedConent);
 const { title } = AppConfig;
 const { description } = AppConfig;
 ---
 
 <Base head={{ title, description }}>
   <Hero />
-  <ProjectList projectList={lastThreeProjects} />
-  <RecentPosts postList={lastThreePosts} />
-  <!-- <CTA /> -->
+  <div class="pt-4 pb-4 mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+      {
+        AppConfig.certifications.map((cert) => {
+          if(!cert.title) {return <></>}
+          return (
+            <div class="mb-3">
+              <Certificate {...cert} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <div class="mt-8 pt-4">
+    <h4 class="mb-3">
+      Publications <span class="text-bold text-xs">/</span> Projects
+    </h4>
+    <div class="grid gap-6">
+      <!-- {allArticle.} -->
+      {allArticle.map((article) => <ArticleCard {...article} />)} 
+    </div>
+  </div>
+
+  <footer class="mt-12">
+    <Footer />
+  </footer>
 </Base>

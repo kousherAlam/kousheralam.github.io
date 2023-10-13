@@ -1,9 +1,8 @@
 ---
-import "../styles/base.css"
-
-import { Footer } from '@/components/partials/Footer';
-import { Navbar } from '@/components/partials/Navbar';
-import { AppConfig } from '@/utils/AppConfig';
+import "../assets/styles/main.css";
+// Supports weights 100-900
+import '@fontsource-variable/inter';
+import { AppConfig } from "@/utils/AppConfig";
 
 export interface Props {
   head: {
@@ -17,22 +16,35 @@ const {
 } = Astro.props as Props;
 ---
 
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    <meta name='description' content={description} />
-    <meta name='author' content={AppConfig.author} />
+    <meta name="description" content={description} />
+    <meta name="author" content={AppConfig.author} />
 
-    <link rel='alternate' type='application/rss+xml' href='/rss.xml' />
-    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    {
+        import.meta.env.PROD && (
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFNGNHPL5R"
+            ></script>
+            <script is:inline>
+              window.dataLayer = window.dataLayer || []; 
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+              gtag("js", new Date());
+
+              gtag("config", "G-WFNGNHPL5R");
+            </script>
+        )
+    }
   </head>
-  <body class='bg-slate-900 text-gray-100'>
-    <Navbar />
-
-    <slot></slot>
-
-    <Footer />
+  <body class="bg-slate-900 text-gray-100 ">
+    <div class="container mx-auto py-5 md:py-8 xl:py-10 px-2 md:px-5 max-w-4xl ">
+      <slot />
+    </div>
   </body>
 </html>

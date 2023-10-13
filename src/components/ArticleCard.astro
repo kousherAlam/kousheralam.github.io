@@ -1,0 +1,30 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { format } from "date-fns";
+
+type Props = CollectionEntry<"articles">;
+
+const { data, slug, id } = Astro.props;
+---
+
+<article>
+  <h4 class="text-xl mb-2">
+    <a
+      class="text-orange-500 visited:text-orange-600 hover:text-orange-400"
+      href={`/${slug}`}
+    >
+      {data.title}
+    </a>
+  </h4>
+  <div>
+    <ul class="list-none flex justify-start text-sm text-slate-500">
+      <li>[{data.type}]</li>
+      <li class="pl-3">
+        <span>Last updated on:</span>{" "}
+        <span>
+          {format(data.published, "do LLLL y")}
+        </span>
+      </li>
+    </ul>
+  </div>
+</article>

@@ -1,0 +1,43 @@
+---
+title: Nybsys Website
+published: 2020-02-05
+draft: true
+demo_link:
+  link: http://nybsys.com
+  text: Live Preview
+thumbnail:
+  src: "/assets/projects/nybsys/screenshot.png"
+  alt: "Nybsys website"
+image: "/assets/projects/nybsys/screenshot.png"
+screnshots:
+  - imagePath: "1.png"
+    alt: "Image Details"
+  - imagePath: "2.png"
+    alt: "Image Details"
+  - imagePath: "3.png"
+    alt: "Image Details"
+  - imagePath: "4.png"
+    alt: "Image Details"
+  - imagePath: "5.png"
+    alt: "Image Details"
+  - imagePath: "6.png"
+    alt: "Image Details"
+type: Project
+---
+
+import PhotoViewer from "@/components/PhotoViewer";
+
+## Overview
+
+Build this site using wordpress. Create custom theme for the website and all functionality is supported form the theme, no extra plugin is created.
+
+It use custom post type and meta box for some of it's feature.
+
+<PhotoViewer
+  name="v2"
+  title="Screenshots"
+  minHeight="150px"
+  images={frontmatter.screnshots}
+  directory="/assets/projects/nybsys"
+  client:only="react"
+/>
