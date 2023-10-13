@@ -8,7 +8,7 @@ import { Image } from "astro:assets";
 <div
   class="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6"
 >
-  <div class="md:col-span-4 order-2 sm:order-1">
+  <div class="md:col-span-4 order-2 sm:order-1 mt-4 md:mt-0">
     <p>Hello there 👋</p>
     <h1 class="text-4xl">
       <span>I'm</span>
@@ -26,7 +26,9 @@ import { Image } from "astro:assets";
       </a>
     </p>
     <div>
-      <ul class="text-2xl list-none flex space-x-3 mt-2">
+      <ul
+        class="text-2xl list-none flex space-x-3 mt-3 justify-center md:justify-start"
+      >
         <li>
           <a
             class="text-blue-500 hover:text-blue-400 visited:bg-blue-600"
