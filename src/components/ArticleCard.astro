@@ -20,9 +20,9 @@ const { data, slug, id } = Astro.props;
     <ul class="list-none flex justify-start text-sm text-slate-500">
       <li>[{data.type}]</li>
       <li class="pl-3">
-        <span>Last Updated on:</span>{" "}
+        <span>Last updated on:</span>{" "}
         <span>
-          {data.published}
+          {format(data.published, "do LLLL y")}
         </span>
       </li>
     </ul>
