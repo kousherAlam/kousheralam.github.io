@@ -33,7 +33,11 @@ const { title, badge, authority, verificationLink, issued } = Astro.props;
           <li>
             <p class="mb-0 mt-1 text-xs text-gray-100">
               <span>
-                <a href={authority.link} target="_blank">
+                <a
+                  href={authority.link}
+                  class="hover:text-orange-400"
+                  target="_blank"
+                >
                   {" "}
                   {authority.name}{" "}
                 </a>

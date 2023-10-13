@@ -39,7 +39,7 @@ potential to change the world.`,
       title: `Google Cybersecurity Professional Certificate`,
       badge: googleCyberSecBadge,
       authority: {
-        name: 'coursera',
+        name: 'Coursera',
         link: 'https://coursera.org/',
       },
       verificationLink: `https://coursera.org/share/4879543210f5673ae103625c409dba6b`,
