@@ -43,7 +43,7 @@ import ShareButton from "../components/ShareButton.astro";
         {entry.data.title}
       </h1>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div class="grid grid-cols-1 mdtitle:grid-cols-2 gap-3">
         <div class="ml-0 text-left text-sm">
           <span class="text-xs">By</span>
           <span class="ml-1">
@@ -55,7 +55,7 @@ import ShareButton from "../components/ShareButton.astro";
           </span>
         </div>
         <div>
-          <ShareButton />
+          <ShareButton description={description} title={entry.data.title} />
         </div>
       </div>
     </div>
