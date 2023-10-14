@@ -2,12 +2,12 @@ import googleCyberSecBadge from "@/assets/images/certificate-badge/google-cybers
 import awsSecBadge from "@/assets/images/certificate-badge/aws-sol-arc-associate.png";
 
 export const AppConfig = {
-  site_name: "Kousher's blog",
   title: "Kousher's blog",
   author: 'Kousher Alam',
   locale_region: 'en-us',
   locale: 'en',
   job: {
+    title: 'Senior solutions developer',
     org: `Otto International`,
     link: `https://ottoint.com`,
   },

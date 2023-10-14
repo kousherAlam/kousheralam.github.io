@@ -12,10 +12,10 @@ import { Image } from "astro:assets";
     <p>Hello there 👋</p>
     <h1 class="text-4xl">
       <span>I'm</span>
-      <span class="ml-3 font-bold text-orange-500">Kousher Alam</span>
+      <span class="ml-3 font-bold text-orange-500">{AppConfig.author}</span>
     </h1>
     <p class="mt-0 text-sm">
-      <span>Senior Solutions developer</span>
+      <span>{AppConfig.job.title}</span>
       <span class="ml-1 font-bold">@</span>
       <a
         class="text-orange-500 hover:text-orange-400 visited:text-orange-600 ml-1"

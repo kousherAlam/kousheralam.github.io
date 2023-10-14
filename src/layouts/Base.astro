@@ -28,17 +28,11 @@ const {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     {
         import.meta.env.PROD && (
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-WFNGNHPL5R"
-            ></script>
-            <script is:inline>
-              window.dataLayer = window.dataLayer || []; 
-              function gtag() {
-                dataLayer.push(arguments);
-              }
-              gtag("js", new Date());
-
-              gtag("config", "G-WFNGNHPL5R");
-            </script>
+          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-KR5FJPC7');</script>
         )
     }
   </head>
@@ -46,5 +40,13 @@ const {
     <div class="container mx-auto py-6 px-4 md:py-8 xl:py-10 md:px-5 max-w-4xl ">
       <slot />
     </div>
+    {
+      import.meta.env.PROD && (
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR5FJPC7"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+      )
+    }
   </body>
 </html>
