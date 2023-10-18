@@ -15,12 +15,6 @@ module.exports = {
 	plugins: [
 		require('@tailwindcss/aspect-ratio'),
 		require('@tailwindcss/typography'),
-		function ({ addComponents, theme }) {
-			addComponents({
-				'.github-icon img': {
-					padding: theme('spacing.2'),
-				},
-			});
-		},
+		require('@tailwindcss/forms'),
 	],
 }
