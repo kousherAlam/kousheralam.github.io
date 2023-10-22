@@ -1,3 +1,9 @@
-# kousheralam.github.io
+# kousheralam.com
 
-Welcome to my website.
+Welcome to my blog.
+
+## Technology
+
+- astro
+- tailwind
+- react
