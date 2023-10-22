@@ -1,0 +1,12 @@
+---
+import Base from "@/layouts/Base.astro";
+import { AppConfig } from "@/utils/AppConfig";
+const { title } = AppConfig;
+const { description } = AppConfig;
+---
+
+<Base head={{ title, description }}>
+  <p class="text-4xl">
+    You will be redirected to https://kousheralam.com/ soon!
+  </p>
+</Base>
