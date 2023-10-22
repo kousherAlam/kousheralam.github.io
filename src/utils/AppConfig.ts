@@ -1,5 +1,3 @@
-import googleCyberSecBadge from "@/assets/images/certificate-badge/google-cybersecurity.png";
-import awsSecBadge from "@/assets/images/certificate-badge/aws-sol-arc-associate.png";
 
 export const AppConfig = {
   title: "Kousher's blog",
@@ -35,26 +33,7 @@ potential to change the world.`,
     'Cyber Security',
   ],
   certifications: [
-    {
-      title: `Google Cybersecurity Professional Certificate`,
-      badge: googleCyberSecBadge,
-      authority: {
-        name: 'Coursera',
-        link: 'https://coursera.org/',
-      },
-      verificationLink: `https://coursera.org/share/4879543210f5673ae103625c409dba6b`,
-      issued: `August 29, 2023`
-    },
-    {
-      title: `AWS Certified Solutions Architect – Associate`,
-      badge: awsSecBadge,
-      authority: {
-        name: 'Amazon Web Services Training and Certification',
-        link: 'https://www.credly.com/org/amazon-web-services',
-      },
-      verificationLink: `https://www.credly.com/badges/63186822-9769-4af5-8717-28aa63de0cc2/public_url`,
-      issued: `November 30, 2022`
-    },
+
     {
       title: ``,
       badge: "",
