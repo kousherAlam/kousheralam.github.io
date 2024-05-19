@@ -9,21 +9,27 @@ const year = new Date().getFullYear();
       <div class="order-1 sm:order-2">
         <ul class="text-sm flex gap-3 justify-center sm:justify-end">
           <li>
-            <button
+            <a
+              href={AppConfig.social.linkedIn}
+              target="_blank"
               class="hover:text-orange-400"
-              data-custom-open="hireme-modal">Hire Me</button
+              data-custom-open="hireme-modal">Linkedin</a
             >
           </li>
           <li>
-            <button
+            <a
+              href={AppConfig.social.github}
+              target="_blank"
               class="hover:text-orange-400"
-              data-custom-open="feedback-modal">Feedback</button
+              data-custom-open="feedback-modal">Github</a
             >
           </li>
           <li>
-            <button
+            <a
+              href={AppConfig.social.youtube}
+              target="_blank"
               class="hover:text-orange-400"
-              data-custom-open="newsletter-modal">Newsletter</button
+              data-custom-open="newsletter-modal">Youtube</a
             >
           </li>
         </ul>

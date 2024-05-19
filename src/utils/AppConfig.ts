@@ -19,7 +19,7 @@ export const AppConfig = {
     github: `https://github.com/kousherAlam`,
     youtube: `https://www.youtube.com/@kousheralam`,
   },
-  description: `Software engineer with six years of professional experience, specializing in full-stack development. I've led and managed engineering projects, handled cloud deployments, and played a crucial role in organizational digital transformation. My responsibilities also included addressing automation, security, communication with different teams, and gathering requirements.`,
+  description: `Experienced software engineer adept at building and maintaining large-scale enterprise software solutions. Skilled in full-stack development, cloud deployments, and security implementations. Proven track record of driving efficiency and facilitating seamless operations in dynamic environments.`,
   modal: {
     hireMe: {
       title: 'Hire Me',
