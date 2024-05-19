@@ -1,0 +1,37 @@
+---
+title: buy.co.sz
+published: 2020-02-05
+draft: true
+thumbnail:
+  src: "/assets/projects/buy.co.sz/screenshot.jpg"
+  alt: "Buy website"
+image: "/assets/projects/buy.co.sz/screenshot.jpg"
+demo_link:
+  link: https://buy.co.sz
+  text: Live Preview
+screnshots:
+  - imagePath: "1.png"
+    alt: "Image Details"
+  - imagePath: "2.png"
+    alt: "Image Details"
+  - imagePath: "3.png"
+    alt: "Image Details"
+  - imagePath: "4.png"
+    alt: "Image Details"
+preview_ids: ["images"]
+type: Project
+---
+
+import PhotoViewer from "@/components/PhotoViewer";
+
+## Technical Overview
+
+We used php, wordpress and woocommerce robust and extensive help to develop this site.
+
+<PhotoViewer
+  name="v1"
+  title="Screenshots"
+  images={frontmatter.screnshots}
+  directory="/assets/projects/buy.co.sz"
+  client:only="react"
+/>

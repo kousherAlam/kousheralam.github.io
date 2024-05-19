@@ -1,0 +1,115 @@
+---
+import Skils from "./Skills.astro";
+import { AppConfig } from "@/utils/AppConfig";
+import { LuLinkedin, LuGithub, LuYoutube } from "react-icons/lu/index";
+import { Image } from "astro:assets";
+import Experience from "./Experience.astro";
+---
+
+<div
+  class="grid grid-cols-1 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6"
+>
+  <div class="md:col-span-4 order-2 sm:order-1 mt-4 md:mt-0">
+    <section id="my-intro" title="my introduction">
+      <p>Hello there <span class="waving-hand">👋</span></p>
+      <h1 class="text-4xl">
+        <span>I'm</span>
+        <span class="ml-3 font-bold text-orange-500" id="my-name"
+          >{AppConfig.author}</span
+        >
+      </h1>
+      <p class="mt-0 text-sm" set:html={AppConfig.introTitle} />
+    </section>
+    <section title="about myself" class="mt-6 text-left">
+      <p>{AppConfig.description}</p>
+    </section>
+    <Skils />
+
+    <section title="experiences" class="mt-4">
+      <Experience />
+    </section>
+  </div>
+  <div
+    class="order-1 sm:order-2 md:col-span-2 flex flex-col justify-center sm:justify-center"
+  >
+    <div class="flex justify-center">
+      <Image
+        width={200}
+        height={200 * 1.5}
+        class="h-80 w-64 sm:pr-4"
+        src="/assets/images/avatar.svg"
+        alt="Kousher's Profile Picture"
+      />
+    </div>
+
+    <div class="flex justify-center gap-3">
+      <ul
+        class="social-links text-xl list-none flex space-x-3 mt-4 justify-center md:justify-start items-center"
+      >
+        <li>
+          <a
+            class="text-white hover:text-blue-400 visited:bg-blue-600"
+            href={AppConfig.social.linkedIn}
+            target="_blank"
+          >
+            <LuLinkedin />
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-white hover:text-gray-400 visited:bg-gray-600"
+            href={AppConfig.social.github}
+            target="_blank"
+          >
+            <LuGithub />
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-white hover:text-red-400 visited:bg-red-600"
+            href={AppConfig.social.youtube}
+            target="_blank"
+          >
+            <LuYoutube />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<style>
+  .waving-hand {
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: 3;
+    transform-origin: 70% 70%;
+    display: inline-block;
+  }
+
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    15% {
+      transform: rotate(14deg);
+    } /* The following five values can be played with to make the waving more or less extreme */
+    30% {
+      transform: rotate(-8deg);
+    }
+    40% {
+      transform: rotate(14deg);
+    }
+    50% {
+      transform: rotate(-4deg);
+    }
+    60% {
+      transform: rotate(10deg);
+    }
+    70% {
+      transform: rotate(0deg);
+    } /* Reset for the last half to pause */
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+</style>

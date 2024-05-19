@@ -1,0 +1,39 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { format } from "date-fns";
+
+import { IoHammerOutline } from "react-icons/io5/index";
+import { AiOutlineFileText, AiOutlineCalendar } from "react-icons/ai/index";
+
+type Props = CollectionEntry<"articles">;
+
+const { data, slug, id } = Astro.props;
+---
+
+<article>
+  <h4 class="text-xl mb-1">
+    <a class="" href={`/${slug}`}>
+      {data.title}
+    </a>
+  </h4>
+  <div>
+    <ul
+      class="list-none flex justify-start items-center gap-3 text-sm text-slate-400"
+    >
+      <li title={data.type}>
+        {data.type === "Project" ? <IoHammerOutline /> : <AiOutlineFileText />}
+      </li>
+      <li
+        title={`Last updated on - ${format(data.published, "do LLLL y")}`}
+        class="flex justify-start items-center gap-1"
+      >
+        <span>
+          <AiOutlineCalendar />
+        </span>
+        <span>
+          {format(data.published, "do LLLL y")}
+        </span>
+      </li>
+    </ul>
+  </div>
+</article>

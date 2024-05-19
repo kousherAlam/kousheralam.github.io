@@ -1,0 +1,83 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { AppConfig } from "@/utils/AppConfig";
+import { fileterPublishedConent } from "@/utils/Posts";
+import Footer from "../components/Footer.astro";
+import { AiOutlineCalendar } from "react-icons/ai/index";
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const articles = await getCollection("articles", fileterPublishedConent);
+  return articles.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+interface Props {
+  entry: CollectionEntry<"articles">;
+}
+
+// 2. For your template, you can get the entry directly from the prop
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const description = entry.data.description || entry.data.title;
+import { BiArrowBack } from "react-icons/bi/index";
+import { format } from "date-fns";
+import ShareButton from "../components/ShareButton.astro";
+---
+
+<Base head={{ title: entry.data.title, description }}>
+  <div class="top-0 z-50 mb-4 max-w-xs flex items-center sticky">
+    <a
+      href="/"
+      class="flex gap-3 items-center bg-slate-900 text-white hover:text-orange-400"
+    >
+      <span>
+        <BiArrowBack />
+      </span>
+      <span>Back</span>
+    </a>
+  </div>
+  <div class="mb-4 py-4 left-24">
+    <div class="">
+      <h1 class="text-left text-4xl mb-2 text-orange-500">
+        {entry.data.title}
+      </h1>
+
+      <div class="grid grid-cols-1 gap-3">
+        <div class="flex gap-3 ml-0 text-left text-sm">
+          <span>
+            <span class="text-xs">By</span>
+            <span class="ml-1">
+              <a
+                class="text-orange-500 hover:text-orange-400 active:text-orange-600"
+                href="/">{AppConfig.author}</a
+              >
+            </span>
+          </span>
+          <span class="flex justify-start items-center gap-1">
+            <span>
+              <AiOutlineCalendar />
+            </span>
+            <span>
+              {format(entry.data.published, "do LLLL y")}
+            </span>
+          </span>
+        </div>
+        <div>
+          <ShareButton description={description} title={entry.data.title} />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="prose max-w-4xl prose-invert mt-8 prose-img:rounded-lg">
+    <div style="min-height: 50vh;">
+      <Content />
+    </div>
+  </div>
+
+  <footer id="page-footer" class="mt-12">
+    <Footer />
+  </footer>
+</Base>

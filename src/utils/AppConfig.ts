@@ -1,39 +1,93 @@
+import googleCyberSecBadge from "@/assets/images/certificate-badge/google-cybersecurity.png";
+import awsSecBadge from "@/assets/images/certificate-badge/aws-sol-arc-associate.png";
+
+
+import ottoLogo from "@/assets/images/logos/otto.png";
+import selLogo from "@/assets/images/logos/selise.png";
+import nybLogo from "@/assets/images/logos/nybsys.png";
+import atiqLogo from "@/assets/images/logos/atique-it.png";
+
 
 export const AppConfig = {
   title: "Kousher's blog",
   author: 'Kousher Alam',
   locale_region: 'en-us',
   locale: 'en',
-  job: {
-    title: 'Senior solutions developer',
-    org: `Otto International`,
-    link: `https://ottoint.com`,
-  },
+  introTitle: `A Happy <span>Software Engineer<span>`,
   social: {
     linkedIn: `https://www.linkedin.com/in/kousheralam/`,
     github: `https://github.com/kousherAlam`,
     youtube: `https://www.youtube.com/@kousheralam`,
   },
-  description: `As a Software Engineer with 6+ years of experience in working for web
-applications and large tailor made systems. I believe with a good team
-and scalable mindset we can build revolutionary products which have the
-potential to change the world.`,
+  description: `Software engineer with six years of professional experience, specializing in full-stack development. I've led and managed engineering projects, handled cloud deployments, and played a crucial role in organizational digital transformation. My responsibilities also included addressing automation, security, communication with different teams, and gathering requirements.`,
+  modal: {
+    hireMe: {
+      title: 'Hire Me',
+      description: `Please provide following information`,
+      btnText: 'Send Message',
+      loading: `Loading`,
+      success: `Thank you, I received your message. I will get back to you as soon
+            possible.`,
+      failure: `Failed to send the message, Please try again later.`
+    },
+    newsletter: {
+      title: 'Newsletter Subscription',
+      description: `Please provide following information`,
+      btnText: 'Subscribe',
+      loading: `Subscribing`,
+      success: `You successfully subscribed to my newsletter!`,
+      failure: `Error happend!!, Please try again later.`
+    },
+    feedback: {
+      title: 'Feedback',
+      description: `Please provide following information`,
+      btnText: 'Send Feedback',
+      loading: `Sending`,
+      success: `Thank you, I received your feedback.`,
+      failure: `Failed to send the feedback, Please try again later.`
+    },
+    helpme: {
+      title: 'Help form',
+      description: `Please provide following information`,
+      btnText: 'Send Message',
+      loading: `Sending`,
+      success: `Thank you, I received your message. I will get back to you as soon
+            possible.`,
+      failure: `Failed to send the message, Please try again later.`
+    }
+  },
   skills: [
-    'Javascript',
-    'Nodejs',
-    'Oauth',
-    'Active Directory',
-    'Svelte',
-    'React',
-    'AWS',
+    'Web Development',
+    'App Development',
+    'Project Management',
+    'oAuth 2.0',
     'Terraform',
     'Microservice',
-    'Docker',
+    'Cloud Native',
     'Kubernetes',
     'Cyber Security',
   ],
   certifications: [
-
+    {
+      title: `Google Cybersecurity Professional Certificate`,
+      badge: googleCyberSecBadge,
+      authority: {
+        name: 'Coursera',
+        link: 'https://coursera.org/',
+      },
+      verificationLink: `https://coursera.org/share/4879543210f5673ae103625c409dba6b`,
+      issued: `August 29, 2023`
+    },
+    {
+      title: `AWS Certified Solutions Architect – Associate`,
+      badge: awsSecBadge,
+      authority: {
+        name: 'Amazon Web Services Training and Certification',
+        link: 'https://www.credly.com/org/amazon-web-services',
+      },
+      verificationLink: `https://www.credly.com/badges/63186822-9769-4af5-8717-28aa63de0cc2/public_url`,
+      issued: `November 30, 2022`
+    },
     {
       title: ``,
       badge: "",
@@ -43,6 +97,40 @@ potential to change the world.`,
       },
       verificationLink: ``,
       issued: ``
+    }
+  ],
+  experience: [
+    {
+      company: "Otto International",
+      position: "Senior solutions developer",
+      logo: ottoLogo,
+      website: "https://ottoint.com/",
+      start: "Feb 2021",
+      end: "Present"
+    },
+    {
+      company: "SELISE Digital Platforms",
+      position: "Software Engineer",
+      logo: selLogo,
+      website: "https://selisegroup.com/",
+      start: "Aug 2020",
+      end: "Dec 2020"
+    },
+    {
+      company: "NybSys",
+      position: "Web Developer",
+      logo: nybLogo,
+      website: "https://nybsys.com/",
+      start: "Jul 2017",
+      end: "Jul 2020"
+    },
+    {
+      company: "AtiqueIT",
+      position: "PHP Programmer",
+      logo: atiqLogo,
+      website: "https://www.linkedin.com/company/atique-it/about/",
+      start: "Mar 2017",
+      end: "July 2017"
     }
   ]
 };

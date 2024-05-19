@@ -1,0 +1,124 @@
+---
+import { AiOutlineClose } from "react-icons/ai/index";
+import { AppConfig } from "@/utils/AppConfig";
+const modalText = AppConfig.modal.feedback;
+---
+
+<div class="modal micromodal-slide" id="feedback-modal" aria-hidden="true">
+  <div
+    class="modal__overlay bg-slate-600/30 z-30"
+    tabindex="-1"
+    data-custom-close
+  >
+    <div
+      class="modal__container bg-slate-600"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="feedback-modal-title"
+    >
+      <header class="flex justify-between items-center">
+        <div>
+          <h3 class="text-xl font-semibold" id="feedback-modal-title">
+            {modalText.title}
+          </h3>
+          <p>{modalText.description}</p>
+        </div>
+        <button
+          class="hover:text-orange-500"
+          aria-label="Close modal"
+          data-custom-close
+        >
+          <AiOutlineClose class:list={`pointer-events-none`} />
+        </button>
+      </header>
+      <main class="modal__content" id="feedback-modal-content">
+        <div id="feedback-success" style="display: none;">
+          <p class="text-orange-400 text-lg">{modalText.success}</p>
+          <div class="text-right mt-3">
+            <button
+              type="button"
+              class="rounded-md border-2 border-orange-400 bg-slate-600 px-5 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+              data-custom-closetitle
+              aria-label="Close this dialog window">Close</button
+            >
+          </div>
+        </div>
+        <div id="feedback-error" style="display: none;">
+          <p class="text-red-400 text-lg">
+            {modalText.failure}
+          </p>
+          <div class="text-right mt-3">
+            <button
+              type="button"
+              class="rounded-md border-2 border-orange-400 bg-slate-600 px-5 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+              data-custom-close
+              aria-label="Close this dialog window">Close</button
+            >
+          </div>
+        </div>
+        <form id="feedback-form" class="space-y-6" action="#" method="POST">
+          <div>
+            <label
+              for="feedback-name"
+              class="block text-sm font-medium leading-6">Your name</label
+            >
+            <div class="mt-2">
+              <input
+                id="feedback-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                class="block w-full text-slate-800 rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              for="feedback-email"
+              class="block text-sm font-medium leading-6">Email</label
+            >
+            <div class="mt-2">
+              <input
+                id="feedback-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                class="block w-full rounded-md border-0 py-1.5 text-slate-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              for="feedback-details"
+              class="block text-sm font-medium leading-6">Feedback</label
+            >
+            <div class="mt-2">
+              <textarea
+                id="feedback-details"
+                name="details"
+                class="block w-full rounded-md border-0 py-1.5 text-slate-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+              ></textarea>
+            </div>
+          </div>
+          <footer class="flex justify-end gap-3">
+            <button
+              type="button"
+              class="rounded-md bg-slate-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:text-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+              data-custom-close
+              aria-label="Close this dialog window">Close</button
+            >
+            <button
+              type="submit"
+              id="feedback-submit"
+              class="rounded-md disabled:bg-orange-300 bg-orange-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+              >{modalText.btnText}</button
+            >
+          </footer>
+        </form>
+      </main>
+    </div>
+  </div>
+</div>
