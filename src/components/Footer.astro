@@ -1,0 +1,47 @@
+---
+import { AppConfig } from "@/utils/AppConfig";
+const year = new Date().getFullYear();
+---
+
+<div>
+  <div class="border-t border-gray-600 pt-5">
+    <div class="grid gap-3 grid-cols-1 sm:grid-cols-2">
+      <div class="order-1 sm:order-2">
+        <ul class="text-sm flex gap-3 justify-center sm:justify-end">
+          <li>
+            <a
+              href={AppConfig.social.linkedIn}
+              target="_blank"
+              class="hover:text-orange-400"
+              data-custom-open="hireme-modal">Linkedin</a
+            >
+          </li>
+          <li>
+            <a
+              href={AppConfig.social.github}
+              target="_blank"
+              class="hover:text-orange-400"
+              data-custom-open="feedback-modal">Github</a
+            >
+          </li>
+          <li>
+            <a
+              href={AppConfig.social.youtube}
+              target="_blank"
+              class="hover:text-orange-400"
+              data-custom-open="newsletter-modal">Youtube</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="order-2 text-center sm:order-1 sm:text-left">
+        <div class="text-sm text-gray-200">
+          <p>
+            Copyright &copy; {year}&nbsp;
+            {AppConfig.title}. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,47 @@
 ---
+import Hero from "@/components/Hero.astro";
+import Certificate from "@/components/Certificate.astro";
 import Base from "@/layouts/Base.astro";
 import { AppConfig } from "@/utils/AppConfig";
+import ArticleCard from "../components/ArticleCard.astro";
+import Footer from "@/components/Footer.astro";
+import { getCollection } from 'astro:content';
+import { fileterPublishedConent } from '@/utils/Posts';
+const allArticle = await getCollection('articles', fileterPublishedConent);
 const { title } = AppConfig;
 const { description } = AppConfig;
 ---
 
 <Base head={{ title, description }}>
- <p>This site will be available soon!!</p>
+  <Hero />
+  <div class="pt-4 pb-4 mt-10">
+    <h2 class="mb-3 text-sm italic">
+      Certifications
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+      {
+        AppConfig.certifications.map((cert) => {
+          if(!cert.title) {return <></>}
+          return (
+            <div class="mb-3">
+              <Certificate {...cert} />
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <div class="mt-8 pt-4">
+    <h2 class="mb-3 text-sm italic">
+        Publication <span class="text-bold text-xs">/</span> Project
+      </h2>
+    <div class="grid gap-6">
+      {allArticle.map((article) => <ArticleCard {...article} />)} 
+    </div>
+  </div>
+
+  <footer id="page-footer" class="mt-12">
+    <Footer />
+  </footer>
 </Base>

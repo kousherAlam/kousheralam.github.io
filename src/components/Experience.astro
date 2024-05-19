@@ -1,0 +1,106 @@
+---
+import { AppConfig } from "@/utils/AppConfig";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io/index";
+import { AiOutlineCalendar } from "react-icons/ai/index";
+import { LiaArrowsAltHSolid } from "react-icons/lia/index";
+import { Image } from "astro:assets";
+---
+
+<h4 class="text-sm italic text-left">Work Experience</h4>
+<div class="relative">
+  <div
+    class="absolute h-full left-0 top-0 z-10 flex items-center justify-center"
+  >
+    <button
+      class="text-white disabled:text-gray-400 hover:text-orange-600 text-2xl"
+      id="prev-button"
+    >
+      <IoIosArrowBack />
+    </button>
+  </div>
+  <ul class="flex gap-3" id="experience-slider">
+    {
+      AppConfig.experience.map((item) => {
+        return (
+          <li
+            title={`Worked in ${item.company} as ${item.position} from ${item.start} to ${item.end}`}
+            class="realtive bg-slate-800 px-5 py-3"
+          >
+            <div class="grid grid-cols-12 gap-2">
+              <div class="col-span-2 flex gap-2 justify-center items-center">
+                <Image
+                  width={40}
+                  height={40}
+                  class="h-10 w-10"
+                  src={item.logo}
+                  alt={`${item.company} logo`}
+                />
+              </div>
+              <div class="col-span-10">
+                <h4 class="text-left text-lg">
+                  <a href={item.website} target="_blank">
+                    {item.company}
+                  </a>
+                </h4>
+                <p class="text-sm text-left">{item.position}</p>
+                <p class="text-sm flex justify-start items-center gap-1">
+                  <span class="">
+                    <AiOutlineCalendar />
+                  </span>
+                  <span>{item.start}</span>
+                  <span class="text-slate-400">
+                    <LiaArrowsAltHSolid />
+                  </span>
+                  <span>{item.end}</span>
+                </p>
+              </div>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ul>
+  <div
+    class="absolute h-full right-0 top-0 z-10 flex items-center justify-center"
+  >
+    <button
+      class="text-white disabled:text-gray-400 hover:text-orange-600 text-2xl"
+      id="next-button"
+    >
+      <IoIosArrowForward />
+    </button>
+  </div>
+</div>
+
+<script>
+  import { tns } from "tiny-slider";
+  const experienceDom = document.getElementById("experience-slider");
+  const slider = tns({
+    container: experienceDom as HTMLUListElement,
+    items: 1,
+    edgePadding: 0,
+    responsive: {
+      520: {
+        items: 2,
+      },
+      640: {
+        gutter: 15,
+        items: 1,
+      },
+      820: {
+        gutter: 15,
+        items: 2,
+      },
+    },
+    loop: false,
+    nav: false,
+    slideBy: 1,
+    mouseDrag: true,
+    autoplay: false,
+    autoplayButtonOutput: false,
+    autoplayResetOnVisibility: true,
+    autoplayDirection: "backward",
+    prevButton: document.getElementById("prev-button") as HTMLButtonElement,
+    nextButton: document.getElementById("next-button") as HTMLButtonElement,
+  });
+</script>

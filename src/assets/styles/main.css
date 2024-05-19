@@ -1,0 +1,26 @@
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    a {
+        @apply text-orange-500 
+            visited:text-orange-600 
+            hover:text-orange-400;
+    }
+    .btn {
+        @apply px-6 py-2 border cursor-pointer border-orange-600 text-orange-400 
+            hover:border-orange-400;
+    }
+    .btn.success {
+        @apply border-green-600 hover:border-green-400 text-green-400;
+    }
+    h1 {
+        @apply text-4xl;
+    }
+
+    h4 {
+        @apply text-xl;
+    }
+}

@@ -1,5 +1,15 @@
 ---
+import "../assets/styles/main.css";
+import "../assets/styles/micromodal.css";
+// Supports weights 100-900
+import '@fontsource-variable/inter';
+import "tiny-slider/dist/tiny-slider.css";
 import { AppConfig } from "@/utils/AppConfig";
+import NeedHelp from '../components/modals/NeedHelp.astro';
+import HireMe from '../components/modals/HireMe.astro';
+import Feedback from '../components/modals/Feedback.astro';
+import Newsletter from '../components/modals/Newsletter.astro';
+import Consent from '../components/Consent.astro';
 
 export interface Props {
   head: {
@@ -20,8 +30,49 @@ const {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={AppConfig.author} />
+
+    <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+    {import.meta.env.PROD && (
+    <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    if (localStorage.getItem('consentMode') === null) {
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'denied',
+      });
+    } else {
+      gtag('consent', 'default', JSON.parse(localStorage.getItem('consentMode')));
+    }
+
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KR5FJPC7');
+    </script>
+    )}
   </head>
-  <body class="bg-slate-900 text-gray-100">
-    <slot />
+  <body class="bg-slate-900 text-gray-100 ">
+    <div class="container mx-auto py-6 px-4 md:py-8 xl:py-10 md:px-5 max-w-4xl ">
+      <slot />
+    </div>
+    {
+      import.meta.env.PROD && (
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR5FJPC7"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+      )
+    }
   </body>
 </html>

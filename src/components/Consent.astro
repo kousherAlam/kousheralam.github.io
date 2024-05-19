@@ -1,0 +1,107 @@
+<div
+  id="cookie-consent-banner"
+  class="cookie-consent-banner z-10 shadow-lg shadow-orange-500 bg-slate-800 text-gray-200"
+>
+  <div class="container mx-auto py-4 px-2 max-w-4xl">
+    <h3 class="text-xl mb-1">Cookie settings</h3>
+    <p class="mb-3 text-sm">
+      We use cookies to provide you with the best possible experience. They also
+      allow us to analyze user behavior in order to constantly improve the
+      website for you.
+    </p>
+    <div class="flex justify-start gap-4">
+      <button
+        id="btn-accept-all"
+        class="cookie-consent-button hover:bg-orange-600/90 bg-orange-600"
+        >Accept All</button
+      >
+      <button
+        id="btn-accept-some"
+        class="cookie-consent-button bg-orange-400 hover:bg-orange-400/90"
+        >Accept Selection</button
+      >
+      <button
+        id="btn-reject-all"
+        class="cookie-consent-button bg-gray-100 hover:bg-gray-100/90 text-black"
+        >Reject All</button
+      >
+    </div>
+    <div class="flex justify-start flex-wrap mb-2 mt-2 gap-6">
+      <label
+        ><input
+          id="consent-necessary"
+          class="h-6 w-6 rounded border-orange-200 text-orange-200 disabled:bg-orange-200"
+          type="checkbox"
+          value="Necessary"
+          checked
+          disabled
+        />&nbsp;Necessary</label
+      >
+      <label
+        ><input
+          id="consent-analytics"
+          class="h-6 w-6 rounded border-orange-400 text-orange-400 focus:bg-orange-400"
+          type="checkbox"
+          value="Analytics"
+          checked
+        />&nbsp;Analytics</label
+      >
+      <label
+        ><input
+          id="consent-preferences"
+          class="h-6 w-6 rounded border-orange-400 text-orange-400 focus:bg-orange-400"
+          type="checkbox"
+          value="Preferences"
+          checked
+        />&nbsp;Preferences</label
+      >
+      <label
+        ><input
+          id="consent-marketing"
+          class="h-6 w-6 rounded border-orange-400 text-orange-400 focus:bg-orange-400"
+          type="checkbox"
+          value="Marketing"
+        />Marketing</label
+      >
+    </div>
+  </div>
+</div>
+
+<script src="../assets/script/consent.ts"></script>
+
+<style>
+  .cookie-consent-banner {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .cookie-consent-button {
+    border: none;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .cookie-consent-button:active {
+    opacity: 0.5;
+  }
+
+  .cookie-consent-options label {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .cookie-consent-options input {
+    margin-right: 5px;
+  }
+</style>
