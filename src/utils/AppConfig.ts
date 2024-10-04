@@ -63,6 +63,7 @@ export const AppConfig = {
     'Casbin',
     'OPA',
     'REST API',
+    'GraphQL',
     'SDK Dev',
     'Javascript',
     'Nodejs',
