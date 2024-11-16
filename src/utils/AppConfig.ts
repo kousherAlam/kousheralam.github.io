@@ -57,15 +57,19 @@ export const AppConfig = {
     }
   },
   skills: [
-    'Web Development',
-    'App Development',
-    'Project Management',
-    'oAuth 2.0',
+    'Go',
+    'Javascript',
+    'Nodejs',
+    'ReactJS',
+    'Git',
+    'Docker',
+    'oAuth',
     'Terraform',
     'Microservice',
-    'Cloud Native',
-    'Kubernetes',
-    'Cyber Security',
+    'MySQL',
+    'AWS',
+    'Firebase',
+    'BlockChain',
   ],
   certifications: [
     {

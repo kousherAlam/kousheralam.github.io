@@ -75,16 +75,10 @@ export default function PhotoViewer({
             <h3 className="m-0">{title}</h3>
           </div>
           <div className="flex gap-4">
-            <button
-              className="bg-orange-500 text-sm self-center hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
-              ref={prevButtonRef}
-            >
+            <button className="btn-primary" ref={prevButtonRef}>
               Prev
             </button>
-            <button
-              className="bg-orange-500 text-sm self-center hover:bg-orange-700 text-white font-bold py-2 px-4 rounded"
-              ref={nextButtonRef}
-            >
+            <button className="btn-primary" ref={nextButtonRef}>
               Next
             </button>
           </div>
