@@ -52,7 +52,7 @@ jobs:
           npx changeset version
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kousheralam/kousheralam.github.io.git
+          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/kousheralam/kousheralam.github.io.git
           git add package.json CHANGELOG.md
           git commit -m "Apply Changesets version bump"
           git push origin master
@@ -66,10 +66,6 @@ jobs:
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.BUILD_PATH }}
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: ${{ env.BUILD_PATH }}/dist
 
   deploy:
     environment:
