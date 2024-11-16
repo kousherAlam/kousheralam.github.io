@@ -52,6 +52,7 @@ jobs:
           npx changeset version
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/kousheralam/kousheralam.github.io.git
           git add package.json CHANGELOG.md
           git commit -m "Apply Changesets version bump"
           git push origin master
