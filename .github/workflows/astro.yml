@@ -32,10 +32,26 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Apply Changesets
+        run: |
+          npx changeset version
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/kousherAlam/kousheralam.github.io.git
+          git add package.json CHANGELOG.md
+          git commit -m "Apply Changesets version bump"
+          git push origin master
+
+  deploy:
+    environment:
+      name: gh-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -64,42 +80,11 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
       - id: commit
         uses: pr-mpt/actions-commit-hash@v2
-      - name: Apply Changesets
-        run: |
-          npx changeset version
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/kousherAlam/kousheralam.github.io.git
-          git add package.json CHANGELOG.md
-          git commit -m "Apply Changesets version bump"
-          git push origin master
       - name: Set env
         run: echo "COMMIT_HASH=${{steps.commit.outputs.long}}" >> $GITHUB_ENV
-
-  deploy:
-    environment:
-      name: gh-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
-            echo "manager=yarn" >> $GITHUB_OUTPUT
-            echo "command=install" >> $GITHUB_OUTPUT
-            echo "runner=yarn" >> $GITHUB_OUTPUT
-            exit 0
-          else
-            echo "manager=npm" >> $GITHUB_OUTPUT
-            echo "command=ci" >> $GITHUB_OUTPUT
-            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
-            exit 0
-          fi
+      - name: Set Package Version as Env Variable
+        id: set_version
+        run: echo "PACKAGE_VERSION=$(jq -r '.version' package.json)" >> $GITHUB_ENV
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
