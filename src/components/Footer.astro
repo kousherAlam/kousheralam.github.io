@@ -43,5 +43,12 @@ const year = new Date().getFullYear();
         </div>
       </div>
     </div>
+    <p class="flex gap-2 text-sm text-gray-400 justify-end mt-3">
+      <span class="border-t border-gray-500">
+        <span>#{import.meta.env.COMMIT_HASH}</span>
+        <span>|</span>
+        <span>v{import.meta.env.PACKAGE_VERSION}</span>
+      </span>
+    </p>
   </div>
 </div>
