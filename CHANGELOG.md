@@ -1,5 +1,15 @@
 # kousheralam.github.io
 
+## 0.13.0
+
+### Minor Changes
+
+- d7259f7: Fixed typo and letter case
+
+### Patch Changes
+
+- b605d4b: Testing changeset automation
+
 ## 0.12.0
 
 ### Minor Changes
