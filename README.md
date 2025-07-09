@@ -1,4 +1,4 @@
-# kousheralam.com
+# https://kousheralam.github.io
 
 Welcome to my blog.
 
