@@ -1,7 +1,33 @@
 /* The integration's default injected base.css file */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/aspect-ratio';
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+@theme {
+  --font-sans:
+    Inter Variable, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 @layer base {
   a {
@@ -25,9 +51,9 @@
   }
 
   .btn {
-    @apply border-2 border-orange-500 hover:border-orange-800 text-sm self-center hover:text-orange-500 text-white font-bold py-2 px-4 rounded;
+    @apply border-2 border-orange-500 hover:border-orange-800 text-sm self-center hover:text-orange-500 text-white font-bold py-2 px-4 rounded-sm;
   }
   .btn-primary {
-    @apply bg-orange-500 text-sm self-center hover:bg-orange-700 text-white font-bold py-2 px-4 rounded;
+    @apply bg-orange-500 text-sm self-center hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-sm;
   }
 }
