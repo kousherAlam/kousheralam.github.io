@@ -92,7 +92,7 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
       # this is require when we need to deploy github page
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ${{ env.BUILD_PATH }}/dist
 
