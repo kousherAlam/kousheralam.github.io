@@ -8,11 +8,20 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
   const base = requestBaseUrl(url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
+
+  // GitHub App *installation* redirect (has `setup_action`/`installation_id` but no
+  // OAuth `state`). This isn't a login — start a clean login instead of failing.
+  if (url.searchParams.get('setup_action') || (!state && url.searchParams.get('installation_id'))) {
+    return redirect('/api/auth/login');
+  }
+
   const expectedState = cookies.get('oauth_state')?.value;
   cookies.delete('oauth_state', { path: '/' });
 
   if (!code || !state || state !== expectedState) {
-    return new Response('Invalid OAuth state.', { status: 400 });
+    // Stale/missing state (e.g. the login was started on a different host or the
+    // cookie expired). Send them back to a fresh login rather than a dead end.
+    return redirect('/login?error=state');
   }
 
   // Exchange the code for an access token. redirect_uri must match the one used at

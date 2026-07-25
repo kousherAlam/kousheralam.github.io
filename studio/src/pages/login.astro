@@ -32,6 +32,15 @@ const dev = localMode();
     }
 
     {
+      error === 'state' && (
+        <p class="mb-4 rounded-md bg-amber-950/60 px-3 py-2 text-sm text-amber-300">
+          Your sign-in link expired or started on a different address. Please sign in again
+          on this page.
+        </p>
+      )
+    }
+
+    {
       dev && (
         <a
           href="/"

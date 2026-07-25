@@ -2,7 +2,6 @@
 import Skils from "./Skills.astro";
 import { AppConfig } from "@/utils/AppConfig";
 import { LuLinkedin, LuGithub, LuYoutube } from "react-icons/lu";
-import { Image } from "astro:assets";
 import Experience from "./Experience.astro";
 ---
 
@@ -33,10 +32,10 @@ import Experience from "./Experience.astro";
     class="order-1 sm:order-2 md:col-span-2 flex flex-col justify-center sm:justify-center"
   >
     <div class="flex justify-center">
-      <Image
-        width={512}
-        height={550}
-        class="h-80 w-64 rounded-lg object-cover object-top ring-2 ring-orange-500/70 ring-offset-2 ring-offset-slate-900"
+      <img
+        width={200}
+        height={300}
+        class="h-80 w-64 sm:pr-4"
         src={AppConfig.avatar}
         alt="Kousher's Profile Picture"
       />
