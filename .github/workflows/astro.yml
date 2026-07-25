@@ -59,7 +59,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Consume changesets (version bump)
+      - name: Version bump (changesets + automatic patch fallback)
         run: |
           shopt -s nullglob
           pending=()
@@ -67,14 +67,21 @@ jobs:
             [ "$(basename "$f")" = "README.md" ] && continue
             pending+=("$f")
           done
-          if [ ${#pending[@]} -gt 0 ]; then
-            echo "Found ${#pending[@]} pending changeset(s); running changeset version..."
-            npx changeset version
-            git add -A
-            git commit -m "chore: release [skip ci]" || echo "Nothing to commit."
+          if [ ${#pending[@]} -eq 0 ]; then
+            # Automated versioning: no explicit changeset for this push, so cut a
+            # patch release automatically. (An explicit changeset — e.g. the minor
+            # bump the Studio CMS adds on Publish, or `npm run change` — takes
+            # precedence and sets the bump type itself.)
+            SHORT_SHA="${GITHUB_SHA::7}"
+            echo "No pending changesets — creating an automatic patch changeset."
+            printf '%s\n' '---' '"kousheralam.github.io": patch' '---' '' \
+              "Automated release ($SHORT_SHA)" > ".changeset/auto-$SHORT_SHA.md"
           else
-            echo "No pending changesets; version unchanged."
+            echo "Found ${#pending[@]} pending changeset(s); using them."
           fi
+          npx changeset version
+          git add -A
+          git commit -m "chore: release [skip ci]" || echo "Nothing to commit."
 
       - name: Read package version
         id: version
