@@ -57,6 +57,10 @@ export function requestBaseUrl(url: URL): string {
   return `https://${host}`;
 }
 
+/** Default thumbnail used when a post doesn't specify one (generated, on-brand). */
+export const DEFAULT_THUMBNAIL_SRC = '/assets/images/default-thumbnail.png';
+export const DEFAULT_THUMBNAIL_ALT = 'kousheralam.github.io';
+
 /** True when GitHub OAuth login is configured. */
 export function oauthConfigured(): boolean {
   return Boolean(config.oauth.clientId && config.oauth.clientSecret);

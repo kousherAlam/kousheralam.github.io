@@ -22,6 +22,8 @@ export const AppConfig = {
     github: `https://github.com/kousherAlam`,
     youtube: `https://www.youtube.com/@kousheralam`,
   },
+  // The Studio CMS (owner-only). Linked from the footer for quick access.
+  studioUrl: `https://kousheralam-github-io.vercel.app`,
   description: `Experienced software engineer adept at building and maintaining large-scale enterprise software solutions. Skilled in full-stack development, cloud deployments, and security implementations. Proven track record of driving efficiency and facilitating seamless operations in dynamic environments.`,
   modal: {
     hireMe: {

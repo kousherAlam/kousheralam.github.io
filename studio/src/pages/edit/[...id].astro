@@ -2,7 +2,7 @@
 import Studio from '@/layouts/Studio.astro';
 import Editor from '@/components/Editor';
 import { getPost, slugFromId } from '@/lib/github';
-import { config } from '@/lib/config';
+import { config, DEFAULT_THUMBNAIL_SRC, DEFAULT_THUMBNAIL_ALT } from '@/lib/config';
 import type { Post } from '@/lib/mdx';
 
 export const prerender = false;
@@ -23,7 +23,7 @@ if (isNew) {
       title: '',
       description: '',
       published: today,
-      thumbnail: { src: '', alt: '' },
+      thumbnail: { src: DEFAULT_THUMBNAIL_SRC, alt: DEFAULT_THUMBNAIL_ALT },
       draft: true,
       type: 'Article',
     },
@@ -54,7 +54,10 @@ if (isNew) {
 }
 
 const siteUrl = `https://${config.repo.name}`;
-const liveUrl = isNew ? null : `${siteUrl}/${slugFromId(rawId)}`;
+// Only published posts exist on the live site; drafts would 404. Trailing slash
+// matches Astro's directory output (avoids a 301).
+const liveUrl =
+  !isNew && !post.frontmatter.draft ? `${siteUrl}/${slugFromId(rawId)}/` : null;
 ---
 
 <Studio title={isNew ? 'New post' : post.frontmatter.title || rawId} session={session} wide>

@@ -1,9 +1,10 @@
-import React, { useMemo, useState } from 'react';
-import CodeMirror from '@uiw/react-codemirror';
+import React, { useMemo, useRef, useState } from 'react';
+import CodeMirror, { type ReactCodeMirrorRef } from '@uiw/react-codemirror';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { languages } from '@codemirror/language-data';
 import MdxPreview from './MdxPreview';
 import { slugify, type Frontmatter, type Post } from '@/lib/types';
+import { COMPONENT_DEFS } from '@/lib/components';
 
 interface Props {
   initialPost: Post;
@@ -31,6 +32,23 @@ export default function Editor({ initialPost, isNew }: Props) {
   const [slug, setSlug] = useState(initialPost.id || '');
   const [body, setBody] = useState(initialPost.body);
   const [status, setStatus] = useState<Status>({ kind: 'idle' });
+  const cmRef = useRef<ReactCodeMirrorRef>(null);
+
+  // Insert an MDX component snippet at the cursor (or append if the editor isn't ready).
+  function insertSnippet(snippet: string) {
+    const text = `\n${snippet}\n`;
+    const view = cmRef.current?.view;
+    if (view) {
+      const pos = view.state.selection.main.head;
+      view.dispatch({
+        changes: { from: pos, insert: text },
+        selection: { anchor: pos + text.length },
+      });
+      view.focus();
+    } else {
+      setBody((b) => `${b}\n${text}`);
+    }
+  }
 
   const effectiveSlug = (isNew ? slug || slugify(title) : initialPost.id) || slugify(title);
 
@@ -181,8 +199,30 @@ export default function Editor({ initialPost, isNew }: Props) {
             </div>
           </div>
 
+          {/* Component palette — insert available React components into the post. */}
+          <div className="flex flex-wrap items-center gap-2 rounded-lg border border-slate-800 bg-slate-950/40 px-3 py-2">
+            <span className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              Components
+            </span>
+            {COMPONENT_DEFS.map((c) => (
+              <button
+                key={c.name}
+                type="button"
+                onClick={() => insertSnippet(c.snippet)}
+                title={`Insert ${c.name} — ${c.description}`}
+                className="rounded-md border border-slate-700 px-2.5 py-1 font-mono text-xs text-orange-300 hover:border-orange-500 hover:text-orange-200"
+              >
+                + {c.name}
+              </button>
+            ))}
+            <span className="ml-auto text-xs text-slate-500">
+              Auto-imported on publish · previewed live
+            </span>
+          </div>
+
           <div className="h-[60vh] overflow-hidden rounded-lg border border-slate-800">
             <CodeMirror
+              ref={cmRef}
               value={body}
               theme="dark"
               height="100%"

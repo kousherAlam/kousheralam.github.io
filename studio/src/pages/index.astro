@@ -63,7 +63,7 @@ const siteUrl = `https://${config.repo.name}`;
           <div class="flex shrink-0 items-center gap-3 text-sm">
             {!post.frontmatter.draft && (
               <a
-                href={`${siteUrl}/${slugFromId(post.id)}`}
+                href={`${siteUrl}/${slugFromId(post.id)}/`}
                 target="_blank"
                 rel="noreferrer"
                 class="text-slate-400 hover:text-orange-400"
