@@ -219,59 +219,72 @@ const pads = [
       }
     </g>
 
-    <!-- pond (moonlit — the far lamps are too distant to reflect) -->
-    <rect x="0" y="95" width="1440" height="92" fill="url(#pond)" />
-    <!-- the full moon's reflection on the water -->
-    <g class="moonlit">
-      <rect x="1174" y="96" width="26" height="86" fill="url(#moonrefl)" />
-      <rect x="1168" y="104" width="38" height="2.4" rx="1" fill="#f4eee0" opacity="0.28" />
-      <rect x="1172" y="122" width="30" height="2" rx="1" fill="#f4eee0" opacity="0.22" />
-      <rect x="1170" y="146" width="34" height="2" rx="1" fill="#f4eee0" opacity="0.18" />
+    <!-- village ground / jungle floor -->
+    <path d="M0 96 Q 360 90 720 96 T 1440 96 V 208 H0 Z" fill="#0a1210" />
+
+    <!-- dense jungle behind the pond -->
+    <g class="jungle-far">
+      <use href="#bush" transform="translate(120 126) scale(1.15)" />
+      <use href="#rtree" transform="translate(250 128) scale(0.75)" />
+      <use href="#bush" transform="translate(360 128) scale(0.95)" />
+      <use href="#bush" transform="translate(1090 126) scale(1.1)" />
+      <use href="#rtree" transform="translate(1210 128) scale(0.8)" />
+      <use href="#bush" transform="translate(1320 128) scale(1) " />
+      <use href="#bush" transform="translate(560 130) scale(0.8)" />
+      <use href="#bush" transform="translate(900 130) scale(0.85)" />
     </g>
 
-    <!-- a country boat drifting on the pond -->
+    <!-- the pond: small and moonlit, nestled in the jungle -->
+    <ellipse cx="720" cy="166" rx="286" ry="44" fill="#0a1018" />
+    <ellipse cx="720" cy="164" rx="276" ry="38" fill="url(#pond)" />
+    <!-- the full moon's reflection on the water -->
+    <g class="moonlit">
+      <ellipse cx="836" cy="158" rx="7" ry="18" fill="url(#moonrefl)" />
+      <rect x="808" y="158" width="56" height="2.2" rx="1" fill="#f4eee0" opacity="0.26" />
+      <rect x="816" y="170" width="42" height="1.8" rx="1" fill="#f4eee0" opacity="0.2" />
+    </g>
+
+    <!-- a country boat on the pond -->
     <g class="boat">
-      <path d="M612 138 Q 672 128 748 138 Q 700 152 660 151 Q 632 149 612 138 Z" fill="#0a0d22" />
-      <rect x="676" y="122" width="2.2" height="16" fill="#0a0d22" />
-      <circle cx="677" cy="120" r="2.8" fill="#ffc169" filter="url(#soft)" />
+      <path d="M636 158 Q 692 150 760 158 Q 718 170 682 169 Q 656 167 636 158 Z" fill="#0a0d22" />
+      <rect x="698" y="144" width="2.2" height="15" fill="#0a0d22" />
+      <circle cx="699" cy="142" r="2.6" fill="#ffc169" filter="url(#soft)" />
     </g>
 
     <!-- lily pads (a couple with a lotus) -->
     <g class="pads" fill="#123a2c">
-      <ellipse cx="250" cy="150" rx="16" ry="4.6" transform="rotate(-6 250 150)" />
-      <ellipse cx="470" cy="168" rx="19" ry="5.4" />
-      <circle cx="470" cy="166" r="3" fill="#e88bab" />
-      <ellipse cx="700" cy="158" rx="13" ry="4" transform="rotate(8 700 158)" />
-      <ellipse cx="930" cy="170" rx="17" ry="5" />
-      <ellipse cx="1080" cy="160" rx="14" ry="4.2" transform="rotate(-5 1080 160)" />
-      <circle cx="1080" cy="158" r="2.6" fill="#e07a9b" />
+      <ellipse cx="560" cy="158" rx="15" ry="4.4" transform="rotate(-6 560 158)" />
+      <ellipse cx="640" cy="176" rx="18" ry="5" />
+      <circle cx="640" cy="174" r="2.8" fill="#e88bab" />
+      <ellipse cx="820" cy="172" rx="14" ry="4.2" transform="rotate(6 820 172)" />
+      <ellipse cx="900" cy="160" rx="13" ry="4" />
+      <circle cx="900" cy="158" r="2.4" fill="#e07a9b" />
     </g>
 
-    <!-- near bank -->
-    <path d="M0 186 Q 720 196 1440 186 V 210 H0 Z" fill="#0a0f1e" />
-
-    <!-- roadside trees, banana plants and bushes (jungle) beside the road -->
-    <g class="flora-near">
-      <use href="#rtree" transform="translate(80 196) scale(1.15)" />
-      <use href="#bush" transform="translate(160 200) scale(1)" />
-      <use href="#banana" transform="translate(26 198) scale(0.9)" />
-      <use href="#bush" transform="translate(300 202) scale(0.75)" />
-      <use href="#rtree" transform="translate(1372 196) scale(1.2)" />
-      <use href="#bush" transform="translate(1288 200) scale(1.05)" />
-      <use href="#banana" transform="translate(1420 198) scale(0.85)" />
-      <use href="#bush" transform="translate(1150 202) scale(0.8)" />
-      <use href="#bush" transform="translate(560 204) scale(0.7)" />
-      <use href="#bush" transform="translate(980 204) scale(0.72)" />
+    <!-- dense jungle & bushes hugging the pond and the road -->
+    <g class="jungle-near">
+      <use href="#rtree" transform="translate(90 202) scale(1.2)" />
+      <use href="#banana" transform="translate(30 204) scale(1)" />
+      <use href="#bush" transform="translate(180 206) scale(1.15)" />
+      <use href="#bush" transform="translate(300 208) scale(0.9)" />
+      <use href="#bush" transform="translate(430 200) scale(0.8)" />
+      <use href="#rtree" transform="translate(1360 202) scale(1.25)" />
+      <use href="#banana" transform="translate(1420 204) scale(0.95)" />
+      <use href="#bush" transform="translate(1270 206) scale(1.15)" />
+      <use href="#bush" transform="translate(1150 208) scale(0.9)" />
+      <use href="#bush" transform="translate(1010 200) scale(0.8)" />
+      <use href="#bush" transform="translate(470 210) scale(0.7)" />
+      <use href="#bush" transform="translate(980 210) scale(0.72)" />
     </g>
 
     <!-- horizontal dirt (kaccha) road along the bottom -->
-    <path d="M0 202 Q 720 212 1440 202 L1440 272 Q 720 264 0 272 Z" fill="url(#road)" />
+    <path d="M0 214 Q 720 224 1440 214 L1440 276 Q 720 268 0 276 Z" fill="url(#road)" />
     <g stroke="#5a462e" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5">
-      <path d="M40 236 Q 720 244 1400 236" />
-      <path d="M40 252 Q 720 259 1400 252" />
+      <path d="M40 244 Q 720 252 1400 244" />
+      <path d="M40 260 Q 720 267 1400 260" />
     </g>
     <!-- foreground grass -->
-    <path d="M0 270 Q 720 262 1440 270 V 300 H0 Z" fill="#060a14" />
+    <path d="M0 274 Q 720 266 1440 274 V 300 H0 Z" fill="#060a14" />
   </svg>
 
   <!-- rain ripples on the pond -->

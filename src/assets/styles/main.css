@@ -132,11 +132,27 @@
     transform: translateY(-2px) rotate(-3deg);
     box-shadow: 0 6px 14px rgb(0 0 0 / 0.45);
   }
+  /* each leaf has a little petiole (stem), so it looks attached, not floating */
+  .leaf-chip {
+    margin-left: 6px;
+  }
+  .leaf-chip::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    bottom: 7px;
+    width: 9px;
+    height: 3px;
+    border-radius: 2px;
+    background: #14432c;
+    transform: rotate(-22deg);
+    transform-origin: right center;
+    pointer-events: none;
+  }
 
   /* Each post card is a banana leaf (midrib + diagonal veins, pointed ends) */
   .banana-leaf {
     position: relative;
-    overflow: hidden;
     border-radius: 8px 44px 8px 44px;
     background:
       repeating-linear-gradient(118deg, rgb(210 255 220 / 0.05) 0 1.5px, transparent 1.5px 15px),
@@ -169,6 +185,37 @@
   .banana-leaf:hover {
     transform: translateY(-3px) rotate(-0.4deg);
     box-shadow: 0 14px 30px -12px rgb(0 0 0 / 0.7);
+  }
+
+  /* The posts grow off a banana-plant stalk — each leaf on its own stem, nothing floats. */
+  .leaf-list {
+    position: relative;
+    padding-left: 2.7rem;
+  }
+  .leaf-list::before {
+    content: '';
+    position: absolute;
+    left: 0.7rem;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 9px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #2a6b45 0%, #123f28 100%);
+    box-shadow:
+      inset -2px 0 0 rgb(0 0 0 / 0.3),
+      0 0 0 1px rgb(0 0 0 / 0.25);
+  }
+  .leaf-list .banana-leaf::after {
+    content: '';
+    position: absolute;
+    left: -1.7rem;
+    top: 50%;
+    width: 1.85rem;
+    height: 5px;
+    transform: translateY(-50%);
+    border-radius: 3px;
+    background: linear-gradient(to right, #103a26, #2a6b45);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.4);
   }
 
   /* Experience panels read as the moonlit pond */
