@@ -40,6 +40,23 @@ export const config = {
   isDev: (env('STUDIO_DEV') ?? '').toLowerCase() === 'true',
 };
 
+/**
+ * The public base URL to use for OAuth redirects, derived from the *incoming request*
+ * so the cookie host, the `redirect_uri`, and the callback host are always the same
+ * host the user is actually browsing (prevents "Invalid OAuth state" when
+ * PUBLIC_STUDIO_URL points at a different Vercel URL than the one in use).
+ * Falls back to PUBLIC_STUDIO_URL only if the request host is unavailable.
+ */
+export function requestBaseUrl(url: URL): string {
+  const host = url.host;
+  if (!host) return config.studioUrl;
+  if (host.startsWith('localhost') || host.startsWith('127.0.0.1')) {
+    return `${url.protocol}//${host}`;
+  }
+  // Vercel terminates TLS; the public origin is always https.
+  return `https://${host}`;
+}
+
 /** True when GitHub OAuth login is configured. */
 export function oauthConfigured(): boolean {
   return Boolean(config.oauth.clientId && config.oauth.clientSecret);
