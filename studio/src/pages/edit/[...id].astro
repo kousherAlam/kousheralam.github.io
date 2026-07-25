@@ -1,0 +1,77 @@
+---
+import Studio from '@/layouts/Studio.astro';
+import Editor from '@/components/Editor';
+import { getPost, slugFromId } from '@/lib/github';
+import { config } from '@/lib/config';
+import type { Post } from '@/lib/mdx';
+
+export const prerender = false;
+
+const session = Astro.locals.session ?? null;
+const rawId = Astro.params.id ?? 'new';
+const isNew = rawId === 'new';
+
+const today = new Date().toISOString().slice(0, 10);
+
+let post: Post;
+let loadError: string | null = null;
+
+if (isNew) {
+  post = {
+    id: '',
+    frontmatter: {
+      title: '',
+      description: '',
+      published: today,
+      thumbnail: { src: '', alt: '' },
+      draft: true,
+      type: 'Article',
+    },
+    body: '## Introduction\n\nStart writing here…\n',
+  };
+} else {
+  const found = await getPost(rawId).catch((e: any) => {
+    loadError = e?.message ?? 'Failed to load post';
+    return null;
+  });
+  if (!found) {
+    post = {
+      id: rawId,
+      frontmatter: {
+        title: '',
+        description: '',
+        published: today,
+        thumbnail: { src: '', alt: '' },
+        draft: true,
+        type: 'Article',
+      },
+      body: '',
+    };
+    if (!loadError) loadError = `Post "${rawId}" not found.`;
+  } else {
+    post = found;
+  }
+}
+
+const siteUrl = `https://${config.repo.name}`;
+const liveUrl = isNew ? null : `${siteUrl}/${slugFromId(rawId)}`;
+---
+
+<Studio title={isNew ? 'New post' : post.frontmatter.title || rawId} session={session} wide>
+  <div class="mb-4 flex items-center justify-between">
+    <a href="/" class="text-sm text-slate-400 hover:text-orange-400">← All posts</a>
+    {liveUrl && (
+      <a href={liveUrl} target="_blank" rel="noreferrer" class="text-sm text-slate-400 hover:text-orange-400">
+        View live ↗
+      </a>
+    )}
+  </div>
+
+  {
+    loadError && (
+      <p class="mb-4 rounded-md bg-amber-950/60 px-4 py-3 text-sm text-amber-300">{loadError}</p>
+    )
+  }
+
+  <Editor client:only="react" initialPost={post} isNew={isNew} />
+</Studio>

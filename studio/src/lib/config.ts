@@ -1,0 +1,75 @@
+// Centralized, typed access to Studio configuration from environment variables.
+// Server-only module (never imported by client islands).
+
+// In local development, Vite/Astro does not expose non-PUBLIC vars on import.meta.env
+// nor load .env into process.env, so load it explicitly. In production (Vercel) the
+// vars come straight from process.env and there is no .env file (loadEnvFile no-ops).
+try {
+  (process as any).loadEnvFile?.();
+} catch {
+  /* no .env file present (e.g. production) — ignore */
+}
+
+function env(key: string): string | undefined {
+  const v = process.env[key] ?? (import.meta.env as Record<string, string | undefined>)[key];
+  return v === '' ? undefined : v;
+}
+
+export const config = {
+  repo: {
+    owner: env('REPO_OWNER') ?? 'kousherAlam',
+    name: env('REPO_NAME') ?? 'kousheralam.github.io',
+    branch: env('REPO_BRANCH') ?? 'master',
+    contentDir: env('CONTENT_DIR') ?? 'src/content/articles',
+  },
+  allowedLogins: (env('ALLOWED_GITHUB_LOGINS') ?? 'kousherAlam')
+    .split(',')
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean),
+  oauth: {
+    clientId: env('GITHUB_OAUTH_CLIENT_ID'),
+    clientSecret: env('GITHUB_OAUTH_CLIENT_SECRET'),
+  },
+  app: {
+    appId: env('GITHUB_APP_ID'),
+    privateKey: normalizePrivateKey(env('GITHUB_APP_PRIVATE_KEY')),
+    installationId: env('GITHUB_APP_INSTALLATION_ID'),
+  },
+  sessionSecret: env('SESSION_SECRET') ?? 'insecure-dev-secret-change-me',
+  studioUrl: (env('PUBLIC_STUDIO_URL') ?? 'http://localhost:4321').replace(/\/$/, ''),
+  isDev: (env('STUDIO_DEV') ?? '').toLowerCase() === 'true',
+};
+
+/** True when GitHub OAuth login is configured. */
+export function oauthConfigured(): boolean {
+  return Boolean(config.oauth.clientId && config.oauth.clientSecret);
+}
+
+/** True when the GitHub App (repo write) credentials are configured. */
+export function appConfigured(): boolean {
+  return Boolean(config.app.appId && config.app.privateKey && config.app.installationId);
+}
+
+/**
+ * In local dev mode (STUDIO_DEV=true) with OAuth NOT configured, the Studio
+ * bypasses login and reads/writes article files from the local filesystem.
+ */
+export function localMode(): boolean {
+  return config.isDev && !oauthConfigured();
+}
+
+/** Accept a PEM either raw, with literal "\n", or base64-encoded. */
+function normalizePrivateKey(raw?: string): string | undefined {
+  if (!raw) return undefined;
+  if (raw.includes('BEGIN') && raw.includes('PRIVATE KEY')) {
+    return raw.replace(/\\n/g, '\n');
+  }
+  // Assume base64-encoded PEM.
+  try {
+    const decoded = Buffer.from(raw, 'base64').toString('utf8');
+    if (decoded.includes('PRIVATE KEY')) return decoded;
+  } catch {
+    /* fall through */
+  }
+  return raw.replace(/\\n/g, '\n');
+}

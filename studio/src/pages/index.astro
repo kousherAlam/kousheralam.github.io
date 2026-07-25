@@ -1,0 +1,89 @@
+---
+import Studio from '@/layouts/Studio.astro';
+import { listPosts, slugFromId } from '@/lib/github';
+import { config } from '@/lib/config';
+
+export const prerender = false;
+
+const session = Astro.locals.session ?? null;
+
+let posts: Awaited<ReturnType<typeof listPosts>> = [];
+let loadError: string | null = null;
+try {
+  posts = await listPosts();
+} catch (err: any) {
+  loadError = err?.message ?? 'Failed to load posts';
+}
+
+const siteUrl = `https://${config.repo.name}`;
+---
+
+<Studio title="Posts" session={session}>
+  <div class="mb-6 flex items-center justify-between">
+    <div>
+      <h1 class="text-xl font-semibold">Posts</h1>
+      <p class="text-sm text-slate-400">{posts.length} article{posts.length === 1 ? '' : 's'}</p>
+    </div>
+    <a
+      href="/edit/new"
+      class="rounded-md bg-orange-500 px-4 py-2 text-sm font-medium text-slate-950 hover:bg-orange-400"
+    >
+      + New post
+    </a>
+  </div>
+
+  {
+    loadError && (
+      <p class="mb-6 rounded-md bg-red-950/60 px-4 py-3 text-sm text-red-300">
+        {loadError}
+      </p>
+    )
+  }
+
+  <ul class="divide-y divide-slate-800 overflow-hidden rounded-xl border border-slate-800">
+    {
+      posts.map((post) => (
+        <li class="flex items-center justify-between gap-4 bg-slate-950/40 px-4 py-3 hover:bg-slate-900/60">
+          <div class="min-w-0">
+            <a href={`/edit/${post.id}`} class="block truncate font-medium text-slate-100 hover:text-orange-400">
+              {post.frontmatter.title}
+            </a>
+            <div class="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-400">
+              <span class="rounded bg-slate-800 px-1.5 py-0.5">{post.frontmatter.type}</span>
+              {post.frontmatter.draft ? (
+                <span class="rounded bg-amber-900/60 px-1.5 py-0.5 text-amber-300">draft</span>
+              ) : (
+                <span class="rounded bg-emerald-900/60 px-1.5 py-0.5 text-emerald-300">published</span>
+              )}
+              <span>{post.frontmatter.published}</span>
+              <span class="text-slate-600">·</span>
+              <span class="truncate text-slate-500">{post.id}</span>
+            </div>
+          </div>
+          <div class="flex shrink-0 items-center gap-3 text-sm">
+            {!post.frontmatter.draft && (
+              <a
+                href={`${siteUrl}/${slugFromId(post.id)}`}
+                target="_blank"
+                rel="noreferrer"
+                class="text-slate-400 hover:text-orange-400"
+              >
+                View live ↗
+              </a>
+            )}
+            <a href={`/edit/${post.id}`} class="text-orange-400 hover:text-orange-300">
+              Edit
+            </a>
+          </div>
+        </li>
+      ))
+    }
+    {
+      posts.length === 0 && !loadError && (
+        <li class="px-4 py-8 text-center text-sm text-slate-500">
+          No posts yet. Create your first one.
+        </li>
+      )
+    }
+  </ul>
+</Studio>
