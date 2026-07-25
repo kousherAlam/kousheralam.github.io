@@ -1,5 +1,11 @@
 # kousheralam.github.io
 
+## 1.0.1
+
+### Patch Changes
+
+- Automated release (28d1ab4)
+
 ## 0.13.0
 
 ### Minor Changes
