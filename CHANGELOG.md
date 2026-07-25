@@ -1,5 +1,11 @@
 # kousheralam.github.io
 
+## 1.2.2
+
+### Patch Changes
+
+- a1df70a: Studio: only bump the version when a post change affects the live site (editing a published post, publish, or unpublish) — not for new drafts or draft-to-draft edits.
+
 ## 1.2.1
 
 ### Patch Changes
