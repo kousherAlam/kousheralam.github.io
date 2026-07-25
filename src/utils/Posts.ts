@@ -1,11 +1,11 @@
 import type { CollectionEntry } from 'astro:content';
 
 
-export const sortByDate = (posts: any[]) => {
+export const sortByDate = (posts: CollectionEntry<"articles">[]) => {
   return posts.sort(
     (a, b) =>
-      new Date(b.frontmatter.pubDate).valueOf() -
-      new Date(a.frontmatter.pubDate).valueOf()
+      new Date(b.data.published).valueOf() -
+      new Date(a.data.published).valueOf()
   );
 };
 

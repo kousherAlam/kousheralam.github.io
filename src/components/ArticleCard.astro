@@ -2,17 +2,17 @@
 import type { CollectionEntry } from "astro:content";
 import { format } from "date-fns";
 
-import { IoHammerOutline } from "react-icons/io5/index";
-import { AiOutlineFileText, AiOutlineCalendar } from "react-icons/ai/index";
+import { IoHammerOutline } from "react-icons/io5";
+import { AiOutlineFileText, AiOutlineCalendar } from "react-icons/ai";
 
 type Props = CollectionEntry<"articles">;
 
-const { data, slug, id } = Astro.props;
+const { data, id } = Astro.props;
 ---
 
 <article>
   <h4 class="text-xl mb-1">
-    <a class="" href={`/${slug}`}>
+    <a class="" href={`/${id}`}>
       {data.title}
     </a>
   </h4>
