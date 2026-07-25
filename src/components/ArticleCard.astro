@@ -10,15 +10,15 @@ type Props = CollectionEntry<"articles">;
 const { data, id } = Astro.props;
 ---
 
-<article>
+<article class="banana-leaf py-2" data-reveal>
   <h4 class="text-xl mb-1">
-    <a class="" href={`/${id}`}>
+    <a class="text-slate-50 hover:text-orange-300" href={`/${id}`}>
       {data.title}
     </a>
   </h4>
   <div>
     <ul
-      class="list-none flex justify-start items-center gap-3 text-sm text-slate-400"
+      class="list-none flex justify-start items-center gap-3 text-sm text-slate-300"
     >
       <li title={data.type}>
         {data.type === "Project" ? <IoHammerOutline /> : <AiOutlineFileText />}

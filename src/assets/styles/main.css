@@ -7,8 +7,10 @@
 
 @theme {
   --font-sans:
-    Inter Variable, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Nunito Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-display:
+    'Quicksand Variable', 'Nunito Variable', ui-sans-serif, system-ui, sans-serif;
 }
 
 /*
@@ -30,20 +32,36 @@
 }
 
 @layer base {
+  body {
+    @apply leading-relaxed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
   a {
-    @apply text-orange-500 
-            visited:text-orange-600 
+    @apply text-orange-500
+            visited:text-orange-600
             hover:text-orange-400;
   }
   .btn {
-    @apply px-6 py-2 border cursor-pointer border-orange-600 text-orange-400 
+    @apply px-6 py-2 border cursor-pointer border-orange-600 text-orange-400
             hover:border-orange-400;
   }
   .btn.success {
     @apply border-green-600 hover:border-green-400 text-green-400;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
   h1 {
-    @apply text-4xl;
+    @apply text-4xl sm:text-5xl;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
   }
 
   h4 {
@@ -57,3 +75,48 @@
     @apply bg-orange-500 text-sm self-center hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-sm;
   }
 }
+
+@layer components {
+  /* Backgrounds removed — content sits directly on the scene. A strong text halo
+     keeps it legible over the moonlit village. */
+  .glass,
+  .banana-leaf,
+  .pond-panel,
+  .leaf-chip {
+    position: relative;
+    text-shadow:
+      0 1px 2px rgb(0 0 0 / 0.95),
+      0 2px 12px rgb(0 0 0 / 0.85),
+      0 0 26px rgb(0 0 0 / 0.55);
+  }
+  .glass-hover {
+    transition: transform 0.35s ease;
+  }
+  .glass-hover:hover {
+    transform: translateY(-2px);
+  }
+  /* skills: outline-only chips (no fill) so they stay readable on the scene */
+  .leaf-chip {
+    display: inline-block;
+    border: 1px solid rgb(226 232 240 / 0.22);
+    border-radius: 7px;
+    color: #e6edf5;
+  }
+}
+
+/* Content reveal on scroll (progressively enhanced; visible if JS is off). */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+

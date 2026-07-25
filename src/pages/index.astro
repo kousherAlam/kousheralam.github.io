@@ -14,34 +14,34 @@ const { description } = AppConfig;
 
 <Base head={{ title, description }}>
   <Hero />
-  <div class="pt-4 pb-4 mt-10">
-    <h2 class="mb-3 text-sm italic">
+  <section class="mt-20 sm:mt-28">
+    <h2 class="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-orange-400/90" data-reveal>
       Certifications
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
       {
         AppConfig.certifications.map((cert) => {
           if(!cert.title) {return <></>}
           return (
-            <div class="mb-3">
+            <div>
               <Certificate {...cert} />
             </div>
           );
         })
       }
     </div>
-  </div>
+  </section>
 
-  <div class="mt-8 pt-4">
-    <h2 class="mb-3 text-sm italic">
-        Publication <span class="text-bold text-xs">/</span> Project
-      </h2>
-    <div class="grid gap-6">
-      {allArticle.map((article) => <ArticleCard {...article} />)} 
+  <section class="mt-20 sm:mt-28">
+    <h2 class="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-orange-400/90" data-reveal>
+      Publication <span class="text-slate-500">/</span> Project
+    </h2>
+    <div class="leaf-list grid gap-9">
+      {allArticle.map((article) => <ArticleCard {...article} />)}
     </div>
-  </div>
+  </section>
 
-  <footer id="page-footer" class="mt-12">
+  <footer id="page-footer" class="mt-24 sm:mt-32" data-reveal>
     <Footer />
   </footer>
 </Base>

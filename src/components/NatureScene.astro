@@ -1,0 +1,770 @@
+---
+// An ambient, painterly evening scene behind the whole site: twilight sky with a
+// dusk glow, a moon, stars, a distant village with lamp-lit windows, a shimmering
+// lake with reflections, a mud road, a swaying tree, fireflies, birds, and rain.
+// Sits behind content (pointer-events: none); calms right down under reduced motion.
+let seed = 20260726;
+const rnd = () => {
+  seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+  return seed / 0x7fffffff;
+};
+
+const stars = Array.from({ length: 60 }, () => ({
+  x: (rnd() * 100).toFixed(2),
+  y: (rnd() * 42).toFixed(2),
+  r: (0.4 + rnd() * 1.1).toFixed(2),
+  d: (2 + rnd() * 4).toFixed(2),
+  delay: (rnd() * 5).toFixed(2),
+}));
+
+const drops = Array.from({ length: 60 }, () => ({
+  left: (rnd() * 100).toFixed(2),
+  delay: (rnd() * 4).toFixed(2),
+  dur: (0.7 + rnd() * 0.9).toFixed(2),
+  len: (34 + rnd() * 60).toFixed(0),
+  op: (0.06 + rnd() * 0.18).toFixed(2),
+}));
+
+// Fireflies gather around the bushes/jungle beside the pond (the sides), with a
+// few drifting over the water.
+const fireflies = Array.from({ length: 30 }, () => {
+  const side = rnd();
+  const x = side < 0.4 ? 2 + rnd() * 24 : side < 0.8 ? 74 + rnd() * 24 : 26 + rnd() * 48;
+  return {
+    x: x.toFixed(2),
+    y: (56 + rnd() * 36).toFixed(2),
+    d: (5 + rnd() * 6).toFixed(2),
+    delay: (rnd() * 8).toFixed(2),
+    dx: (rnd() * 34 - 17).toFixed(0),
+    dy: (-14 - rnd() * 22).toFixed(0),
+  };
+});
+
+const birds = Array.from({ length: 4 }, (_, i) => ({
+  top: (8 + rnd() * 22).toFixed(1),
+  size: (15 + rnd() * 14).toFixed(0),
+  dur: (18 + rnd() * 14).toFixed(1),
+  delay: (i * 6 + rnd() * 6).toFixed(1),
+  flap: (0.4 + rnd() * 0.22).toFixed(2),
+  drift: (2 + rnd() * 4).toFixed(1),
+}));
+
+const leaves = Array.from({ length: 5 }, () => ({
+  delay: (rnd() * 12).toFixed(1),
+  dur: (9 + rnd() * 7).toFixed(1),
+  sway: (20 + rnd() * 40).toFixed(0),
+}));
+
+// Bangladeshi village tin-roof huts on the far bank (viewBox window 0 58 1440 242):
+// [x, baseY, w, h, roofH, warm-lamp?] — low, wide, shallow-pitched roofs.
+const houses = [
+  [150, 92, 52, 21, 7, true],
+  [216, 93, 40, 17, 6, false],
+  [286, 91, 62, 24, 8, true],
+  [360, 93, 44, 18, 6, true],
+  [412, 92, 50, 21, 7, false],
+  [980, 92, 54, 22, 8, true],
+  [1046, 93, 40, 17, 6, false],
+  [1096, 91, 60, 24, 8, true],
+  [1166, 92, 46, 19, 7, true],
+];
+
+// Coconut palms along the far bank: [x, baseY, scale, warm-lamp-at-base?]
+const palms = [
+  [116, 93, 0.9],
+  [204, 92, 1.15],
+  [340, 93, 0.8],
+  [470, 92, 1.0],
+  [946, 93, 0.95],
+  [1140, 92, 1.1],
+  [1244, 93, 0.85],
+];
+
+// Rain ripples on the pond surface
+const ripples = Array.from({ length: 10 }, () => ({
+  x: (rnd() * 100).toFixed(1),
+  y: (60 + rnd() * 30).toFixed(1),
+  d: (2.6 + rnd() * 2.4).toFixed(2),
+  delay: (rnd() * 6).toFixed(2),
+  s: (10 + rnd() * 16).toFixed(0),
+}));
+
+// Lily pads floating on the pond: [x%, y%, w, tilt, lotus?]
+const pads = [
+  [16, 76, 30, -8, true],
+  [30, 84, 24, 6, false],
+  [46, 79, 34, 0, false],
+  [62, 86, 22, 10, true],
+  [76, 80, 28, -6, false],
+  [88, 85, 20, 4, false],
+];
+---
+
+<div class="scene" aria-hidden="true">
+  <div class="sky"></div>
+  <div class="dusk"></div>
+
+  <div class="moon"></div>
+
+  <div class="stars">
+    {
+      stars.map((s) => (
+        <span
+          class="star"
+          style={`left:${s.x}%;top:${s.y}%;width:${s.r}px;height:${s.r}px;animation-duration:${s.d}s;animation-delay:${s.delay}s`}
+        />
+      ))
+    }
+  </div>
+
+  <!-- Landscape: moonlit Bangladeshi village pond, jungle, and a roadside -->
+  <svg class="landscape" viewBox="0 58 1440 242" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <linearGradient id="pond" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2b2c4c" />
+        <stop offset="0.35" stop-color="#171932" />
+        <stop offset="1" stop-color="#090b1e" />
+      </linearGradient>
+      <linearGradient id="moonrefl" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#f4eee0" stop-opacity="0.5" />
+        <stop offset="1" stop-color="#f4eee0" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3a2b1b" />
+        <stop offset="1" stop-color="#4d3925" />
+      </linearGradient>
+      <filter id="soft" x="-80%" y="-80%" width="260%" height="260%">
+        <feGaussianBlur stdDeviation="1.8" />
+      </filter>
+      <!-- coconut palm -->
+      <g id="palm">
+        <path d="M-2 0 C -3 -34 -2 -60 0 -86 C 2 -60 3 -34 2 0 Z" fill="#0b1024" />
+        <g stroke="#0b1024" stroke-width="3.2" stroke-linecap="round" fill="none">
+          <path d="M0 -86 Q -20 -104 -46 -96" />
+          <path d="M0 -86 Q 20 -104 46 -96" />
+          <path d="M0 -86 Q -30 -92 -54 -78" />
+          <path d="M0 -86 Q 30 -92 54 -78" />
+          <path d="M0 -86 Q -14 -108 -24 -116" />
+          <path d="M0 -86 Q 14 -108 24 -116" />
+          <path d="M0 -86 Q 0 -112 3 -120" />
+        </g>
+      </g>
+      <!-- banana plant (broad drooping leaves) -->
+      <g id="banana">
+        <rect x="-3" y="-30" width="6" height="30" rx="3" fill="#0d1e14" />
+        <g fill="#0e2618">
+          <path d="M0 -28 Q -34 -44 -60 -32 Q -32 -38 0 -30 Z" />
+          <path d="M0 -28 Q 34 -44 60 -32 Q 32 -38 0 -30 Z" />
+          <path d="M0 -30 Q -24 -60 -32 -76 Q -12 -54 0 -32 Z" />
+          <path d="M0 -30 Q 24 -60 32 -76 Q 12 -54 0 -32 Z" />
+          <path d="M0 -30 Q -6 -66 -1 -82 Q 6 -64 2 -32 Z" />
+        </g>
+      </g>
+      <!-- low bush / jungle clump -->
+      <g id="bush" fill="#0b1d14">
+        <ellipse cx="0" cy="0" rx="34" ry="14" />
+        <circle cx="-16" cy="-6" r="15" />
+        <circle cx="14" cy="-8" r="17" />
+        <circle cx="0" cy="-12" r="15" />
+        <circle cx="-30" cy="-2" r="11" />
+        <circle cx="28" cy="-3" r="12" />
+      </g>
+      <!-- roadside leafy tree -->
+      <g id="rtree">
+        <rect x="-3.5" y="-40" width="7" height="42" fill="#2c1c12" />
+        <g fill="#0d3020">
+          <circle cx="0" cy="-52" r="27" />
+          <circle cx="-22" cy="-42" r="19" />
+          <circle cx="22" cy="-44" r="20" />
+          <circle cx="0" cy="-32" r="21" />
+        </g>
+      </g>
+      <!-- bamboo grove (baashjhaar): tall thin culms with wispy leaves -->
+      <g id="bamboo" stroke="#0d2718" stroke-width="2.2" fill="none" stroke-linecap="round">
+        <path d="M0 0 C -3 -34 -1 -68 2 -104" />
+        <path d="M9 0 C 7 -30 10 -62 7 -96" />
+        <path d="M-9 0 C -12 -28 -9 -58 -12 -88" />
+        <path d="M18 0 C 17 -26 20 -54 16 -84" />
+        <path d="M-18 0 C -19 -24 -17 -50 -20 -78" />
+        <g stroke-width="1.6">
+          <path d="M2 -104 q -12 -6 -20 -2" />
+          <path d="M2 -104 q 12 -4 20 2" />
+          <path d="M7 -96 q 12 -5 19 0" />
+          <path d="M-12 -88 q -12 -4 -18 2" />
+          <path d="M16 -84 q 11 -3 17 3" />
+          <path d="M-20 -78 q -10 -3 -16 2" />
+        </g>
+      </g>
+    </defs>
+
+    <!-- far jungle line -->
+    <path d="M0 92 Q 90 68 190 86 Q 300 64 430 84 Q 560 68 700 86 Q 860 66 1010 84 Q 1180 66 1320 84 Q 1400 76 1440 84 V 100 H0 Z" fill="#0a1026" />
+    <path d="M0 94 Q 140 80 300 92 Q 520 78 760 92 Q 1000 80 1240 92 Q 1360 86 1440 92 V 104 H0 Z" fill="#081026" opacity="0.9" />
+
+    <!-- coconut palms + a few banana plants on the far bank -->
+    <g class="flora-far">
+      {palms.map(([x, baseY, s]) => <use href="#palm" transform={`translate(${x} ${baseY}) scale(${s})`} />)}
+      <use href="#banana" transform="translate(96 93) scale(0.9)" />
+      <use href="#banana" transform="translate(700 93) scale(0.8)" />
+      <use href="#banana" transform="translate(1292 93) scale(0.85)" />
+    </g>
+
+    <!-- bamboo-and-straw thatched huts with an oil-lamp glow (no chimneys) -->
+    <g class="village">
+      {
+        houses.map(([x, baseY, w, h, rh, warm]) => {
+          const wallH = h - rh;
+          const wallTop = baseY - wallH;
+          const cx = x + w / 2;
+          return (
+            <g>
+              {/* straw thatch roof (low dome, drooping eaves) */}
+              <path d={`M${x - 10} ${wallTop + 1} Q ${cx} ${wallTop - rh * 1.8} ${x + w + 10} ${wallTop + 1} Z`} fill="#171009" />
+              {/* bamboo wall */}
+              <rect x={x} y={wallTop} width={w} height={wallH} fill="#0d0b08" />
+              {warm && (
+                <>
+                  <ellipse cx={cx} cy={baseY} rx={w * 0.5} ry="5" fill="#ffb457" opacity="0.28" filter="url(#soft)" />
+                  <rect x={cx - w * 0.09} y={wallTop + wallH * 0.28} width={w * 0.18} height={wallH * 0.72} fill="#ffbf6b" filter="url(#soft)" />
+                  <circle class="lamp" cx={cx} cy={wallTop + wallH * 0.55} r="2.6" fill="#ffd79a" />
+                </>
+              )}
+            </g>
+          );
+        })
+      }
+    </g>
+
+    <!-- village ground / jungle floor -->
+    <path d="M0 96 Q 360 90 720 96 T 1440 96 V 208 H0 Z" fill="#0a1210" />
+
+    <!-- dense jungle behind the pond, with bamboo groves -->
+    <g class="jungle-far">
+      <use href="#bamboo" transform="translate(470 128) scale(0.75)" />
+      <use href="#bamboo" transform="translate(930 128) scale(0.82)" />
+      <use href="#bush" transform="translate(120 126) scale(1.15)" />
+      <use href="#rtree" transform="translate(250 128) scale(0.75)" />
+      <use href="#bush" transform="translate(360 128) scale(0.95)" />
+      <use href="#bush" transform="translate(1090 126) scale(1.1)" />
+      <use href="#rtree" transform="translate(1210 128) scale(0.8)" />
+      <use href="#bush" transform="translate(1320 128) scale(1) " />
+      <use href="#bush" transform="translate(560 130) scale(0.8)" />
+      <use href="#bush" transform="translate(900 130) scale(0.85)" />
+    </g>
+
+    <!-- the pond: small and moonlit, nestled in the jungle -->
+    <ellipse cx="720" cy="166" rx="286" ry="44" fill="#0a1018" />
+    <ellipse cx="720" cy="164" rx="276" ry="38" fill="url(#pond)" />
+    <!-- the full moon's reflection on the water -->
+    <g class="moonlit">
+      <ellipse cx="836" cy="158" rx="7" ry="18" fill="url(#moonrefl)" />
+      <rect x="808" y="158" width="56" height="2.2" rx="1" fill="#f4eee0" opacity="0.26" />
+      <rect x="816" y="170" width="42" height="1.8" rx="1" fill="#f4eee0" opacity="0.2" />
+    </g>
+
+    <!-- a country boat on the pond -->
+    <g class="boat">
+      <path d="M636 158 Q 692 150 760 158 Q 718 170 682 169 Q 656 167 636 158 Z" fill="#0a0d22" />
+      <rect x="698" y="144" width="2.2" height="15" fill="#0a0d22" />
+      <circle cx="699" cy="142" r="2.6" fill="#ffc169" filter="url(#soft)" />
+    </g>
+
+    <!-- lily pads (a couple with a lotus) -->
+    <g class="pads" fill="#123a2c">
+      <ellipse cx="560" cy="158" rx="15" ry="4.4" transform="rotate(-6 560 158)" />
+      <ellipse cx="640" cy="176" rx="18" ry="5" />
+      <circle cx="640" cy="174" r="2.8" fill="#e88bab" />
+      <ellipse cx="820" cy="172" rx="14" ry="4.2" transform="rotate(6 820 172)" />
+      <ellipse cx="900" cy="160" rx="13" ry="4" />
+      <circle cx="900" cy="158" r="2.4" fill="#e07a9b" />
+    </g>
+
+    <!-- ghat: brick steps down into the pond -->
+    <g class="ghat" fill="#171015">
+      <rect x="566" y="188" width="96" height="5" rx="1" />
+      <rect x="578" y="194" width="72" height="5" rx="1" fill="#120c10" />
+      <rect x="590" y="200" width="48" height="5" rx="1" fill="#0d090c" />
+    </g>
+
+    <!-- floating water hyacinth (kachuripana) with little purple blooms -->
+    <g class="hyacinth">
+      <g fill="#12492b">
+        <ellipse cx="470" cy="150" rx="7" ry="4" />
+        <ellipse cx="480" cy="152" rx="6" ry="3.6" />
+        <ellipse cx="462" cy="153" rx="5.5" ry="3.4" />
+        <circle cx="474" cy="149" r="1.6" fill="#b47ad6" />
+      </g>
+      <g fill="#12492b">
+        <ellipse cx="980" cy="172" rx="8" ry="4.4" />
+        <ellipse cx="992" cy="174" rx="6.4" ry="3.6" />
+        <ellipse cx="970" cy="175" rx="6" ry="3.4" />
+        <circle cx="984" cy="171" r="1.7" fill="#a86fce" />
+      </g>
+      <g fill="#12492b">
+        <ellipse cx="690" cy="182" rx="9" ry="4.6" />
+        <ellipse cx="704" cy="184" rx="6.6" ry="3.8" />
+        <ellipse cx="678" cy="185" rx="6" ry="3.4" />
+        <circle cx="695" cy="181" r="1.6" fill="#b47ad6" />
+      </g>
+    </g>
+
+    <!-- dense jungle & bushes hugging the pond and the road -->
+    <g class="jungle-near">
+      <use href="#rtree" transform="translate(90 202) scale(1.2)" />
+      <use href="#banana" transform="translate(30 204) scale(1)" />
+      <use href="#bush" transform="translate(180 206) scale(1.15)" />
+      <use href="#bush" transform="translate(300 208) scale(0.9)" />
+      <use href="#bush" transform="translate(430 200) scale(0.8)" />
+      <use href="#rtree" transform="translate(1360 202) scale(1.25)" />
+      <use href="#banana" transform="translate(1420 204) scale(0.95)" />
+      <use href="#bush" transform="translate(1270 206) scale(1.15)" />
+      <use href="#bush" transform="translate(1150 208) scale(0.9)" />
+      <use href="#bush" transform="translate(1010 200) scale(0.8)" />
+      <use href="#bush" transform="translate(470 210) scale(0.7)" />
+      <use href="#bush" transform="translate(980 210) scale(0.72)" />
+    </g>
+
+    <!-- horizontal dirt (kaccha) road along the bottom -->
+    <path d="M0 214 Q 720 224 1440 214 L1440 276 Q 720 268 0 276 Z" fill="url(#road)" />
+    <g stroke="#5a462e" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5">
+      <path d="M40 244 Q 720 252 1400 244" />
+      <path d="M40 260 Q 720 267 1400 260" />
+    </g>
+    <!-- foreground grass -->
+    <path d="M0 274 Q 720 266 1440 274 V 300 H0 Z" fill="#060a14" />
+  </svg>
+
+  <!-- rain ripples on the pond -->
+  <div class="ripples">
+    {
+      ripples.map((r) => (
+        <span
+          class="ripple"
+          style={`left:${r.x}%;top:${r.y}%;width:${r.s}px;height:${Math.round(Number(r.s) * 0.34)}px;animation-duration:${r.d}s;animation-delay:${r.delay}s`}
+        />
+      ))
+    }
+  </div>
+
+  <!-- Fireflies -->
+  <div class="fireflies">
+    {
+      fireflies.map((f) => (
+        <span
+          class="firefly"
+          style={`left:${f.x}%;top:${f.y}%;animation-duration:${f.d}s;animation-delay:${f.delay}s;--dx:${f.dx}px;--dy:${f.dy}px`}
+        />
+      ))
+    }
+  </div>
+
+  <!-- Tree (foreground bank) -->
+  <div class="tree">
+    <svg viewBox="0 0 200 240" width="200" height="240">
+      <path
+        class="trunk"
+        d="M96 240 C94 190 92 168 90 150 C88 132 84 122 78 112 M104 240 C106 196 108 172 110 152 C112 134 118 120 126 110"
+        fill="none"
+      />
+      <g class="foliage">
+        <circle cx="100" cy="86" r="52" />
+        <circle cx="64" cy="104" r="38" />
+        <circle cx="138" cy="104" r="40" />
+        <circle cx="100" cy="120" r="46" />
+        <circle cx="82" cy="70" r="30" />
+        <circle cx="124" cy="72" r="30" />
+      </g>
+    </svg>
+    <div class="leaves">
+      {
+        leaves.map((l) => (
+          <span
+            class="leaf"
+            style={`animation-delay:${l.delay}s;animation-duration:${l.dur}s;--sway:${l.sway}px`}
+          />
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Birds -->
+  <div class="birds">
+    {
+      birds.map((b) => (
+        <div
+          class="bird"
+          style={`top:${b.top}vh;width:${b.size}px;animation-duration:${b.dur}s;animation-delay:${b.delay}s;--drift:${b.drift}vh`}
+        >
+          <svg viewBox="0 0 40 20" style={`animation-duration:${b.flap}s`} class="bird-svg">
+            <path class="wing wl" d="M20 11 Q11 3 2 9" />
+            <path class="wing wr" d="M20 11 Q29 3 38 9" />
+          </svg>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Rain -->
+  <div class="rain">
+    {
+      drops.map((d) => (
+        <span
+          class="drop"
+          style={`left:${d.left}%;animation-delay:${d.delay}s;animation-duration:${d.dur}s;height:${d.len}px;opacity:${d.op}`}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .scene {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* Twilight sky + horizon dusk glow */
+  .sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      #120f2e 0%,
+      #1d1642 24%,
+      #2c2050 40%,
+      #46294f 52%,
+      #6a3a49 60%,
+      #97583f 67%,
+      #6e4136 72%,
+      #2a1c38 78%
+    );
+  }
+  .dusk {
+    position: absolute;
+    left: 50%;
+    bottom: 24%;
+    width: 130vw;
+    height: 46vh;
+    transform: translateX(-50%);
+    background: radial-gradient(
+      ellipse at 50% 100%,
+      rgb(255 176 92 / 0.42) 0%,
+      rgb(238 132 74 / 0.24) 26%,
+      rgb(180 92 96 / 0.12) 48%,
+      transparent 72%
+    );
+  }
+  .moon {
+    position: absolute;
+    top: 12%;
+    right: 16%;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%, #fff7e8, #e9dfc4 60%, #d9cba6);
+    box-shadow:
+      0 0 30px 10px rgb(255 244 214 / 0.28),
+      0 0 80px 30px rgb(255 236 190 / 0.12);
+  }
+
+  .stars {
+    position: absolute;
+    inset: 0;
+  }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: #fdf6e3;
+    animation: twinkle ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.25;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.95;
+      transform: scale(1.15);
+    }
+  }
+
+  .landscape {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55vh;
+  }
+  /* oil-lamp flame flicker (irregular) */
+  .lamp {
+    transform-origin: center;
+    animation: lamp-flicker 2.8s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+  @keyframes lamp-flicker {
+    0%,
+    100% {
+      opacity: 0.95;
+      transform: scale(1);
+    }
+    18% {
+      opacity: 0.6;
+      transform: scale(0.92);
+    }
+    36% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    54% {
+      opacity: 0.7;
+    }
+    72% {
+      opacity: 0.95;
+      transform: scale(1.02);
+    }
+  }
+  /* full-moon reflection shimmering on the water */
+  .moonlit {
+    animation: moon-shimmer 7s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+  @keyframes moon-shimmer {
+    0%,
+    100% {
+      transform: translateX(0) scaleY(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translateX(-3px) scaleY(1.05);
+      opacity: 0.6;
+    }
+  }
+
+  .fireflies {
+    position: absolute;
+    inset: 0;
+  }
+  .firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #ffe08a;
+    box-shadow: 0 0 6px 2px rgb(255 210 120 / 0.7);
+    animation: float ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes float {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.9;
+    }
+    80% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(var(--dx), var(--dy));
+      opacity: 0;
+    }
+  }
+
+  /* Rain ripples on the pond */
+  .ripples {
+    position: absolute;
+    inset: 0;
+  }
+  .ripple {
+    position: absolute;
+    border: 1px solid rgb(214 226 255 / 0.45);
+    border-radius: 50%;
+    transform: scale(0.2);
+    opacity: 0;
+    animation: ripple-expand ease-out infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes ripple-expand {
+    0% {
+      transform: scale(0.15);
+      opacity: 0;
+    }
+    22% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+
+  /* Rain */
+  .rain {
+    position: absolute;
+    inset: -5% -12% 0 -12%;
+    transform: rotate(9deg);
+    transform-origin: top center;
+  }
+  .drop {
+    position: absolute;
+    top: -12%;
+    width: 1px;
+    border-radius: 1px;
+    background: linear-gradient(to bottom, transparent, rgb(190 205 235 / 0.75));
+    animation: rain-fall linear infinite;
+    will-change: transform;
+  }
+  @keyframes rain-fall {
+    from {
+      transform: translateY(-10vh);
+    }
+    to {
+      transform: translateY(120vh);
+    }
+  }
+
+  /* Birds */
+  .bird {
+    position: absolute;
+    left: -8%;
+    animation: bird-fly linear infinite;
+    will-change: transform;
+  }
+  @keyframes bird-fly {
+    0% {
+      transform: translate(-10vw, 0);
+    }
+    50% {
+      transform: translate(52vw, calc(var(--drift) * -1));
+    }
+    100% {
+      transform: translate(118vw, 0);
+    }
+  }
+  .bird-svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .wing {
+    fill: none;
+    stroke: rgb(210 218 235 / 0.5);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    transform-origin: 20px 11px;
+    animation: bird-flap ease-in-out infinite alternate;
+    animation-duration: inherit;
+  }
+  @keyframes bird-flap {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-3px) scaleY(0.7);
+    }
+  }
+
+  /* Tree */
+  .tree {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    opacity: 0.5;
+  }
+  .tree svg {
+    display: block;
+  }
+  .trunk {
+    stroke: rgb(96 58 36 / 0.95);
+    stroke-width: 9;
+    stroke-linecap: round;
+  }
+  .foliage circle {
+    fill: rgb(14 66 48 / 0.95);
+  }
+  .foliage {
+    transform-origin: 100px 210px;
+    animation: tree-sway 7s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes tree-sway {
+    0%,
+    100% {
+      transform: rotate(-1.6deg);
+    }
+    50% {
+      transform: rotate(1.6deg);
+    }
+  }
+  .leaves {
+    position: absolute;
+    inset: 0;
+  }
+  .leaf {
+    position: absolute;
+    top: 60px;
+    left: 90px;
+    width: 7px;
+    height: 5px;
+    border-radius: 60% 0 60% 0;
+    background: rgb(34 120 84 / 0.85);
+    animation: leaf-fall ease-in infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes leaf-fall {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(var(--sway), 190px) rotate(220deg);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .tree {
+      width: 130px;
+      opacity: 0.4;
+    }
+    .moon {
+      width: 54px;
+      height: 54px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .star,
+    .lamp,
+    .moonlit,
+    .firefly,
+    .ripple,
+    .drop,
+    .bird,
+    .wing,
+    .foliage,
+    .leaf {
+      animation: none !important;
+    }
+    .rain,
+    .birds,
+    .ripples {
+      display: none;
+    }
+  }
+</style>

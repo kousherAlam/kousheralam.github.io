@@ -2,9 +2,11 @@
 import "../assets/styles/main.css";
 import "../assets/styles/micromodal.css";
 // Supports weights 100-900
-import '@fontsource-variable/inter';
+import '@fontsource-variable/nunito';
+import '@fontsource-variable/quicksand';
 import "tiny-slider/dist/tiny-slider.css";
 import { AppConfig } from "@/utils/AppConfig";
+import NatureScene from "@/components/NatureScene.astro";
 
 export interface Props {
   head: {
@@ -57,10 +59,29 @@ const {
     </script>
     )}
   </head>
-  <body class="bg-slate-900 text-gray-100 ">
-    <div class="container mx-auto py-6 px-4 md:py-8 xl:py-10 md:px-5 max-w-4xl ">
+  <body class="bg-[#090b23] text-gray-100 relative">
+    <NatureScene />
+    <div
+      class="container relative z-10 mx-auto max-w-5xl px-5 py-10 sm:px-6 md:py-16 xl:py-20"
+    >
       <slot />
     </div>
+
+    <script>
+      // Reveal content as it scrolls into view (skipped under reduced-motion via CSS).
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      );
+      document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+    </script>
     {
       import.meta.env.PROD && (
         <Fragment>
