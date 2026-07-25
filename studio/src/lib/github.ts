@@ -72,7 +72,7 @@ export interface SaveOptions {
   id: string;
   frontmatter: Frontmatter;
   body: string;
-  /** When true, also add a minor changeset so the release pipeline bumps + tags. */
+  /** When true, also add a patch changeset so the release pipeline bumps + tags. */
   publish: boolean;
 }
 
@@ -268,5 +268,5 @@ function changesetStamp(): string {
 
 function changesetBody(title: string): string {
   const safe = title.replace(/"/g, '\\"');
-  return `---\n"kousheralam.github.io": minor\n---\n\nPublish post: ${safe}\n`;
+  return `---\n"kousheralam.github.io": patch\n---\n\nPublish post: ${safe}\n`;
 }

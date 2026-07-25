@@ -12,7 +12,7 @@ Directory set to `studio/`.
 
 1. You edit a post (frontmatter form + MDX source) with a live preview.
 2. **Save draft** commits the `.mdx` file with `draft: true` (no release).
-3. **Publish** makes a single commit containing the `.mdx` file **and** a `minor`
+3. **Publish** makes a single commit containing the `.mdx` file **and** a `patch`
    changeset (`.changeset/cms-*.md`) with `draft: false`.
 4. That push to `master` triggers the site's release workflow
    (`.github/workflows/astro.yml`): it consumes the changeset → bumps the version →

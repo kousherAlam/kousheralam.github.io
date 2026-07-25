@@ -99,7 +99,7 @@ Always use the **same stable production alias** for all three of these — that'
 - [ ] Post list shows your existing articles
 - [ ] Open/edit a post → live preview renders
 - [ ] **Save draft** on a test post → content-only commit appears in the repo
-- [ ] **Publish** a throwaway post → commits MDX + a `minor` changeset → release workflow runs (version bump → `vX.Y.Z` tag → Pages deploy)
+- [ ] **Publish** a throwaway post → commits MDX + a `patch` changeset → release workflow runs (version bump → `vX.Y.Z` tag → Pages deploy)
 
 ## Part 8 — Disable preview deployments (production only)
 
