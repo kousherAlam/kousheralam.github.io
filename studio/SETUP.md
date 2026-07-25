@@ -92,6 +92,27 @@ Do **not** set `STUDIO_DEV`.
 - [ ] **Save draft** on a test post → content-only commit appears in the repo
 - [ ] **Publish** a throwaway post → commits MDX + a `minor` changeset → release workflow runs (version bump → `vX.Y.Z` tag → Pages deploy)
 
+## Part 8 — Disable preview deployments (production only)
+
+By default Vercel builds a **preview deployment** for every branch push and pull
+request. To only ever deploy production (the `master` branch) and skip all previews,
+set an **Ignored Build Step** (this is the supported Vercel mechanism — `vercel.json`
+can't express "production-only" on its own):
+
+- [ ] Vercel → Project → **Settings → Git → Ignored Build Step**
+- [ ] Choose **"Run my Bash command"** and enter:
+  ```bash
+  if [ "$VERCEL_ENV" = "production" ]; then exit 1; else exit 0; fi
+  ```
+  Exit code **1 = build proceeds** (production), **0 = build skipped** (previews). So
+  production deploys and every preview is cancelled before it builds.
+- [ ] (Optional) Also set **Settings → Git → Production Branch** to `master` if it isn't already.
+
+> Alternative, per-branch: `vercel.json` supports `git.deploymentEnabled` (e.g.
+> `{ "git": { "deploymentEnabled": { "some-branch": false } } }`), but branches you
+> don't list still deploy, so the Ignored Build Step above is the reliable "no previews"
+> switch.
+
 ---
 
 ## Troubleshooting
@@ -100,5 +121,6 @@ Do **not** set `STUDIO_DEV`.
 - **GitHub `redirect_uri` mismatch** → the App's Callback URL ≠ `PUBLIC_STUDIO_URL` + `/api/auth/callback`.
 - **"That GitHub account is not allowed"** → your login isn't in `ALLOWED_GITHUB_LOGINS`.
 - **Publish 500 / "GitHub App is not configured"** → one of `GITHUB_APP_ID` / `GITHUB_APP_PRIVATE_KEY` / `GITHUB_APP_INSTALLATION_ID` is missing, or the PEM didn't decode → re-check the base64.
+- **Vercel build fails with `Tsconfig not found astro/tsconfigs/base`** → the repo root `tsconfig.json` must not `extend` a bare `astro/...` preset (Vercel builds `studio/` without root `node_modules`, so it can't resolve). It's inlined on purpose — don't re-add the `extends`.
 
 See [README.md](./README.md) for how the app works and local-dev mode.

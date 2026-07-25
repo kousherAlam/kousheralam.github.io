@@ -1,14 +1,28 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "//": "Inlined from astro/tsconfigs/base on purpose. Do NOT switch back to `extends: astro/tsconfigs/base`: when Vercel builds studio/ in isolation, rolldown walks up and reads this root tsconfig but the repo root has no node_modules there, so a bare `astro/...` extends fails with 'Tsconfig not found astro/tsconfigs/base'.",
   "compilerOptions": {
-    "baseUrl": ".",
-    "strictNullChecks": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
+    "baseUrl": ".",
+    "strictNullChecks": true,
     "paths": {
       "@/*": [
         "./src/*"
       ]
     }
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }
