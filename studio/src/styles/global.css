@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-900 text-slate-100 antialiased;
+}
+
+/* CodeMirror sizing inside the editor pane */
+.cm-editor {
+  height: 100%;
+  font-size: 0.9rem;
+}
+.cm-editor .cm-scroller {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}

@@ -1,0 +1,47 @@
+---
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  session?: { login: string; name?: string; avatar?: string } | null;
+  wide?: boolean;
+}
+const { title = 'Studio', session = null, wide = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{title} · kousheralam studio</title>
+  </head>
+  <body class="min-h-full flex flex-col">
+    <header class="border-b border-slate-800 bg-slate-950/60">
+      <div class="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
+        <a href="/" class="flex items-center gap-2 font-semibold text-orange-400">
+          <span class="text-lg">✎</span>
+          <span>Studio</span>
+        </a>
+        {
+          session && (
+            <div class="flex items-center gap-3 text-sm text-slate-300">
+              {session.avatar && (
+                <img src={session.avatar} alt="" class="h-7 w-7 rounded-full" />
+              )}
+              <span class="hidden sm:inline">{session.name ?? session.login}</span>
+              <a href="/api/auth/logout" class="text-slate-400 hover:text-orange-400">
+                Sign out
+              </a>
+            </div>
+          )
+        }
+      </div>
+    </header>
+
+    <main class={`mx-auto w-full flex-1 px-4 py-6 ${wide ? 'max-w-[110rem]' : 'max-w-6xl'}`}>
+      <slot />
+    </main>
+  </body>
+</html>
