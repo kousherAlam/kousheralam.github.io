@@ -2,7 +2,7 @@ import googleCyberSecBadge from "@/assets/images/certificate-badge/google-cybers
 import awsSecBadge from "@/assets/images/certificate-badge/aws-sol-arc-associate.png";
 
 
-import avatarImg from "@/assets/images/avatar-kousher.jpg";
+import avatarImg from "@/assets/images/avatar-cartoon.png";
 
 import ottoLogo from "@/assets/images/logos/otto.png";
 import selLogo from "@/assets/images/logos/selise.png";
