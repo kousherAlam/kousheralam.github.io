@@ -2,8 +2,8 @@
 import "../assets/styles/main.css";
 import "../assets/styles/micromodal.css";
 // Supports weights 100-900
-import '@fontsource-variable/inter';
-import '@fontsource-variable/fraunces';
+import '@fontsource-variable/nunito';
+import '@fontsource-variable/quicksand';
 import "tiny-slider/dist/tiny-slider.css";
 import { AppConfig } from "@/utils/AppConfig";
 import NatureScene from "@/components/NatureScene.astro";
@@ -59,13 +59,47 @@ const {
     </script>
     )}
   </head>
-  <body class="bg-slate-900 text-gray-100 relative">
+  <body class="bg-[#090b23] text-gray-100 relative">
     <NatureScene />
     <div
       class="container relative z-10 mx-auto max-w-5xl px-5 py-10 sm:px-6 md:py-16 xl:py-20"
     >
       <slot />
     </div>
+
+    <script>
+      // Reveal content as it scrolls into view, and let the rain bead up on the
+      // frosted panels ("wet" surfaces). Both are skipped under reduced-motion.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
+      );
+      document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+
+      if (!reduce) {
+        document.querySelectorAll('.wet').forEach((card) => {
+          const n = 3 + Math.floor(Math.random() * 3);
+          for (let i = 0; i < n; i++) {
+            const drop = document.createElement('span');
+            drop.className = 'raindrop';
+            drop.style.left = (8 + Math.random() * 84).toFixed(1) + '%';
+            drop.style.setProperty('--delay', (Math.random() * 4).toFixed(2) + 's');
+            drop.style.setProperty('--dur', (2.4 + Math.random() * 2).toFixed(2) + 's');
+            drop.style.setProperty('--fall', (24 + Math.random() * 44).toFixed(0) + 'px');
+            card.appendChild(drop);
+          }
+        });
+      }
+    </script>
     {
       import.meta.env.PROD && (
         <Fragment>

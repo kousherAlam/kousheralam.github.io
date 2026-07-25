@@ -7,10 +7,10 @@
 
 @theme {
   --font-sans:
-    Inter Variable, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Nunito Variable', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-display:
-    'Fraunces Variable', ui-serif, Georgia, Cambria, 'Times New Roman', serif;
+    'Quicksand Variable', 'Nunito Variable', ui-sans-serif, system-ui, sans-serif;
 }
 
 /*
@@ -50,15 +50,18 @@
     @apply border-green-600 hover:border-green-400 text-green-400;
   }
   h1,
+  h2,
+  h3,
   h4,
   .font-display {
     font-family: var(--font-display);
-    font-optical-sizing: auto;
+    font-weight: 600;
   }
   h1 {
-    @apply text-4xl sm:text-5xl font-semibold;
-    letter-spacing: -0.015em;
-    line-height: 1.1;
+    @apply text-4xl sm:text-5xl;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
   }
 
   h4 {
@@ -70,5 +73,82 @@
   }
   .btn-primary {
     @apply bg-orange-500 text-sm self-center hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-sm;
+  }
+}
+
+@layer components {
+  /* Frosted panel that floats over the evening scene. */
+  .glass {
+    @apply rounded-2xl border border-white/15 bg-slate-950/70;
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    box-shadow:
+      0 14px 40px -14px rgb(0 0 0 / 0.7),
+      inset 0 1px 0 0 rgb(255 255 255 / 0.06);
+  }
+  .glass-hover {
+    transition:
+      transform 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  .glass-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgb(249 115 22 / 0.4);
+    box-shadow:
+      0 18px 40px -14px rgb(0 0 0 / 0.7),
+      0 0 0 1px rgb(249 115 22 / 0.15);
+  }
+}
+
+/* Content reveal on scroll (progressively enhanced; visible if JS is off). */
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Surfaces that catch rain: droplets are clipped to the panel. */
+.wet {
+  position: relative;
+  overflow: hidden;
+}
+
+/* A raindrop that runs down a "wet" surface. */
+.raindrop {
+  position: absolute;
+  top: -6px;
+  width: 2px;
+  height: 10px;
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(to bottom, rgb(255 255 255 / 0), rgb(191 219 254 / 0.55));
+  pointer-events: none;
+  animation: drip-down var(--dur, 2.2s) ease-in var(--delay, 0s) infinite;
+}
+@keyframes drip-down {
+  0% {
+    transform: translateY(0) scaleY(0.6);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(var(--fall, 60px)) scaleY(1.2);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .raindrop {
+    display: none;
   }
 }

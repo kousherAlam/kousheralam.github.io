@@ -8,21 +8,21 @@ import Experience from "./Experience.astro";
 <div
   class="grid grid-cols-1 items-center gap-10 text-center sm:text-left sm:grid-cols-2 md:grid-cols-6 md:gap-12"
 >
-  <div class="md:col-span-4 order-2 sm:order-1">
+  <div class="glass wet md:col-span-4 order-2 sm:order-1 p-6 sm:p-8" data-reveal>
     <section id="my-intro" title="my introduction">
       <p class="text-sm text-slate-400">
         Hello there <span class="waving-hand inline-block">👋</span>
       </p>
-      <h1 class="mt-3">
-        <span class="text-slate-200">I'm</span>
-        <span class="ml-3 font-bold text-orange-500" id="my-name"
+      <h1 class="mt-3 text-slate-50">
+        <span>I'm</span>
+        <span class="ml-3 font-bold text-orange-400" id="my-name"
           >{AppConfig.author}</span
         >
       </h1>
-      <p class="mt-3 text-lg text-slate-300" set:html={AppConfig.introTitle} />
+      <p class="mt-3 text-lg text-orange-200/90" set:html={AppConfig.introTitle} />
     </section>
     <section title="about myself" class="mt-8 text-left">
-      <p class="max-w-2xl leading-relaxed text-slate-300">{AppConfig.description}</p>
+      <p class="max-w-2xl leading-relaxed text-slate-200">{AppConfig.description}</p>
     </section>
     <Skils />
 
@@ -33,11 +33,18 @@ import Experience from "./Experience.astro";
   <div
     class="order-1 sm:order-2 md:col-span-2 flex flex-col justify-center sm:justify-center"
   >
-    <div class="flex justify-center">
+    <div class="avatar-stage flex justify-center" id="avatar-stage">
+      <!-- A bird flies in and perches on the avatar's head every so often. -->
+      <svg class="perch-bird" viewBox="0 0 40 24" width="34" aria-hidden="true">
+        <path class="pwing pwl" d="M20 13 Q11 4 2 10" />
+        <path class="pwing pwr" d="M20 13 Q29 4 38 10" />
+        <ellipse class="pbody" cx="20" cy="14" rx="4.5" ry="3.2" />
+      </svg>
       <img
+        id="hero-avatar"
         width={480}
         height={629}
-        class="h-80 w-64 object-contain"
+        class="hero-avatar h-80 w-64 object-contain"
         src={AppConfig.avatar}
         alt="Kousher's Profile Picture"
       />
@@ -113,4 +120,163 @@ import Experience from "./Experience.astro";
       transform: rotate(0deg);
     }
   }
+
+  /* ---- Avatar + perching bird ---- */
+  .avatar-stage {
+    position: relative;
+  }
+  .hero-avatar {
+    transform-origin: 50% 92%;
+    filter: drop-shadow(0 12px 22px rgb(0 0 0 / 0.45));
+  }
+  .hero-avatar.react {
+    animation: avatar-react 1.3s ease-in-out;
+  }
+  @keyframes avatar-react {
+    0% {
+      transform: none;
+    }
+    25% {
+      transform: translateY(-7px) rotate(-2.5deg) scale(1.035);
+    }
+    55% {
+      transform: translateY(0) rotate(1.5deg) scale(1.015);
+    }
+    80% {
+      transform: translateY(-2px) rotate(-0.5deg) scale(1.005);
+    }
+    100% {
+      transform: none;
+    }
+  }
+  /* little sparkle that pops when the bird lands */
+  .avatar-stage::after {
+    content: '✨';
+    position: absolute;
+    top: 6%;
+    left: 62%;
+    font-size: 20px;
+    opacity: 0;
+    transform: scale(0.6);
+    pointer-events: none;
+  }
+  .avatar-stage.spark::after {
+    animation: spark 1.3s ease-out;
+  }
+  @keyframes spark {
+    0% {
+      opacity: 0;
+      transform: scale(0.4) translateY(6px);
+    }
+    35% {
+      opacity: 1;
+      transform: scale(1.1) translateY(-2px);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9) translateY(-10px);
+    }
+  }
+
+  .perch-bird {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    overflow: visible;
+    z-index: 20;
+  }
+  .perch-bird .pwing {
+    fill: none;
+    stroke: #1e2233;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    transform-origin: 20px 13px;
+  }
+  .perch-bird .pbody {
+    fill: #232838;
+  }
+  .perch-bird.flap .pwing {
+    animation: perch-flap 0.26s ease-in-out infinite alternate;
+  }
+  @keyframes perch-flap {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-2px) scaleY(0.62);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .perch-bird {
+      display: none;
+    }
+    .hero-avatar.react {
+      animation: none;
+    }
+  }
 </style>
+
+<script>
+  // A little friend flies in every so often, perches on the avatar's head, and the
+  // character gives a happy bob. Positions are measured from the live layout so the
+  // bird lands right on the head at any screen size.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const stage = document.getElementById('avatar-stage');
+  const bird = stage?.querySelector('.perch-bird') as SVGElement | null;
+  const avatar = document.getElementById('hero-avatar');
+
+  if (!reduce && stage && bird && avatar) {
+    const perchAndReact = () => {
+      const s = stage.getBoundingClientRect();
+      const a = avatar.getBoundingClientRect();
+      const headX = a.left - s.left + a.width * 0.5 - 17;
+      const headY = a.top - s.top + a.height * 0.05 - 12;
+      const startX = -70;
+      const startY = headY + 60;
+
+      bird.classList.add('flap');
+      const flyIn = bird.animate(
+        [
+          { transform: `translate(${startX}px, ${startY}px) scale(.8)`, opacity: 0 },
+          { transform: `translate(${headX * 0.45}px, ${headY - 40}px) scale(.95)`, opacity: 1, offset: 0.55 },
+          { transform: `translate(${headX}px, ${headY}px) scale(1)`, opacity: 1 },
+        ],
+        { duration: 2200, easing: 'cubic-bezier(.4,.9,.3,1)', fill: 'forwards' },
+      );
+
+      flyIn.onfinish = () => {
+        bird.classList.remove('flap'); // wings fold when perched
+        avatar.classList.add('react');
+        stage.classList.add('spark');
+        setTimeout(() => {
+          avatar.classList.remove('react');
+          stage.classList.remove('spark');
+        }, 1400);
+
+        // sit for a few seconds, then fly off
+        setTimeout(() => {
+          bird.classList.add('flap');
+          const off = bird.animate(
+            [
+              { transform: `translate(${headX}px, ${headY}px) scale(1)`, opacity: 1 },
+              { transform: `translate(${s.width + 70}px, ${headY - 60}px) scale(.8)`, opacity: 0 },
+            ],
+            { duration: 1800, easing: 'cubic-bezier(.5,0,.8,.4)', fill: 'forwards' },
+          );
+          off.onfinish = () => {
+            bird.classList.remove('flap');
+            (bird as HTMLElement).style.opacity = '0';
+          };
+        }, 3400);
+      };
+    };
+
+    // first visit after a short beat, then on a relaxed loop
+    let t = window.setTimeout(function loop() {
+      perchAndReact();
+      t = window.setTimeout(loop, 14000 + Math.random() * 8000);
+    }, 3500);
+  }
+</script>

@@ -10,9 +10,9 @@ type Props = CollectionEntry<"articles">;
 const { data, id } = Astro.props;
 ---
 
-<article>
-  <h4 class="text-xl mb-1">
-    <a class="" href={`/${id}`}>
+<article class="glass glass-hover wet p-5 sm:p-6" data-reveal>
+  <h4 class="text-xl mb-2">
+    <a class="text-gray-100 hover:text-orange-400" href={`/${id}`}>
       {data.title}
     </a>
   </h4>

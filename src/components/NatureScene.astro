@@ -1,80 +1,184 @@
 ---
-// Ambient, decorative nature layer: soft rain, a few gliding birds, and a swaying
-// tree. Sits *behind* the page content (pointer-events: none) and is fully disabled
-// under prefers-reduced-motion. Distribution is seeded so the build is deterministic.
+// An ambient, painterly evening scene behind the whole site: twilight sky with a
+// dusk glow, a moon, stars, a distant village with lamp-lit windows, a shimmering
+// lake with reflections, a mud road, a swaying tree, fireflies, birds, and rain.
+// Sits behind content (pointer-events: none); calms right down under reduced motion.
 let seed = 20260726;
 const rnd = () => {
   seed = (seed * 1103515245 + 12345) & 0x7fffffff;
   return seed / 0x7fffffff;
 };
 
-const RAIN_COUNT = 55;
-const drops = Array.from({ length: RAIN_COUNT }, () => ({
+const stars = Array.from({ length: 60 }, () => ({
+  x: (rnd() * 100).toFixed(2),
+  y: (rnd() * 42).toFixed(2),
+  r: (0.4 + rnd() * 1.1).toFixed(2),
+  d: (2 + rnd() * 4).toFixed(2),
+  delay: (rnd() * 5).toFixed(2),
+}));
+
+const drops = Array.from({ length: 60 }, () => ({
   left: (rnd() * 100).toFixed(2),
   delay: (rnd() * 4).toFixed(2),
   dur: (0.7 + rnd() * 0.9).toFixed(2),
-  len: (36 + rnd() * 64).toFixed(0),
-  op: (0.08 + rnd() * 0.22).toFixed(2),
+  len: (34 + rnd() * 60).toFixed(0),
+  op: (0.06 + rnd() * 0.18).toFixed(2),
 }));
 
-const BIRD_COUNT = 4;
-const birds = Array.from({ length: BIRD_COUNT }, (_, i) => ({
-  top: (6 + rnd() * 34).toFixed(1),
-  size: (16 + rnd() * 16).toFixed(0),
-  dur: (16 + rnd() * 14).toFixed(1),
-  delay: (i * 5 + rnd() * 6).toFixed(1),
-  flap: (0.38 + rnd() * 0.22).toFixed(2),
+const fireflies = Array.from({ length: 16 }, () => ({
+  x: (rnd() * 100).toFixed(2),
+  y: (55 + rnd() * 38).toFixed(2),
+  d: (5 + rnd() * 6).toFixed(2),
+  delay: (rnd() * 8).toFixed(2),
+  dx: (rnd() * 40 - 20).toFixed(0),
+  dy: (-15 - rnd() * 25).toFixed(0),
+}));
+
+const birds = Array.from({ length: 4 }, (_, i) => ({
+  top: (8 + rnd() * 22).toFixed(1),
+  size: (15 + rnd() * 14).toFixed(0),
+  dur: (18 + rnd() * 14).toFixed(1),
+  delay: (i * 6 + rnd() * 6).toFixed(1),
+  flap: (0.4 + rnd() * 0.22).toFixed(2),
   drift: (2 + rnd() * 4).toFixed(1),
 }));
 
-const LEAF_COUNT = 5;
-const leaves = Array.from({ length: LEAF_COUNT }, () => ({
+const leaves = Array.from({ length: 5 }, () => ({
   delay: (rnd() * 12).toFixed(1),
   dur: (9 + rnd() * 7).toFixed(1),
   sway: (20 + rnd() * 40).toFixed(0),
 }));
+
+// Village houses on the far shore (viewBox 1440x300): [x, baseY, w, h, roofH, warm]
+const houses = [
+  [150, 92, 40, 30, 15, true],
+  [196, 93, 28, 22, 12, false],
+  [262, 91, 50, 36, 19, true],
+  [324, 93, 26, 20, 11, true],
+  [362, 92, 38, 27, 14, false],
+  [422, 91, 46, 32, 17, true],
+  [980, 92, 42, 30, 16, true],
+  [1030, 93, 30, 22, 12, false],
+  [1078, 91, 50, 36, 19, true],
+  [1140, 92, 36, 25, 13, true],
+  [1192, 93, 26, 20, 11, false],
+];
 ---
 
-<div class="nature" aria-hidden="true">
-  <!-- Rain -->
-  <div class="rain">
+<div class="scene" aria-hidden="true">
+  <div class="sky"></div>
+  <div class="dusk"></div>
+
+  <div class="moon"></div>
+
+  <div class="stars">
     {
-      drops.map((d) => (
+      stars.map((s) => (
         <span
-          class="drop"
-          style={`left:${d.left}%;animation-delay:${d.delay}s;animation-duration:${d.dur}s;height:${d.len}px;opacity:${d.op}`}
+          class="star"
+          style={`left:${s.x}%;top:${s.y}%;width:${s.r}px;height:${s.r}px;animation-duration:${s.d}s;animation-delay:${s.delay}s`}
         />
       ))
     }
   </div>
 
-  <!-- Birds -->
-  <div class="birds">
+  <!-- Landscape: far hills, village, lake, foreground bank + mud road -->
+  <svg class="landscape" viewBox="0 58 1440 242" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#1a1f47" />
+        <stop offset="0.4" stop-color="#0f1435" />
+        <stop offset="1" stop-color="#080b22" />
+      </linearGradient>
+      <linearGradient id="reflect" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffcf87" stop-opacity="0.55" />
+        <stop offset="1" stop-color="#ffcf87" stop-opacity="0" />
+      </linearGradient>
+      <linearGradient id="moonrefl" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#eaf0ff" stop-opacity="0.5" />
+        <stop offset="1" stop-color="#eaf0ff" stop-opacity="0" />
+      </linearGradient>
+      <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="1.6" />
+      </filter>
+    </defs>
+
+    <!-- far rolling hills -->
+    <path d="M0 90 Q 320 60 640 84 T 1440 78 V 120 H0 Z" fill="#171b40" />
+    <path d="M0 94 Q 460 74 900 92 T 1440 90 V 120 H0 Z" fill="#1c2150" opacity="0.9" />
+
+    <!-- village houses -->
+    <g class="village">
+      {
+        houses.map(([x, baseY, w, h, rh, warm]) => {
+          const wallH = h - rh;
+          const wallTop = baseY - wallH;
+          const apexY = baseY - h;
+          return (
+            <g>
+              <polygon
+                points={`${x - 4},${wallTop} ${x + w / 2},${apexY} ${x + w + 4},${wallTop}`}
+                fill="#0a0d28"
+              />
+              <rect x={x} y={wallTop} width={w} height={wallH} fill="#0d1130" />
+              {warm && (
+                <>
+                  <rect x={x + w * 0.24} y={wallTop + 5} width="4.5" height="4.5" class="win" fill="#ffd884" filter="url(#soft)" />
+                  <rect x={x + w * 0.6} y={wallTop + 5} width="4.5" height="4.5" class="win win-b" fill="#ffce78" filter="url(#soft)" />
+                </>
+              )}
+            </g>
+          );
+        })
+      }
+    </g>
+
+    <!-- lake -->
+    <rect x="0" y="92" width="1440" height="208" fill="url(#lake)" />
+
+    <!-- reflections of the lit windows + moon, gently shimmering -->
+    <g class="reflections">
+      <rect x="268" y="96" width="6" height="70" fill="url(#reflect)" />
+      <rect x="432" y="96" width="6" height="64" fill="url(#reflect)" />
+      <rect x="1086" y="96" width="6" height="74" fill="url(#reflect)" />
+      <rect x="1148" y="96" width="5" height="58" fill="url(#reflect)" />
+      <rect x="1150" y="96" width="20" height="130" fill="url(#moonrefl)" />
+    </g>
+
+    <!-- foreground bank + mud road -->
+    <path d="M0 214 Q 380 198 760 220 T 1440 224 V 300 H0 Z" fill="#080b1c" />
+    <path
+      d="M690 300 Q 664 268 632 240 Q 610 220 616 210 Q 700 220 780 210 Q 786 224 762 242 Q 730 270 748 300 Z"
+      fill="#3a2a1b"
+      opacity="0.9"
+    />
+    <path
+      d="M700 300 Q 680 270 656 244 Q 700 240 742 244 Q 724 272 738 300 Z"
+      fill="#4a3623"
+      opacity="0.7"
+    />
+  </svg>
+
+  <!-- Fireflies -->
+  <div class="fireflies">
     {
-      birds.map((b) => (
-        <div
-          class="bird"
-          style={`top:${b.top}vh;width:${b.size}px;animation-duration:${b.dur}s;animation-delay:${b.delay}s;--drift:${b.drift}vh`}
-        >
-          <svg viewBox="0 0 40 20" style={`animation-duration:${b.flap}s`} class="bird-svg">
-            <path class="wing wl" d="M20 11 Q11 3 2 9" />
-            <path class="wing wr" d="M20 11 Q29 3 38 9" />
-          </svg>
-        </div>
+      fireflies.map((f) => (
+        <span
+          class="firefly"
+          style={`left:${f.x}%;top:${f.y}%;animation-duration:${f.d}s;animation-delay:${f.delay}s;--dx:${f.dx}px;--dy:${f.dy}px`}
+        />
       ))
     }
   </div>
 
-  <!-- Tree (bottom-left) with a few drifting leaves -->
+  <!-- Tree (foreground bank) -->
   <div class="tree">
     <svg viewBox="0 0 200 240" width="200" height="240">
-      <!-- trunk -->
       <path
         class="trunk"
         d="M96 240 C94 190 92 168 90 150 C88 132 84 122 78 112 M104 240 C106 196 108 172 110 152 C112 134 118 120 126 110"
         fill="none"
       />
-      <!-- foliage (sways) -->
       <g class="foliage">
         <circle cx="100" cy="86" r="52" />
         <circle cx="64" cy="104" r="38" />
@@ -95,10 +199,39 @@ const leaves = Array.from({ length: LEAF_COUNT }, () => ({
       }
     </div>
   </div>
+
+  <!-- Birds -->
+  <div class="birds">
+    {
+      birds.map((b) => (
+        <div
+          class="bird"
+          style={`top:${b.top}vh;width:${b.size}px;animation-duration:${b.dur}s;animation-delay:${b.delay}s;--drift:${b.drift}vh`}
+        >
+          <svg viewBox="0 0 40 20" style={`animation-duration:${b.flap}s`} class="bird-svg">
+            <path class="wing wl" d="M20 11 Q11 3 2 9" />
+            <path class="wing wr" d="M20 11 Q29 3 38 9" />
+          </svg>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Rain -->
+  <div class="rain">
+    {
+      drops.map((d) => (
+        <span
+          class="drop"
+          style={`left:${d.left}%;animation-delay:${d.delay}s;animation-duration:${d.dur}s;height:${d.len}px;opacity:${d.op}`}
+        />
+      ))
+    }
+  </div>
 </div>
 
 <style>
-  .nature {
+  .scene {
     position: fixed;
     inset: 0;
     z-index: 0;
@@ -106,7 +239,142 @@ const leaves = Array.from({ length: LEAF_COUNT }, () => ({
     pointer-events: none;
   }
 
-  /* ---------- Rain ---------- */
+  /* Twilight sky + horizon dusk glow */
+  .sky {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      #090b23 0%,
+      #10123a 26%,
+      #1a1a44 44%,
+      #2a2350 56%,
+      #3a2a54 63%,
+      #0c1030 72%
+    );
+  }
+  .dusk {
+    position: absolute;
+    left: 50%;
+    bottom: 27%;
+    width: 120vw;
+    height: 42vh;
+    transform: translateX(-50%);
+    background: radial-gradient(
+      ellipse at 50% 100%,
+      rgb(255 150 90 / 0.28) 0%,
+      rgb(214 108 96 / 0.14) 32%,
+      transparent 68%
+    );
+  }
+  .moon {
+    position: absolute;
+    top: 12%;
+    right: 16%;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 38% 38%, #fff7e8, #e9dfc4 60%, #d9cba6);
+    box-shadow:
+      0 0 30px 10px rgb(255 244 214 / 0.28),
+      0 0 80px 30px rgb(255 236 190 / 0.12);
+  }
+
+  .stars {
+    position: absolute;
+    inset: 0;
+  }
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: #fdf6e3;
+    animation: twinkle ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.25;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.95;
+      transform: scale(1.15);
+    }
+  }
+
+  .landscape {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 55vh;
+  }
+  .win {
+    animation: win-twinkle 4s ease-in-out infinite;
+  }
+  .win-b {
+    animation-delay: 1.7s;
+  }
+  @keyframes win-twinkle {
+    0%,
+    100% {
+      opacity: 0.85;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  .reflections {
+    animation: shimmer 6s ease-in-out infinite;
+    transform-origin: center;
+    will-change: transform;
+  }
+  @keyframes shimmer {
+    0%,
+    100% {
+      transform: translateX(0) scaleY(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: translateX(4px) scaleY(1.04);
+      opacity: 0.65;
+    }
+  }
+
+  .fireflies {
+    position: absolute;
+    inset: 0;
+  }
+  .firefly {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #ffe08a;
+    box-shadow: 0 0 6px 2px rgb(255 210 120 / 0.7);
+    animation: float ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes float {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    20% {
+      opacity: 0.9;
+    }
+    80% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translate(var(--dx), var(--dy));
+      opacity: 0;
+    }
+  }
+
+  /* Rain */
   .rain {
     position: absolute;
     inset: -5% -12% 0 -12%;
@@ -118,10 +386,8 @@ const leaves = Array.from({ length: LEAF_COUNT }, () => ({
     top: -12%;
     width: 1px;
     border-radius: 1px;
-    background: linear-gradient(to bottom, transparent, rgb(148 163 184 / 0.75));
-    animation-name: rain-fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    background: linear-gradient(to bottom, transparent, rgb(190 205 235 / 0.75));
+    animation: rain-fall linear infinite;
     will-change: transform;
   }
   @keyframes rain-fall {
@@ -133,13 +399,11 @@ const leaves = Array.from({ length: LEAF_COUNT }, () => ({
     }
   }
 
-  /* ---------- Birds ---------- */
+  /* Birds */
   .bird {
     position: absolute;
     left: -8%;
-    animation-name: bird-fly;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation: bird-fly linear infinite;
     will-change: transform;
   }
   @keyframes bird-fly {
@@ -160,49 +424,40 @@ const leaves = Array.from({ length: LEAF_COUNT }, () => ({
   }
   .wing {
     fill: none;
-    stroke: rgb(203 213 225 / 0.55);
+    stroke: rgb(210 218 235 / 0.5);
     stroke-width: 2.4;
     stroke-linecap: round;
-    animation-name: bird-flap;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    transform-origin: 20px 11px;
+    animation: bird-flap ease-in-out infinite alternate;
     animation-duration: inherit;
-  }
-  .wl {
-    transform-origin: 20px 11px;
-  }
-  .wr {
-    transform-origin: 20px 11px;
   }
   @keyframes bird-flap {
     from {
-      transform: rotate(0deg) translateY(0);
+      transform: translateY(0);
     }
     to {
-      transform: rotate(0deg) translateY(-3px) scaleY(0.7);
+      transform: translateY(-3px) scaleY(0.7);
     }
   }
 
-  /* ---------- Tree ---------- */
+  /* Tree */
   .tree {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 200px;
-    opacity: 0.42;
-    filter: blur(0.2px);
+    opacity: 0.5;
   }
   .tree svg {
     display: block;
   }
   .trunk {
-    stroke: rgb(120 72 44 / 0.9);
+    stroke: rgb(96 58 36 / 0.95);
     stroke-width: 9;
     stroke-linecap: round;
   }
   .foliage circle {
-    fill: rgb(16 84 60 / 0.9);
+    fill: rgb(14 66 48 / 0.95);
   }
   .foliage {
     transform-origin: 100px 210px;
@@ -229,10 +484,8 @@ const leaves = Array.from({ length: LEAF_COUNT }, () => ({
     width: 7px;
     height: 5px;
     border-radius: 60% 0 60% 0;
-    background: rgb(34 120 84 / 0.8);
-    animation-name: leaf-fall;
-    animation-timing-function: ease-in;
-    animation-iteration-count: infinite;
+    background: rgb(34 120 84 / 0.85);
+    animation: leaf-fall ease-in infinite;
     will-change: transform, opacity;
   }
   @keyframes leaf-fall {
@@ -252,17 +505,31 @@ const leaves = Array.from({ length: LEAF_COUNT }, () => ({
     }
   }
 
-  /* Calmer on small screens */
   @media (max-width: 640px) {
     .tree {
       width: 130px;
-      opacity: 0.3;
+      opacity: 0.4;
+    }
+    .moon {
+      width: 54px;
+      height: 54px;
     }
   }
 
-  /* Respect users who prefer less motion — hide the whole ambient layer. */
   @media (prefers-reduced-motion: reduce) {
-    .nature {
+    .star,
+    .win,
+    .reflections,
+    .firefly,
+    .drop,
+    .bird,
+    .wing,
+    .foliage,
+    .leaf {
+      animation: none !important;
+    }
+    .rain,
+    .birds {
       display: none;
     }
   }
