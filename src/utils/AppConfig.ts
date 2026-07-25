@@ -2,6 +2,8 @@ import googleCyberSecBadge from "@/assets/images/certificate-badge/google-cybers
 import awsSecBadge from "@/assets/images/certificate-badge/aws-sol-arc-associate.png";
 
 
+import avatarImg from "@/assets/images/avatar-kousher.jpg";
+
 import ottoLogo from "@/assets/images/logos/otto.png";
 import selLogo from "@/assets/images/logos/selise.png";
 import nybLogo from "@/assets/images/logos/nybsys.png";
@@ -14,9 +16,8 @@ export const AppConfig = {
   locale_region: 'en-us',
   locale: 'en',
   introTitle: `A Happy <span>Software Engineer<span>`,
-  // Profile picture shown in the hero. Replace this file (or point to a new one)
-  // to use a personal cartoon avatar.
-  avatar: `/assets/images/avatar.svg`,
+  // Profile picture shown in the hero. Imported so astro:assets optimizes/resizes it.
+  avatar: avatarImg,
   social: {
     linkedIn: `https://www.linkedin.com/in/kousheralam/`,
     github: `https://github.com/kousherAlam`,
