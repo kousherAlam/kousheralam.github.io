@@ -82,12 +82,12 @@ runs one pipeline: determine the version bump → bump `package.json` + `CHANGEL
 The **bump type** is chosen like this:
 
 - If there are pending **Changesets** (`.changeset/*.md`), they set the bump — the
-  Studio CMS adds a **minor** changeset on every Publish, and you can add one locally
+  Studio CMS adds a **patch** changeset on every Publish, and you can add one locally
   with `npm run change` (major/minor/patch).
 - If there are **no** changesets, the pipeline creates an automatic **patch** bump so
   the push still gets its own version + tag + Release.
 
-So: publishing a post → minor bump; any other merge to `master` → at least a patch
+So: publishing a post → patch bump; any other merge to `master` → at least a patch
 bump. Started at the **v1.0.0** baseline.
 
 ## Studio CMS
