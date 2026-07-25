@@ -4,13 +4,14 @@ import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import sitemap from '@astrojs/sitemap';
 
-import prefetch from "@astrojs/prefetch";
-
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kousheralam.github.io',
+
+  // Prefetch is built into Astro core (replaces the removed @astrojs/prefetch).
+  prefetch: true,
 
   server: {
     port: 3000,
@@ -21,7 +22,6 @@ export default defineConfig({
     mdx(),
     partytown(),
     sitemap(),
-    prefetch(),
     react(),
   ],
 
