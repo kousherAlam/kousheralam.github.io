@@ -64,7 +64,9 @@ export default function Editor({ initialPost, isNew }: Props) {
     [title, description, published, thumbSrc, thumbAlt, draft, type],
   );
 
-  async function save(publish: boolean) {
+  // makeDraft=true saves it as a draft; false publishes it. The server decides whether
+  // this triggers a version bump based on the draft-state transition.
+  async function save(makeDraft: boolean) {
     setStatus({ kind: 'saving' });
     try {
       const res = await fetch('/api/publish', {
@@ -73,9 +75,8 @@ export default function Editor({ initialPost, isNew }: Props) {
         body: JSON.stringify({
           id: isNew ? '' : initialPost.id,
           slug: effectiveSlug,
-          frontmatter,
+          frontmatter: { ...frontmatter, draft: makeDraft },
           body,
-          publish,
         }),
       });
       const data = await res.json();
@@ -83,13 +84,12 @@ export default function Editor({ initialPost, isNew }: Props) {
         setStatus({ kind: 'error', message: data.error ?? `Request failed (${res.status})` });
         return;
       }
+      setDraft(makeDraft);
       setStatus({
         kind: 'ok',
-        message: publish
-          ? data.versioned
-            ? 'Published — version bump + deploy triggered.'
-            : 'Published.'
-          : 'Draft saved.',
+        message: data.versioned
+          ? 'Saved — patch release + deploy triggered.'
+          : 'Saved as draft — no release.',
         url: data.commitUrl,
       });
       // For a brand-new post, move to its edit URL so subsequent saves update it.
@@ -133,18 +133,18 @@ export default function Editor({ initialPost, isNew }: Props) {
             </span>
           )}
           <button
-            onClick={() => save(false)}
+            onClick={() => save(true)}
             disabled={busy}
             className="rounded-md border border-slate-700 px-4 py-2 text-sm font-medium text-slate-200 hover:border-slate-500 disabled:opacity-50"
           >
-            {busy ? 'Saving…' : 'Save draft'}
+            {busy ? 'Saving…' : draft ? 'Save draft' : 'Unpublish'}
           </button>
           <button
-            onClick={() => save(true)}
+            onClick={() => save(false)}
             disabled={busy || !title}
             className="rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-orange-400 disabled:opacity-50"
           >
-            Publish
+            {draft ? 'Publish' : 'Update'}
           </button>
         </div>
       </div>
@@ -183,11 +183,16 @@ export default function Editor({ initialPost, isNew }: Props) {
                 <option value="Project">Project</option>
               </select>
             </div>
-            <div className="flex items-end">
-              <label className="flex items-center gap-2 text-sm text-slate-300">
-                <input type="checkbox" checked={draft} onChange={(e) => setDraft(e.target.checked)} className="h-4 w-4" />
-                Draft (hidden on site)
-              </label>
+            <div className="flex flex-col justify-end">
+              <label className={label}>Status</label>
+              <div className="text-sm">
+                {draft ? (
+                  <span className="text-amber-400">Draft — hidden on site</span>
+                ) : (
+                  <span className="text-emerald-400">Published</span>
+                )}
+                <div className="mt-0.5 text-xs text-slate-500">Set by Save draft / Publish.</div>
+              </div>
             </div>
             <div>
               <label className={label}>Thumbnail src</label>

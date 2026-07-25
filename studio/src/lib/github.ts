@@ -73,7 +73,9 @@ export interface SaveOptions {
   frontmatter: Frontmatter;
   body: string;
   /** When true, also add a patch changeset so the release pipeline bumps + tags. */
-  publish: boolean;
+  versioned: boolean;
+  /** Commit message for this save. */
+  message: string;
 }
 
 export interface SaveResult {
@@ -164,7 +166,7 @@ async function ghSavePost(opts: SaveOptions): Promise<SaveResult> {
   }[] = [{ path: repoPath, mode: '100644', type: 'blob', content }];
 
   let versioned = false;
-  if (opts.publish) {
+  if (opts.versioned) {
     const changesetPath = `.changeset/cms-${slugFromId(opts.id)}-${changesetStamp()}.md`;
     treeItems.push({
       path: changesetPath,
@@ -176,13 +178,10 @@ async function ghSavePost(opts: SaveOptions): Promise<SaveResult> {
   }
 
   const newTree = await kit.rest.git.createTree({ owner, repo, base_tree: baseTree, tree: treeItems });
-  const message = opts.publish
-    ? `Publish post: ${opts.frontmatter.title}`
-    : `Save draft: ${opts.frontmatter.title}`;
   const commit = await kit.rest.git.createCommit({
     owner,
     repo,
-    message,
+    message: opts.message,
     tree: newTree.data.sha,
     parents: [headSha],
   });
@@ -247,7 +246,7 @@ async function localSavePost(opts: SaveOptions): Promise<SaveResult> {
   await fs.mkdir(path.dirname(full), { recursive: true });
   await fs.writeFile(full, serializePost(opts.frontmatter, opts.body), 'utf8');
   let versioned = false;
-  if (opts.publish) {
+  if (opts.versioned) {
     const changesetDir = path.resolve(process.cwd(), '..', '.changeset');
     await fs.mkdir(changesetDir, { recursive: true });
     const file = path.join(changesetDir, `cms-${slugFromId(opts.id)}-${changesetStamp()}.md`);

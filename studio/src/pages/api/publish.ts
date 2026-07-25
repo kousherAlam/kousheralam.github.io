@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import { requireSession } from '@/lib/auth';
-import { savePost } from '@/lib/github';
+import { savePost, getPost } from '@/lib/github';
 import { DEFAULT_THUMBNAIL_SRC, DEFAULT_THUMBNAIL_ALT } from '@/lib/config';
 import { ensureComponentImports } from '@/lib/components';
 import { slugify, type Frontmatter } from '@/lib/types';
@@ -12,7 +12,6 @@ interface PublishBody {
   slug?: string;
   frontmatter: Frontmatter;
   body: string;
-  publish: boolean;
 }
 
 function validate(fm: any): string | null {
@@ -50,18 +49,44 @@ export const POST: APIRoute = async (context) => {
     alt: payload.frontmatter.thumbnail?.alt?.trim() || DEFAULT_THUMBNAIL_ALT,
   };
 
+  const isDraft = Boolean(payload.frontmatter.draft);
+  const isPublished = !isDraft;
+
+  // Was this post published on the live site before this save?
+  let wasPublished = false;
+  try {
+    const existing = await getPost(id);
+    if (existing) wasPublished = existing.frontmatter.draft === false;
+  } catch {
+    /* treat unknown/new as not previously published */
+  }
+
+  // Only bump the version when the change actually affects the published site:
+  //   - editing a published post (published -> published)
+  //   - draft -> publish
+  //   - publish -> draft (unpublish)
+  // NOT for a brand-new draft, or a draft -> draft edit.
+  const versioned = wasPublished || isPublished;
+
+  const title = payload.frontmatter.title;
+  const message =
+    isPublished && !wasPublished
+      ? `Publish post: ${title}`
+      : isPublished && wasPublished
+        ? `Update post: ${title}`
+        : !isPublished && wasPublished
+          ? `Unpublish post: ${title}`
+          : `Save draft: ${title}`;
+
   try {
     const result = await savePost({
       id,
-      frontmatter: {
-        ...payload.frontmatter,
-        thumbnail,
-        draft: payload.publish ? false : Boolean(payload.frontmatter.draft),
-      },
+      frontmatter: { ...payload.frontmatter, thumbnail, draft: isDraft },
       // Auto-add imports for any registered components used in the body so the
       // published post renders them on the site.
       body: ensureComponentImports(payload.body ?? ''),
-      publish: payload.publish,
+      versioned,
+      message,
     });
     return json({ ok: true, ...result });
   } catch (err: any) {

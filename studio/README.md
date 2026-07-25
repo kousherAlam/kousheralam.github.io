@@ -11,12 +11,15 @@ Directory set to `studio/`.
 ## How publishing works
 
 1. You edit a post (frontmatter form + MDX source) with a live preview.
-2. **Save draft** commits the `.mdx` file with `draft: true` (no release).
-3. **Publish** makes a single commit containing the `.mdx` file **and** a `patch`
-   changeset (`.changeset/cms-*.md`) with `draft: false`.
-4. That push to `master` triggers the site's release workflow
-   (`.github/workflows/astro.yml`): it consumes the changeset → bumps the version →
-   creates a `vX.Y.Z` tag + GitHub Release → builds → deploys to GitHub Pages.
+2. **Save draft** sets `draft: true`; **Publish** sets `draft: false`. Each is a single
+   commit of the `.mdx` file.
+3. A **`patch` changeset** (`.changeset/cms-*.md`) is added **only when the change
+   affects the live site** — i.e. editing a published post, publishing a draft, or
+   unpublishing. A brand-new draft or a draft-that-stays-a-draft commits **without** a
+   changeset (no release).
+4. When a changeset is included, the push to `master` triggers the site's release
+   workflow (`.github/workflows/astro.yml`): it consumes the changeset → bumps the
+   version → creates a `vX.Y.Z` tag + GitHub Release → builds → deploys to GitHub Pages.
 
 Writes are performed by a **GitHub App** installation token (server-side), never the
 browser. Login uses the same App's OAuth flow and is restricted to the logins in
