@@ -179,6 +179,22 @@ const pads = [
           <circle cx="0" cy="-32" r="21" />
         </g>
       </g>
+      <!-- bamboo grove (baashjhaar): tall thin culms with wispy leaves -->
+      <g id="bamboo" stroke="#0d2718" stroke-width="2.2" fill="none" stroke-linecap="round">
+        <path d="M0 0 C -3 -34 -1 -68 2 -104" />
+        <path d="M9 0 C 7 -30 10 -62 7 -96" />
+        <path d="M-9 0 C -12 -28 -9 -58 -12 -88" />
+        <path d="M18 0 C 17 -26 20 -54 16 -84" />
+        <path d="M-18 0 C -19 -24 -17 -50 -20 -78" />
+        <g stroke-width="1.6">
+          <path d="M2 -104 q -12 -6 -20 -2" />
+          <path d="M2 -104 q 12 -4 20 2" />
+          <path d="M7 -96 q 12 -5 19 0" />
+          <path d="M-12 -88 q -12 -4 -18 2" />
+          <path d="M16 -84 q 11 -3 17 3" />
+          <path d="M-20 -78 q -10 -3 -16 2" />
+        </g>
+      </g>
     </defs>
 
     <!-- far jungle line -->
@@ -222,8 +238,10 @@ const pads = [
     <!-- village ground / jungle floor -->
     <path d="M0 96 Q 360 90 720 96 T 1440 96 V 208 H0 Z" fill="#0a1210" />
 
-    <!-- dense jungle behind the pond -->
+    <!-- dense jungle behind the pond, with bamboo groves -->
     <g class="jungle-far">
+      <use href="#bamboo" transform="translate(470 128) scale(0.75)" />
+      <use href="#bamboo" transform="translate(930 128) scale(0.82)" />
       <use href="#bush" transform="translate(120 126) scale(1.15)" />
       <use href="#rtree" transform="translate(250 128) scale(0.75)" />
       <use href="#bush" transform="translate(360 128) scale(0.95)" />
@@ -259,6 +277,35 @@ const pads = [
       <ellipse cx="820" cy="172" rx="14" ry="4.2" transform="rotate(6 820 172)" />
       <ellipse cx="900" cy="160" rx="13" ry="4" />
       <circle cx="900" cy="158" r="2.4" fill="#e07a9b" />
+    </g>
+
+    <!-- ghat: brick steps down into the pond -->
+    <g class="ghat" fill="#171015">
+      <rect x="566" y="188" width="96" height="5" rx="1" />
+      <rect x="578" y="194" width="72" height="5" rx="1" fill="#120c10" />
+      <rect x="590" y="200" width="48" height="5" rx="1" fill="#0d090c" />
+    </g>
+
+    <!-- floating water hyacinth (kachuripana) with little purple blooms -->
+    <g class="hyacinth">
+      <g fill="#12492b">
+        <ellipse cx="470" cy="150" rx="7" ry="4" />
+        <ellipse cx="480" cy="152" rx="6" ry="3.6" />
+        <ellipse cx="462" cy="153" rx="5.5" ry="3.4" />
+        <circle cx="474" cy="149" r="1.6" fill="#b47ad6" />
+      </g>
+      <g fill="#12492b">
+        <ellipse cx="980" cy="172" rx="8" ry="4.4" />
+        <ellipse cx="992" cy="174" rx="6.4" ry="3.6" />
+        <ellipse cx="970" cy="175" rx="6" ry="3.4" />
+        <circle cx="984" cy="171" r="1.7" fill="#a86fce" />
+      </g>
+      <g fill="#12492b">
+        <ellipse cx="690" cy="182" rx="9" ry="4.6" />
+        <ellipse cx="704" cy="184" rx="6.6" ry="3.8" />
+        <ellipse cx="678" cy="185" rx="6" ry="3.4" />
+        <circle cx="695" cy="181" r="1.6" fill="#b47ad6" />
+      </g>
     </g>
 
     <!-- dense jungle & bushes hugging the pond and the road -->
