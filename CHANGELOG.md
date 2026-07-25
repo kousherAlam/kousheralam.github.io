@@ -1,5 +1,11 @@
 # kousheralam.github.io
 
+## 1.2.3
+
+### Patch Changes
+
+- f70828b: Use the new cartoon avatar (background removed, packaged as a transparent SVG) in the hero.
+
 ## 1.2.2
 
 ### Patch Changes
