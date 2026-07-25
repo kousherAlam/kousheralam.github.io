@@ -1,5 +1,11 @@
 # kousheralam.github.io
 
+## 1.2.1
+
+### Patch Changes
+
+- 926e1b0: Studio: publishing a post now creates a patch changeset (was minor).
+
 ## 1.2.0
 
 ### Minor Changes
