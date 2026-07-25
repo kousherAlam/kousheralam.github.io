@@ -72,18 +72,23 @@ Two ways to author:
 
 ## Versioning & releases
 
-Versions are driven by **Changesets** with a **v1.0.0 floor**, and each release is
-published as a git **tag + GitHub Release**.
+Versioning is **fully automated**: every push to `master` cuts a new version, git
+**tag**, and **GitHub Release** — no manual step required.
 
-- Add a changeset locally with `npm run change` (pick major/minor/patch).
-- On push to `master`, [`.github/workflows/astro.yml`](./.github/workflows/astro.yml)
-  runs one pipeline: consume pending changesets → bump `package.json` + `CHANGELOG.md`
-  → create the `vX.Y.Z` tag + GitHub Release → build → deploy to GitHub Pages.
-- If there are no pending changesets, it still tags the current version the first
-  time (so the baseline `v1.0.0` gets a tag), then builds and deploys.
+On push to `master`, [`.github/workflows/astro.yml`](./.github/workflows/astro.yml)
+runs one pipeline: determine the version bump → bump `package.json` + `CHANGELOG.md`
+→ create the `vX.Y.Z` tag + GitHub Release → build → deploy to GitHub Pages.
 
-The Studio CMS adds a **minor** changeset automatically on every Publish, so
-publishing a post bumps the minor version and ships it through the same pipeline.
+The **bump type** is chosen like this:
+
+- If there are pending **Changesets** (`.changeset/*.md`), they set the bump — the
+  Studio CMS adds a **minor** changeset on every Publish, and you can add one locally
+  with `npm run change` (major/minor/patch).
+- If there are **no** changesets, the pipeline creates an automatic **patch** bump so
+  the push still gets its own version + tag + Release.
+
+So: publishing a post → minor bump; any other merge to `master` → at least a patch
+bump. Started at the **v1.0.0** baseline.
 
 ## Studio CMS
 

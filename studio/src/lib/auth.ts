@@ -43,10 +43,10 @@ export async function readSession(cookies: AstroCookies): Promise<Session | null
   }
 }
 
-export function setSessionCookie(cookies: AstroCookies, token: string): void {
+export function setSessionCookie(cookies: AstroCookies, token: string, secure?: boolean): void {
   cookies.set(COOKIE, token, {
     httpOnly: true,
-    secure: config.studioUrl.startsWith('https://'),
+    secure: secure ?? config.studioUrl.startsWith('https://'),
     sameSite: 'lax',
     path: '/',
     maxAge: 60 * 60 * 24 * 7,

@@ -1,10 +1,11 @@
 import type { APIRoute } from 'astro';
-import { config } from '@/lib/config';
+import { config, requestBaseUrl } from '@/lib/config';
 import { createSessionCookie, setSessionCookie, isAllowed } from '@/lib/auth';
 
 export const prerender = false;
 
 export const GET: APIRoute = async ({ url, cookies, redirect }) => {
+  const base = requestBaseUrl(url);
   const code = url.searchParams.get('code');
   const state = url.searchParams.get('state');
   const expectedState = cookies.get('oauth_state')?.value;
@@ -14,7 +15,8 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
     return new Response('Invalid OAuth state.', { status: 400 });
   }
 
-  // Exchange the code for an access token.
+  // Exchange the code for an access token. redirect_uri must match the one used at
+  // /api/auth/login — both are derived from the request host, so they agree.
   const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
     method: 'POST',
     headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
@@ -22,7 +24,7 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
       client_id: config.oauth.clientId,
       client_secret: config.oauth.clientSecret,
       code,
-      redirect_uri: `${config.studioUrl}/api/auth/callback`,
+      redirect_uri: `${base}/api/auth/callback`,
     }),
   });
   const tokenJson = (await tokenRes.json()) as { access_token?: string; error?: string };
@@ -48,6 +50,6 @@ export const GET: APIRoute = async ({ url, cookies, redirect }) => {
     name: user.name ?? user.login,
     avatar: user.avatar_url,
   });
-  setSessionCookie(cookies, token);
+  setSessionCookie(cookies, token, base.startsWith('https://'));
   return redirect('/');
 };

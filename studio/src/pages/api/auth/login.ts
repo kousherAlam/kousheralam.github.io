@@ -1,17 +1,20 @@
 import type { APIRoute } from 'astro';
-import { config, oauthConfigured } from '@/lib/config';
+import { config, oauthConfigured, requestBaseUrl } from '@/lib/config';
 
 export const prerender = false;
 
-export const GET: APIRoute = ({ redirect, cookies }) => {
+export const GET: APIRoute = ({ url, redirect, cookies }) => {
   if (!oauthConfigured()) {
     return new Response('GitHub OAuth is not configured on this deployment.', { status: 500 });
   }
-  // CSRF state.
+  const base = requestBaseUrl(url);
+
+  // CSRF state — the cookie is set on this same host, so the callback (which lands
+  // back on `base`) will receive it.
   const state = crypto.randomUUID();
   cookies.set('oauth_state', state, {
     httpOnly: true,
-    secure: config.studioUrl.startsWith('https://'),
+    secure: base.startsWith('https://'),
     sameSite: 'lax',
     path: '/',
     maxAge: 600,
@@ -19,7 +22,7 @@ export const GET: APIRoute = ({ redirect, cookies }) => {
 
   const params = new URLSearchParams({
     client_id: config.oauth.clientId!,
-    redirect_uri: `${config.studioUrl}/api/auth/callback`,
+    redirect_uri: `${base}/api/auth/callback`,
     scope: 'read:user',
     state,
     allow_signup: 'false',

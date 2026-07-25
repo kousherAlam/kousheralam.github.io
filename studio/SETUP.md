@@ -75,14 +75,21 @@ Do **not** set `STUDIO_DEV`.
 - [ ] `GITHUB_APP_PRIVATE_KEY` = *(base64 blob, Part 2)*
 - [ ] `GITHUB_APP_INSTALLATION_ID` = *(Part 3)*
 - [ ] `SESSION_SECRET` = output of `openssl rand -hex 32`
-- [ ] `PUBLIC_STUDIO_URL` = your Vercel URL, e.g. `https://kousheralam-studio.vercel.app` (no trailing slash)
+- [ ] `PUBLIC_STUDIO_URL` = your **stable production alias**, e.g. `https://kousheralam-github-io.vercel.app` (no trailing slash). **Use the stable `*.vercel.app` alias, NOT a deployment-specific URL** like `…-iiet2tv2j-koushers-projects.vercel.app` — those change every deploy and break the login callback.
 - [ ] **Deploy / Redeploy** and note the final production URL
 
 ## Part 6 — Point the callback URL at the real deployment
 
-- [ ] GitHub App → **General** → **Callback URL** = `<your-vercel-url>/api/auth/callback`
-- [ ] Ensure `PUBLIC_STUDIO_URL` in Vercel matches that base URL exactly (no trailing slash)
+Always use the **same stable production alias** for all three of these — that's what makes the login cookie, the `redirect_uri`, and the callback land on one host.
+
+- [ ] GitHub App → **General** → **Callback URL** = `https://kousheralam-github-io.vercel.app/api/auth/callback`
+- [ ] `PUBLIC_STUDIO_URL` (Vercel) = `https://kousheralam-github-io.vercel.app` (same host, no trailing slash)
+- [ ] Always open the Studio at that alias (not the deployment-specific `…-projects.vercel.app` URL)
 - [ ] **Save** the App, then **Redeploy** in Vercel
+
+> The login flow now derives its `redirect_uri` from the host you're actually
+> browsing, so as long as you open the Studio at the alias registered as the GitHub
+> App Callback URL, the OAuth handshake stays on one host and succeeds.
 
 ## Part 7 — Test end to end
 
@@ -119,6 +126,7 @@ can't express "production-only" on its own):
 
 - **"OAuth is not configured"** on the login page → `GITHUB_OAUTH_CLIENT_ID/SECRET` missing, or the deploy predates setting them → redeploy.
 - **GitHub `redirect_uri` mismatch** → the App's Callback URL ≠ `PUBLIC_STUDIO_URL` + `/api/auth/callback`.
+- **"Invalid OAuth state"** → you started login on one host but the callback landed on another, so the `oauth_state` cookie wasn't sent back. Fix: register the GitHub App **Callback URL** for the exact stable alias you browse (e.g. `https://kousheralam-github-io.vercel.app/api/auth/callback`), and open the Studio at that same alias — not a deployment-specific `…-projects.vercel.app` URL.
 - **"That GitHub account is not allowed"** → your login isn't in `ALLOWED_GITHUB_LOGINS`.
 - **Publish 500 / "GitHub App is not configured"** → one of `GITHUB_APP_ID` / `GITHUB_APP_PRIVATE_KEY` / `GITHUB_APP_INSTALLATION_ID` is missing, or the PEM didn't decode → re-check the base64.
 - **Vercel build fails with `Tsconfig not found astro/tsconfigs/base`** → the repo root `tsconfig.json` must not `extend` a bare `astro/...` preset (Vercel builds `studio/` without root `node_modules`, so it can't resolve). It's inlined on purpose — don't re-add the `extends`.
