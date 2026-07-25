@@ -14,9 +14,8 @@ export const AppConfig = {
   locale_region: 'en-us',
   locale: 'en',
   introTitle: `A Happy <span>Software Engineer<span>`,
-  // Profile picture shown in the hero (sharp flat illustration). Swap this path to
-  // change it — e.g. drop in an illustrated cartoon and point here.
-  avatar: `/assets/images/avatar.svg`,
+  // Profile picture shown in the hero — cartoon avatar (transparent SVG).
+  avatar: `/assets/images/avatar-cartoon.svg`,
   social: {
     linkedIn: `https://www.linkedin.com/in/kousheralam/`,
     github: `https://github.com/kousherAlam`,
