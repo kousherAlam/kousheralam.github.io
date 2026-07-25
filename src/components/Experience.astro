@@ -4,9 +4,39 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { AiOutlineCalendar } from "react-icons/ai";
 import { LiaArrowsAltHSolid } from "react-icons/lia";
 import { Image } from "astro:assets";
+
+// Parse a "Mon YYYY" label (or "Present") into a Date. "Present" resolves to build time.
+const parseMonth = (label: string): Date =>
+  /present/i.test(label) ? new Date() : new Date(`${label} 1`);
+
+// Total experience = sum of each role's duration in whole months (ignores gaps),
+// formatted as "X years Y months". Recomputes at build time so "Present" stays current.
+const totalMonths = AppConfig.experience.reduce((sum, item) => {
+  const start = parseMonth(item.start);
+  const end = parseMonth(item.end);
+  const months =
+    (end.getFullYear() - start.getFullYear()) * 12 +
+    (end.getMonth() - start.getMonth());
+  return sum + Math.max(0, months);
+}, 0);
+
+const years = Math.floor(totalMonths / 12);
+const months = totalMonths % 12;
+const plural = (n: number, unit: string) => `${n} ${unit}${n === 1 ? "" : "s"}`;
+const totalExperience = [
+  years > 0 ? plural(years, "year") : null,
+  months > 0 ? plural(months, "month") : null,
+]
+  .filter(Boolean)
+  .join(" ") || "0 months";
 ---
 
-<h4 class="text-sm italic text-left">Work Experience</h4>
+<div class="flex items-baseline justify-between gap-2">
+  <h4 class="text-sm italic text-left">Work Experience</h4>
+  <span class="text-xs text-orange-500" title="Total professional experience">
+    {totalExperience} total
+  </span>
+</div>
 <div class="relative">
   <div
     class="absolute h-full left-0 top-0 z-10 flex items-center justify-center"
