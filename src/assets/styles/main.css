@@ -77,27 +77,31 @@
 }
 
 @layer components {
-  /* Frosted panel that floats over the evening scene. */
+  /* Immersive "lamplight veil": a soft, borderless pool of warm shadow that melts
+     into the scene so content feels lit from within it, not boxed on top. */
   .glass {
-    @apply rounded-2xl border border-white/15 bg-slate-950/70;
-    backdrop-filter: blur(12px) saturate(1.1);
-    -webkit-backdrop-filter: blur(12px) saturate(1.1);
-    box-shadow:
-      0 14px 40px -14px rgb(0 0 0 / 0.7),
-      inset 0 1px 0 0 rgb(255 255 255 / 0.06);
+    position: relative;
+    isolation: isolate;
+    /* light text stays legible against the scene without a hard card */
+    text-shadow: 0 1px 10px rgb(0 0 0 / 0.65);
+  }
+  .glass::before {
+    content: '';
+    position: absolute;
+    inset: -2%;
+    z-index: -1;
+    border-radius: 28px;
+    background:
+      radial-gradient(120% 80% at 50% 0%, rgb(150 78 38 / 0.16), transparent 60%),
+      rgb(8 7 15 / 0.72);
+    filter: blur(13px);
+    pointer-events: none;
   }
   .glass-hover {
-    transition:
-      transform 0.35s ease,
-      border-color 0.35s ease,
-      box-shadow 0.35s ease;
+    transition: transform 0.4s ease;
   }
   .glass-hover:hover {
-    transform: translateY(-3px);
-    border-color: rgb(249 115 22 / 0.4);
-    box-shadow:
-      0 18px 40px -14px rgb(0 0 0 / 0.7),
-      0 0 0 1px rgb(249 115 22 / 0.15);
+    transform: translateY(-2px);
   }
 }
 
@@ -117,38 +121,3 @@
   }
 }
 
-/* Surfaces that catch rain: droplets are clipped to the panel. */
-.wet {
-  position: relative;
-  overflow: hidden;
-}
-
-/* A raindrop that runs down a "wet" surface. */
-.raindrop {
-  position: absolute;
-  top: -6px;
-  width: 2px;
-  height: 10px;
-  border-radius: 0 0 2px 2px;
-  background: linear-gradient(to bottom, rgb(255 255 255 / 0), rgb(191 219 254 / 0.55));
-  pointer-events: none;
-  animation: drip-down var(--dur, 2.2s) ease-in var(--delay, 0s) infinite;
-}
-@keyframes drip-down {
-  0% {
-    transform: translateY(0) scaleY(0.6);
-    opacity: 0;
-  }
-  12% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(var(--fall, 60px)) scaleY(1.2);
-    opacity: 0;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .raindrop {
-    display: none;
-  }
-}

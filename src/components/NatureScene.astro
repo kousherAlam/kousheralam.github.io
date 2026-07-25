@@ -49,19 +49,48 @@ const leaves = Array.from({ length: 5 }, () => ({
   sway: (20 + rnd() * 40).toFixed(0),
 }));
 
-// Village houses on the far shore (viewBox 1440x300): [x, baseY, w, h, roofH, warm]
+// Bangladeshi village tin-roof huts on the far bank (viewBox window 0 58 1440 242):
+// [x, baseY, w, h, roofH, warm-lamp?] — low, wide, shallow-pitched roofs.
 const houses = [
-  [150, 92, 40, 30, 15, true],
-  [196, 93, 28, 22, 12, false],
-  [262, 91, 50, 36, 19, true],
-  [324, 93, 26, 20, 11, true],
-  [362, 92, 38, 27, 14, false],
-  [422, 91, 46, 32, 17, true],
-  [980, 92, 42, 30, 16, true],
-  [1030, 93, 30, 22, 12, false],
-  [1078, 91, 50, 36, 19, true],
-  [1140, 92, 36, 25, 13, true],
-  [1192, 93, 26, 20, 11, false],
+  [150, 92, 52, 21, 7, true],
+  [216, 93, 40, 17, 6, false],
+  [286, 91, 62, 24, 8, true],
+  [360, 93, 44, 18, 6, true],
+  [412, 92, 50, 21, 7, false],
+  [980, 92, 54, 22, 8, true],
+  [1046, 93, 40, 17, 6, false],
+  [1096, 91, 60, 24, 8, true],
+  [1166, 92, 46, 19, 7, true],
+];
+
+// Coconut palms along the far bank: [x, baseY, scale, warm-lamp-at-base?]
+const palms = [
+  [116, 93, 0.9],
+  [204, 92, 1.15],
+  [340, 93, 0.8],
+  [470, 92, 1.0],
+  [946, 93, 0.95],
+  [1140, 92, 1.1],
+  [1244, 93, 0.85],
+];
+
+// Rain ripples on the pond surface
+const ripples = Array.from({ length: 10 }, () => ({
+  x: (rnd() * 100).toFixed(1),
+  y: (60 + rnd() * 30).toFixed(1),
+  d: (2.6 + rnd() * 2.4).toFixed(2),
+  delay: (rnd() * 6).toFixed(2),
+  s: (10 + rnd() * 16).toFixed(0),
+}));
+
+// Lily pads floating on the pond: [x%, y%, w, tilt, lotus?]
+const pads = [
+  [16, 76, 30, -8, true],
+  [30, 84, 24, 6, false],
+  [46, 79, 34, 0, false],
+  [62, 86, 22, 10, true],
+  [76, 80, 28, -6, false],
+  [88, 85, 20, 4, false],
 ];
 ---
 
@@ -82,32 +111,55 @@ const houses = [
     }
   </div>
 
-  <!-- Landscape: far hills, village, lake, foreground bank + mud road -->
+  <!-- Landscape: Bangladeshi village with coconut palms, tin huts, and a pond -->
   <svg class="landscape" viewBox="0 58 1440 242" preserveAspectRatio="xMidYMax slice">
     <defs>
-      <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#1a1f47" />
-        <stop offset="0.4" stop-color="#0f1435" />
-        <stop offset="1" stop-color="#080b22" />
+      <linearGradient id="pond" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#5b3a3d" />
+        <stop offset="0.16" stop-color="#3a2a44" />
+        <stop offset="0.5" stop-color="#171634" />
+        <stop offset="1" stop-color="#080a1e" />
       </linearGradient>
       <linearGradient id="reflect" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#ffcf87" stop-opacity="0.55" />
-        <stop offset="1" stop-color="#ffcf87" stop-opacity="0" />
+        <stop offset="0" stop-color="#ffc06a" stop-opacity="0.6" />
+        <stop offset="1" stop-color="#ffc06a" stop-opacity="0" />
       </linearGradient>
       <linearGradient id="moonrefl" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#eaf0ff" stop-opacity="0.5" />
-        <stop offset="1" stop-color="#eaf0ff" stop-opacity="0" />
+        <stop offset="0" stop-color="#f2e9d8" stop-opacity="0.45" />
+        <stop offset="1" stop-color="#f2e9d8" stop-opacity="0" />
       </linearGradient>
       <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur stdDeviation="1.6" />
+        <feGaussianBlur stdDeviation="1.5" />
       </filter>
+      <!-- one coconut palm, reused -->
+      <g id="palm">
+        <path d="M-2 0 C -3 -34 -2 -60 0 -86 C 2 -60 3 -34 2 0 Z" fill="#0c1026" />
+        <g stroke="#0c1026" stroke-width="3.2" stroke-linecap="round" fill="none">
+          <path d="M0 -86 Q -20 -104 -46 -96" />
+          <path d="M0 -86 Q 20 -104 46 -96" />
+          <path d="M0 -86 Q -30 -92 -54 -78" />
+          <path d="M0 -86 Q 30 -92 54 -78" />
+          <path d="M0 -86 Q -14 -108 -24 -116" />
+          <path d="M0 -86 Q 14 -108 24 -116" />
+          <path d="M0 -86 Q 0 -112 3 -120" />
+        </g>
+      </g>
     </defs>
 
-    <!-- far rolling hills -->
-    <path d="M0 90 Q 320 60 640 84 T 1440 78 V 120 H0 Z" fill="#171b40" />
-    <path d="M0 94 Q 460 74 900 92 T 1440 90 V 120 H0 Z" fill="#1c2150" opacity="0.9" />
+    <!-- far tree line -->
+    <path d="M0 92 Q 90 70 190 86 Q 300 66 430 84 Q 560 70 700 86 Q 860 68 1010 84 Q 1180 68 1320 84 Q 1400 78 1440 84 V 100 H0 Z" fill="#0c1230" />
+    <path d="M0 94 Q 140 80 300 92 Q 520 78 760 92 Q 1000 80 1240 92 Q 1360 86 1440 92 V 104 H0 Z" fill="#0a0f28" opacity="0.9" />
 
-    <!-- village houses -->
+    <!-- coconut palms -->
+    <g class="palms">
+      {
+        palms.map(([x, baseY, s]) => (
+          <use href="#palm" transform={`translate(${x} ${baseY}) scale(${s})`} />
+        ))
+      }
+    </g>
+
+    <!-- tin-roof huts -->
     <g class="village">
       {
         houses.map(([x, baseY, w, h, rh, warm]) => {
@@ -116,15 +168,12 @@ const houses = [
           const apexY = baseY - h;
           return (
             <g>
-              <polygon
-                points={`${x - 4},${wallTop} ${x + w / 2},${apexY} ${x + w + 4},${wallTop}`}
-                fill="#0a0d28"
-              />
-              <rect x={x} y={wallTop} width={w} height={wallH} fill="#0d1130" />
+              <polygon points={`${x - 9},${wallTop} ${x + w / 2},${apexY} ${x + w + 9},${wallTop}`} fill="#0a0e24" />
+              <rect x={x} y={wallTop} width={w} height={wallH} fill="#0e1230" />
               {warm && (
                 <>
-                  <rect x={x + w * 0.24} y={wallTop + 5} width="4.5" height="4.5" class="win" fill="#ffd884" filter="url(#soft)" />
-                  <rect x={x + w * 0.6} y={wallTop + 5} width="4.5" height="4.5" class="win win-b" fill="#ffce78" filter="url(#soft)" />
+                  <rect x={x + w * 0.22} y={wallTop + 4} width="4.5" height="5" class="win" fill="#ffcf7a" filter="url(#soft)" />
+                  <rect x={x + w * 0.62} y={wallTop + 4} width="4.5" height="5" class="win win-b" fill="#ffbf68" filter="url(#soft)" />
                 </>
               )}
             </g>
@@ -133,31 +182,65 @@ const houses = [
       }
     </g>
 
-    <!-- lake -->
-    <rect x="0" y="92" width="1440" height="208" fill="url(#lake)" />
+    <!-- pond -->
+    <rect x="0" y="92" width="1440" height="208" fill="url(#pond)" />
+    <!-- mirrored tree-line reflection just below the water's edge -->
+    <rect x="0" y="92" width="1440" height="18" fill="#0a0f28" opacity="0.5" />
 
-    <!-- reflections of the lit windows + moon, gently shimmering -->
     <g class="reflections">
-      <rect x="268" y="96" width="6" height="70" fill="url(#reflect)" />
-      <rect x="432" y="96" width="6" height="64" fill="url(#reflect)" />
-      <rect x="1086" y="96" width="6" height="74" fill="url(#reflect)" />
-      <rect x="1148" y="96" width="5" height="58" fill="url(#reflect)" />
-      <rect x="1150" y="96" width="20" height="130" fill="url(#moonrefl)" />
+      <rect x="176" y="96" width="6" height="60" fill="url(#reflect)" />
+      <rect x="312" y="96" width="7" height="66" fill="url(#reflect)" />
+      <rect x="386" y="96" width="6" height="56" fill="url(#reflect)" />
+      <rect x="1006" y="96" width="7" height="66" fill="url(#reflect)" />
+      <rect x="1122" y="96" width="7" height="70" fill="url(#reflect)" />
+      <rect x="1192" y="96" width="6" height="58" fill="url(#reflect)" />
+      <rect x="1150" y="96" width="18" height="120" fill="url(#moonrefl)" />
     </g>
 
-    <!-- foreground bank + mud road -->
-    <path d="M0 214 Q 380 198 760 220 T 1440 224 V 300 H0 Z" fill="#080b1c" />
-    <path
-      d="M690 300 Q 664 268 632 240 Q 610 220 616 210 Q 700 220 780 210 Q 786 224 762 242 Q 730 270 748 300 Z"
-      fill="#3a2a1b"
-      opacity="0.9"
-    />
-    <path
-      d="M700 300 Q 680 270 656 244 Q 700 240 742 244 Q 724 272 738 300 Z"
-      fill="#4a3623"
-      opacity="0.7"
-    />
+    <!-- a country boat on the pond, with a small lamp -->
+    <g class="boat">
+      <path d="M596 150 Q 660 138 742 150 Q 690 166 646 165 Q 616 162 596 150 Z" fill="#0a0d22" />
+      <rect x="662" y="132" width="2.4" height="18" fill="#0a0d22" />
+      <circle cx="663" cy="130" r="3.2" fill="#ffc169" filter="url(#soft)" />
+    </g>
+
+    <!-- lily pads (some with a lotus) -->
+    <g class="pads" fill="#123a2c">
+      <ellipse cx="210" cy="196" rx="17" ry="5" transform="rotate(-6 210 196)" />
+      <ellipse cx="430" cy="210" rx="20" ry="6" />
+      <circle cx="430" cy="208" r="3.2" fill="#e07a9b" />
+      <ellipse cx="620" cy="200" rx="14" ry="4.5" transform="rotate(8 620 200)" />
+      <ellipse cx="880" cy="212" rx="18" ry="5.5" />
+      <ellipse cx="1040" cy="202" rx="15" ry="4.6" transform="rotate(-5 1040 202)" />
+      <circle cx="1040" cy="200" r="3" fill="#e88bab" />
+      <ellipse cx="1240" cy="208" rx="16" ry="5" />
+    </g>
+
+    <!-- foreground bank + reeds + kaccha (dirt) road -->
+    <path d="M0 214 Q 380 198 760 220 T 1440 224 V 300 H0 Z" fill="#080a1a" />
+    <g stroke="#0e2a1e" stroke-width="2.2" stroke-linecap="round" class="reeds">
+      <path d="M70 224 Q 66 206 72 192" />
+      <path d="M84 224 Q 88 208 84 196" />
+      <path d="M96 224 Q 92 210 98 198" />
+      <path d="M1330 226 Q 1326 208 1332 194" />
+      <path d="M1346 226 Q 1350 210 1346 198" />
+      <path d="M1358 226 Q 1354 212 1360 200" />
+    </g>
+    <path d="M690 300 Q 664 268 632 240 Q 610 220 616 210 Q 700 220 780 210 Q 786 224 762 242 Q 730 270 748 300 Z" fill="#40301f" opacity="0.92" />
+    <path d="M700 300 Q 680 270 656 244 Q 700 240 742 244 Q 724 272 738 300 Z" fill="#523c26" opacity="0.7" />
   </svg>
+
+  <!-- rain ripples on the pond -->
+  <div class="ripples">
+    {
+      ripples.map((r) => (
+        <span
+          class="ripple"
+          style={`left:${r.x}%;top:${r.y}%;width:${r.s}px;height:${Math.round(Number(r.s) * 0.34)}px;animation-duration:${r.d}s;animation-delay:${r.delay}s`}
+        />
+      ))
+    }
+  </div>
 
   <!-- Fireflies -->
   <div class="fireflies">
@@ -245,26 +328,29 @@ const houses = [
     inset: 0;
     background: linear-gradient(
       to bottom,
-      #090b23 0%,
-      #10123a 26%,
-      #1a1a44 44%,
-      #2a2350 56%,
-      #3a2a54 63%,
-      #0c1030 72%
+      #120f2e 0%,
+      #1d1642 24%,
+      #2c2050 40%,
+      #46294f 52%,
+      #6a3a49 60%,
+      #97583f 67%,
+      #6e4136 72%,
+      #2a1c38 78%
     );
   }
   .dusk {
     position: absolute;
     left: 50%;
-    bottom: 27%;
-    width: 120vw;
-    height: 42vh;
+    bottom: 24%;
+    width: 130vw;
+    height: 46vh;
     transform: translateX(-50%);
     background: radial-gradient(
       ellipse at 50% 100%,
-      rgb(255 150 90 / 0.28) 0%,
-      rgb(214 108 96 / 0.14) 32%,
-      transparent 68%
+      rgb(255 176 92 / 0.42) 0%,
+      rgb(238 132 74 / 0.24) 26%,
+      rgb(180 92 96 / 0.12) 48%,
+      transparent 72%
     );
   }
   .moon {
@@ -370,6 +456,34 @@ const houses = [
     }
     100% {
       transform: translate(var(--dx), var(--dy));
+      opacity: 0;
+    }
+  }
+
+  /* Rain ripples on the pond */
+  .ripples {
+    position: absolute;
+    inset: 0;
+  }
+  .ripple {
+    position: absolute;
+    border: 1px solid rgb(214 226 255 / 0.45);
+    border-radius: 50%;
+    transform: scale(0.2);
+    opacity: 0;
+    animation: ripple-expand ease-out infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes ripple-expand {
+    0% {
+      transform: scale(0.15);
+      opacity: 0;
+    }
+    22% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1.5);
       opacity: 0;
     }
   }
@@ -521,6 +635,7 @@ const houses = [
     .win,
     .reflections,
     .firefly,
+    .ripple,
     .drop,
     .bird,
     .wing,
@@ -529,7 +644,8 @@ const houses = [
       animation: none !important;
     }
     .rain,
-    .birds {
+    .birds,
+    .ripples {
       display: none;
     }
   }

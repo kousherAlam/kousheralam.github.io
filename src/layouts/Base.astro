@@ -68,10 +68,7 @@ const {
     </div>
 
     <script>
-      // Reveal content as it scrolls into view, and let the rain bead up on the
-      // frosted panels ("wet" surfaces). Both are skipped under reduced-motion.
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+      // Reveal content as it scrolls into view (skipped under reduced-motion via CSS).
       const io = new IntersectionObserver(
         (entries) => {
           for (const e of entries) {
@@ -84,21 +81,6 @@ const {
         { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
       );
       document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
-
-      if (!reduce) {
-        document.querySelectorAll('.wet').forEach((card) => {
-          const n = 3 + Math.floor(Math.random() * 3);
-          for (let i = 0; i < n; i++) {
-            const drop = document.createElement('span');
-            drop.className = 'raindrop';
-            drop.style.left = (8 + Math.random() * 84).toFixed(1) + '%';
-            drop.style.setProperty('--delay', (Math.random() * 4).toFixed(2) + 's');
-            drop.style.setProperty('--dur', (2.4 + Math.random() * 2).toFixed(2) + 's');
-            drop.style.setProperty('--fall', (24 + Math.random() * 44).toFixed(0) + 'px');
-            card.appendChild(drop);
-          }
-        });
-      }
     </script>
     {
       import.meta.env.PROD && (
