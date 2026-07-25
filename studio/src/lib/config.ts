@@ -62,9 +62,10 @@ export function oauthConfigured(): boolean {
   return Boolean(config.oauth.clientId && config.oauth.clientSecret);
 }
 
-/** True when the GitHub App (repo write) credentials are configured. */
+/** True when the GitHub App (repo write) credentials are configured. The
+ * installation id is resolved from the repo at runtime, so it is not required. */
 export function appConfigured(): boolean {
-  return Boolean(config.app.appId && config.app.privateKey && config.app.installationId);
+  return Boolean(config.app.appId && config.app.privateKey);
 }
 
 /**

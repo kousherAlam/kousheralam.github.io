@@ -51,7 +51,9 @@ Values you'll collect along the way (paste into Vercel in Part 5):
 
 - [ ] App page → **Install App** → **Install** on your account
 - [ ] **Only select repositories** → **kousheralam.github.io** → **Install**
-- [ ] Copy the number from the resulting URL `.../settings/installations/<ID>` → `GITHUB_APP_INSTALLATION_ID`
+- [ ] That's it — the Studio **auto-resolves the installation id** from the repo, so you
+      do **not** need to copy it. (Setting `GITHUB_APP_INSTALLATION_ID` is optional; if you
+      do set it, make sure it's correct or a mismatch causes `Not Found` token errors.)
 
 ## Part 4 — Create the Vercel project
 
@@ -73,7 +75,7 @@ Do **not** set `STUDIO_DEV`.
 - [ ] `GITHUB_OAUTH_CLIENT_ID` = *(Part 2)*
 - [ ] `GITHUB_OAUTH_CLIENT_SECRET` = *(Part 2)*
 - [ ] `GITHUB_APP_PRIVATE_KEY` = *(base64 blob, Part 2)*
-- [ ] `GITHUB_APP_INSTALLATION_ID` = *(Part 3)*
+- [ ] `GITHUB_APP_INSTALLATION_ID` = *(optional — auto-resolved from the repo; leave unset unless you have a reason)*
 - [ ] `SESSION_SECRET` = output of `openssl rand -hex 32`
 - [ ] `PUBLIC_STUDIO_URL` = your **stable production alias**, e.g. `https://kousheralam-github-io.vercel.app` (no trailing slash). **Use the stable `*.vercel.app` alias, NOT a deployment-specific URL** like `…-iiet2tv2j-koushers-projects.vercel.app` — those change every deploy and break the login callback.
 - [ ] **Deploy / Redeploy** and note the final production URL
@@ -126,7 +128,9 @@ can't express "production-only" on its own):
 
 - **"OAuth is not configured"** on the login page → `GITHUB_OAUTH_CLIENT_ID/SECRET` missing, or the deploy predates setting them → redeploy.
 - **GitHub `redirect_uri` mismatch** → the App's Callback URL ≠ `PUBLIC_STUDIO_URL` + `/api/auth/callback`.
-- **"Invalid OAuth state"** → you started login on one host but the callback landed on another, so the `oauth_state` cookie wasn't sent back. Fix: register the GitHub App **Callback URL** for the exact stable alias you browse (e.g. `https://kousheralam-github-io.vercel.app/api/auth/callback`), and open the Studio at that same alias — not a deployment-specific `…-projects.vercel.app` URL.
+- **"Invalid OAuth state"** → you started login on one host but the callback landed on another, so the `oauth_state` cookie wasn't sent back. Fix: register the GitHub App **Callback URL** for the exact stable alias you browse (e.g. `https://kousheralam-github-io.vercel.app/api/auth/callback`), and open the Studio at that same alias — not a deployment-specific `…-projects.vercel.app` URL. (The Studio now also auto-restarts a clean login if it detects a stale state or the App-install redirect, instead of erroring.)
+- **`…?installation_id=…&setup_action=install` → "Invalid OAuth state"** → that's the GitHub App *install* redirect, not a login. It's now handled automatically (it kicks off a fresh login). Just make sure the App is installed on the repo, then sign in normally.
+- **`Not Found - …create-an-installation-access-token-for-an-app`** → the GitHub App can't mint a token for the installation. The Studio now auto-resolves the installation from the repo; this error then means the **App isn't installed on `kousherAlam/kousheralam.github.io`** (do Part 3) or `GITHUB_APP_ID`/`GITHUB_APP_PRIVATE_KEY` don't belong to the installed App. If you set `GITHUB_APP_INSTALLATION_ID` manually and it's wrong, unset it.
 - **"That GitHub account is not allowed"** → your login isn't in `ALLOWED_GITHUB_LOGINS`.
 - **Publish 500 / "GitHub App is not configured"** → one of `GITHUB_APP_ID` / `GITHUB_APP_PRIVATE_KEY` / `GITHUB_APP_INSTALLATION_ID` is missing, or the PEM didn't decode → re-check the base64.
 - **Vercel build fails with `Tsconfig not found astro/tsconfigs/base`** → the repo root `tsconfig.json` must not `extend` a bare `astro/...` preset (Vercel builds `studio/` without root `node_modules`, so it can't resolve). It's inlined on purpose — don't re-add the `extends`.

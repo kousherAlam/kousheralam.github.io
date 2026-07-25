@@ -1,33 +1,43 @@
-import { Octokit } from 'octokit';
-import { createAppAuth } from '@octokit/auth-app';
+import { App, Octokit } from 'octokit';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { config, appConfigured, localMode } from './config';
 import { parsePost, serializePost, type Frontmatter, type Post } from './mdx';
 
+const { owner, name: repo, branch, contentDir } = config.repo;
+
 // ---------------------------------------------------------------------------
 // Octokit (GitHub App installation) — used in production.
+// The installation id is resolved from the repo itself (not a hardcoded env var)
+// so a stale/missing GITHUB_APP_INSTALLATION_ID can't cause "Not Found" errors
+// when minting the installation token.
 // ---------------------------------------------------------------------------
-let _octokit: Octokit | null = null;
-function octokit(): Octokit {
+let _kit: Octokit | null = null;
+async function getOctokit(): Promise<Octokit> {
   if (!appConfigured()) {
     throw new Error(
-      'GitHub App is not configured. Set GITHUB_APP_ID, GITHUB_APP_PRIVATE_KEY and GITHUB_APP_INSTALLATION_ID.',
+      'GitHub App is not configured. Set GITHUB_APP_ID and GITHUB_APP_PRIVATE_KEY.',
     );
   }
-  if (_octokit) return _octokit;
-  _octokit = new Octokit({
-    authStrategy: createAppAuth,
-    auth: {
-      appId: config.app.appId!,
-      privateKey: config.app.privateKey!,
-      installationId: config.app.installationId!,
-    },
-  });
-  return _octokit;
+  if (_kit) return _kit;
+  const app = new App({ appId: config.app.appId!, privateKey: config.app.privateKey! });
+  let installationId = config.app.installationId ? Number(config.app.installationId) : NaN;
+  try {
+    // Always confirm against the actual installation for this repo.
+    const { data } = await app.octokit.rest.apps.getRepoInstallation({ owner, repo });
+    installationId = data.id;
+  } catch (err: any) {
+    if (err?.status === 404) {
+      throw new Error(
+        `GitHub App is not installed on ${owner}/${repo}. Install it (GitHub App → Install App), then retry.`,
+      );
+    }
+    if (!installationId || Number.isNaN(installationId)) throw err;
+    // else fall back to the configured installation id
+  }
+  _kit = (await app.getInstallationOctokit(installationId)) as unknown as Octokit;
+  return _kit;
 }
-
-const { owner, name: repo, branch, contentDir } = config.repo;
 
 function idFromRepoPath(repoPath: string): string {
   const rel = repoPath.slice(contentDir.length + 1);
@@ -82,14 +92,16 @@ export async function savePost(opts: SaveOptions): Promise<SaveResult> {
 // ---------------------------------------------------------------------------
 
 async function ghHeadSha(): Promise<string> {
-  const ref = await octokit().rest.git.getRef({ owner, repo, ref: `heads/${branch}` });
+  const kit = await getOctokit();
+  const ref = await kit.rest.git.getRef({ owner, repo, ref: `heads/${branch}` });
   return ref.data.object.sha;
 }
 
 async function ghListPostFiles(): Promise<string[]> {
+  const kit = await getOctokit();
   const headSha = await ghHeadSha();
-  const commit = await octokit().rest.git.getCommit({ owner, repo, commit_sha: headSha });
-  const tree = await octokit().rest.git.getTree({
+  const commit = await kit.rest.git.getCommit({ owner, repo, commit_sha: headSha });
+  const tree = await kit.rest.git.getTree({
     owner,
     repo,
     tree_sha: commit.data.tree.sha,
@@ -101,7 +113,8 @@ async function ghListPostFiles(): Promise<string[]> {
 }
 
 async function ghReadFile(repoPath: string): Promise<string> {
-  const res = await octokit().rest.repos.getContent({ owner, repo, path: repoPath, ref: branch });
+  const kit = await getOctokit();
+  const res = await kit.rest.repos.getContent({ owner, repo, path: repoPath, ref: branch });
   const data = res.data as { content?: string; encoding?: string };
   if (!data.content) throw new Error(`No content for ${repoPath}`);
   return Buffer.from(data.content, (data.encoding as BufferEncoding) ?? 'base64').toString('utf8');
@@ -133,7 +146,7 @@ async function ghGetPost(id: string): Promise<Post | null> {
 }
 
 async function ghSavePost(opts: SaveOptions): Promise<SaveResult> {
-  const kit = octokit();
+  const kit = await getOctokit();
   const repoPath = repoPathFromId(opts.id);
   const content = serializePost(opts.frontmatter, opts.body);
 
