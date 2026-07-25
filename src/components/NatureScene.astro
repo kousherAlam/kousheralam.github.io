@@ -25,14 +25,20 @@ const drops = Array.from({ length: 60 }, () => ({
   op: (0.06 + rnd() * 0.18).toFixed(2),
 }));
 
-const fireflies = Array.from({ length: 16 }, () => ({
-  x: (rnd() * 100).toFixed(2),
-  y: (55 + rnd() * 38).toFixed(2),
-  d: (5 + rnd() * 6).toFixed(2),
-  delay: (rnd() * 8).toFixed(2),
-  dx: (rnd() * 40 - 20).toFixed(0),
-  dy: (-15 - rnd() * 25).toFixed(0),
-}));
+// Fireflies gather around the bushes/jungle beside the pond (the sides), with a
+// few drifting over the water.
+const fireflies = Array.from({ length: 30 }, () => {
+  const side = rnd();
+  const x = side < 0.4 ? 2 + rnd() * 24 : side < 0.8 ? 74 + rnd() * 24 : 26 + rnd() * 48;
+  return {
+    x: x.toFixed(2),
+    y: (56 + rnd() * 36).toFixed(2),
+    d: (5 + rnd() * 6).toFixed(2),
+    delay: (rnd() * 8).toFixed(2),
+    dx: (rnd() * 34 - 17).toFixed(0),
+    dy: (-14 - rnd() * 22).toFixed(0),
+  };
+});
 
 const birds = Array.from({ length: 4 }, (_, i) => ({
   top: (8 + rnd() * 22).toFixed(1),
@@ -111,30 +117,29 @@ const pads = [
     }
   </div>
 
-  <!-- Landscape: Bangladeshi village with coconut palms, tin huts, and a pond -->
+  <!-- Landscape: moonlit Bangladeshi village pond, jungle, and a roadside -->
   <svg class="landscape" viewBox="0 58 1440 242" preserveAspectRatio="xMidYMax slice">
     <defs>
       <linearGradient id="pond" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#5b3a3d" />
-        <stop offset="0.16" stop-color="#3a2a44" />
-        <stop offset="0.5" stop-color="#171634" />
-        <stop offset="1" stop-color="#080a1e" />
-      </linearGradient>
-      <linearGradient id="reflect" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#ffc06a" stop-opacity="0.6" />
-        <stop offset="1" stop-color="#ffc06a" stop-opacity="0" />
+        <stop offset="0" stop-color="#2b2c4c" />
+        <stop offset="0.35" stop-color="#171932" />
+        <stop offset="1" stop-color="#090b1e" />
       </linearGradient>
       <linearGradient id="moonrefl" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#f2e9d8" stop-opacity="0.45" />
-        <stop offset="1" stop-color="#f2e9d8" stop-opacity="0" />
+        <stop offset="0" stop-color="#f4eee0" stop-opacity="0.5" />
+        <stop offset="1" stop-color="#f4eee0" stop-opacity="0" />
       </linearGradient>
-      <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur stdDeviation="1.5" />
+      <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3a2b1b" />
+        <stop offset="1" stop-color="#4d3925" />
+      </linearGradient>
+      <filter id="soft" x="-80%" y="-80%" width="260%" height="260%">
+        <feGaussianBlur stdDeviation="1.8" />
       </filter>
-      <!-- one coconut palm, reused -->
+      <!-- coconut palm -->
       <g id="palm">
-        <path d="M-2 0 C -3 -34 -2 -60 0 -86 C 2 -60 3 -34 2 0 Z" fill="#0c1026" />
-        <g stroke="#0c1026" stroke-width="3.2" stroke-linecap="round" fill="none">
+        <path d="M-2 0 C -3 -34 -2 -60 0 -86 C 2 -60 3 -34 2 0 Z" fill="#0b1024" />
+        <g stroke="#0b1024" stroke-width="3.2" stroke-linecap="round" fill="none">
           <path d="M0 -86 Q -20 -104 -46 -96" />
           <path d="M0 -86 Q 20 -104 46 -96" />
           <path d="M0 -86 Q -30 -92 -54 -78" />
@@ -144,36 +149,68 @@ const pads = [
           <path d="M0 -86 Q 0 -112 3 -120" />
         </g>
       </g>
+      <!-- banana plant (broad drooping leaves) -->
+      <g id="banana">
+        <rect x="-3" y="-30" width="6" height="30" rx="3" fill="#0d1e14" />
+        <g fill="#0e2618">
+          <path d="M0 -28 Q -34 -44 -60 -32 Q -32 -38 0 -30 Z" />
+          <path d="M0 -28 Q 34 -44 60 -32 Q 32 -38 0 -30 Z" />
+          <path d="M0 -30 Q -24 -60 -32 -76 Q -12 -54 0 -32 Z" />
+          <path d="M0 -30 Q 24 -60 32 -76 Q 12 -54 0 -32 Z" />
+          <path d="M0 -30 Q -6 -66 -1 -82 Q 6 -64 2 -32 Z" />
+        </g>
+      </g>
+      <!-- low bush / jungle clump -->
+      <g id="bush" fill="#0b1d14">
+        <ellipse cx="0" cy="0" rx="34" ry="14" />
+        <circle cx="-16" cy="-6" r="15" />
+        <circle cx="14" cy="-8" r="17" />
+        <circle cx="0" cy="-12" r="15" />
+        <circle cx="-30" cy="-2" r="11" />
+        <circle cx="28" cy="-3" r="12" />
+      </g>
+      <!-- roadside leafy tree -->
+      <g id="rtree">
+        <rect x="-3.5" y="-40" width="7" height="42" fill="#2c1c12" />
+        <g fill="#0d3020">
+          <circle cx="0" cy="-52" r="27" />
+          <circle cx="-22" cy="-42" r="19" />
+          <circle cx="22" cy="-44" r="20" />
+          <circle cx="0" cy="-32" r="21" />
+        </g>
+      </g>
     </defs>
 
-    <!-- far tree line -->
-    <path d="M0 92 Q 90 70 190 86 Q 300 66 430 84 Q 560 70 700 86 Q 860 68 1010 84 Q 1180 68 1320 84 Q 1400 78 1440 84 V 100 H0 Z" fill="#0c1230" />
-    <path d="M0 94 Q 140 80 300 92 Q 520 78 760 92 Q 1000 80 1240 92 Q 1360 86 1440 92 V 104 H0 Z" fill="#0a0f28" opacity="0.9" />
+    <!-- far jungle line -->
+    <path d="M0 92 Q 90 68 190 86 Q 300 64 430 84 Q 560 68 700 86 Q 860 66 1010 84 Q 1180 66 1320 84 Q 1400 76 1440 84 V 100 H0 Z" fill="#0a1026" />
+    <path d="M0 94 Q 140 80 300 92 Q 520 78 760 92 Q 1000 80 1240 92 Q 1360 86 1440 92 V 104 H0 Z" fill="#081026" opacity="0.9" />
 
-    <!-- coconut palms -->
-    <g class="palms">
-      {
-        palms.map(([x, baseY, s]) => (
-          <use href="#palm" transform={`translate(${x} ${baseY}) scale(${s})`} />
-        ))
-      }
+    <!-- coconut palms + a few banana plants on the far bank -->
+    <g class="flora-far">
+      {palms.map(([x, baseY, s]) => <use href="#palm" transform={`translate(${x} ${baseY}) scale(${s})`} />)}
+      <use href="#banana" transform="translate(96 93) scale(0.9)" />
+      <use href="#banana" transform="translate(700 93) scale(0.8)" />
+      <use href="#banana" transform="translate(1292 93) scale(0.85)" />
     </g>
 
-    <!-- tin-roof huts -->
+    <!-- bamboo-and-straw thatched huts with an oil-lamp glow (no chimneys) -->
     <g class="village">
       {
         houses.map(([x, baseY, w, h, rh, warm]) => {
           const wallH = h - rh;
           const wallTop = baseY - wallH;
-          const apexY = baseY - h;
+          const cx = x + w / 2;
           return (
             <g>
-              <polygon points={`${x - 9},${wallTop} ${x + w / 2},${apexY} ${x + w + 9},${wallTop}`} fill="#0a0e24" />
-              <rect x={x} y={wallTop} width={w} height={wallH} fill="#0e1230" />
+              {/* straw thatch roof (low dome, drooping eaves) */}
+              <path d={`M${x - 10} ${wallTop + 1} Q ${cx} ${wallTop - rh * 1.8} ${x + w + 10} ${wallTop + 1} Z`} fill="#171009" />
+              {/* bamboo wall */}
+              <rect x={x} y={wallTop} width={w} height={wallH} fill="#0d0b08" />
               {warm && (
                 <>
-                  <rect x={x + w * 0.22} y={wallTop + 4} width="4.5" height="5" class="win" fill="#ffcf7a" filter="url(#soft)" />
-                  <rect x={x + w * 0.62} y={wallTop + 4} width="4.5" height="5" class="win win-b" fill="#ffbf68" filter="url(#soft)" />
+                  <ellipse cx={cx} cy={baseY} rx={w * 0.5} ry="5" fill="#ffb457" opacity="0.28" filter="url(#soft)" />
+                  <rect x={cx - w * 0.09} y={wallTop + wallH * 0.28} width={w * 0.18} height={wallH * 0.72} fill="#ffbf6b" filter="url(#soft)" />
+                  <circle class="lamp" cx={cx} cy={wallTop + wallH * 0.55} r="2.6" fill="#ffd79a" />
                 </>
               )}
             </g>
@@ -182,52 +219,59 @@ const pads = [
       }
     </g>
 
-    <!-- pond -->
-    <rect x="0" y="92" width="1440" height="208" fill="url(#pond)" />
-    <!-- mirrored tree-line reflection just below the water's edge -->
-    <rect x="0" y="92" width="1440" height="18" fill="#0a0f28" opacity="0.5" />
-
-    <g class="reflections">
-      <rect x="176" y="96" width="6" height="60" fill="url(#reflect)" />
-      <rect x="312" y="96" width="7" height="66" fill="url(#reflect)" />
-      <rect x="386" y="96" width="6" height="56" fill="url(#reflect)" />
-      <rect x="1006" y="96" width="7" height="66" fill="url(#reflect)" />
-      <rect x="1122" y="96" width="7" height="70" fill="url(#reflect)" />
-      <rect x="1192" y="96" width="6" height="58" fill="url(#reflect)" />
-      <rect x="1150" y="96" width="18" height="120" fill="url(#moonrefl)" />
+    <!-- pond (moonlit — the far lamps are too distant to reflect) -->
+    <rect x="0" y="95" width="1440" height="92" fill="url(#pond)" />
+    <!-- the full moon's reflection on the water -->
+    <g class="moonlit">
+      <rect x="1174" y="96" width="26" height="86" fill="url(#moonrefl)" />
+      <rect x="1168" y="104" width="38" height="2.4" rx="1" fill="#f4eee0" opacity="0.28" />
+      <rect x="1172" y="122" width="30" height="2" rx="1" fill="#f4eee0" opacity="0.22" />
+      <rect x="1170" y="146" width="34" height="2" rx="1" fill="#f4eee0" opacity="0.18" />
     </g>
 
-    <!-- a country boat on the pond, with a small lamp -->
+    <!-- a country boat drifting on the pond -->
     <g class="boat">
-      <path d="M596 150 Q 660 138 742 150 Q 690 166 646 165 Q 616 162 596 150 Z" fill="#0a0d22" />
-      <rect x="662" y="132" width="2.4" height="18" fill="#0a0d22" />
-      <circle cx="663" cy="130" r="3.2" fill="#ffc169" filter="url(#soft)" />
+      <path d="M612 138 Q 672 128 748 138 Q 700 152 660 151 Q 632 149 612 138 Z" fill="#0a0d22" />
+      <rect x="676" y="122" width="2.2" height="16" fill="#0a0d22" />
+      <circle cx="677" cy="120" r="2.8" fill="#ffc169" filter="url(#soft)" />
     </g>
 
-    <!-- lily pads (some with a lotus) -->
+    <!-- lily pads (a couple with a lotus) -->
     <g class="pads" fill="#123a2c">
-      <ellipse cx="210" cy="196" rx="17" ry="5" transform="rotate(-6 210 196)" />
-      <ellipse cx="430" cy="210" rx="20" ry="6" />
-      <circle cx="430" cy="208" r="3.2" fill="#e07a9b" />
-      <ellipse cx="620" cy="200" rx="14" ry="4.5" transform="rotate(8 620 200)" />
-      <ellipse cx="880" cy="212" rx="18" ry="5.5" />
-      <ellipse cx="1040" cy="202" rx="15" ry="4.6" transform="rotate(-5 1040 202)" />
-      <circle cx="1040" cy="200" r="3" fill="#e88bab" />
-      <ellipse cx="1240" cy="208" rx="16" ry="5" />
+      <ellipse cx="250" cy="150" rx="16" ry="4.6" transform="rotate(-6 250 150)" />
+      <ellipse cx="470" cy="168" rx="19" ry="5.4" />
+      <circle cx="470" cy="166" r="3" fill="#e88bab" />
+      <ellipse cx="700" cy="158" rx="13" ry="4" transform="rotate(8 700 158)" />
+      <ellipse cx="930" cy="170" rx="17" ry="5" />
+      <ellipse cx="1080" cy="160" rx="14" ry="4.2" transform="rotate(-5 1080 160)" />
+      <circle cx="1080" cy="158" r="2.6" fill="#e07a9b" />
     </g>
 
-    <!-- foreground bank + reeds + kaccha (dirt) road -->
-    <path d="M0 214 Q 380 198 760 220 T 1440 224 V 300 H0 Z" fill="#080a1a" />
-    <g stroke="#0e2a1e" stroke-width="2.2" stroke-linecap="round" class="reeds">
-      <path d="M70 224 Q 66 206 72 192" />
-      <path d="M84 224 Q 88 208 84 196" />
-      <path d="M96 224 Q 92 210 98 198" />
-      <path d="M1330 226 Q 1326 208 1332 194" />
-      <path d="M1346 226 Q 1350 210 1346 198" />
-      <path d="M1358 226 Q 1354 212 1360 200" />
+    <!-- near bank -->
+    <path d="M0 186 Q 720 196 1440 186 V 210 H0 Z" fill="#0a0f1e" />
+
+    <!-- roadside trees, banana plants and bushes (jungle) beside the road -->
+    <g class="flora-near">
+      <use href="#rtree" transform="translate(80 196) scale(1.15)" />
+      <use href="#bush" transform="translate(160 200) scale(1)" />
+      <use href="#banana" transform="translate(26 198) scale(0.9)" />
+      <use href="#bush" transform="translate(300 202) scale(0.75)" />
+      <use href="#rtree" transform="translate(1372 196) scale(1.2)" />
+      <use href="#bush" transform="translate(1288 200) scale(1.05)" />
+      <use href="#banana" transform="translate(1420 198) scale(0.85)" />
+      <use href="#bush" transform="translate(1150 202) scale(0.8)" />
+      <use href="#bush" transform="translate(560 204) scale(0.7)" />
+      <use href="#bush" transform="translate(980 204) scale(0.72)" />
     </g>
-    <path d="M690 300 Q 664 268 632 240 Q 610 220 616 210 Q 700 220 780 210 Q 786 224 762 242 Q 730 270 748 300 Z" fill="#40301f" opacity="0.92" />
-    <path d="M700 300 Q 680 270 656 244 Q 700 240 742 244 Q 724 272 738 300 Z" fill="#523c26" opacity="0.7" />
+
+    <!-- horizontal dirt (kaccha) road along the bottom -->
+    <path d="M0 202 Q 720 212 1440 202 L1440 272 Q 720 264 0 272 Z" fill="url(#road)" />
+    <g stroke="#5a462e" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5">
+      <path d="M40 236 Q 720 244 1400 236" />
+      <path d="M40 252 Q 720 259 1400 252" />
+    </g>
+    <!-- foreground grass -->
+    <path d="M0 270 Q 720 262 1440 270 V 300 H0 Z" fill="#060a14" />
   </svg>
 
   <!-- rain ripples on the pond -->
@@ -397,35 +441,49 @@ const pads = [
     width: 100%;
     height: 55vh;
   }
-  .win {
-    animation: win-twinkle 4s ease-in-out infinite;
+  /* oil-lamp flame flicker (irregular) */
+  .lamp {
+    transform-origin: center;
+    animation: lamp-flicker 2.8s ease-in-out infinite;
+    will-change: opacity, transform;
   }
-  .win-b {
-    animation-delay: 1.7s;
-  }
-  @keyframes win-twinkle {
+  @keyframes lamp-flicker {
     0%,
     100% {
-      opacity: 0.85;
+      opacity: 0.95;
+      transform: scale(1);
     }
-    50% {
-      opacity: 0.5;
+    18% {
+      opacity: 0.6;
+      transform: scale(0.92);
+    }
+    36% {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+    54% {
+      opacity: 0.7;
+    }
+    72% {
+      opacity: 0.95;
+      transform: scale(1.02);
     }
   }
-  .reflections {
-    animation: shimmer 6s ease-in-out infinite;
+  /* full-moon reflection shimmering on the water */
+  .moonlit {
+    animation: moon-shimmer 7s ease-in-out infinite;
     transform-origin: center;
-    will-change: transform;
+    will-change: transform, opacity;
   }
-  @keyframes shimmer {
+  @keyframes moon-shimmer {
     0%,
     100% {
       transform: translateX(0) scaleY(1);
       opacity: 0.9;
     }
     50% {
-      transform: translateX(4px) scaleY(1.04);
-      opacity: 0.65;
+      transform: translateX(-3px) scaleY(1.05);
+      opacity: 0.6;
     }
   }
 
@@ -632,8 +690,8 @@ const pads = [
 
   @media (prefers-reduced-motion: reduce) {
     .star,
-    .win,
-    .reflections,
+    .lamp,
+    .moonlit,
     .firefly,
     .ripple,
     .drop,

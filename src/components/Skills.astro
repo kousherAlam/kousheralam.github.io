@@ -10,9 +10,7 @@ import { AppConfig } from "@/utils/AppConfig";
     <p class="flex flex-wrap justify-center gap-2.5 sm:justify-start items-center">
       {
         AppConfig.skills.map((skill) => (
-          <span class="rounded-lg border border-slate-600 px-3 py-1.5 text-xs text-slate-300 transition-colors hover:border-orange-600 hover:text-orange-400">
-            {skill}
-          </span>
+          <span class="leaf-chip px-3 py-1.5 text-xs">{skill}</span>
         ))
       }
     </p>
