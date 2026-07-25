@@ -38,6 +38,8 @@ production.
 
 ## Deploying to Vercel
 
+> For a tick-as-you-go version of the steps below, see **[SETUP.md](./SETUP.md)**.
+
 1. **Create a GitHub App** (Settings → Developer settings → GitHub Apps):
    - Repository permission: **Contents → Read & write**.
    - Enable **Request user authorization (OAuth) during installation** (this gives you
