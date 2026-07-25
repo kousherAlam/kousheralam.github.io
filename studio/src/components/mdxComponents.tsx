@@ -16,16 +16,40 @@ function Labeled({ label, children }: { label: string; children?: React.ReactNod
   );
 }
 
+// Relative /assets/... paths are served by the live site, not the studio, so resolve
+// them against the site origin so real images show up in the preview.
+const SITE_ORIGIN = 'https://kousheralam.github.io';
+function resolveSrc(directory = '', imagePath = ''): string {
+  const joined = `${directory}/${imagePath}`.replace(/([^:])\/{2,}/g, '$1/');
+  if (/^https?:\/\//.test(joined)) return joined;
+  return `${SITE_ORIGIN}${joined.startsWith('/') ? '' : '/'}${joined}`;
+}
+
+/** Real preview of the site's PhotoViewer: shows the images in a scroll row. */
 export function PhotoViewerStub(props: any) {
-  const images = Array.isArray(props?.images) ? props.images : [];
+  const images: any[] = Array.isArray(props?.images) ? props.images : [];
   return (
-    <Labeled label={`PhotoViewer${props?.title ? ` · ${props.title}` : ''}`}>
-      <div className="text-slate-300">
-        {images.length > 0
-          ? `${images.length} image${images.length === 1 ? '' : 's'} from ${props.directory ?? '(directory)'}`
-          : 'Image gallery (preview placeholder)'}
+    <div className="not-prose my-4 rounded-lg border border-slate-700 bg-slate-800/40 p-3">
+      <div className="mb-2 flex items-center justify-between">
+        <span className="text-sm font-medium text-slate-200">{props?.title ?? 'Gallery'}</span>
+        <span className="font-mono text-xs text-orange-400">&lt;PhotoViewer /&gt;</span>
       </div>
-    </Labeled>
+      {images.length === 0 ? (
+        <div className="text-sm text-slate-400">No images provided yet.</div>
+      ) : (
+        <div className="flex gap-2 overflow-x-auto pb-1">
+          {images.map((im, i) => (
+            <img
+              key={i}
+              src={resolveSrc(props?.directory, im?.imagePath ?? im?.src)}
+              alt={im?.alt ?? ''}
+              loading="lazy"
+              className="h-28 w-auto flex-none rounded bg-slate-700 object-cover"
+            />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
