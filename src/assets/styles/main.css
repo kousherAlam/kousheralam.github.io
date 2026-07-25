@@ -9,6 +9,8 @@
   --font-sans:
     Inter Variable, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-display:
+    'Fraunces Variable', ui-serif, Georgia, Cambria, 'Times New Roman', serif;
 }
 
 /*
@@ -30,20 +32,33 @@
 }
 
 @layer base {
+  body {
+    @apply leading-relaxed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
   a {
-    @apply text-orange-500 
-            visited:text-orange-600 
+    @apply text-orange-500
+            visited:text-orange-600
             hover:text-orange-400;
   }
   .btn {
-    @apply px-6 py-2 border cursor-pointer border-orange-600 text-orange-400 
+    @apply px-6 py-2 border cursor-pointer border-orange-600 text-orange-400
             hover:border-orange-400;
   }
   .btn.success {
     @apply border-green-600 hover:border-green-400 text-green-400;
   }
+  h1,
+  h4,
+  .font-display {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+  }
   h1 {
-    @apply text-4xl;
+    @apply text-4xl sm:text-5xl font-semibold;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
   }
 
   h4 {

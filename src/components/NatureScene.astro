@@ -1,0 +1,269 @@
+---
+// Ambient, decorative nature layer: soft rain, a few gliding birds, and a swaying
+// tree. Sits *behind* the page content (pointer-events: none) and is fully disabled
+// under prefers-reduced-motion. Distribution is seeded so the build is deterministic.
+let seed = 20260726;
+const rnd = () => {
+  seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+  return seed / 0x7fffffff;
+};
+
+const RAIN_COUNT = 55;
+const drops = Array.from({ length: RAIN_COUNT }, () => ({
+  left: (rnd() * 100).toFixed(2),
+  delay: (rnd() * 4).toFixed(2),
+  dur: (0.7 + rnd() * 0.9).toFixed(2),
+  len: (36 + rnd() * 64).toFixed(0),
+  op: (0.08 + rnd() * 0.22).toFixed(2),
+}));
+
+const BIRD_COUNT = 4;
+const birds = Array.from({ length: BIRD_COUNT }, (_, i) => ({
+  top: (6 + rnd() * 34).toFixed(1),
+  size: (16 + rnd() * 16).toFixed(0),
+  dur: (16 + rnd() * 14).toFixed(1),
+  delay: (i * 5 + rnd() * 6).toFixed(1),
+  flap: (0.38 + rnd() * 0.22).toFixed(2),
+  drift: (2 + rnd() * 4).toFixed(1),
+}));
+
+const LEAF_COUNT = 5;
+const leaves = Array.from({ length: LEAF_COUNT }, () => ({
+  delay: (rnd() * 12).toFixed(1),
+  dur: (9 + rnd() * 7).toFixed(1),
+  sway: (20 + rnd() * 40).toFixed(0),
+}));
+---
+
+<div class="nature" aria-hidden="true">
+  <!-- Rain -->
+  <div class="rain">
+    {
+      drops.map((d) => (
+        <span
+          class="drop"
+          style={`left:${d.left}%;animation-delay:${d.delay}s;animation-duration:${d.dur}s;height:${d.len}px;opacity:${d.op}`}
+        />
+      ))
+    }
+  </div>
+
+  <!-- Birds -->
+  <div class="birds">
+    {
+      birds.map((b) => (
+        <div
+          class="bird"
+          style={`top:${b.top}vh;width:${b.size}px;animation-duration:${b.dur}s;animation-delay:${b.delay}s;--drift:${b.drift}vh`}
+        >
+          <svg viewBox="0 0 40 20" style={`animation-duration:${b.flap}s`} class="bird-svg">
+            <path class="wing wl" d="M20 11 Q11 3 2 9" />
+            <path class="wing wr" d="M20 11 Q29 3 38 9" />
+          </svg>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Tree (bottom-left) with a few drifting leaves -->
+  <div class="tree">
+    <svg viewBox="0 0 200 240" width="200" height="240">
+      <!-- trunk -->
+      <path
+        class="trunk"
+        d="M96 240 C94 190 92 168 90 150 C88 132 84 122 78 112 M104 240 C106 196 108 172 110 152 C112 134 118 120 126 110"
+        fill="none"
+      />
+      <!-- foliage (sways) -->
+      <g class="foliage">
+        <circle cx="100" cy="86" r="52" />
+        <circle cx="64" cy="104" r="38" />
+        <circle cx="138" cy="104" r="40" />
+        <circle cx="100" cy="120" r="46" />
+        <circle cx="82" cy="70" r="30" />
+        <circle cx="124" cy="72" r="30" />
+      </g>
+    </svg>
+    <div class="leaves">
+      {
+        leaves.map((l) => (
+          <span
+            class="leaf"
+            style={`animation-delay:${l.delay}s;animation-duration:${l.dur}s;--sway:${l.sway}px`}
+          />
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .nature {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* ---------- Rain ---------- */
+  .rain {
+    position: absolute;
+    inset: -5% -12% 0 -12%;
+    transform: rotate(9deg);
+    transform-origin: top center;
+  }
+  .drop {
+    position: absolute;
+    top: -12%;
+    width: 1px;
+    border-radius: 1px;
+    background: linear-gradient(to bottom, transparent, rgb(148 163 184 / 0.75));
+    animation-name: rain-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+  @keyframes rain-fall {
+    from {
+      transform: translateY(-10vh);
+    }
+    to {
+      transform: translateY(120vh);
+    }
+  }
+
+  /* ---------- Birds ---------- */
+  .bird {
+    position: absolute;
+    left: -8%;
+    animation-name: bird-fly;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+  }
+  @keyframes bird-fly {
+    0% {
+      transform: translate(-10vw, 0);
+    }
+    50% {
+      transform: translate(52vw, calc(var(--drift) * -1));
+    }
+    100% {
+      transform: translate(118vw, 0);
+    }
+  }
+  .bird-svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+  .wing {
+    fill: none;
+    stroke: rgb(203 213 225 / 0.55);
+    stroke-width: 2.4;
+    stroke-linecap: round;
+    animation-name: bird-flap;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: inherit;
+  }
+  .wl {
+    transform-origin: 20px 11px;
+  }
+  .wr {
+    transform-origin: 20px 11px;
+  }
+  @keyframes bird-flap {
+    from {
+      transform: rotate(0deg) translateY(0);
+    }
+    to {
+      transform: rotate(0deg) translateY(-3px) scaleY(0.7);
+    }
+  }
+
+  /* ---------- Tree ---------- */
+  .tree {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    opacity: 0.42;
+    filter: blur(0.2px);
+  }
+  .tree svg {
+    display: block;
+  }
+  .trunk {
+    stroke: rgb(120 72 44 / 0.9);
+    stroke-width: 9;
+    stroke-linecap: round;
+  }
+  .foliage circle {
+    fill: rgb(16 84 60 / 0.9);
+  }
+  .foliage {
+    transform-origin: 100px 210px;
+    animation: tree-sway 7s ease-in-out infinite;
+    will-change: transform;
+  }
+  @keyframes tree-sway {
+    0%,
+    100% {
+      transform: rotate(-1.6deg);
+    }
+    50% {
+      transform: rotate(1.6deg);
+    }
+  }
+  .leaves {
+    position: absolute;
+    inset: 0;
+  }
+  .leaf {
+    position: absolute;
+    top: 60px;
+    left: 90px;
+    width: 7px;
+    height: 5px;
+    border-radius: 60% 0 60% 0;
+    background: rgb(34 120 84 / 0.8);
+    animation-name: leaf-fall;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes leaf-fall {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.8;
+    }
+    90% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(var(--sway), 190px) rotate(220deg);
+      opacity: 0;
+    }
+  }
+
+  /* Calmer on small screens */
+  @media (max-width: 640px) {
+    .tree {
+      width: 130px;
+      opacity: 0.3;
+    }
+  }
+
+  /* Respect users who prefer less motion — hide the whole ambient layer. */
+  @media (prefers-reduced-motion: reduce) {
+    .nature {
+      display: none;
+    }
+  }
+</style>

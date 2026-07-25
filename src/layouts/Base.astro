@@ -3,8 +3,10 @@ import "../assets/styles/main.css";
 import "../assets/styles/micromodal.css";
 // Supports weights 100-900
 import '@fontsource-variable/inter';
+import '@fontsource-variable/fraunces';
 import "tiny-slider/dist/tiny-slider.css";
 import { AppConfig } from "@/utils/AppConfig";
+import NatureScene from "@/components/NatureScene.astro";
 
 export interface Props {
   head: {
@@ -57,8 +59,11 @@ const {
     </script>
     )}
   </head>
-  <body class="bg-slate-900 text-gray-100 ">
-    <div class="container mx-auto py-6 px-4 md:py-8 xl:py-10 md:px-5 max-w-4xl ">
+  <body class="bg-slate-900 text-gray-100 relative">
+    <NatureScene />
+    <div
+      class="container relative z-10 mx-auto max-w-5xl px-5 py-10 sm:px-6 md:py-16 xl:py-20"
+    >
       <slot />
     </div>
     {
