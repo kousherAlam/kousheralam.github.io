@@ -1,5 +1,11 @@
 # kousheralam.github.io
 
+## 1.2.4
+
+### Patch Changes
+
+- Automated release (aa3928a)
+
 ## 1.2.3
 
 ### Patch Changes
